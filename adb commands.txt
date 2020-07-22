@@ -1,0 +1,3 @@
+Firebase Analytics:
+	Enable DebugView: adb shell setprop debug.firebase.analytics.app com.squelch.android
+	Disable DebugView: adb shell setprop debug.firebase.analytics.app .none.

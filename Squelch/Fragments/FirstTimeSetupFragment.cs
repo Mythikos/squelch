@@ -108,8 +108,7 @@ namespace Squelch.Fragments
 
                 //
                 // Setup toolbar
-                ((MainActivity)this.Activity).HideNavigationBar();
-                ((MainActivity)this.Activity).SetTitle(Resource.String.title_first_time_setup);
+                ((MainActivity)this.Activity).SetupNavigation(Resource.String.title_first_time_setup, false, false);
             }
             catch (Exception ex)
             {

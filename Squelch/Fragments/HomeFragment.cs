@@ -115,8 +115,7 @@ namespace Squelch.Fragments
 
                 //
                 // Setup navbar
-                ((MainActivity)this.Activity).ShowNavigationBar();
-                ((MainActivity)this.Activity).SetTitle(Resource.String.title_home);
+                ((MainActivity)this.Activity).SetupNavigation(Resource.String.title_home, true, false);
 
                 //
                 // Call UI display methods
@@ -200,6 +199,16 @@ namespace Squelch.Fragments
             {
                 Logger.Write(_tag, $"OnResume: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
             }
+
+            await BlackoutDatabase.UpsertAsync(new BlackoutItem()
+            {
+                StartDateTime = DateTime.Today.AddDays(5),
+                EndDateTime = DateTime.Today.AddDays(6),
+                Bid = 5,
+                DifficultyCode = BlackoutItem.BlackoutDifficultyCode.Master,
+                ResultCode = BlackoutItem.BlackoutResultCode.Pending,
+                StatusCode = BlackoutItem.BlackoutStatusCode.Pending,
+            });
         }
         #endregion
 

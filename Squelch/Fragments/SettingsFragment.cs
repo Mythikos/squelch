@@ -25,8 +25,8 @@ namespace Squelch.Fragments
         private LinearLayout _rootLayout;
 
         // User settings related
-        private LinearLayout _firstNameLayout, _lastNameLayout;
-        private TextView _firstNameContentLabel, _lastNameContentLabel;
+        private LinearLayout _idLayout, _firstNameLayout, _lastNameLayout;
+        private TextView _idContentLabel, _firstNameContentLabel, _lastNameContentLabel;
 
         // Permissions settings related
         private LinearLayout _usageStatsLayout, _applicationOverlayLayout;
@@ -59,6 +59,20 @@ namespace Squelch.Fragments
 
                 //
                 // Setting: User
+                _idLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_user_id_layout);
+                _idContentLabel = view.FindViewById<TextView>(Resource.Id.fragment_settings_user_id_content_label);
+                _idLayout.Click += async delegate
+                {
+                    try
+                    {
+                        SetIsWorking(true);
+
+                        await Clipboard.SetTextAsync(_versionContentLabel.Text);
+                        DisplayUtils.ShowToast(this.Context, "Id copied to clipboard");
+                    }
+                    finally { SetIsWorking(false); }
+                };
+
                 _firstNameLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_user_first_name_layout);
                 _firstNameContentLabel = view.FindViewById<TextView>(Resource.Id.fragment_settings_user_first_name_content_label);
                 _firstNameLayout.Click += delegate
@@ -188,8 +202,7 @@ namespace Squelch.Fragments
 
                 //
                 // Setup navbar
-                ((MainActivity)this.Activity).ShowNavigationBar();
-                ((MainActivity)this.Activity).SetTitle(Resource.String.title_settings);
+                ((MainActivity)this.Activity).SetupNavigation(Resource.String.title_settings, true, false);
             }
             catch (Exception ex)
             {
@@ -248,6 +261,7 @@ namespace Squelch.Fragments
         {
             //
             // Vars
+            string userId = string.Empty;
             string userFirstName = string.Empty;
             string userLastName = string.Empty;
             string usageStatsState = string.Empty;
@@ -265,6 +279,7 @@ namespace Squelch.Fragments
                 // Get setting data
                 await Task.Factory.StartNew(async () =>
                 {
+                    userId = UserSettings.Id;
                     userFirstName = UserSettings.FirstName;
                     userLastName = UserSettings.LastName;
 
@@ -277,6 +292,7 @@ namespace Squelch.Fragments
 
                 //
                 // Assign view values
+                _idContentLabel.Text = (string.IsNullOrWhiteSpace(userId) ? "(undefined)" : userId);
                 _firstNameContentLabel.Text = (string.IsNullOrWhiteSpace(userFirstName) ? "(undefined)" : userFirstName);
                 _lastNameContentLabel.Text = (string.IsNullOrWhiteSpace(userLastName) ? "(undefined)" : userLastName);
 

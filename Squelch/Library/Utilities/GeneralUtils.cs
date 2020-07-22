@@ -159,30 +159,27 @@ namespace Squelch.Library.Utilities
                 {
                     if (i == 0)
                     {
-                        dataString += WebUtility.UrlEncode($"{parameters.Keys.ElementAt(i)}={parameters.Values.ElementAt(i)}");
+                        dataString += $"{WebUtility.UrlEncode(parameters.Keys.ElementAt(i))}={WebUtility.UrlEncode(parameters.Values.ElementAt(i))}";
                     }
                     else
                     {
-                        dataString += "&" + WebUtility.UrlEncode($"{parameters.Keys.ElementAt(i)}={parameters.Values.ElementAt(i)}");
+                        dataString += "&" + $"{WebUtility.UrlEncode(parameters.Keys.ElementAt(i))}={WebUtility.UrlEncode(parameters.Values.ElementAt(i))}";
                     }
                 }
-                data = Encoding.ASCII.GetBytes(dataString);
 
                 //
                 // Init web request
-                webRequest = (HttpWebRequest)HttpWebRequest.Create(uri);
-                webRequest.Timeout = 10000;
-
-                //
-                // Setup method
                 if (method.Equals("GET", StringComparison.OrdinalIgnoreCase))
                 {
-                    webRequest.Method = "GET";
                     if (string.IsNullOrWhiteSpace(dataString) == false)
-                        uri += "?" + data;
+                        uri += "?" + dataString;
+                    webRequest = (HttpWebRequest)HttpWebRequest.Create(uri);
+                    webRequest.Method = "GET";
                 }
                 else if (method.Equals("POST", StringComparison.OrdinalIgnoreCase))
                 {
+                    data = Encoding.ASCII.GetBytes(dataString);
+                    webRequest = (HttpWebRequest)HttpWebRequest.Create(uri);
                     webRequest.Method = "POST";
                     webRequest.ContentType = "application/x-www-form-urlencoded";
                     webRequest.ContentLength = data.Length;
@@ -196,6 +193,7 @@ namespace Squelch.Library.Utilities
 
                 //
                 // Submit request
+                webRequest.Timeout = 10000;
                 webResponse = (HttpWebResponse)webRequest.GetResponse();
                 if (webResponse.StatusCode == HttpStatusCode.OK)
                     using (StreamReader reader = new StreamReader(webResponse.GetResponseStream()))

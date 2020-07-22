@@ -108,6 +108,20 @@ namespace Squelch.Activities
             base.OnBackPressed();
         }
 
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch(item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                case Resource.Id.homeAsUp:
+                    if (this.SupportFragmentManager.BackStackEntryCount > 0)
+                        this.SupportFragmentManager.PopBackStack();
+                    break;
+            }
+
+            return true;
+        }
+
         protected override async void OnStart()
         {
             base.OnStart();
@@ -271,14 +285,12 @@ namespace Squelch.Activities
         #endregion
 
         #region Helper Methods
-        public void ShowNavigationBar()
-            => this.NavigationBar.Visibility = ViewStates.Visible;
-
-        public void HideNavigationBar()
-            => this.NavigationBar.Visibility = ViewStates.Gone;
-
-        public void SetTitle()
-            => this.Title = "";
+        public void SetupNavigation(int titleResourceId, bool showNavigationBar, bool showActionbarBackButton)
+        {
+            this.Title = GetString(titleResourceId);
+            this.NavigationBar.Visibility = (showNavigationBar) ? ViewStates.Visible : ViewStates.Gone;
+            this.SupportActionBar.SetDisplayHomeAsUpEnabled(showActionbarBackButton);
+        }
         #endregion
 
         #region Interface Methods

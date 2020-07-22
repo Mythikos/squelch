@@ -4,6 +4,8 @@ using System.Linq;
 using Android.App;
 using Android.OS;
 using Firebase.Analytics;
+using Firebase.Auth;
+using Squelch.Library.Data;
 using Squelch.Library.Entities;
 
 namespace Squelch.Library.Singletons
@@ -26,6 +28,7 @@ namespace Squelch.Library.Singletons
         private FirebaseAnalyticsManager()
         {
             _analytics = FirebaseAnalytics.GetInstance(Application.Context);
+            _analytics.SetUserId(UserSettings.Id);
 #if DEBUG
             _analytics.SetAnalyticsCollectionEnabled(false);
 #else
@@ -70,34 +73,10 @@ namespace Squelch.Library.Singletons
             }
         }
 
-        public void SendEvent(string eventName, string itemCategory, string itemName)
+        public void SendEvent(string eventName, Bundle analyticBundle)
         {
-            Bundle analyticBundle;
-
             try
             {
-                analyticBundle = new Bundle();
-                analyticBundle.PutString(FirebaseAnalytics.Param.ItemName, itemName);
-                analyticBundle.PutString(FirebaseAnalytics.Param.ItemCategory, itemCategory);
-
-                _analytics.LogEvent(eventName, analyticBundle);
-            }
-            catch (Exception ex)
-            {
-                Logger.Write(s_tag, ex, Logger.Severity.Error);
-            }
-        }
-
-        public void SendEvent(string eventName, Dictionary<string, string> parameters)
-        {
-            Bundle analyticBundle;
-
-            try
-            {
-                analyticBundle = new Bundle();
-                foreach (KeyValuePair<string, string> parameter in parameters)
-                    analyticBundle.PutString(parameter.Key, parameter.Value);
-
                 _analytics.LogEvent(eventName, analyticBundle);
             }
             catch (Exception ex)
@@ -182,7 +161,7 @@ namespace Squelch.Library.Singletons
                     analyticBundle.PutString("blackout_category_blocked_tertiary", tertiaryCategoryBlocked);
 
                 // Log the event
-                _analytics.LogEvent(eventName, analyticBundle);
+                this.SendEvent(eventName, analyticBundle);
             }
             catch (Exception ex)
             {

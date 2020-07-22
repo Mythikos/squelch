@@ -18,7 +18,7 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:text="User"
+                android:text="@string/label_user"
                 android:paddingLeft="15dp"
                 android:paddingRight="10dp"
                 android:paddingTop="10dp"
@@ -26,6 +26,33 @@
                 android:background="@color/colorAccent"
                 android:textStyle="bold"
                 android:textColor="@color/White"/>
+
+            <!-- Setting: User: Id -->
+            <LinearLayout
+                android:id="@+id/fragment_settings_user_id_layout"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
+                <TextView
+                    android:text="@string/label_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:paddingBottom="3dp"/>
+                <TextView
+                    android:id="@+id/fragment_settings_user_id_content_label"
+                    android:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
 
             <!-- Setting: User: First Name -->
             <LinearLayout
@@ -41,7 +68,7 @@
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground">
                 <TextView
-                    android:text="First Name"
+                    android:text="@string/label_first_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -49,7 +76,7 @@
                     android:paddingBottom="3dp"/>
                 <TextView
                     android:id="@+id/fragment_settings_user_first_name_content_label"
-                    android:text="_FirstName"
+                    android:text=""
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -68,7 +95,7 @@
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground">
                 <TextView
-                    android:text="Last Name"
+                    android:text="@string/label_last_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -76,7 +103,7 @@
                     android:paddingBottom="3dp"/>
                 <TextView
                     android:id="@+id/fragment_settings_user_last_name_content_label"
-                    android:text="_LastName"
+                    android:text=""
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -90,7 +117,7 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:text="Permissions"
+                android:text="@string/label_permissions"
                 android:paddingLeft="15dp"
                 android:paddingRight="10dp"
                 android:paddingTop="10dp"
@@ -113,7 +140,7 @@
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground">
                 <TextView
-                    android:text="Usage Stats"
+                    android:text="@string/permission_usage_data"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -121,7 +148,7 @@
                     android:paddingBottom="3dp"/>
                 <TextView
                     android:id="@+id/fragment_settings_permissions_usage_stats_state_label"
-                    android:text="_state"
+                    android:text=""
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -140,7 +167,7 @@
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground">
                 <TextView
-                    android:text="Application Overlay"
+                    android:text="@string/permission_application_overlay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -148,7 +175,7 @@
                     android:paddingBottom="3dp"/>
                 <TextView
                     android:id="@+id/fragment_settings_permissions_application_overlay_state_label"
-                    android:text="_state"
+                    android:text=""
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -162,7 +189,7 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:text="About"
+                android:text="@string/label_about"
                 android:paddingLeft="15dp"
                 android:paddingRight="10dp"
                 android:paddingTop="10dp"
@@ -185,7 +212,7 @@
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground">
                 <TextView
-                    android:text="Version"
+                    android:text="@string/label_version"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -193,7 +220,7 @@
                     android:paddingBottom="3dp"/>
                 <TextView
                     android:id="@+id/fragment_settings_about_version_content_label"
-                    android:text="_Version"
+                    android:text=""
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -212,7 +239,7 @@
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground">
                 <TextView
-                    android:text="Privacy Policy"
+                    android:text="@string/label_privacy_policy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -220,7 +247,7 @@
                     android:paddingBottom="3dp"/>
                 <TextView
                     android:id="@+id/fragment_settings_about_privacy_policy_content_label"
-                    android:text="Squelch privacy policy"
+                    android:text="@string/fragment_settings_privacy_policy_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -239,7 +266,7 @@
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground">
                 <TextView
-                    android:text="End User Licensing Agreement"
+                    android:text="@string/label_end_user_licensing_agreement"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -247,7 +274,7 @@
                     android:paddingBottom="3dp"/>
                 <TextView
                     android:id="@+id/fragment_settings_about_eula_content_label"
-                    android:text="Squelch EULA"
+                    android:text="@string/fragment_settings_end_user_licensing_agreement_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -266,7 +293,7 @@
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground">
                 <TextView
-                    android:text="Open Source Software"
+                    android:text="@string/label_open_source_software"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -274,7 +301,7 @@
                     android:paddingBottom="3dp"/>
                 <TextView
                     android:id="@+id/fragment_settings_about_open_source_content_label"
-                    android:text="License details for open source software"
+                    android:text="@string/fragment_settings_open_source_software_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>

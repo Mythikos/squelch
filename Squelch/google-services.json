@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "24934738769",
+    "firebase_url": "https://squelch-6bbb1.firebaseio.com",
+    "project_id": "squelch-6bbb1",
+    "storage_bucket": "squelch-6bbb1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24934738769:android:e31dd41647e04ac95d0170",
+        "android_client_info": {
+          "package_name": "com.squelch.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24934738769-j76nukne7c53dke0m3p4pvd0it9fnse6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBABiN_aZtXPfE3O01-KOt0WK-PiAFRZQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24934738769-j76nukne7c53dke0m3p4pvd0it9fnse6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
