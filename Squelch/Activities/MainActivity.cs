@@ -18,6 +18,7 @@ using Squelch.Library.Interfaces;
 using Squelch.Library.Utilities;
 using Squelch.Receivers;
 using Squelch.Services;
+using Squelch.Views.Navigation;
 using System;
 
 namespace Squelch.Activities
@@ -33,7 +34,7 @@ namespace Squelch.Activities
 
         private FrameLayout _fragmentLayout;
         internal ProgressBar ProgressBar { get; private set; }
-        internal BottomNavigationView NavigationBar { get; private set; }
+        internal CurvedBottomNavigationView NavigationBar { get; private set; }
 
         internal const int PERMISSION_INTERNET = 0;
         internal const int PERMISSION_RECEIVE_BOOT_COMPLETED = 1;
@@ -53,7 +54,7 @@ namespace Squelch.Activities
             // Get view elements
             _fragmentLayout = FindViewById<FrameLayout>(Resource.Id.activity_main_fragment_layout);
             this.ProgressBar = FindViewById<ProgressBar>(Resource.Id.activity_main_progress_bar);
-            this.NavigationBar = FindViewById<BottomNavigationView>(Resource.Id.activity_main_navigation);
+            this.NavigationBar = FindViewById<CurvedBottomNavigationView>(Resource.Id.activity_main_navigation);
             this.NavigationBar.SetOnNavigationItemSelectedListener(this);
 
             //
@@ -226,6 +227,9 @@ namespace Squelch.Activities
 
             try
             {
+                // TODO: REMOVE ME
+                this.SupportFragmentManager.SetFragment(typeof(HomeFragment), true, true);
+                return;
 
                 //
                 // Determine what fragment to load

@@ -1,0 +1,30 @@
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:animateLayoutChanges="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/fragment_calendar_root_layout">
+    <ScrollView
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_width="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.applandeo.materialcalendarview.CalendarView
+                android:id="@+id/fragment_calendar_calendar_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" 
+                app:type="one_day_picker"
+                app:headerColor="@color/colorPrimary"
+                app:headerLabelColor="@color/colorPrimaryForeground"
+                app:selectionColor="@color/colorPrimary"
+                app:selectionLabelColor="@color/colorPrimaryForeground"
+                app:swipeEnabled="true"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

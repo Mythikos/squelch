@@ -1998,10 +1998,12 @@
         "lib/MonoAndroid10/Plugin.InAppBilling.Abstractions.pdb",
         "lib/MonoAndroid10/Plugin.InAppBilling.Abstractions.xml",
         "lib/MonoAndroid10/Plugin.InAppBilling.VendingLibrary.dll",
+        "lib/MonoAndroid10/Plugin.InAppBilling.VendingLibrary.dll.mdb",
         "lib/MonoAndroid10/Plugin.InAppBilling.VendingLibrary.pdb",
         "lib/MonoAndroid10/Plugin.InAppBilling.VendingLibrary.xml",
         "lib/MonoAndroid10/Plugin.InAppBilling.XML",
         "lib/MonoAndroid10/Plugin.InAppBilling.dll",
+        "lib/MonoAndroid10/Plugin.InAppBilling.dll.mdb",
         "lib/MonoAndroid10/Plugin.InAppBilling.pdb",
         "lib/UAP10/Plugin.InAppBilling.Abstractions.dll",
         "lib/UAP10/Plugin.InAppBilling.Abstractions.pdb",
@@ -2056,6 +2058,7 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll.mdb",
         "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.pdb",
         "sqlitenetextensions.2.0.0.nupkg.sha512",
         "sqlitenetextensions.nuspec",
@@ -2248,9 +2251,11 @@
         "content/xamarintvOS/Helpers/Settings.cs.pp",
         "content/xamarinwatchOS/Helpers/Settings.cs.pp",
         "lib/MonoAndroid10/Plugin.Settings.Abstractions.dll",
+        "lib/MonoAndroid10/Plugin.Settings.Abstractions.dll.mdb",
         "lib/MonoAndroid10/Plugin.Settings.Abstractions.pdb",
         "lib/MonoAndroid10/Plugin.Settings.Abstractions.xml",
         "lib/MonoAndroid10/Plugin.Settings.dll",
+        "lib/MonoAndroid10/Plugin.Settings.dll.mdb",
         "lib/MonoAndroid10/Plugin.Settings.pdb",
         "lib/MonoAndroid10/Plugin.Settings.xml",
         "lib/UAP10/Plugin.Settings.Abstractions.dll",
@@ -3952,6 +3957,7 @@
       "Plugin.InAppBilling >= 2.0.0",
       "SQLiteNetExtensions.Async >= 2.1.0",
       "Xam.Plugins.Settings >= 3.1.1",
+      "Xamarin.AndroidX.AppCompat >= 1.1.0.1",
       "Xamarin.AndroidX.Browser >= 1.2.0.1",
       "Xamarin.AndroidX.ConstraintLayout >= 1.1.3.1",
       "Xamarin.AndroidX.Legacy.Support.Core.Utils >= 1.0.0.1",
@@ -3971,11 +3977,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\Squelch\\Squelch.csproj",
-      "projectName": "Squelch",
-      "projectPath": "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\Squelch\\Squelch.csproj",
+      "projectUniqueName": "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\squelch\\squelch.csproj",
+      "projectName": "squelch",
+      "projectPath": "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\squelch\\squelch.csproj",
       "packagesPath": "C:\\Users\\Shizzlepoof\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\Squelch\\obj\\",
+      "outputPath": "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\squelch\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -4017,6 +4023,10 @@
           "Xam.Plugins.Settings": {
             "target": "Package",
             "version": "[3.1.1, )"
+          },
+          "Xamarin.AndroidX.AppCompat": {
+            "target": "Package",
+            "version": "[1.1.0.1, )"
           },
           "Xamarin.AndroidX.Browser": {
             "target": "Package",

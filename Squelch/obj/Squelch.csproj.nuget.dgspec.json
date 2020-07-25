@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\Squelch\\Squelch.csproj": {}
+    "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\squelch\\squelch.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\Squelch\\Squelch.csproj": {
+    "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\squelch\\squelch.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\Squelch\\Squelch.csproj",
-        "projectName": "Squelch",
-        "projectPath": "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\Squelch\\Squelch.csproj",
+        "projectUniqueName": "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\squelch\\squelch.csproj",
+        "projectName": "squelch",
+        "projectPath": "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\squelch\\squelch.csproj",
         "packagesPath": "C:\\Users\\Shizzlepoof\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\Squelch\\obj\\",
+        "outputPath": "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\squelch\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -53,6 +53,10 @@
             "Xam.Plugins.Settings": {
               "target": "Package",
               "version": "[3.1.1, )"
+            },
+            "Xamarin.AndroidX.AppCompat": {
+              "target": "Package",
+              "version": "[1.1.0.1, )"
             },
             "Xamarin.AndroidX.Browser": {
               "target": "Package",

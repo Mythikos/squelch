@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8m1tLM9sMb4zF53/7EjndRXaT8MGnXC3EtoLVmdxzoZ94Ar5EkG75f5xo/T28Nq2KJ77K5asmGUAJuDoXiNRag==",
+  "dgSpecHash": "cdt5xlrdbstsRAprvLKOcWBZGQyzk44EKMOsqIauViGW2a0FzgV8DNay3sETdO87EDMOUH6MSeLFUoga5EcY2A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\Squelch\\Squelch.csproj",
+  "projectFilePath": "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\squelch\\squelch.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Shizzlepoof\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\Shizzlepoof\\.nuget\\packages\\plugin.currentactivity\\2.1.0.2\\plugin.currentactivity.2.1.0.2.nupkg.sha512",

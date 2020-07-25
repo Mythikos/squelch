@@ -1,0 +1,9 @@
+﻿1. Build errors will occur in two classes, ObjChunkBy and jSlidingWindow. You need to add an implicit casts to the four error lines. 
+
+	return global::Android.Runtime.JavaList.ToLocalJniHandle (__this.NextIteration ());
+	-> Should Be
+	return global::Android.Runtime.JavaList.ToLocalJniHandle ((System.Collections.IList)__this.NextIteration ());
+
+	return global::Android.Runtime.JavaList.FromJniHandle (__rm.Handle, JniHandleOwnership.TransferLocalRef);
+	-> Should Be
+	return (Java.Lang.Object)global::Android.Runtime.JavaList.FromJniHandle (__rm.Handle, JniHandleOwnership.TransferLocalRef);

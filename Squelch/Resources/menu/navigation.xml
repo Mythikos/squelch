@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home"
-        android:title="@string/title_home" />
+        android:title="@string/title_home" 
+        app:showAsAction="always|withText"/>
 
     <item
         android:id="@+id/navigation_calendar"
         android:icon="@drawable/ic_calendar"
-        android:title="@string/title_calendar" />
+        android:title="@string/title_calendar"
+        app:showAsAction="always|withText"/>
+
+    <item
+      android:id="@+id/navigation_blank"
+      android:title="@string/_blank"
+      android:enabled="false"
+      android:visible="true"/>
 
     <item
         android:id="@+id/navigation_settings"
         android:icon="@drawable/ic_settings"
-        android:title="@string/title_settings" />
+        android:title="@string/title_settings" 
+        app:showAsAction="always|withText"/>
+
+  <item
+        android:id="@+id/navigation_store"
+        android:icon="@drawable/ic_store"
+        android:title="@string/title_store"
+        app:showAsAction="always|withText"/>
 
 </menu>
