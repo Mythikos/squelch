@@ -93,7 +93,7 @@ namespace Com.Annimon.Stream.Operator {
 		static IntPtr n_NextIteration (IntPtr jnienv, IntPtr native__this)
 		{
 			global::Com.Annimon.Stream.Operator.ObjChunkBy __this = global::Java.Lang.Object.GetObject<global::Com.Annimon.Stream.Operator.ObjChunkBy> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			return global::Android.Runtime.JavaList.ToLocalJniHandle (__this.NextIteration ());
+			return global::Android.Runtime.JavaList.ToLocalJniHandle ((System.Collections.IList)__this.NextIteration ());
 		}
 #pragma warning restore 0169
 
@@ -104,7 +104,7 @@ namespace Com.Annimon.Stream.Operator {
 			const string __id = "nextIteration.()Ljava/util/List;";
 			try {
 				var __rm = _members.InstanceMethods.InvokeVirtualObjectMethod (__id, this, null);
-				return global::Android.Runtime.JavaList.FromJniHandle (__rm.Handle, JniHandleOwnership.TransferLocalRef);
+				return (Java.Lang.Object)global::Android.Runtime.JavaList.FromJniHandle (__rm.Handle, JniHandleOwnership.TransferLocalRef);
 			} finally {
 			}
 		}

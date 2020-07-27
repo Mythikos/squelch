@@ -4447,7 +4447,7 @@
         <parameter name="classifier" type="com.annimon.stream.function.Function&lt;? super T, ? extends K&gt;" jni-type="Lcom/annimon/stream/function/Function&lt;-TT;+TK;&gt;;"></parameter>
       </constructor>
       <method abstract="false" deprecated="not deprecated" final="false" name="hasNext" jni-signature="()Z" bridge="false" native="false" return="boolean" jni-return="Z" static="false" synchronized="false" synthetic="false" visibility="public"></method>
-      <method abstract="false" deprecated="not deprecated" final="false" name="nextIteration" jni-signature="()Ljava/util/List;" bridge="false" native="false" return="java.util.List&lt;T&gt;" jni-return="Ljava/util/List&lt;TT;&gt;;" static="false" synchronized="false" synthetic="false" visibility="public" managedReturn="Java.Lang.Object" type="Java.Lang.Object"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="nextIteration" jni-signature="()Ljava/util/List;" bridge="false" native="false" return="java.util.List&lt;T&gt;" jni-return="Ljava/util/List&lt;TT;&gt;;" static="false" synchronized="false" synthetic="false" visibility="public" managedReturn="Java.Lang.Object" managedType="Java.Lang.Object"></method>
     </class>
     <class abstract="false" deprecated="not deprecated" extends="com.annimon.stream.iterator.LsaExtIterator" extends-generic-aware="com.annimon.stream.iterator.LsaExtIterator&lt;T&gt;" jni-extends="Lcom/annimon/stream/iterator/LsaExtIterator;" final="false" name="ObjConcat" static="false" visibility="public" jni-signature="Lcom/annimon/stream/operator/ObjConcat;">
       <typeParameters>

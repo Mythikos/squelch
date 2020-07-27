@@ -42,5 +42,54 @@ namespace Squelch.Library.Extensions
         {
             return inputTime.ToString("hh:mm tt");
         }
+
+        /// <summary>
+        /// Returns the day's suffix (i.g., st, nd, th)
+        /// </summary>
+        /// <param name="inputDate"></param>
+        /// <returns></returns>
+        public static string DaySuffix(this DateTime inputDate)
+        {
+            return (inputDate.Day % 10 == 1 && inputDate.Day != 11) ? "st" : (inputDate.Day % 10 == 2 && inputDate.Day != 12) ? "nd" : (inputDate.Day % 10 == 3 && inputDate.Day != 13) ? "rd" : "th";
+        }
+
+        /// <summary>
+        /// Returns a friendly day label (i.g., Tomorrow, Today, Next Week, Future)
+        /// </summary>
+        /// <param name="inputDate"></param>
+        /// <returns></returns>
+        public static string DayLabelFriendly(this DateTime inputDate, DateTime today)
+        {
+            var dayDifference = (inputDate - today).Days;
+
+            if (dayDifference <= 0)
+            {
+                return "Today";
+            }
+            else if (dayDifference <= 1)
+            {
+                return "Tomorrow";
+            }
+            else if (dayDifference <= 6)
+            {
+                return inputDate.DayOfWeek.ToString();
+            }
+            else if (dayDifference <= 13)
+            {
+                return "Next Week";
+            }
+            else if (inputDate.Month == today.Month && inputDate.Year == today.Year)
+            {
+                return "This Month";
+            }
+            else if (inputDate.Month == today.AddMonths(1).Month && inputDate.Year == today.AddMonths(1).Year)
+            {
+                return "Next Month";
+            }
+            else
+            {
+                return "In the future";
+            }
+        }
     }
 }

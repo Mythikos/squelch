@@ -9,9 +9,9 @@
         app:showAsAction="always|withText"/>
 
     <item
-        android:id="@+id/navigation_calendar"
+        android:id="@+id/navigation_schedule"
         android:icon="@drawable/ic_calendar"
-        android:title="@string/title_calendar"
+        android:title="@string/title_schedule"
         app:showAsAction="always|withText"/>
 
     <item

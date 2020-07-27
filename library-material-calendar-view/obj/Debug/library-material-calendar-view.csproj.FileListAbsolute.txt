@@ -1,0 +1,7 @@
+C:\Users\Shizzlepoof\Desktop\Squelch\library-material-calendar-view\bin\Debug\library-material-calendar-view.dll
+C:\Users\Shizzlepoof\Desktop\Squelch\library-material-calendar-view\bin\Debug\library-material-calendar-view.pdb
+C:\Users\Shizzlepoof\Desktop\Squelch\library-material-calendar-view\obj\Debug\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
+C:\Users\Shizzlepoof\Desktop\Squelch\library-material-calendar-view\obj\Debug\library-material-calendar-view.csprojAssemblyReference.cache
+C:\Users\Shizzlepoof\Desktop\Squelch\library-material-calendar-view\obj\Debug\library-material-calendar-view.csproj.CoreCompileInputs.cache
+C:\Users\Shizzlepoof\Desktop\Squelch\library-material-calendar-view\obj\Debug\library-material-calendar-view.dll
+C:\Users\Shizzlepoof\Desktop\Squelch\library-material-calendar-view\obj\Debug\library-material-calendar-view.pdb

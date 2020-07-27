@@ -1,2 +1,657 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<api></api>
+<api>
+  <package name="com.applandeo.materialcalendarview" jni-name="com/applandeo/materialcalendarview">
+    <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="true" name="BuildConfig" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/BuildConfig;">
+      <constructor deprecated="not deprecated" final="false" name="BuildConfig" jni-signature="()V" bridge="false" static="false" type="com.applandeo.materialcalendarview.BuildConfig" synthetic="false" visibility="public"></constructor>
+      <field deprecated="not deprecated" final="true" name="APPLICATION_ID" jni-signature="Ljava/lang/String;" static="true" transient="false" type="java.lang.String" type-generic-aware="java.lang.String" value="&quot;com.applandeo.materialcalendarview&quot;" visibility="public" volatile="false"></field>
+      <field deprecated="not deprecated" final="true" name="BUILD_TYPE" jni-signature="Ljava/lang/String;" static="true" transient="false" type="java.lang.String" type-generic-aware="java.lang.String" value="&quot;release&quot;" visibility="public" volatile="false"></field>
+      <field deprecated="not deprecated" final="true" name="DEBUG" jni-signature="Z" static="true" transient="false" type="boolean" type-generic-aware="boolean" value="false" visibility="public" volatile="false"></field>
+      <field deprecated="not deprecated" final="true" name="FLAVOR" jni-signature="Ljava/lang/String;" static="true" transient="false" type="java.lang.String" type-generic-aware="java.lang.String" value="&quot;&quot;" visibility="public" volatile="false"></field>
+      <field deprecated="not deprecated" final="true" name="VERSION_CODE" jni-signature="I" static="true" transient="false" type="int" type-generic-aware="int" value="1" visibility="public" volatile="false"></field>
+      <field deprecated="not deprecated" final="true" name="VERSION_NAME" jni-signature="Ljava/lang/String;" static="true" transient="false" type="java.lang.String" type-generic-aware="java.lang.String" value="&quot;1.7.0&quot;" visibility="public" volatile="false"></field>
+    </class>
+    <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="true" name="CalendarUtils" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/CalendarUtils;">
+      <method abstract="false" deprecated="not deprecated" final="false" name="getDatesRange" jni-signature="(Ljava/util/Calendar;Ljava/util/Calendar;)Ljava/util/ArrayList;" bridge="false" native="false" return="java.util.ArrayList&lt;java.util.Calendar&gt;" jni-return="Ljava/util/ArrayList&lt;Ljava/util/Calendar;&gt;;" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="firstDay" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+        <parameter name="lastDay" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getDrawableText" jni-signature="(Landroid/content/Context;Ljava/lang/String;Landroid/graphics/Typeface;II)Landroid/graphics/drawable/Drawable;" bridge="false" native="false" return="android.graphics.drawable.Drawable" jni-return="Landroid/graphics/drawable/Drawable;" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="context" type="android.content.Context" jni-type="Landroid/content/Context;"></parameter>
+        <parameter name="text" type="java.lang.String" jni-type="Ljava/lang/String;"></parameter>
+        <parameter name="typeface" type="android.graphics.Typeface" jni-type="Landroid/graphics/Typeface;"></parameter>
+        <parameter name="color" type="int" jni-type="I"></parameter>
+        <parameter name="size" type="int" jni-type="I"></parameter>
+      </method>
+    </class>
+    <class abstract="false" deprecated="not deprecated" extends="android.widget.LinearLayout" extends-generic-aware="android.widget.LinearLayout" jni-extends="Landroid/widget/LinearLayout;" final="false" name="CalendarView" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/CalendarView;">
+      <constructor deprecated="not deprecated" final="false" name="CalendarView" jni-signature="(Landroid/content/Context;Landroid/util/AttributeSet;)V" bridge="false" static="false" type="com.applandeo.materialcalendarview.CalendarView" synthetic="false" visibility="public">
+        <parameter name="context" type="android.content.Context" jni-type="Landroid/content/Context;"></parameter>
+        <parameter name="attrs" type="android.util.AttributeSet" jni-type="Landroid/util/AttributeSet;"></parameter>
+      </constructor>
+      <constructor deprecated="not deprecated" final="false" name="CalendarView" jni-signature="(Landroid/content/Context;Landroid/util/AttributeSet;I)V" bridge="false" static="false" type="com.applandeo.materialcalendarview.CalendarView" synthetic="false" visibility="public">
+        <parameter name="context" type="android.content.Context" jni-type="Landroid/content/Context;"></parameter>
+        <parameter name="attrs" type="android.util.AttributeSet" jni-type="Landroid/util/AttributeSet;"></parameter>
+        <parameter name="defStyleAttr" type="int" jni-type="I"></parameter>
+      </constructor>
+      <constructor deprecated="not deprecated" final="false" name="CalendarView" jni-signature="(Landroid/content/Context;Lcom/applandeo/materialcalendarview/utils/CalendarProperties;)V" bridge="false" static="false" type="com.applandeo.materialcalendarview.CalendarView" synthetic="false" visibility="protected">
+        <parameter name="context" type="android.content.Context" jni-type="Landroid/content/Context;"></parameter>
+        <parameter name="calendarProperties" type="com.applandeo.materialcalendarview.utils.CalendarProperties" jni-type="Lcom/applandeo/materialcalendarview/utils/CalendarProperties;"></parameter>
+      </constructor>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getCurrentPageDate" jni-signature="()Ljava/util/Calendar;" bridge="false" native="false" return="java.util.Calendar" jni-return="Ljava/util/Calendar;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getFirstSelectedDate" jni-signature="()Ljava/util/Calendar;" bridge="false" native="false" return="java.util.Calendar" jni-return="Ljava/util/Calendar;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="deprecated" final="false" name="getSelectedDate" jni-signature="()Ljava/util/Calendar;" bridge="false" native="false" return="java.util.Calendar" jni-return="Ljava/util/Calendar;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getSelectedDates" jni-signature="()Ljava/util/List;" bridge="false" native="false" return="java.util.List&lt;java.util.Calendar&gt;" jni-return="Ljava/util/List&lt;Ljava/util/Calendar;&gt;;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setAbbreviationsBarVisibility" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="visibility" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setDate" jni-signature="(Ljava/util/Calendar;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="date" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+        <exception name="OutOfDateRangeException" type="com.applandeo.materialcalendarview.exceptions.OutOfDateRangeException"></exception>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setDate" jni-signature="(Ljava/util/Date;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="currentDate" type="java.util.Date" jni-type="Ljava/util/Date;"></parameter>
+        <exception name="OutOfDateRangeException" type="com.applandeo.materialcalendarview.exceptions.OutOfDateRangeException"></exception>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setDisabledDays" jni-signature="(Ljava/util/List;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="disabledDays" type="java.util.List&lt;java.util.Calendar&gt;" jni-type="Ljava/util/List&lt;Ljava/util/Calendar;&gt;;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setEvents" jni-signature="(Ljava/util/List;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="eventDays" type="java.util.List&lt;com.applandeo.materialcalendarview.EventDay&gt;" jni-type="Ljava/util/List&lt;Lcom/applandeo/materialcalendarview/EventDay;&gt;;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setForwardButtonImage" jni-signature="(Landroid/graphics/drawable/Drawable;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="drawable" type="android.graphics.drawable.Drawable" jni-type="Landroid/graphics/drawable/Drawable;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setHeaderColor" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setHeaderLabelColor" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setHeaderVisibility" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="visibility" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setHighlightedDays" jni-signature="(Ljava/util/List;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="highlightedDays" type="java.util.List&lt;java.util.Calendar&gt;" jni-type="Ljava/util/List&lt;Ljava/util/Calendar;&gt;;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setMaximumDate" jni-signature="(Ljava/util/Calendar;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="calendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setMinimumDate" jni-signature="(Ljava/util/Calendar;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="calendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setOnDayClickListener" jni-signature="(Lcom/applandeo/materialcalendarview/listeners/OnDayClickListener;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="onDayClickListener" type="com.applandeo.materialcalendarview.listeners.OnDayClickListener" jni-type="Lcom/applandeo/materialcalendarview/listeners/OnDayClickListener;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setOnForwardPageChangeListener" jni-signature="(Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="listener" type="com.applandeo.materialcalendarview.listeners.OnCalendarPageChangeListener" jni-type="Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setOnPreviousPageChangeListener" jni-signature="(Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="listener" type="com.applandeo.materialcalendarview.listeners.OnCalendarPageChangeListener" jni-type="Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setPreviousButtonImage" jni-signature="(Landroid/graphics/drawable/Drawable;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="drawable" type="android.graphics.drawable.Drawable" jni-type="Landroid/graphics/drawable/Drawable;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setSelectedDates" jni-signature="(Ljava/util/List;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="selectedDates" type="java.util.List&lt;java.util.Calendar&gt;" jni-type="Ljava/util/List&lt;Ljava/util/Calendar;&gt;;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setSwipeEnabled" jni-signature="(Z)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="swipeEnabled" type="boolean" jni-type="Z"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="showCurrentMonthPage" jni-signature="()V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <field deprecated="not deprecated" final="true" name="CLASSIC" jni-signature="I" static="true" transient="false" type="int" type-generic-aware="int" value="0" visibility="public" volatile="false"></field>
+      <field deprecated="not deprecated" final="true" name="MANY_DAYS_PICKER" jni-signature="I" static="true" transient="false" type="int" type-generic-aware="int" value="2" visibility="public" volatile="false"></field>
+      <field deprecated="not deprecated" final="true" name="ONE_DAY_PICKER" jni-signature="I" static="true" transient="false" type="int" type-generic-aware="int" value="1" visibility="public" volatile="false"></field>
+      <field deprecated="not deprecated" final="true" name="RANGE_PICKER" jni-signature="I" static="true" transient="false" type="int" type-generic-aware="int" value="3" visibility="public" volatile="false"></field>
+    </class>
+    <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="false" name="DatePicker" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/DatePicker;">
+      <constructor deprecated="not deprecated" final="false" name="DatePicker" jni-signature="(Landroid/content/Context;Lcom/applandeo/materialcalendarview/utils/CalendarProperties;)V" bridge="false" static="false" type="com.applandeo.materialcalendarview.DatePicker" synthetic="false" visibility="public">
+        <parameter name="context" type="android.content.Context" jni-type="Landroid/content/Context;"></parameter>
+        <parameter name="calendarProperties" type="com.applandeo.materialcalendarview.utils.CalendarProperties" jni-type="Lcom/applandeo/materialcalendarview/utils/CalendarProperties;"></parameter>
+      </constructor>
+      <method abstract="false" deprecated="not deprecated" final="false" name="show" jni-signature="()Lcom/applandeo/materialcalendarview/DatePicker;" bridge="false" native="false" return="com.applandeo.materialcalendarview.DatePicker" jni-return="Lcom/applandeo/materialcalendarview/DatePicker;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+    </class>
+    <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="false" name="EventDay" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/EventDay;">
+      <constructor deprecated="not deprecated" final="false" name="EventDay" jni-signature="(Ljava/util/Calendar;)V" bridge="false" static="false" type="com.applandeo.materialcalendarview.EventDay" synthetic="false" visibility="public">
+        <parameter name="day" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </constructor>
+      <constructor deprecated="not deprecated" final="false" name="EventDay" jni-signature="(Ljava/util/Calendar;Landroid/graphics/drawable/Drawable;)V" bridge="false" static="false" type="com.applandeo.materialcalendarview.EventDay" synthetic="false" visibility="public">
+        <parameter name="day" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+        <parameter name="drawable" type="android.graphics.drawable.Drawable" jni-type="Landroid/graphics/drawable/Drawable;"></parameter>
+      </constructor>
+      <constructor deprecated="not deprecated" final="false" name="EventDay" jni-signature="(Ljava/util/Calendar;Landroid/graphics/drawable/Drawable;I)V" bridge="false" static="false" type="com.applandeo.materialcalendarview.EventDay" synthetic="false" visibility="public">
+        <parameter name="day" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+        <parameter name="drawable" type="android.graphics.drawable.Drawable" jni-type="Landroid/graphics/drawable/Drawable;"></parameter>
+        <parameter name="labelColor" type="int" jni-type="I"></parameter>
+      </constructor>
+      <constructor deprecated="not deprecated" final="false" name="EventDay" jni-signature="(Ljava/util/Calendar;I)V" bridge="false" static="false" type="com.applandeo.materialcalendarview.EventDay" synthetic="false" visibility="public">
+        <parameter name="day" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+        <parameter name="drawable" type="int" jni-type="I"></parameter>
+      </constructor>
+      <constructor deprecated="not deprecated" final="false" name="EventDay" jni-signature="(Ljava/util/Calendar;II)V" bridge="false" static="false" type="com.applandeo.materialcalendarview.EventDay" synthetic="false" visibility="public">
+        <parameter name="day" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+        <parameter name="drawable" type="int" jni-type="I"></parameter>
+        <parameter name="labelColor" type="int" jni-type="I"></parameter>
+      </constructor>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getCalendar" jni-signature="()Ljava/util/Calendar;" bridge="false" native="false" return="java.util.Calendar" jni-return="Ljava/util/Calendar;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getImageDrawable" jni-signature="()Ljava/lang/Object;" bridge="false" native="false" return="java.lang.Object" jni-return="Ljava/lang/Object;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getLabelColor" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="isEnabled" jni-signature="()Z" bridge="false" native="false" return="boolean" jni-return="Z" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setEnabled" jni-signature="(Z)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="enabled" type="boolean" jni-type="Z"></parameter>
+      </method>
+    </class>
+  </package>
+  <package name="com.applandeo.materialcalendarview.adapters" jni-name="com/applandeo/materialcalendarview/adapters">
+    <class abstract="false" deprecated="not deprecated" extends="android.widget.ArrayAdapter" extends-generic-aware="android.widget.ArrayAdapter&lt;java.util.Date&gt;" jni-extends="Landroid/widget/ArrayAdapter;" final="false" name="CalendarDayAdapter" static="false" visibility="" jni-signature="Lcom/applandeo/materialcalendarview/adapters/CalendarDayAdapter;"></class>
+  </package>
+  <package name="com.applandeo.materialcalendarview.builders" jni-name="com/applandeo/materialcalendarview/builders">
+    <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="false" name="DatePickerBuilder" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;">
+      <constructor deprecated="not deprecated" final="false" name="DatePickerBuilder" jni-signature="(Landroid/content/Context;Lcom/applandeo/materialcalendarview/listeners/OnSelectDateListener;)V" bridge="false" static="false" type="com.applandeo.materialcalendarview.builders.DatePickerBuilder" synthetic="false" visibility="public">
+        <parameter name="context" type="android.content.Context" jni-type="Landroid/content/Context;"></parameter>
+        <parameter name="onSelectDateListener" type="com.applandeo.materialcalendarview.listeners.OnSelectDateListener" jni-type="Lcom/applandeo/materialcalendarview/listeners/OnSelectDateListener;"></parameter>
+      </constructor>
+      <method abstract="false" deprecated="deprecated" final="false" name="abbreviationsBarColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="abbreviationsBarVisibility" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="visibility" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="abbreviationsLabelsColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="anotherMonthsDaysLabelsColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="build" jni-signature="()Lcom/applandeo/materialcalendarview/DatePicker;" bridge="false" native="false" return="com.applandeo.materialcalendarview.DatePicker" jni-return="Lcom/applandeo/materialcalendarview/DatePicker;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="deprecated" final="false" name="date" jni-signature="(Ljava/util/Calendar;)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="calendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="daysLabelsColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="dialogButtonsColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="disabledDays" jni-signature="(Ljava/util/List;)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="disabledDays" type="java.util.List&lt;java.util.Calendar&gt;" jni-type="Ljava/util/List&lt;Ljava/util/Calendar;&gt;;"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="disabledDaysLabelsColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="forwardButtonSrc" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="drawable" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="forwardPageChangeListener" jni-signature="(Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="listener" type="com.applandeo.materialcalendarview.listeners.OnCalendarPageChangeListener" jni-type="Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="headerColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="headerLabelColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="headerVisibility" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="visibility" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="highlightedDays" jni-signature="(Ljava/util/List;)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="highlightedDays" type="java.util.List&lt;java.util.Calendar&gt;" jni-type="Ljava/util/List&lt;Ljava/util/Calendar;&gt;;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="highlightedDaysLabelsColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="maximumDate" jni-signature="(Ljava/util/Calendar;)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="calendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="minimumDate" jni-signature="(Ljava/util/Calendar;)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="calendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="pagesColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="pickerType" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="calendarType" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="previousButtonSrc" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="drawable" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="previousPageChangeListener" jni-signature="(Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="listener" type="com.applandeo.materialcalendarview.listeners.OnCalendarPageChangeListener" jni-type="Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="selectedDays" jni-signature="(Ljava/util/List;)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="selectedDays" type="java.util.List&lt;java.util.Calendar&gt;" jni-type="Ljava/util/List&lt;Ljava/util/Calendar;&gt;;"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="selectionColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="selectionLabelColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setAbbreviationsBarColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setAbbreviationsLabelsColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setAnotherMonthsDaysLabelsColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setDate" jni-signature="(Ljava/util/Calendar;)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="calendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setDaysLabelsColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setDialogButtonsColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setDisabledDays" jni-signature="(Ljava/util/List;)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="disabledDays" type="java.util.List&lt;java.util.Calendar&gt;" jni-type="Ljava/util/List&lt;Ljava/util/Calendar;&gt;;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setDisabledDaysLabelsColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setEvents" jni-signature="(Ljava/util/List;)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="eventDays" type="java.util.List&lt;com.applandeo.materialcalendarview.EventDay&gt;" jni-type="Ljava/util/List&lt;Lcom/applandeo/materialcalendarview/EventDay;&gt;;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setForwardButtonSrc" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="drawable" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setForwardPageChangeListener" jni-signature="(Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="listener" type="com.applandeo.materialcalendarview.listeners.OnCalendarPageChangeListener" jni-type="Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setHeaderColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setHeaderLabelColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setHeaderVisibility" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="visibility" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setMaximumDate" jni-signature="(Ljava/util/Calendar;)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="calendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setMaximumDaysRange" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="maximumDaysRange" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setMinimumDate" jni-signature="(Ljava/util/Calendar;)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="calendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setNavigationVisibility" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="visibility" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setPagesColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setPickerType" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="calendarType" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setPreviousButtonSrc" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="drawable" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setPreviousPageChangeListener" jni-signature="(Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="listener" type="com.applandeo.materialcalendarview.listeners.OnCalendarPageChangeListener" jni-type="Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setSelectedDays" jni-signature="(Ljava/util/List;)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="selectedDays" type="java.util.List&lt;java.util.Calendar&gt;" jni-type="Ljava/util/List&lt;Ljava/util/Calendar;&gt;;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setSelectionColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setSelectionLabelColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setTodayColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="todayColor" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setTodayLabelColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="deprecated" final="false" name="todayLabelColor" jni-signature="(I)Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" bridge="false" native="false" return="com.applandeo.materialcalendarview.builders.DatePickerBuilder" jni-return="Lcom/applandeo/materialcalendarview/builders/DatePickerBuilder;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+    </class>
+  </package>
+  <package name="com.applandeo.materialcalendarview.exceptions" jni-name="com/applandeo/materialcalendarview/exceptions">
+    <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="true" name="ErrorsMessages" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/exceptions/ErrorsMessages;">
+      <field deprecated="not deprecated" final="true" name="ONE_DAY_PICKER_MULTIPLE_SELECTION" jni-signature="Ljava/lang/String;" static="true" transient="false" type="java.lang.String" type-generic-aware="java.lang.String" value="&quot;ONE_DAY_PICKER DOES NOT SUPPORT MULTIPLE DAYS, USE setDate() METHOD INSTEAD&quot;" visibility="public" volatile="false"></field>
+      <field deprecated="not deprecated" final="true" name="OUT_OF_RANGE_MAX" jni-signature="Ljava/lang/String;" static="true" transient="false" type="java.lang.String" type-generic-aware="java.lang.String" value="&quot;SET DATE EXCEEDS THE MAXIMUM DATE&quot;" visibility="public" volatile="false"></field>
+      <field deprecated="not deprecated" final="true" name="OUT_OF_RANGE_MIN" jni-signature="Ljava/lang/String;" static="true" transient="false" type="java.lang.String" type-generic-aware="java.lang.String" value="&quot;SET DATE EXCEEDS THE MINIMUM DATE&quot;" visibility="public" volatile="false"></field>
+      <field deprecated="not deprecated" final="true" name="RANGE_PICKER_NOT_RANGE" jni-signature="Ljava/lang/String;" static="true" transient="false" type="java.lang.String" type-generic-aware="java.lang.String" value="&quot;RANGE_PICKER ACCEPTS ONLY CONTINUOUS LIST OF CALENDARS&quot;" visibility="public" volatile="false"></field>
+    </class>
+    <class abstract="false" deprecated="not deprecated" extends="java.lang.Exception" extends-generic-aware="java.lang.Exception" jni-extends="Ljava/lang/Exception;" final="false" name="OutOfDateRangeException" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/exceptions/OutOfDateRangeException;">
+      <constructor deprecated="not deprecated" final="false" name="OutOfDateRangeException" jni-signature="(Ljava/lang/String;)V" bridge="false" static="false" type="com.applandeo.materialcalendarview.exceptions.OutOfDateRangeException" synthetic="false" visibility="public">
+        <parameter name="message" type="java.lang.String" jni-type="Ljava/lang/String;"></parameter>
+      </constructor>
+    </class>
+    <class abstract="false" deprecated="not deprecated" extends="java.lang.RuntimeException" extends-generic-aware="java.lang.RuntimeException" jni-extends="Ljava/lang/RuntimeException;" final="false" name="UnsupportedMethodsException" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/exceptions/UnsupportedMethodsException;">
+      <constructor deprecated="not deprecated" final="false" name="UnsupportedMethodsException" jni-signature="(Ljava/lang/String;)V" bridge="false" static="false" type="com.applandeo.materialcalendarview.exceptions.UnsupportedMethodsException" synthetic="false" visibility="public">
+        <parameter name="message" type="java.lang.String" jni-type="Ljava/lang/String;"></parameter>
+      </constructor>
+    </class>
+  </package>
+  <package name="com.applandeo.materialcalendarview.extensions" jni-name="com/applandeo/materialcalendarview/extensions">
+    <class abstract="false" deprecated="not deprecated" extends="android.widget.GridView" extends-generic-aware="android.widget.GridView" jni-extends="Landroid/widget/GridView;" final="false" name="CalendarGridView" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/extensions/CalendarGridView;">
+      <constructor deprecated="not deprecated" final="false" name="CalendarGridView" jni-signature="(Landroid/content/Context;)V" bridge="false" static="false" type="com.applandeo.materialcalendarview.extensions.CalendarGridView" synthetic="false" visibility="public">
+        <parameter name="context" type="android.content.Context" jni-type="Landroid/content/Context;"></parameter>
+      </constructor>
+      <constructor deprecated="not deprecated" final="false" name="CalendarGridView" jni-signature="(Landroid/content/Context;Landroid/util/AttributeSet;)V" bridge="false" static="false" type="com.applandeo.materialcalendarview.extensions.CalendarGridView" synthetic="false" visibility="public">
+        <parameter name="context" type="android.content.Context" jni-type="Landroid/content/Context;"></parameter>
+        <parameter name="attrs" type="android.util.AttributeSet" jni-type="Landroid/util/AttributeSet;"></parameter>
+      </constructor>
+      <constructor deprecated="not deprecated" final="false" name="CalendarGridView" jni-signature="(Landroid/content/Context;Landroid/util/AttributeSet;I)V" bridge="false" static="false" type="com.applandeo.materialcalendarview.extensions.CalendarGridView" synthetic="false" visibility="public">
+        <parameter name="context" type="android.content.Context" jni-type="Landroid/content/Context;"></parameter>
+        <parameter name="attrs" type="android.util.AttributeSet" jni-type="Landroid/util/AttributeSet;"></parameter>
+        <parameter name="defStyle" type="int" jni-type="I"></parameter>
+      </constructor>
+      <method abstract="false" deprecated="not deprecated" final="false" name="onMeasure" jni-signature="(II)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="widthMeasureSpec" type="int" jni-type="I"></parameter>
+        <parameter name="heightMeasureSpec" type="int" jni-type="I"></parameter>
+      </method>
+    </class>
+  </package>
+  <package name="com.applandeo.materialcalendarview.listeners" jni-name="com/applandeo/materialcalendarview/listeners">
+    <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="false" name="DayRowClickListener" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/listeners/DayRowClickListener;">
+      <implements name="android.widget.AdapterView.OnItemClickListener" name-generic-aware="android.widget.AdapterView.OnItemClickListener" jni-type="Landroid/widget/AdapterView$OnItemClickListener;"></implements>
+      <method abstract="false" deprecated="not deprecated" final="false" name="onItemClick" jni-signature="(Landroid/widget/AdapterView;Landroid/view/View;IJ)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="adapterView" type="android.widget.AdapterView&lt;?&gt;" jni-type="Landroid/widget/AdapterView&lt;*&gt;;"></parameter>
+        <parameter name="view" type="android.view.View" jni-type="Landroid/view/View;"></parameter>
+        <parameter name="position" type="int" jni-type="I"></parameter>
+        <parameter name="id" type="long" jni-type="J"></parameter>
+      </method>
+    </class>
+    <interface abstract="true" deprecated="not deprecated" final="false" name="OnCalendarPageChangeListener" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;">
+      <method abstract="true" deprecated="not deprecated" final="false" name="onChange" jni-signature="()V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+    </interface>
+    <interface abstract="true" deprecated="not deprecated" final="false" name="OnDayClickListener" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/listeners/OnDayClickListener;">
+      <method abstract="true" deprecated="not deprecated" final="false" name="onDayClick" jni-signature="(Lcom/applandeo/materialcalendarview/EventDay;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="p0" type="com.applandeo.materialcalendarview.EventDay" jni-type="Lcom/applandeo/materialcalendarview/EventDay;"></parameter>
+      </method>
+    </interface>
+    <interface abstract="true" deprecated="not deprecated" final="false" name="OnSelectDateListener" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/listeners/OnSelectDateListener;">
+      <method abstract="true" deprecated="not deprecated" final="false" name="onSelect" jni-signature="(Ljava/util/List;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="p0" type="java.util.List&lt;java.util.Calendar&gt;" jni-type="Ljava/util/List&lt;Ljava/util/Calendar;&gt;;"></parameter>
+      </method>
+    </interface>
+    <interface abstract="true" deprecated="not deprecated" final="false" name="OnSelectionAbilityListener" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/listeners/OnSelectionAbilityListener;">
+      <method abstract="true" deprecated="not deprecated" final="false" name="onChange" jni-signature="(Z)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="p0" type="boolean" jni-type="Z"></parameter>
+      </method>
+    </interface>
+  </package>
+  <package name="com.applandeo.materialcalendarview.utils" jni-name="com/applandeo/materialcalendarview/utils">
+    <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="true" name="AppearanceUtils" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/utils/AppearanceUtils;">
+      <method abstract="false" deprecated="not deprecated" final="false" name="setAbbreviationsBarColor" jni-signature="(Landroid/view/View;I)V" bridge="false" native="false" return="void" jni-return="V" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="view" type="android.view.View" jni-type="Landroid/view/View;"></parameter>
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setAbbreviationsBarVisibility" jni-signature="(Landroid/view/View;I)V" bridge="false" native="false" return="void" jni-return="V" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="view" type="android.view.View" jni-type="Landroid/view/View;"></parameter>
+        <parameter name="visibility" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setAbbreviationsLabels" jni-signature="(Landroid/view/View;II)V" bridge="false" native="false" return="void" jni-return="V" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="view" type="android.view.View" jni-type="Landroid/view/View;"></parameter>
+        <parameter name="color" type="int" jni-type="I"></parameter>
+        <parameter name="firstDayOfWeek" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setForwardButtonImage" jni-signature="(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V" bridge="false" native="false" return="void" jni-return="V" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="view" type="android.view.View" jni-type="Landroid/view/View;"></parameter>
+        <parameter name="drawable" type="android.graphics.drawable.Drawable" jni-type="Landroid/graphics/drawable/Drawable;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setHeaderColor" jni-signature="(Landroid/view/View;I)V" bridge="false" native="false" return="void" jni-return="V" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="view" type="android.view.View" jni-type="Landroid/view/View;"></parameter>
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setHeaderLabelColor" jni-signature="(Landroid/view/View;I)V" bridge="false" native="false" return="void" jni-return="V" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="view" type="android.view.View" jni-type="Landroid/view/View;"></parameter>
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setHeaderVisibility" jni-signature="(Landroid/view/View;I)V" bridge="false" native="false" return="void" jni-return="V" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="view" type="android.view.View" jni-type="Landroid/view/View;"></parameter>
+        <parameter name="visibility" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setNavigationVisibility" jni-signature="(Landroid/view/View;I)V" bridge="false" native="false" return="void" jni-return="V" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="view" type="android.view.View" jni-type="Landroid/view/View;"></parameter>
+        <parameter name="visibility" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setPagesColor" jni-signature="(Landroid/view/View;I)V" bridge="false" native="false" return="void" jni-return="V" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="view" type="android.view.View" jni-type="Landroid/view/View;"></parameter>
+        <parameter name="color" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setPreviousButtonImage" jni-signature="(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V" bridge="false" native="false" return="void" jni-return="V" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="view" type="android.view.View" jni-type="Landroid/view/View;"></parameter>
+        <parameter name="drawable" type="android.graphics.drawable.Drawable" jni-type="Landroid/graphics/drawable/Drawable;"></parameter>
+      </method>
+    </class>
+    <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="false" name="CalendarProperties" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/utils/CalendarProperties;">
+      <constructor deprecated="not deprecated" final="false" name="CalendarProperties" jni-signature="(Landroid/content/Context;)V" bridge="false" static="false" type="com.applandeo.materialcalendarview.utils.CalendarProperties" synthetic="false" visibility="public">
+        <parameter name="context" type="android.content.Context" jni-type="Landroid/content/Context;"></parameter>
+      </constructor>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getAbbreviationsBarColor" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getAbbreviationsBarVisibility" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getAbbreviationsLabelsColor" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getAnotherMonthsDaysLabelsColor" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getCalendar" jni-signature="()Ljava/util/Calendar;" bridge="false" native="false" return="java.util.Calendar" jni-return="Ljava/util/Calendar;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getCalendarType" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getDaysLabelsColor" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getDialogButtonsColor" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getDisabledDays" jni-signature="()Ljava/util/List;" bridge="false" native="false" return="java.util.List&lt;java.util.Calendar&gt;" jni-return="Ljava/util/List&lt;Ljava/util/Calendar;&gt;;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getDisabledDaysLabelsColor" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getEventDays" jni-signature="()Ljava/util/List;" bridge="false" native="false" return="java.util.List&lt;com.applandeo.materialcalendarview.EventDay&gt;" jni-return="Ljava/util/List&lt;Lcom/applandeo/materialcalendarview/EventDay;&gt;;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getEventsEnabled" jni-signature="()Z" bridge="false" native="false" return="boolean" jni-return="Z" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getFirstPageCalendarDate" jni-signature="()Ljava/util/Calendar;" bridge="false" native="false" return="java.util.Calendar" jni-return="Ljava/util/Calendar;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getForwardButtonSrc" jni-signature="()Landroid/graphics/drawable/Drawable;" bridge="false" native="false" return="android.graphics.drawable.Drawable" jni-return="Landroid/graphics/drawable/Drawable;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getHeaderColor" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getHeaderLabelColor" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getHeaderVisibility" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getHighlightedDays" jni-signature="()Ljava/util/List;" bridge="false" native="false" return="java.util.List&lt;java.util.Calendar&gt;" jni-return="Ljava/util/List&lt;Ljava/util/Calendar;&gt;;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getHighlightedDaysLabelsColor" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getItemLayoutResource" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getMaximumDate" jni-signature="()Ljava/util/Calendar;" bridge="false" native="false" return="java.util.Calendar" jni-return="Ljava/util/Calendar;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getMaximumDaysRange" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getMinimumDate" jni-signature="()Ljava/util/Calendar;" bridge="false" native="false" return="java.util.Calendar" jni-return="Ljava/util/Calendar;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getNavigationVisibility" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getOnDayClickListener" jni-signature="()Lcom/applandeo/materialcalendarview/listeners/OnDayClickListener;" bridge="false" native="false" return="com.applandeo.materialcalendarview.listeners.OnDayClickListener" jni-return="Lcom/applandeo/materialcalendarview/listeners/OnDayClickListener;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getOnForwardPageChangeListener" jni-signature="()Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;" bridge="false" native="false" return="com.applandeo.materialcalendarview.listeners.OnCalendarPageChangeListener" jni-return="Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getOnPreviousPageChangeListener" jni-signature="()Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;" bridge="false" native="false" return="com.applandeo.materialcalendarview.listeners.OnCalendarPageChangeListener" jni-return="Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getOnSelectDateListener" jni-signature="()Lcom/applandeo/materialcalendarview/listeners/OnSelectDateListener;" bridge="false" native="false" return="com.applandeo.materialcalendarview.listeners.OnSelectDateListener" jni-return="Lcom/applandeo/materialcalendarview/listeners/OnSelectDateListener;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getOnSelectionAbilityListener" jni-signature="()Lcom/applandeo/materialcalendarview/listeners/OnSelectionAbilityListener;" bridge="false" native="false" return="com.applandeo.materialcalendarview.listeners.OnSelectionAbilityListener" jni-return="Lcom/applandeo/materialcalendarview/listeners/OnSelectionAbilityListener;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getPagesColor" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getPreviousButtonSrc" jni-signature="()Landroid/graphics/drawable/Drawable;" bridge="false" native="false" return="android.graphics.drawable.Drawable" jni-return="Landroid/graphics/drawable/Drawable;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getSelectedDays" jni-signature="()Ljava/util/List;" bridge="false" native="false" return="java.util.List&lt;com.applandeo.materialcalendarview.utils.SelectedDay&gt;" jni-return="Ljava/util/List&lt;Lcom/applandeo/materialcalendarview/utils/SelectedDay;&gt;;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getSelectionColor" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getSelectionLabelColor" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getSwipeEnabled" jni-signature="()Z" bridge="false" native="false" return="boolean" jni-return="Z" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getTodayColor" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getTodayLabelColor" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setAbbreviationsBarColor" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="abbreviationsBarColor" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setAbbreviationsBarVisibility" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="abbreviationsBarVisbility" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setAbbreviationsLabelsColor" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="abbreviationsLabelsColor" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setAnotherMonthsDaysLabelsColor" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="anotherMonthsDaysLabelsColor" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setCalendar" jni-signature="(Ljava/util/Calendar;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="calendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setCalendarType" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="calendarType" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setDaysLabelsColor" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="daysLabelsColor" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setDialogButtonsColor" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="dialogButtonsColor" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setDisabledDays" jni-signature="(Ljava/util/List;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="disabledDays" type="java.util.List&lt;java.util.Calendar&gt;" jni-type="Ljava/util/List&lt;Ljava/util/Calendar;&gt;;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setDisabledDaysLabelsColor" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="disabledDaysLabelsColor" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setEventDays" jni-signature="(Ljava/util/List;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="eventDays" type="java.util.List&lt;com.applandeo.materialcalendarview.EventDay&gt;" jni-type="Ljava/util/List&lt;Lcom/applandeo/materialcalendarview/EventDay;&gt;;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setEventsEnabled" jni-signature="(Z)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="eventsEnabled" type="boolean" jni-type="Z"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setForwardButtonSrc" jni-signature="(Landroid/graphics/drawable/Drawable;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="forwardButtonSrc" type="android.graphics.drawable.Drawable" jni-type="Landroid/graphics/drawable/Drawable;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setHeaderColor" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="headerColor" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setHeaderLabelColor" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="headerLabelColor" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setHeaderVisibility" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="headerVisibility" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setHighlightedDays" jni-signature="(Ljava/util/List;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="highlightedDays" type="java.util.List&lt;java.util.Calendar&gt;" jni-type="Ljava/util/List&lt;Ljava/util/Calendar;&gt;;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setHighlightedDaysLabelsColor" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="highlightedDaysLabelsColor" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setItemLayoutResource" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="itemLayoutResource" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setMaximumDate" jni-signature="(Ljava/util/Calendar;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="maximumDate" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setMaximumDaysRange" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="maximumDaysRange" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setMinimumDate" jni-signature="(Ljava/util/Calendar;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="minimumDate" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setNavigationVisibility" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="navigationVisibility" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setOnDayClickListener" jni-signature="(Lcom/applandeo/materialcalendarview/listeners/OnDayClickListener;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="onDayClickListener" type="com.applandeo.materialcalendarview.listeners.OnDayClickListener" jni-type="Lcom/applandeo/materialcalendarview/listeners/OnDayClickListener;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setOnForwardPageChangeListener" jni-signature="(Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="onForwardButtonClickListener" type="com.applandeo.materialcalendarview.listeners.OnCalendarPageChangeListener" jni-type="Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setOnPreviousPageChangeListener" jni-signature="(Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="onPreviousButtonClickListener" type="com.applandeo.materialcalendarview.listeners.OnCalendarPageChangeListener" jni-type="Lcom/applandeo/materialcalendarview/listeners/OnCalendarPageChangeListener;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setOnSelectDateListener" jni-signature="(Lcom/applandeo/materialcalendarview/listeners/OnSelectDateListener;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="onSelectDateListener" type="com.applandeo.materialcalendarview.listeners.OnSelectDateListener" jni-type="Lcom/applandeo/materialcalendarview/listeners/OnSelectDateListener;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setOnSelectionAbilityListener" jni-signature="(Lcom/applandeo/materialcalendarview/listeners/OnSelectionAbilityListener;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="onSelectionAbilityListener" type="com.applandeo.materialcalendarview.listeners.OnSelectionAbilityListener" jni-type="Lcom/applandeo/materialcalendarview/listeners/OnSelectionAbilityListener;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setPagesColor" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="pagesColor" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setPreviousButtonSrc" jni-signature="(Landroid/graphics/drawable/Drawable;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="previousButtonSrc" type="android.graphics.drawable.Drawable" jni-type="Landroid/graphics/drawable/Drawable;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setSelectedDay" jni-signature="(Lcom/applandeo/materialcalendarview/utils/SelectedDay;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="selectedDay" type="com.applandeo.materialcalendarview.utils.SelectedDay" jni-type="Lcom/applandeo/materialcalendarview/utils/SelectedDay;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setSelectedDay" jni-signature="(Ljava/util/Calendar;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="calendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setSelectedDays" jni-signature="(Ljava/util/List;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="selectedDays" type="java.util.List&lt;java.util.Calendar&gt;" jni-type="Ljava/util/List&lt;Ljava/util/Calendar;&gt;;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setSelectionColor" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="selectionColor" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setSelectionLabelColor" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="selectionLabelColor" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setSwipeEnabled" jni-signature="(Z)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="swipeEnabled" type="boolean" jni-type="Z"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setTodayColor" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="todayColor" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setTodayLabelColor" jni-signature="(I)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="todayLabelColor" type="int" jni-type="I"></parameter>
+      </method>
+      <field deprecated="not deprecated" final="true" name="CALENDAR_SIZE" jni-signature="I" static="true" transient="false" type="int" type-generic-aware="int" value="2401" visibility="public" volatile="false"></field>
+      <field deprecated="not deprecated" final="true" name="FIRST_VISIBLE_PAGE" jni-signature="I" static="true" transient="false" type="int" type-generic-aware="int" value="1200" visibility="public" volatile="false"></field>
+    </class>
+    <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="false" name="DateUtils" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/utils/DateUtils;">
+      <constructor deprecated="not deprecated" final="false" name="DateUtils" jni-signature="()V" bridge="false" static="false" type="com.applandeo.materialcalendarview.utils.DateUtils" synthetic="false" visibility="public"></constructor>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getCalendar" jni-signature="()Ljava/util/Calendar;" bridge="false" native="false" return="java.util.Calendar" jni-return="Ljava/util/Calendar;" static="true" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getMonthAndYearDate" jni-signature="(Landroid/content/Context;Ljava/util/Calendar;)Ljava/lang/String;" bridge="false" native="false" return="java.lang.String" jni-return="Ljava/lang/String;" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="context" type="android.content.Context" jni-type="Landroid/content/Context;"></parameter>
+        <parameter name="calendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getMonthsBetweenDates" jni-signature="(Ljava/util/Calendar;Ljava/util/Calendar;)I" bridge="false" native="false" return="int" jni-return="I" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="startCalendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+        <parameter name="endCalendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="isFullDatesRange" jni-signature="(Ljava/util/List;)Z" bridge="false" native="false" return="boolean" jni-return="Z" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="days" type="java.util.List&lt;java.util.Calendar&gt;" jni-type="Ljava/util/List&lt;Ljava/util/Calendar;&gt;;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="isMonthAfter" jni-signature="(Ljava/util/Calendar;Ljava/util/Calendar;)Z" bridge="false" native="false" return="boolean" jni-return="Z" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="firstCalendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+        <parameter name="secondCalendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="isMonthBefore" jni-signature="(Ljava/util/Calendar;Ljava/util/Calendar;)Z" bridge="false" native="false" return="boolean" jni-return="Z" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="firstCalendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+        <parameter name="secondCalendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setMidnight" jni-signature="(Ljava/util/Calendar;)V" bridge="false" native="false" return="void" jni-return="V" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="calendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </method>
+    </class>
+    <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="false" name="DayColorsUtils" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/utils/DayColorsUtils;">
+      <constructor deprecated="not deprecated" final="false" name="DayColorsUtils" jni-signature="()V" bridge="false" static="false" type="com.applandeo.materialcalendarview.utils.DayColorsUtils" synthetic="false" visibility="public"></constructor>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setCurrentMonthDayColors" jni-signature="(Ljava/util/Calendar;Ljava/util/Calendar;Landroid/widget/TextView;Lcom/applandeo/materialcalendarview/utils/CalendarProperties;)V" bridge="false" native="false" return="void" jni-return="V" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="day" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+        <parameter name="today" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+        <parameter name="dayLabel" type="android.widget.TextView" jni-type="Landroid/widget/TextView;"></parameter>
+        <parameter name="calendarProperties" type="com.applandeo.materialcalendarview.utils.CalendarProperties" jni-type="Lcom/applandeo/materialcalendarview/utils/CalendarProperties;"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setDayColors" jni-signature="(Landroid/widget/TextView;III)V" bridge="false" native="false" return="void" jni-return="V" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="textView" type="android.widget.TextView" jni-type="Landroid/widget/TextView;"></parameter>
+        <parameter name="textColor" type="int" jni-type="I"></parameter>
+        <parameter name="typeface" type="int" jni-type="I"></parameter>
+        <parameter name="background" type="int" jni-type="I"></parameter>
+      </method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setSelectedDayColors" jni-signature="(Landroid/widget/TextView;Lcom/applandeo/materialcalendarview/utils/CalendarProperties;)V" bridge="false" native="false" return="void" jni-return="V" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="dayLabel" type="android.widget.TextView" jni-type="Landroid/widget/TextView;"></parameter>
+        <parameter name="calendarProperties" type="com.applandeo.materialcalendarview.utils.CalendarProperties" jni-type="Lcom/applandeo/materialcalendarview/utils/CalendarProperties;"></parameter>
+      </method>
+    </class>
+    <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="false" name="EventDayUtils" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/utils/EventDayUtils;">
+      <constructor deprecated="not deprecated" final="false" name="EventDayUtils" jni-signature="()V" bridge="false" static="false" type="com.applandeo.materialcalendarview.utils.EventDayUtils" synthetic="false" visibility="public"></constructor>
+      <method abstract="false" deprecated="not deprecated" final="false" name="isEventDayWithLabelColor" jni-signature="(Ljava/util/Calendar;Lcom/applandeo/materialcalendarview/utils/CalendarProperties;)Z" bridge="false" native="false" return="boolean" jni-return="Z" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="day" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+        <parameter name="calendarProperties" type="com.applandeo.materialcalendarview.utils.CalendarProperties" jni-type="Lcom/applandeo/materialcalendarview/utils/CalendarProperties;"></parameter>
+      </method>
+    </class>
+    <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="false" name="ImageUtils" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/utils/ImageUtils;">
+      <method abstract="false" deprecated="not deprecated" final="false" name="loadImage" jni-signature="(Landroid/widget/ImageView;Ljava/lang/Object;)V" bridge="false" native="false" return="void" jni-return="V" static="true" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="imageView" type="android.widget.ImageView" jni-type="Landroid/widget/ImageView;"></parameter>
+        <parameter name="image" type="java.lang.Object" jni-type="Ljava/lang/Object;"></parameter>
+      </method>
+    </class>
+    <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="false" name="SelectedDay" static="false" visibility="public" jni-signature="Lcom/applandeo/materialcalendarview/utils/SelectedDay;">
+      <constructor deprecated="not deprecated" final="false" name="SelectedDay" jni-signature="(Landroid/view/View;Ljava/util/Calendar;)V" bridge="false" static="false" type="com.applandeo.materialcalendarview.utils.SelectedDay" synthetic="false" visibility="public">
+        <parameter name="view" type="android.view.View" jni-type="Landroid/view/View;"></parameter>
+        <parameter name="calendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </constructor>
+      <constructor deprecated="not deprecated" final="false" name="SelectedDay" jni-signature="(Ljava/util/Calendar;)V" bridge="false" static="false" type="com.applandeo.materialcalendarview.utils.SelectedDay" synthetic="false" visibility="public">
+        <parameter name="calendar" type="java.util.Calendar" jni-type="Ljava/util/Calendar;"></parameter>
+      </constructor>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getCalendar" jni-signature="()Ljava/util/Calendar;" bridge="false" native="false" return="java.util.Calendar" jni-return="Ljava/util/Calendar;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="getView" jni-signature="()Landroid/view/View;" bridge="false" native="false" return="android.view.View" jni-return="Landroid/view/View;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+      <method abstract="false" deprecated="not deprecated" final="false" name="setView" jni-signature="(Landroid/view/View;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="view" type="android.view.View" jni-type="Landroid/view/View;"></parameter>
+      </method>
+    </class>
+  </package>
+</api>

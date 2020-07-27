@@ -8,7 +8,7 @@
   <string name="title_blackout">Blackout</string>
   <string name="title_blackout_details">Blackout Details</string>
   <string name="title_blackout_setup">Blackout Setup</string>
-  <string name="title_calendar">Calendar</string>
+  <string name="title_schedule">Schedule</string>
   <string name="title_settings">Settings</string>
   <string name="title_first_time_setup">First Time Setup</string>
   <string name="title_open_source">Open Source Software</string>
@@ -134,34 +134,6 @@
   <string name="text_neutral">Neutral</string>
   <string name="text_somewhat_dissatisfied">Somewhat Dissatisfied</string>
   <string name="text_very_dissatisfied">Very Dissatisfied</string>
-
-  <!-- Material Calendar -->
-  <string name="material_calendar_monday">M</string>
-  <string name="material_calendar_tuesday">T</string>
-  <string name="material_calendar_wednesday">W</string>
-  <string name="material_calendar_thursday">T</string>
-  <string name="material_calendar_friday">F</string>
-  <string name="material_calendar_saturday">S</string>
-  <string name="material_calendar_sunday">S</string>
-
-  <array name="material_calendar_months_array">
-    <item>January</item>
-    <item>February</item>
-    <item>March</item>
-    <item>April</item>
-    <item>May</item>
-    <item>June</item>
-    <item>July</item>
-    <item>August</item>
-    <item>September</item>
-    <item>October</item>
-    <item>November</item>
-    <item>December</item>
-  </array>
-
-  <string name="material_calendar_today_button">Today</string>
-  <string name="material_calendar_positive_button">OK</string>
-  <string name="material_calendar_negative_button">Cancel</string>
   
   <!-- Special -->
   <string name="_blank"></string>

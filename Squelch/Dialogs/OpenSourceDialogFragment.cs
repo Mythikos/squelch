@@ -117,6 +117,7 @@ namespace Squelch.Fragments
                     ("James Montemagno", "SettingsPlugin", "MIT", "https://github.com/jamesmontemagno/SettingsPlugin"),
                     ("Praeclarum", "sqlite-net-pcl", "MIT", "https://github.com/praeclarum/sqlite-net"),
                     ("Applandeo", "Material-Calendar-View", "Apache 2", "https://github.com/Applandeo/Material-Calendar-View"),
+                    ("aNNiMON", "Lightweight-Stream-API", "Apache 2", "https://github.com/aNNiMON/Lightweight-Stream-API")
                 };
 
                 //

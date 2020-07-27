@@ -61,6 +61,7 @@ namespace Squelch.Activities
             // Default view values
             this.SetProgressBarState(false);
         }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -82,8 +83,8 @@ namespace Squelch.Activities
                 case Resource.Id.navigation_home:
                     this.SupportFragmentManager.SetFragment(typeof(HomeFragment), true, true);
                     return true;
-                case Resource.Id.navigation_calendar:
-                    this.SupportFragmentManager.SetFragment(typeof(CalendarFragment), true, true);
+                case Resource.Id.navigation_schedule:
+                    this.SupportFragmentManager.SetFragment(typeof(ScheduleFragment), true, true);
                     return true;
                 case Resource.Id.navigation_settings:
                     this.SupportFragmentManager.SetFragment(typeof(SettingsFragment), true, true);
@@ -174,6 +175,12 @@ namespace Squelch.Activities
             // Perform any cleaning actions against the database
             try
             {
+#if DEBUG
+                ///////////////////////////
+                //await Debugger.SqliteDatabaseTest(this);
+                await Debugger.InsertTestBlackoutData(this);
+                ///////////////////////////
+#endif
                 await BlackoutDatabase.Scrub();
             }
             catch (Exception ex)

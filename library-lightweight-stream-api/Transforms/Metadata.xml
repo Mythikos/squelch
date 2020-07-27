@@ -11,7 +11,7 @@
   <attr path="/api/package[@name='com.annimon.stream.iterator']/class[@name='PrimitiveIterator.OfLong']/method[@name='next' and count(parameter)=0]" name="managedReturn">Java.Lang.Object</attr>
 
   <attr path="/api/package[@name='com.annimon.stream.operator']/class[@name='ObjChunkBy']/method[@name='nextIteration' and count(parameter)=0]" name="managedReturn">Java.Lang.Object</attr>
-  <attr path="/api/package[@name='com.annimon.stream.operator']/class[@name='ObjChunkBy']/method[@name='nextIteration' and count(parameter)=0]" name="type">Java.Lang.Object</attr>
+  <attr path="/api/package[@name='com.annimon.stream.operator']/class[@name='ObjChunkBy']/method[@name='nextIteration' and count(parameter)=0]" name="managedType">Java.Lang.Object</attr>
 
   <attr path="/api/package[@name='com.annimon.stream.operator']/class[@name='ObjSlidingWindow']/method[@name='nextIteration' and count(parameter)=0]" name="managedReturn">Java.Lang.Object</attr>
   <attr path="/api/package[@name='com.annimon.stream.operator']/class[@name='ObjSlidingWindow']/method[@name='nextIteration' and count(parameter)=0]" name="managedType">Java.Lang.Object</attr>

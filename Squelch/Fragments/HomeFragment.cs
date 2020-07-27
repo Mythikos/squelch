@@ -199,16 +199,6 @@ namespace Squelch.Fragments
             {
                 Logger.Write(_tag, $"OnResume: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
             }
-
-            await BlackoutDatabase.UpsertAsync(new BlackoutItem()
-            {
-                StartDateTime = DateTime.Today.AddDays(5),
-                EndDateTime = DateTime.Today.AddDays(6),
-                Bid = 5,
-                DifficultyCode = BlackoutItem.BlackoutDifficultyCode.Master,
-                ResultCode = BlackoutItem.BlackoutResultCode.Pending,
-                StatusCode = BlackoutItem.BlackoutStatusCode.Pending,
-            });
         }
         #endregion
 
