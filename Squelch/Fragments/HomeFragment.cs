@@ -38,9 +38,9 @@ namespace Squelch.Fragments
         private TextView _feedbackMessage;
         private Button _feedbackPositiveButton, _feedbackNegativeButton;
 
-        private const string FEEDBACK_MESSAGE_NEUTRAL = "Hey! Are you enjoying squelch?";
-        private const string FEEDBACK_MESSAGE_POSITIVE = "Awesome! Can you give us some feedback on your experience?";
-        private const string FEEDBACK_MESSAGE_NEGATIVE = "Oh no, we are sorry to hear that! Can you give us some feedback so we can better your experience in the future?";
+        private CardView _donationCard;
+        private TextView _donationMessage;
+        private Button _donationPositiveButton, _donationNegativeButton, _donationNeutralButton;
         #endregion
 
         #region Native Events
@@ -63,21 +63,21 @@ namespace Squelch.Fragments
                 _nextBlackoutStartDateLabel = view.FindViewById<TextView>(Resource.Id.fragment_home_next_blackout_card_start_date_label);
                 _nextBlackoutDifficultyLabel = view.FindViewById<TextView>(Resource.Id.fragment_home_next_blackout_card_difficulty_label);
 
+                //
+                // Feedback stuff
                 _feedbackCard = view.FindViewById<CardView>(Resource.Id.fragment_home_feedback_card);
                 _feedbackMessage = view.FindViewById<TextView>(Resource.Id.fragment_home_feedback_card_inquiry_message);
                 _feedbackPositiveButton = view.FindViewById<Button>(Resource.Id.fragment_home_feedback_card_inquiry_positive_button);
                 _feedbackNegativeButton = view.FindViewById<Button>(Resource.Id.fragment_home_feedback_card_inquiry_negative_button);
 
-                //
-                // Setup feedback stuff
-                _feedbackMessage.Text = FEEDBACK_MESSAGE_NEUTRAL;
+                _feedbackMessage.Text = GetString(Resource.String.fragment_home_feedback_message_neutral);
                 _feedbackPositiveButton.Click += delegate
                 {
-                    if (_feedbackMessage.Text.Equals(FEEDBACK_MESSAGE_NEUTRAL))
+                    if (_feedbackMessage.Text.Equals(GetString(Resource.String.fragment_home_feedback_message_neutral)))
                     {
-                        _feedbackMessage.Text = FEEDBACK_MESSAGE_POSITIVE;
-                        _feedbackPositiveButton.Text = "Sure";
-                        _feedbackNegativeButton.Text = "No thanks";
+                        _feedbackMessage.Text = GetString(Resource.String.fragment_home_feedback_message_positive);
+                        _feedbackPositiveButton.Text = GetString(Resource.String.text_sure_exclamation);
+                        _feedbackNegativeButton.Text = GetString(Resource.String.text_no_thanks);
                     }
                     else
                     {
@@ -86,11 +86,11 @@ namespace Squelch.Fragments
                 };
                 _feedbackNegativeButton.Click += delegate
                 {
-                    if (_feedbackMessage.Text.Equals(FEEDBACK_MESSAGE_NEUTRAL))
+                    if (_feedbackMessage.Text.Equals(GetString(Resource.String.fragment_home_feedback_message_neutral)))
                     {
-                        _feedbackMessage.Text = FEEDBACK_MESSAGE_NEGATIVE;
-                        _feedbackPositiveButton.Text = "Sure";
-                        _feedbackNegativeButton.Text = "No thanks";
+                        _feedbackMessage.Text = GetString(Resource.String.fragment_home_feedback_message_negative);
+                        _feedbackPositiveButton.Text = GetString(Resource.String.text_sure_exclamation);
+                        _feedbackNegativeButton.Text = GetString(Resource.String.text_no_thanks);
                     }
                     else
                     {
@@ -99,6 +99,35 @@ namespace Squelch.Fragments
                         _feedbackCard.Visibility = ViewStates.Gone;
                     }
                 };
+
+                _feedbackCard.Visibility = ViewStates.Gone;
+
+                //
+                // Donation stuff
+                _donationCard = view.FindViewById<CardView>(Resource.Id.fragment_home_donation_card);
+                _donationMessage = view.FindViewById<TextView>(Resource.Id.fragment_home_donation_card_inquiry_message);
+                _donationPositiveButton = view.FindViewById<Button>(Resource.Id.fragment_home_donation_card_inquiry_positive_button);
+                _donationNeutralButton = view.FindViewById<Button>(Resource.Id.fragment_home_donation_card_inquiry_neutral_button);
+                _donationNegativeButton = view.FindViewById<Button>(Resource.Id.fragment_home_donation_card_inquiry_negative_button);
+
+                _donationPositiveButton.Click += delegate
+                {
+                    this.FragmentManager.SetFragment(typeof(StoreFragment), true, true);
+                };
+                _donationNeutralButton.Click += delegate
+                {
+                    UserSettings.SetFlagValue(UserSettings.FlagKeys.Donation_Status, "skipped");
+                    UserSettings.SetFlagValue(UserSettings.FlagKeys.Donation_StatusUpdatedOn, DateTime.Now.ToString());
+                    _donationCard.Visibility = ViewStates.Gone;
+                };
+                _donationNegativeButton.Click += delegate
+                {
+                    UserSettings.SetFlagValue(UserSettings.FlagKeys.Donation_Status, "never");
+                    UserSettings.SetFlagValue(UserSettings.FlagKeys.Donation_StatusUpdatedOn, DateTime.Now.ToString());
+                    _donationCard.Visibility = ViewStates.Gone;
+                };
+
+                _donationCard.Visibility = ViewStates.Gone;
 
                 //
                 // Setup events
@@ -170,22 +199,53 @@ namespace Squelch.Fragments
         {
             base.OnResume();
 
+            int finishedBlackoutCount = 0;
+            DateTime lastPrompt;
+
             try
             {
                 //
-                // Ask for feedback
-                if ((await BlackoutDatabase.FindAllAsync(BlackoutItem.BlackoutStatusCode.Finished)).Count() >= 3)
+                // Get blackout count
+                finishedBlackoutCount = (await BlackoutDatabase.FindAllAsync(BlackoutItem.BlackoutStatusCode.Finished)).Count();
+
+                //
+                // Ask for donations?
+                if (finishedBlackoutCount >= 1)
                 {
-                    if (UserSettings.GetFlagValue(UserSettings.FlagKeys.Feedback_Status, "false") == "false")
+                    if (UserSettings.GetFlagValue(UserSettings.FlagKeys.Donation_Status, "false").Equals("true", StringComparison.OrdinalIgnoreCase))
+                    {
+                        // They donated before, lets wait a while before asking again
+                        lastPrompt = DateTime.Parse(UserSettings.GetFlagValue(UserSettings.FlagKeys.Donation_StatusUpdatedOn, DateTime.Now.ToString()));
+                        if (DateTime.Now.Subtract(lastPrompt).TotalDays >= 180)
+                            _donationCard.Visibility = ViewStates.Visible;
+                    }
+                    else if (UserSettings.GetFlagValue(UserSettings.FlagKeys.Donation_Status, "false").Equals("false", StringComparison.OrdinalIgnoreCase))
+                    {
+                        _donationCard.Visibility = ViewStates.Visible;
+                    }
+                    else if (UserSettings.GetFlagValue(UserSettings.FlagKeys.Donation_Status, "false").Equals("skipped", StringComparison.OrdinalIgnoreCase))
+                    {
+                        // They skipped when asked before
+                        lastPrompt = DateTime.Parse(UserSettings.GetFlagValue(UserSettings.FlagKeys.Donation_StatusUpdatedOn, DateTime.Now.ToString()));
+                        if (DateTime.Now.Subtract(lastPrompt).TotalDays >= 7)
+                            _donationCard.Visibility = ViewStates.Visible;
+                    }
+                }
+
+                //
+                // Ask for feedback
+                if (finishedBlackoutCount >= 3)
+                {
+                    if (UserSettings.GetFlagValue(UserSettings.FlagKeys.Feedback_Status, "false").Equals("false", StringComparison.OrdinalIgnoreCase))
                     {
                         // They havent been prompted yet
                         _feedbackCard.Visibility = ViewStates.Visible;
                     }
-                    else if (UserSettings.GetFlagValue(UserSettings.FlagKeys.Feedback_Status, "false") == "skipped")
+                    else if (UserSettings.GetFlagValue(UserSettings.FlagKeys.Feedback_Status, "false").Equals("skipped", StringComparison.OrdinalIgnoreCase))
                     {
                         // They skipped when asked before
-                        var lastPrompted = DateTime.Parse(UserSettings.GetFlagValue(UserSettings.FlagKeys.Feedback_StatusUpdatedOn, DateTime.Now.ToString()));
-                        if (DateTime.Now.Subtract(lastPrompted).TotalDays >= 5)
+                        lastPrompt = DateTime.Parse(UserSettings.GetFlagValue(UserSettings.FlagKeys.Feedback_StatusUpdatedOn, DateTime.Now.ToString()));
+                        if (DateTime.Now.Subtract(lastPrompt).TotalDays >= 5)
                             _feedbackCard.Visibility = ViewStates.Visible;
                     }
                 }

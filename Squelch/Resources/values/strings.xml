@@ -24,6 +24,11 @@
   <string name="fragment_first_time_setup_special_permissions_message">In order for Squelch to work for you, it needs your permission to do the following:</string>
   <string name="fragment_first_time_setup_personalize_message">Personalize Squelch by providing some basic information. You can skip this step by pressing finish below.</string>
 
+  <string name="fragment_home_feedback_message_neutral">Hey! Are you enjoying squelch?</string>
+  <string name="fragment_home_feedback_message_positive">Awesome! Can you give us some feedback on your experience?</string>
+  <string name="fragment_home_feedback_message_negative">Oh no, we are sorry to hear that! Can you give us some feedback so we can better your experience in the future?</string>
+  <string name="fragment_home_donation_message_neutral">Hey there, Squelcher, shameless plug here. The squelch team works hard to provide you with the best app and experience we can. Would you consider giving the development team a small donation to help fuel future development?</string>
+
   <string name="fragment_feedback_submission_error_unable_to_connect">Unable to connect to Squelch servers. Please try again later.</string>
   <string name="fragment_feedback_submission_error_no_option_selected">Please choose one of the available options.</string>
   <string name="fragment_feedback_submission_error_unexpected">An unexpected error occured when performing this action. Please try again later.</string>
@@ -150,6 +155,11 @@
   <string name="text_veteran">Veteran</string>
   <string name="text_master">Master</string>
   <string name="text_nightmare">Nightmare</string>
+  <string name="text_sure_exclamation">Sure!</string>
+  <string name="text_not_really">Not Really</string>
+  <string name="text_no_thanks">No Thanks</string>
+  <string name="text_maybe_later">Maybe Later</string>
+  <string name="text_never">Never</string>
 
   <!-- Special -->
   <string name="_blank"></string>

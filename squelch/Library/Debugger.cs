@@ -106,7 +106,7 @@ namespace Squelch.Library
                     var blackoutItem = new BlackoutItem()
                     {
                         StartDateTime = DateTime.Today.AddDays(i - 10),
-                        EndDateTime = DateTime.Today.AddDays(i - 10).AddHours(18),
+                        EndDateTime = DateTime.Today.AddDays(i - 10).AddHours(12),
                         DifficultyCode = ((i%10==0) ? BlackoutItem.BlackoutDifficultyCode.Master : ((i%5==0) ? BlackoutItem.BlackoutDifficultyCode.Veteran : BlackoutItem.BlackoutDifficultyCode.Novice)),
                         Bid = i,
                         Blacklist = blacklist

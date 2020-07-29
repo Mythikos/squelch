@@ -114,21 +114,12 @@ namespace Squelch.Fragments
                 {
                     ("JamesNK", "Newtonsoft.Json", "MIT", "https://github.com/JamesNK/Newtonsoft.Json"),
                     ("James Montemagno", "InAppBillingPlugin", "MIT", "https://github.com/jamesmontemagno/InAppBillingPlugin"),
-                    ("Xamarin", "Xamarin.Essentials", "MIT", "https://github.com/xamarin/Essentials"),
-                    ("James Montemagno", "Xam.Plugins.Settings", "MIT", "https://github.com/jamesmontemagno/SettingsPlugin"),
-                    ("TwinCoders", "SQLiteNetExtensions.Async", "(C)", "https://bitbucket.org/twincoders/sqlite-net-extensions/src/master/"),
+                    ("Xamarin", "Essentials", "MIT", "https://github.com/xamarin/Essentials"),
+                    ("James Montemagno", "Settings Plugin", "MIT", "https://github.com/jamesmontemagno/SettingsPlugin"),
+                    ("TwinCoders S.L.", "sqlite-net-extensions", "(C) 2013", "https://bitbucket.org/twincoders/sqlite-net-extensions/src/master/"),
                     ("Praeclarum", "sqlite-net-pcl", "MIT", "https://github.com/praeclarum/sqlite-net"),
-                    ("Microsoft", "Xamarin.Firebase.Analytics", "MIT", "https://github.com/xamarin/GooglePlayServicesComponents"),
-                    ("Microsoft", "Xamarin.AndroidX.AppCompat", "MIT", "https://github.com/xamarin/AndroidX"),
-                    ("Microsoft", "Xamarin.AndroidX.Browser", "MIT", "https://github.com/xamarin/AndroidX"),
-                    ("Microsoft", "Xamarin.AndroidX.ConstraintLayout", "MIT", "https://github.com/xamarin/AndroidX"),
-                    ("Microsoft", "Xamarin.AndroidX.ConstraintLayout", "MIT", "https://github.com/xamarin/AndroidX"),
-                    ("Microsoft", "Xamarin.AndroidX.Legacy.Support.Core.Utils", "MIT", "https://github.com/xamarin/AndroidX"),
-                    ("Microsoft", "Xamarin.AndroidX.Legacy.Support.V4", "MIT", "https://github.com/xamarin/AndroidX"), // Remove
-                    ("Microsoft", "Xamarin.AndroidX.Lifecycle.LiveData", "MIT", "https://github.com/xamarin/AndroidX"),
-                    ("Microsoft", "Xamarin.Google.Android.Material", "MIT", "https://github.com/xamarin/AndroidX"),
-
-                    ("Microsoft", "Xamarin.AndroidX.Migration", "MIT", "https://github.com/xamarin/XamarinAndroidXMigration"),
+                    ("Microsoft", "Google Play Services", "MIT", "https://github.com/xamarin/GooglePlayServicesComponents"),
+                    ("Microsoft", "AndroidX", "MIT", "https://github.com/xamarin/AndroidX"),
                 };
 
                 //

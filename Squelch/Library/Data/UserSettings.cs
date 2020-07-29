@@ -18,12 +18,36 @@ namespace Squelch.Library.Data
     internal static class UserSettings
     {
         public enum FlagKeys 
-        { 
-            FirstTimeSetup_IsCompleted, // Possible values: true, false
-            FirstTimeSetup_CompletedOn, // Possible values: a datetime that represents the time of the above value
+        {
+            /// <summary>
+            /// Possible values: true, false
+            /// </summary>
+            FirstTimeSetup_IsCompleted,
 
-            Feedback_Status, // Possible values: true, false, skipped
-            Feedback_StatusUpdatedOn // Possible values: a datetime that represents the time of the above value
+            /// <summary>
+            /// Possible values: a datetime that represents the time of the above value
+            /// </summary>
+            FirstTimeSetup_CompletedOn,
+
+            /// <summary>
+            /// Possible values: true, false, skipped, never
+            /// </summary>
+            Donation_Status,
+
+            /// <summary>
+            /// Possible values: a datetime that represents the time of the above value
+            /// </summary>
+            Donation_StatusUpdatedOn,
+
+            /// <summary>
+            /// Possible values: true, false, skipped
+            /// </summary>
+            Feedback_Status,
+
+            /// <summary>
+            /// Possible values: a datetime that represents the time of the above value
+            /// </summary>
+            Feedback_StatusUpdatedOn
         }
 
         private const string PATTERN_FLAG_NAME = "Flag_{0}";

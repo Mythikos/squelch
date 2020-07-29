@@ -50,6 +50,70 @@
             </LinearLayout>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/fragment_home_donation_card"
+                android:animateLayoutChanges="true"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp"
+                android:backgroundTint="@color/Goldenrod"
+                android:visibility="visible">
+                <LinearLayout
+                    android:id="@+id/fragment_home_donation_card_inquiry"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:padding="10dp">
+                    <TextView
+                        android:id="@+id/fragment_home_donation_card_inquiry_message"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:text="@string/fragment_home_donation_message_neutral"
+                        android:textColor="@color/White"
+                        android:gravity="center"
+                        android:textSize="15dp"
+                        android:paddingBottom="5dp"/>
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent">
+                        <Button
+                            android:id="@+id/fragment_home_donation_card_inquiry_negative_button"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/rounded_corners_ripple"
+                            android:backgroundTint="@color/buttonNegativeBackground"
+                            android:textColor="@color/buttonNegativeForeground"
+                            android:text="@string/text_never"/>
+                        <Button
+                            android:id="@+id/fragment_home_donation_card_inquiry_neutral_button"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/rounded_corners_ripple"
+                            android:backgroundTint="@color/buttonNegativeBackground"
+                            android:textColor="@color/buttonNegativeForeground"
+                            android:text="@string/text_maybe_later"/>
+                        <Button
+                            android:id="@+id/fragment_home_donation_card_inquiry_positive_button"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/rounded_corners_ripple"
+                            android:backgroundTint="@color/buttonPositiveBackground"
+                            android:textColor="@color/buttonPositiveForeground"
+                            android:text="@string/text_sure_exclamation"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
                 android:id="@+id/fragment_home_feedback_card"
                 android:animateLayoutChanges="true"
                 android:layout_height="wrap_content"
@@ -88,7 +152,7 @@
                             android:background="@drawable/rounded_corners_ripple"
                             android:backgroundTint="@color/buttonNegativeBackground"
                             android:textColor="@color/buttonNegativeForeground"
-                            android:text="Not really"/>
+                            android:text="@string/text_not_really"/>
                         <Button
                             android:id="@+id/fragment_home_feedback_card_inquiry_positive_button"
                             android:layout_height="wrap_content"
@@ -98,7 +162,7 @@
                             android:background="@drawable/rounded_corners_ripple"
                             android:backgroundTint="@color/buttonPositiveBackground"
                             android:textColor="@color/buttonPositiveForeground"
-                            android:text="Yes!"/>
+                            android:text="@string/text_yes"/>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

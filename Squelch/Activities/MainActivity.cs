@@ -132,10 +132,12 @@ namespace Squelch.Activities
                 case Resource.Id.homeAsUp:
                     if (this.SupportFragmentManager.BackStackEntryCount > 0)
                         this.SupportFragmentManager.PopBackStack();
+                    return true;
+                default:
                     break;
             }
 
-            return true;
+            return base.OnOptionsItemSelected(item);
         }
 
         protected override async void OnStart()

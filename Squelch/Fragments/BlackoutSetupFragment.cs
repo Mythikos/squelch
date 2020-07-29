@@ -52,7 +52,7 @@ namespace Squelch.Fragments
         // Apps
         private LinearLayout _applicationLayout;
         private RecyclerView _applicationRecyclerView;
-        private bool _showSystemApplications;
+        private IMenuItem _applicationShowSystemAppsMenuItem;
 
         // Review
         private ScrollView _reviewLayout;
@@ -73,6 +73,7 @@ namespace Squelch.Fragments
         {
             base.OnCreate(savedInstanceState);
             _blackoutDifficulty = BlackoutItem.BlackoutDifficultyCode.Veteran;
+            HasOptionsMenu = true;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -397,8 +398,6 @@ namespace Squelch.Fragments
                 _dialogPositiveButton.SetButtonText(GetString(Resource.String.action_next));
                 _dialogNegativeButton.SetButtonText(GetString(Resource.String.action_cancel));
                 PositiveButton_Click(this, null);
-                _showSystemApplications = false;
-                this.HasOptionsMenu = true;
             }
             catch (Exception ex)
             {
@@ -430,22 +429,20 @@ namespace Squelch.Fragments
 
         public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
         {
-            inflater.Inflate(Resource.Menu.fragment_blackout_setup_menu, menu);
+            // Create a new checkbox to add to the options menu
+            var applicationShowSystemAppsCheckbox = new CheckBox(this.Context);
+            applicationShowSystemAppsCheckbox.Checked = false;
+            applicationShowSystemAppsCheckbox.Click += delegate { ApplicationList_Filter(); };
+            applicationShowSystemAppsCheckbox.Text = GetString(Resource.String.action_show_system_applications);
+            applicationShowSystemAppsCheckbox.SetForegroundGravity(GravityFlags.End);
+            applicationShowSystemAppsCheckbox.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimaryForeground)); // This is the title bar which is colorPrimary
+            applicationShowSystemAppsCheckbox.ButtonTintList = ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimaryForeground); // This is the title bar which is colorPrimary
 
-            base.OnCreateOptionsMenu(menu, inflater);
-        }
-
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            switch(item.ItemId)
-            {
-                case Resource.Id.fragment_blackout_setup_menu_show_system_applications:
-                    _showSystemApplications = !_showSystemApplications;
-                    ApplicationList_Filter();
-                    break;
-            }
-
-            return true;
+            // Add new item to menu
+            _applicationShowSystemAppsMenuItem = menu.Add(GetString(Resource.String.action_show_system_applications));
+            _applicationShowSystemAppsMenuItem.SetActionView(applicationShowSystemAppsCheckbox);
+            _applicationShowSystemAppsMenuItem.SetShowAsAction(ShowAsAction.Always);
+            _applicationShowSystemAppsMenuItem.SetVisible(false);
         }
         #endregion
 
@@ -684,7 +681,7 @@ namespace Squelch.Fragments
             {
                 //
                 // Add / remove system apps
-                if (_showSystemApplications)
+                if (_applicationShowSystemAppsMenuItem.IsChecked)
                 {
                     _applicationListAdapter.ApplicationList = _applicationList
                         .OrderBy(x => x.Name)
@@ -782,6 +779,7 @@ namespace Squelch.Fragments
                         _bidLayout.Visibility = ViewStates.Gone;
                         _daterangeLayout.Visibility = ViewStates.Gone;
                         _applicationLayout.Visibility = ViewStates.Gone;
+                        _applicationShowSystemAppsMenuItem.SetVisible(false);
                         _reviewLayout.Visibility = ViewStates.Gone;
                         break;
                     case STEP_BID:
@@ -792,6 +790,7 @@ namespace Squelch.Fragments
                         _bidLayout.Visibility = ViewStates.Visible;
                         _daterangeLayout.Visibility = ViewStates.Gone;
                         _applicationLayout.Visibility = ViewStates.Gone;
+                        _applicationShowSystemAppsMenuItem.SetVisible(false);
                         _reviewLayout.Visibility = ViewStates.Gone;
                         switch (_blackoutDifficulty)
                         {
@@ -819,6 +818,7 @@ namespace Squelch.Fragments
                         _bidLayout.Visibility = ViewStates.Gone;
                         _daterangeLayout.Visibility = ViewStates.Visible;
                         _applicationLayout.Visibility = ViewStates.Gone;
+                        _applicationShowSystemAppsMenuItem.SetVisible(false);
                         _reviewLayout.Visibility = ViewStates.Gone;
                         break;
                     case STEP_APPLICATIONS:
@@ -829,6 +829,7 @@ namespace Squelch.Fragments
                         _bidLayout.Visibility = ViewStates.Gone;
                         _daterangeLayout.Visibility = ViewStates.Gone;
                         _applicationLayout.Visibility = ViewStates.Visible;
+                        _applicationShowSystemAppsMenuItem.SetVisible(true);
                         _reviewLayout.Visibility = ViewStates.Gone;
                         ApplicationList_Filter();
                         break;
@@ -840,6 +841,7 @@ namespace Squelch.Fragments
                         _bidLayout.Visibility = ViewStates.Gone;
                         _daterangeLayout.Visibility = ViewStates.Gone;
                         _applicationLayout.Visibility = ViewStates.Gone;
+                        _applicationShowSystemAppsMenuItem.SetVisible(false);
                         _reviewLayout.Visibility = ViewStates.Visible;
                         _reviewDifficultyLabel.Text = _blackoutDifficulty.ToString();
                         _reviewBidLabel.Text = $"${_bidNumberPicker.Value}";
@@ -852,6 +854,7 @@ namespace Squelch.Fragments
                         _bidLayout.Visibility = ViewStates.Gone;
                         _daterangeLayout.Visibility = ViewStates.Gone;
                         _applicationLayout.Visibility = ViewStates.Gone;
+                        _applicationShowSystemAppsMenuItem.SetVisible(false);
                         _reviewLayout.Visibility = ViewStates.Gone;
                         break;
                 }

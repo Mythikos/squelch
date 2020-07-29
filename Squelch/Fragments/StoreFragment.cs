@@ -5,6 +5,7 @@ using AndroidX.Fragment.App;
 using Google.Android.Material.Snackbar;
 using Squelch.Activities;
 using Squelch.Library;
+using Squelch.Library.Data;
 using Squelch.Library.Interfaces;
 using Squelch.Library.Singletons;
 using Squelch.Library.Utilities;
@@ -170,9 +171,16 @@ namespace Squelch.Fragments
 
                                 // Init purchase util and process purchase
                                 (bool, string) result = await InAppPurchaseUtils.PurchaseAsync(listing.ProductId, true);
-
-                                if (string.IsNullOrWhiteSpace(result.Item2) == false)
+                                if (result.Item1 == true && category.Name.Equals("Donations", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    // Set user flags
+                                    UserSettings.SetFlagValue(UserSettings.FlagKeys.Donation_Status, true.ToString());
+                                    UserSettings.SetFlagValue(UserSettings.FlagKeys.Donation_StatusUpdatedOn, DateTime.Now.ToString());
+                                }
+                                else if (result.Item1 == false && string.IsNullOrWhiteSpace(result.Item2) == false)
+                                {
                                     DisplayUtils.ShowSnackbar(this.View, result.Item2, Snackbar.LengthIndefinite);
+                                }
 
                                 // Set no longer working
                                 this.SetIsWorking(false);

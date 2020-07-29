@@ -1205,6 +1205,28 @@
           "buildTransitive/monoandroid90/Xamarin.AndroidX.Legacy.Support.Core.Utils.targets": {}
         }
       },
+      "Xamarin.AndroidX.Legacy.Support.V4/1.0.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.AndroidX.Core": "1.1.0.1",
+          "Xamarin.AndroidX.Fragment": "1.1.0.1",
+          "Xamarin.AndroidX.Legacy.Support.Core.UI": "1.0.0.1",
+          "Xamarin.AndroidX.Legacy.Support.Core.Utils": "1.0.0.1",
+          "Xamarin.AndroidX.Media": "1.1.0.1"
+        },
+        "frameworkAssemblies": [
+          "Java.Interop"
+        ],
+        "compile": {
+          "lib/monoandroid90/Xamarin.AndroidX.Legacy.Support.V4.dll": {}
+        },
+        "runtime": {
+          "lib/monoandroid90/Xamarin.AndroidX.Legacy.Support.V4.dll": {}
+        },
+        "build": {
+          "buildTransitive/monoandroid90/Xamarin.AndroidX.Legacy.Support.V4.targets": {}
+        }
+      },
       "Xamarin.AndroidX.Lifecycle.Common/2.2.0.1": {
         "type": "package",
         "dependencies": {
@@ -1341,7 +1363,26 @@
           "buildTransitive/monoandroid90/Xamarin.AndroidX.LocalBroadcastManager.targets": {}
         }
       },
-      "Xamarin.AndroidX.Migration/1.0.6.1": {
+      "Xamarin.AndroidX.Media/1.1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.AndroidX.Collection": "1.1.0.1",
+          "Xamarin.AndroidX.Core": "1.1.0.1"
+        },
+        "frameworkAssemblies": [
+          "Java.Interop"
+        ],
+        "compile": {
+          "lib/monoandroid90/Xamarin.AndroidX.Media.dll": {}
+        },
+        "runtime": {
+          "lib/monoandroid90/Xamarin.AndroidX.Media.dll": {}
+        },
+        "build": {
+          "buildTransitive/monoandroid90/Xamarin.AndroidX.Media.targets": {}
+        }
+      },
+      "Xamarin.AndroidX.Migration/1.0.0.1": {
         "type": "package",
         "dependencies": {
           "Xamarin.AndroidX.MultiDex": "2.0.1.1"
@@ -3225,6 +3266,23 @@
         "xamarin.androidx.legacy.support.core.utils.nuspec"
       ]
     },
+    "Xamarin.AndroidX.Legacy.Support.V4/1.0.0.1": {
+      "sha512": "EGWF7qThkBp1zkZCihRtx2NF+G8hqhd0wvEU1WfjZDVaO9fddxyx5ducAURPWsMH+LQR5lCqyhLhuTABogfjog==",
+      "type": "package",
+      "path": "xamarin.androidx.legacy.support.v4/1.0.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "aar/androidx.legacy.legacy-support-v4.aar",
+        "build/monoandroid90/Xamarin.AndroidX.Legacy.Support.V4.targets",
+        "buildTransitive/monoandroid90/Xamarin.AndroidX.Legacy.Support.V4.targets",
+        "lib/monoandroid90/Xamarin.AndroidX.Legacy.Support.V4.dll",
+        "lib/monoandroid90/Xamarin.AndroidX.Legacy.Support.V4.pdb",
+        "xamarin.androidx.legacy.support.v4.1.0.0.1.nupkg.sha512",
+        "xamarin.androidx.legacy.support.v4.nuspec"
+      ]
+    },
     "Xamarin.AndroidX.Lifecycle.Common/2.2.0.1": {
       "sha512": "7u2RzyK3r8MKNVvx51It1SGjAJz0MfrD928f2nIMrayfX1OgSXp76L6UdU5NzGPl2cLMlmYih6vlmWd0k0W50A==",
       "type": "package",
@@ -3346,10 +3404,28 @@
         "xamarin.androidx.localbroadcastmanager.nuspec"
       ]
     },
-    "Xamarin.AndroidX.Migration/1.0.6.1": {
-      "sha512": "Z5Qf7vlW/i41OCRcLSWejxEqlSlIlOuozha9DMWLVJ3wKXgkWdrY2eBZ394orTql/SPx6egdF6ED3iy4mFOQXQ==",
+    "Xamarin.AndroidX.Media/1.1.0.1": {
+      "sha512": "iuHzMpR8PolFt+FNwjZ6MAKymZ8jplDLLKSICOe/adJFxgUzH1CJUwMrpMt7qjTKxfQMgKgcpY+QvDAx/Z4sFg==",
       "type": "package",
-      "path": "xamarin.androidx.migration/1.0.6.1",
+      "path": "xamarin.androidx.media/1.1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "aar/androidx.media.media.aar",
+        "build/monoandroid90/Xamarin.AndroidX.Media.targets",
+        "buildTransitive/monoandroid90/Xamarin.AndroidX.Media.targets",
+        "lib/monoandroid90/Xamarin.AndroidX.Media.dll",
+        "lib/monoandroid90/Xamarin.AndroidX.Media.pdb",
+        "proguard/proguard.txt",
+        "xamarin.androidx.media.1.1.0.1.nupkg.sha512",
+        "xamarin.androidx.media.nuspec"
+      ]
+    },
+    "Xamarin.AndroidX.Migration/1.0.0.1": {
+      "sha512": "SfiyP/6NV6Y31njnVgks5+qgWyQbByMJuc+yZBkaSZfSqDiP8tyugk3yuckJU3nNkonLixKqGMrkAHGGcXJVTA==",
+      "type": "package",
+      "path": "xamarin.androidx.migration/1.0.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3389,7 +3465,7 @@
         "buildTransitive/monoandroid90/Xamarin.AndroidX.Migration.targets",
         "lib/monoandroid90/_._",
         "readme.txt",
-        "xamarin.androidx.migration.1.0.6.1.nupkg.sha512",
+        "xamarin.androidx.migration.1.0.0.1.nupkg.sha512",
         "xamarin.androidx.migration.nuspec"
       ]
     },
@@ -3885,8 +3961,8 @@
       "Xamarin.AndroidX.Browser >= 1.2.0.1",
       "Xamarin.AndroidX.ConstraintLayout >= 1.1.3.1",
       "Xamarin.AndroidX.Legacy.Support.Core.Utils >= 1.0.0.1",
+      "Xamarin.AndroidX.Legacy.Support.V4 >= 1.0.0.1",
       "Xamarin.AndroidX.Lifecycle.LiveData >= 2.2.0.1",
-      "Xamarin.AndroidX.Migration >= 1.0.6.1",
       "Xamarin.Essentials >= 1.5.3.2",
       "Xamarin.Firebase.Analytics >= 71.1630.1",
       "Xamarin.Google.Android.Material >= 1.0.0.1",
@@ -3963,13 +4039,13 @@
             "target": "Package",
             "version": "[1.0.0.1, )"
           },
+          "Xamarin.AndroidX.Legacy.Support.V4": {
+            "target": "Package",
+            "version": "[1.0.0.1, )"
+          },
           "Xamarin.AndroidX.Lifecycle.LiveData": {
             "target": "Package",
             "version": "[2.2.0.1, )"
-          },
-          "Xamarin.AndroidX.Migration": {
-            "target": "Package",
-            "version": "[1.0.6.1, )"
           },
           "Xamarin.Essentials": {
             "target": "Package",
