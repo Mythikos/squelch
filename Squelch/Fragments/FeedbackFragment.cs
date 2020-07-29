@@ -72,13 +72,12 @@ namespace Squelch.Fragments
                 _rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_feedback_root_layout);
                 _problemLabel = view.FindViewById<TextView>(Resource.Id.fragment_feedback_problem_label);
                 _dataConsentLabel = view.FindViewById<TextView>(Resource.Id.fragment_feedback_data_consent_label);
-                _dialogPositiveButton = view.FindViewById<Button>(Resource.Id.fragment_feedback_button_positive);
-                _dialogNegativeButton = view.FindViewById<Button>(Resource.Id.fragment_feedback_button_negative);
-
                 _dataConsentLabel.TextFormatted = Library.Utilities.ViewUtils.FormattedTextFromHTML(this.Resources.GetString(Resource.String.consent_statement));
                 _dataConsentLabel.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;
 
+                _dialogPositiveButton = view.FindViewById<Button>(Resource.Id.fragment_feedback_button_positive);
                 _dialogPositiveButton.Click += PositiveButton_Click;
+                _dialogNegativeButton = view.FindViewById<Button>(Resource.Id.fragment_feedback_button_negative);
                 _dialogNegativeButton.Click += NegativeButton_Click;
 
                 //
@@ -426,7 +425,7 @@ namespace Squelch.Fragments
 
             // Report to parent
             if (this.Activity is IIndeterminateProgressReporter)
-                ((IIndeterminateProgressReporter)this.Activity).SetProgressBarState(isWorking, true);
+                ((IIndeterminateProgressReporter)this.Activity).SetProgressBarState(isWorking);
         }
 
         /// <summary>

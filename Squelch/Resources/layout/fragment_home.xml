@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -35,16 +35,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:gravity="center"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:orientation="horizontal">
                 <Button
                     android:id="@+id/fragment_home_setup_blackout_button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/rounded_corners_ripple"
                     android:backgroundTint="@color/buttonPositiveBackground"
                     android:clickable="true"
                     android:focusable="auto"
-                    android:foreground="?attr/selectableItemBackground"
                     android:text="@string/action_setup_blackout"
                     android:textColor="@color/buttonPositiveForeground" />
             </LinearLayout>
@@ -56,6 +56,8 @@
                 android:layout_width="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp"
                 android:backgroundTint="@color/colorAccent"
                 android:visibility="gone">
                 <LinearLayout
@@ -82,8 +84,9 @@
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
                             android:layout_weight="1"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/rounded_corners_ripple"
                             android:backgroundTint="@color/buttonNegativeBackground"
-                            android:foreground="?attr/selectableItemBackground"
                             android:textColor="@color/buttonNegativeForeground"
                             android:text="Not really"/>
                         <Button
@@ -91,22 +94,27 @@
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
                             android:layout_weight="1"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/rounded_corners_ripple"
                             android:backgroundTint="@color/buttonPositiveBackground"
-                            android:foreground="?attr/selectableItemBackground"
                             android:textColor="@color/buttonPositiveForeground"
                             android:text="Yes!"/>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-             <androidx.cardview.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/fragment_home_next_blackout_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp"
+                android:clickable="true"
+                android:background="@drawable/rounded_corners_ripple"
                 android:backgroundTint="@color/colorPrimary"
                 android:layout_margin="10dp"
-                android:visibility="gone">
+                android:visibility="visible">
                 <LinearLayout
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
@@ -157,7 +165,9 @@
                 android:layout_margin="10dp"
                 android:padding="15dp"
                 android:layout_weight="1"
-                android:background="@color/colorPrimary">
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="src_in">
                 <TextView
                     android:id="@+id/fragment_home_stats_layout_activity_title"
                     android:layout_height="wrap_content"
@@ -167,7 +177,7 @@
                     android:paddingBottom="5dp"/>
                 <View
                     android:id="@+id/fragment_home_stats_layout_activity_chart"
-                    android:background="@drawable/layout_rounded"
+                    android:background="@drawable/rounded_corners"
                     android:layout_width="match_parent"
                     android:layout_height="175dp"
                     android:paddingBottom="5dp"/>

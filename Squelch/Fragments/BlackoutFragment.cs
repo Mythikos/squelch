@@ -25,7 +25,7 @@ namespace Squelch.Fragments
         #region Instance Variables
         private static readonly string _tag = typeof(BlackoutFragment).FullName;
 
-        private FrameLayout _rootLayout;
+        private LinearLayout _rootLayout;
         private TableLayout _informationLayout;
         private TableLayout _blacklistLayout;
         private Button _unlockButton;
@@ -54,7 +54,7 @@ namespace Squelch.Fragments
             {
                 //
                 // Set view items
-                _rootLayout = view.FindViewById<FrameLayout>(Resource.Id.fragment_blackout_root_layout);
+                _rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_blackout_root_layout);
                 _informationLayout = view.FindViewById<TableLayout>(Resource.Id.fragment_blackout_information_layout);
                 _blacklistLayout = view.FindViewById<TableLayout>(Resource.Id.fragment_blackout_blacklist_layout);
                 _progressIndicator = view.FindViewById<ProgressBar>(Resource.Id.fragment_blackout_progress_indicator);

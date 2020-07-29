@@ -39,7 +39,22 @@
   <string name="fragment_settings_privacy_policy_description">View our Privacy Policy</string>
   <string name="fragment_settings_end_user_licensing_agreement_description">View our EULA</string>
   <string name="fragment_settings_open_source_software_description">License details for open source software</string>
-  
+
+  <string name="fragment_blackout_setup_novice_difficulty_description">Bid range: $0 - $400. No applications are blocked by default.</string>
+  <string name="fragment_blackout_setup_veteran_difficulty_description">Bid range: $1 - $400. No applications are blocked by default.</string>
+  <string name="fragment_blackout_setup_master_difficulty_description">Bid range: $1 - $400. All non-system applications are blocked by default.</string>
+  <string name="fragment_blackout_setup_bid_range">Bid Range: ${0} - ${1}</string>
+
+  <string name="fragment_blackout_setup_dates_start_date_time">Start Date / Time</string>
+  <string name="fragment_blackout_setup_dates_end_date_time">End Date / Time</string>
+  <string name="fragment_blackout_setup_dates_tap_to_set_time">Tap to set time</string>
+  <string name="fragment_blackout_setup_dates_tap_to_set_date">Tap to set date</string>
+  <string name="fragment_blackout_setup_dates_plus_1_minute">+1 Min</string>
+  <string name="fragment_blackout_setup_dates_plus_5_minutes">+5 Mins</string>
+  <string name="fragment_blackout_setup_dates_plus_10_minutes">+10 Mins</string>
+  <string name="fragment_blackout_setup_dates_plus_30_minutes">+30 Mins</string>
+  <string name="fragment_blackout_setup_dates_now">Now</string>
+
   <!-- Permission Strings -->
   <string name="permission_usage_data">Usage Data</string>
   <string name="permission_application_overlay">Application Overlay</string>
@@ -57,15 +72,12 @@
   <string name="action_setup_blackout">Setup Blackout</string>
   <string name="action_unlock">Unlock</string>
   <string name="action_submit">Submit</string>
+  <string name="action_show_system_applications">Show System</string>
 
   <!-- Consent Strings -->
-  <string name="consent_statement">By continuing, you agree to our <a href="https://squelch.app/privacy">Privacy Policy</a> and our <a href="https://squelch.app/eula">End User Licensing Agreement</a>.</string>
-  <string name="consent_privacy_policy">
-    <a href="https://squelch.app/privacy">Privacy Policy</a>
-  </string>
-  <string name="consent_end_user_licensing_agreement">
-    <a href="https://squelch.app/eula">End User Licensing Agreement</a>
-  </string>
+  <string name="consent_statement"><![CDATA[By continuing, you agree to our <a href="https://squelch.app/privacy">Privacy Policy</a> and our <a href="https://squelch.app/eula">End User Licensing Agreement</a>.]]></string>
+  <string name="consent_privacy_policy"><![CDATA[<a href="https://squelch.app/privacy">Privacy Policy</a>]]></string>
+  <string name="consent_end_user_licensing_agreement"><![CDATA[<a href="https://squelch.app/eula">End User Licensing Agreement</a>]]></string>
 
   <!-- Links -->
   <string name="link_squelch_privacy_policy">https://squelch.app/privacy</string>
@@ -134,7 +146,11 @@
   <string name="text_neutral">Neutral</string>
   <string name="text_somewhat_dissatisfied">Somewhat Dissatisfied</string>
   <string name="text_very_dissatisfied">Very Dissatisfied</string>
-  
+  <string name="text_novice">Novice</string>
+  <string name="text_veteran">Veteran</string>
+  <string name="text_master">Master</string>
+  <string name="text_nightmare">Nightmare</string>
+
   <!-- Special -->
   <string name="_blank"></string>
 </resources>

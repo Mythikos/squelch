@@ -1,5 +1,6 @@
 ﻿using Android.Opengl;
 using Android.OS;
+using Android.Text;
 using Android.Views;
 using Android.Widget;
 using AndroidX.Core.Content;
@@ -59,6 +60,8 @@ namespace Squelch.Fragments
                 _rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_first_time_setup_root_layout);
                 _problemLabel = view.FindViewById<TextView>(Resource.Id.fragment_first_time_setup_problem_label);
                 _dataConsentLabel = view.FindViewById<TextView>(Resource.Id.fragment_first_time_setup_data_consent_label);
+                _dataConsentLabel.TextFormatted = ViewUtils.FormattedTextFromHTML(GetString(Resource.String.consent_statement));
+                _dataConsentLabel.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;
 
                 //
                 // Welcome layout
@@ -199,7 +202,7 @@ namespace Squelch.Fragments
         {
             // Report to parent
             if (this.Activity is IIndeterminateProgressReporter)
-                ((IIndeterminateProgressReporter)this.Activity).SetProgressBarState(isWorking, true);
+                ((IIndeterminateProgressReporter)this.Activity).SetProgressBarState(isWorking);
         }
 
         /// <summary>

@@ -6,9 +6,8 @@
     android:animateLayoutChanges="true"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/layout_rounded"
+    android:background="@drawable/rounded_corners_ripple"
     android:backgroundTint="@color/colorAccent"
-    android:backgroundTintMode="src_in"
     android:layout_gravity="center_horizontal"
     android:padding="10dp">
     <androidx.appcompat.widget.AppCompatTextView

@@ -23,17 +23,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" 
+            android:orientation="vertical"
             android:gravity="center">
             <ImageView
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:src="@drawable/ic_launcher"
-                android:adjustViewBounds="true" 
-                android:background="@drawable/layout_rounded"
-                android:backgroundTint="@color/colorPrimary"
+                android:adjustViewBounds="true"
+                android:background="@drawable/rounded_corners"
                 android:layout_marginBottom="20dp"/>
-             <TextView
+            <TextView
                 android:id="@+id/overlay_blackout_notice_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -65,6 +64,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
+                    android:background="@drawable/rounded_corners_ripple"
+                    android:layout_margin="10dp"
                     android:backgroundTint="@color/buttonPositiveBackground"
                     android:textColor="@color/buttonPositiveForeground"
                     android:text="Back"
@@ -74,6 +75,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
+                    android:background="@drawable/rounded_corners_ripple"
+                    android:layout_margin="10dp"
                     android:backgroundTint="@color/buttonPositiveBackground"
                     android:textColor="@color/buttonPositiveForeground"
                     android:text="Unlock"

@@ -58,38 +58,91 @@ namespace Squelch.Library.Extensions
         /// </summary>
         /// <param name="inputDate"></param>
         /// <returns></returns>
-        public static string DayLabelFriendly(this DateTime inputDate, DateTime today)
+        public static string TemporalLabel(this DateTime inputDate, DateTime today)
         {
-            var dayDifference = (inputDate - today).Days;
+            string result = string.Empty;
+            int dayDifference = (inputDate - today).Days;
 
             if (dayDifference <= 0)
             {
-                return "Today";
+                result = "Today";
             }
             else if (dayDifference <= 1)
             {
-                return "Tomorrow";
+                result = "Tomorrow";
             }
             else if (dayDifference <= 6)
             {
-                return inputDate.DayOfWeek.ToString();
+                result = inputDate.DayOfWeek.ToString();
             }
             else if (dayDifference <= 13)
             {
-                return "Next Week";
+                result = "Next Week";
             }
             else if (inputDate.Month == today.Month && inputDate.Year == today.Year)
             {
-                return "This Month";
+                result = "This Month";
             }
             else if (inputDate.Month == today.AddMonths(1).Month && inputDate.Year == today.AddMonths(1).Year)
             {
-                return "Next Month";
+                result = "Next Month";
             }
             else
             {
-                return "In the future";
+                result = "In the future";
             }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Not really a datetime extension, but seemed fitting to let it live here
+        /// </summary>
+        /// <param name="temporalLabel"></param>
+        /// <returns></returns>
+        public static DateTime? DateTimeFromTemporalLabel(this string temporalLabel, DateTime today)
+        {
+            DateTime? result = null;
+
+            if (temporalLabel.Equals("today", StringComparison.OrdinalIgnoreCase))
+            {
+                result = today;
+            }
+            else if (temporalLabel.Equals("tomorrow", StringComparison.OrdinalIgnoreCase))
+            {
+                result = today.AddDays(1);
+            }
+            else if (temporalLabel.Equals("monday", StringComparison.OrdinalIgnoreCase)
+                || temporalLabel.Equals("tuesday", StringComparison.OrdinalIgnoreCase)
+                || temporalLabel.Equals("wednesday", StringComparison.OrdinalIgnoreCase)
+                || temporalLabel.Equals("thursday", StringComparison.OrdinalIgnoreCase)
+                || temporalLabel.Equals("friday", StringComparison.OrdinalIgnoreCase)
+                || temporalLabel.Equals("saturday", StringComparison.OrdinalIgnoreCase)
+                || temporalLabel.Equals("sunday", StringComparison.OrdinalIgnoreCase))
+            {
+                var dayOfWeek = (DayOfWeek)Enum.Parse(typeof(DayOfWeek), temporalLabel);
+                var dayDifference = ((int)dayOfWeek - (int)today.DayOfWeek + 7) % 7;
+                result = today.AddDays(dayDifference);
+            }
+            else if (temporalLabel.Equals("next week", StringComparison.OrdinalIgnoreCase))
+            {
+                result = today.AddDays(7);
+            }
+            else if (temporalLabel.Equals("this month", StringComparison.OrdinalIgnoreCase))
+            {
+                result = today;
+            }
+            else if (temporalLabel.Equals("next month", StringComparison.OrdinalIgnoreCase))
+            {
+                result = today.AddMonths(1);
+            }
+            else
+            {
+                // "In the future" is indeterminate, no date representation available
+                result = null;
+            }
+
+            return result;
         }
     }
 }

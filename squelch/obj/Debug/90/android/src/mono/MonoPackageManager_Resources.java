@@ -3,8 +3,6 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "Squelch.dll" comes first in this list. */
 		"Squelch.dll",
-		"library-lightweight-stream-api.dll",
-		"library-material-calendar-view.dll",
 		"Newtonsoft.Json.dll",
 		"Plugin.CurrentActivity.dll",
 		"Plugin.InAppBilling.Abstractions.dll",

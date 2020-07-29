@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="colorPrimaryDark">#1B3147</color>
-  <color name="colorPrimaryDarkForeground">#ffffff</color>
-
   <color name="colorAccent">#348ec9</color>
   <color name="colorAccentForeground">#ffffff</color>
 
   <color name="colorPrimary">#2c3e50</color>
   <color name="colorPrimaryForeground">#ffffff</color>
 
+  <color name="colorPrimaryDark">#18222e</color>
+  <color name="colorPrimaryDarkForeground">#ffffff</color>
+  
   <color name="buttonPositiveBackground">#2c3e50</color>
   <color name="buttonPositiveForeground">#ffffff</color>
 
@@ -20,6 +20,17 @@
 
   <color name="recyclerColorBackground">#f9f9f9</color>
   <color name="recyclerColorBackgroundAlt">#c2d3ef</color>
+
+  <color name="difficultyNovice">#01A6B0</color>
+  <color name="difficultyNoviceForeground">#FFFFFF</color>
+  <color name="difficultyVeteran">#017DBC</color>
+  <color name="difficultyVeteranForeground">#FFFFFF</color>
+  <color name="difficultyMaster">#2D4057</color>
+  <color name="difficultyMasterForeground">#FFFFFF</color>
+  <color name="difficultyNightmare">#C4013E</color>
+  <color name="difficultyNightmareForeground">#FFFFFF</color>
+  
+  
 
   <!-- Color Translations -->
   <color name="White">#FFFFFF</color>

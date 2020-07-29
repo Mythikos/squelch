@@ -214,7 +214,7 @@ namespace Squelch.Fragments
 
             // Report to parent
             if (this.Activity is IIndeterminateProgressReporter)
-                ((IIndeterminateProgressReporter)this.Activity).SetProgressBarState(isWorking, true);
+                ((IIndeterminateProgressReporter)this.Activity).SetProgressBarState(isWorking);
         }
 
         /// <summary>

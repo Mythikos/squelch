@@ -9,6 +9,7 @@ using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.Content;
 using Google.Android.Material.BottomNavigation;
+using Google.Android.Material.FloatingActionButton;
 using Plugin.InAppBilling;
 using Squelch.Fragments;
 using Squelch.Library;
@@ -35,6 +36,7 @@ namespace Squelch.Activities
         private FrameLayout _fragmentLayout;
         internal ProgressBar ProgressBar { get; private set; }
         internal CurvedBottomNavigationView NavigationBar { get; private set; }
+        internal FloatingActionButton NavigationBarSetupBlackoutButton { get; private set; }
 
         internal const int PERMISSION_INTERNET = 0;
         internal const int PERMISSION_RECEIVE_BOOT_COMPLETED = 1;
@@ -54,8 +56,17 @@ namespace Squelch.Activities
             // Get view elements
             _fragmentLayout = FindViewById<FrameLayout>(Resource.Id.activity_main_fragment_layout);
             this.ProgressBar = FindViewById<ProgressBar>(Resource.Id.activity_main_progress_bar);
+            
             this.NavigationBar = FindViewById<CurvedBottomNavigationView>(Resource.Id.activity_main_navigation);
             this.NavigationBar.SetOnNavigationItemSelectedListener(this);
+            
+            this.NavigationBarSetupBlackoutButton = FindViewById<FloatingActionButton>(Resource.Id.activity_main_setup_blackout_fab_button);
+            this.NavigationBarSetupBlackoutButton.Click += delegate { this.SupportFragmentManager.SetFragment(typeof(BlackoutSetupFragment), true, false); };
+
+            //
+            // Instantiate
+            _blackoutStartedReceiver = new GenericBroadcastReceiver(BlackoutBroadcastReceived);
+            _blackoutEndedReceiver = new GenericBroadcastReceiver(BlackoutBroadcastReceived);
 
             //
             // Default view values
@@ -88,6 +99,9 @@ namespace Squelch.Activities
                     return true;
                 case Resource.Id.navigation_settings:
                     this.SupportFragmentManager.SetFragment(typeof(SettingsFragment), true, true);
+                    return true;
+                case Resource.Id.navigation_store:
+                    this.SupportFragmentManager.SetFragment(typeof(StoreFragment), true, true);
                     return true;
             }
             return false;
@@ -234,9 +248,8 @@ namespace Squelch.Activities
 
             try
             {
-                // TODO: REMOVE ME
-                this.SupportFragmentManager.SetFragment(typeof(HomeFragment), true, true);
-                return;
+                //this.SupportFragmentManager.SetFragment(typeof(HomeFragment), true, true);
+                //return;
 
                 //
                 // Determine what fragment to load
@@ -300,37 +313,24 @@ namespace Squelch.Activities
         {
             this.Title = GetString(titleResourceId);
             this.NavigationBar.Visibility = (showNavigationBar) ? ViewStates.Visible : ViewStates.Gone;
+            this.NavigationBarSetupBlackoutButton.Visibility = (showNavigationBar) ? ViewStates.Visible : ViewStates.Gone;
             this.SupportActionBar.SetDisplayHomeAsUpEnabled(showActionbarBackButton);
         }
         #endregion
 
         #region Interface Methods
-        public void SetProgressBarState(bool visible, bool offsetToToolbar = true)
+        public void SetProgressBarState(bool visible)
         {
-            TypedValue attributeValue;
             RelativeLayout.LayoutParams layoutParameters;
 
             if (this.ProgressBar != null)
             {
                 this.ProgressBar.Visibility = visible ? ViewStates.Visible : ViewStates.Gone;
-                if (offsetToToolbar)
-                {
-                    // Get the toolbar's height
-                    attributeValue = new TypedValue();
-                    Theme.ResolveAttribute(Resource.Attribute.actionBarSize, attributeValue, true);
-
-                    // Move the progress bar to that point
-                    layoutParameters = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MatchParent, RelativeLayout.LayoutParams.WrapContent);
-                    layoutParameters.SetMargins(0, TypedValue.ComplexToDimensionPixelSize(attributeValue.Data, Resources.DisplayMetrics) - this.ProgressBar.MinimumHeight, 0, 0);
-                    this.ProgressBar.LayoutParameters = layoutParameters;
-                }
-                else
-                {
-                    // Remove padding from bar
-                    layoutParameters = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MatchParent, RelativeLayout.LayoutParams.WrapContent);
-                    layoutParameters.SetMargins(0, 0, 0, 0);
-                    this.ProgressBar.LayoutParameters = layoutParameters;
-                }
+                
+                // Remove padding from bar
+                layoutParameters = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MatchParent, RelativeLayout.LayoutParams.WrapContent);
+                layoutParameters.SetMargins(0, 0, 0, 0);
+                this.ProgressBar.LayoutParameters = layoutParameters;
             }
         }
         #endregion

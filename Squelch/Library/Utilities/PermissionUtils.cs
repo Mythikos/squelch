@@ -2,6 +2,7 @@
 using Android.Content;
 using Android.OS;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace Squelch.Library.Utilities
 {
@@ -33,25 +34,17 @@ namespace Squelch.Library.Utilities
             {
                 if (showDialog)
                 {
-                    using (AlertDialog.Builder builder = new AlertDialog.Builder(context))
-                    {
-                        builder.SetMessage($"Squelch needs the ability to monitor usage stats of your device.{System.Environment.NewLine}{System.Environment.NewLine}Press OK and we will take you to the setting, otherwise press Cancel.");
-                        builder.SetPositiveButton("Ok", delegate (object sender, DialogClickEventArgs args)
-                        {
-                            context.StartActivity(new Intent(Android.Provider.Settings.ActionUsageAccessSettings));
-                        });
-                        builder.SetNegativeButton("Cancel", delegate (object sender, DialogClickEventArgs args)
-                        {
-                            if (sender != null && sender is Dialog)
-                                ((Dialog)sender).Dismiss();
-                        });
+                    dialog = DisplayUtils.ShowGenericAlertDialog(
+                        context,
+                        context.GetString(Resource.String.permission_usage_data),
+                        $"Squelch needs the ability to monitor usage stats of your device.{System.Environment.NewLine}{System.Environment.NewLine}Press OK and we will take you to the setting, otherwise press Cancel.",
+                        true,
+                        context.GetString(Resource.String.action_ok), delegate { context.StartActivity(new Intent(Android.Provider.Settings.ActionUsageAccessSettings)); },
+                        context.GetString(Resource.String.action_cancel)
+                    );
 
-                        dialog = builder.Create();
-                        dialog.Show();
-
-                        // Callback to onshow
-                        onDialogShown?.Invoke(dialog);
-                    }
+                    //Callback on show
+                    onDialogShown?.Invoke(dialog);
                 }
 
                 return false;
@@ -86,25 +79,17 @@ namespace Squelch.Library.Utilities
             {
                 if (showDialog)
                 {
-                    using (AlertDialog.Builder builder = new AlertDialog.Builder(context))
-                    {
-                        builder.SetMessage($"Squelch needs the ability to draw system overlays.{System.Environment.NewLine}{System.Environment.NewLine}Press OK and we will take you to the setting, otherwise press Cancel.");
-                        builder.SetPositiveButton("Ok", delegate (object sender, DialogClickEventArgs args)
-                        {
-                            context.StartActivity(new Intent(Android.Provider.Settings.ActionManageOverlayPermission));
-                        });
-                        builder.SetNegativeButton("Cancel", delegate (object sender, DialogClickEventArgs args)
-                        {
-                            if (sender != null && sender is Dialog)
-                                ((Dialog)sender).Dismiss();
-                        });
+                    dialog = DisplayUtils.ShowGenericAlertDialog(
+                        context,
+                        context.GetString(Resource.String.permission_application_overlay),
+                        $"Squelch needs the ability to draw system overlays.{System.Environment.NewLine}{System.Environment.NewLine}Press OK and we will take you to the setting, otherwise press Cancel.",
+                        true,
+                        context.GetString(Resource.String.action_ok), delegate { context.StartActivity(new Intent(Android.Provider.Settings.ActionManageOverlayPermission)); },
+                        context.GetString(Resource.String.action_cancel)
+                    );
 
-                        dialog = builder.Create();
-                        dialog.Show();
-
-                        // Callback to onshow
-                        onDialogShown?.Invoke(dialog);
-                    }
+                    //Callback on show
+                    onDialogShown?.Invoke(dialog);
                 }
 
                 return false;

@@ -62,12 +62,6 @@
     <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="library-lightweight-stream-api">
-      <HintPath>..\library-lightweight-stream-api\bin\Release\library-lightweight-stream-api.dll</HintPath>
-    </Reference>
-    <Reference Include="library-material-calendar-view">
-      <HintPath>..\library-material-calendar-view\bin\Release\library-material-calendar-view.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -77,7 +71,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="Dialogs\DatePickerDialogFragment.cs" />
     <Compile Include="Dialogs\OpenSourceDialogFragment.cs" />
+    <Compile Include="Dialogs\TimePickerDialogFragment.cs" />
     <Compile Include="Fragments\BlackoutSetupFragment.cs" />
     <Compile Include="Fragments\FeedbackFragment.cs" />
     <Compile Include="Fragments\BlackoutFragment.cs" />
@@ -99,6 +95,8 @@
     <Compile Include="Library\Interfaces\IIndeterminateProgressReporter.cs" />
     <Compile Include="Library\Logger.cs" />
     <Compile Include="Library\Singletons\FirebaseAnalyticsManager.cs" />
+    <Compile Include="Library\UI\ApplicationListItem.cs" />
+    <Compile Include="Library\UI\BlackoutListItem.cs" />
     <Compile Include="Library\Utilities\DisplayUtils.cs" />
     <Compile Include="Library\Utilities\EnforcerUtils.cs" />
     <Compile Include="Library\Utilities\GeneralUtils.cs" />
@@ -107,6 +105,7 @@
     <Compile Include="Library\Utilities\PermissionUtils.cs" />
     <Compile Include="Library\Utilities\ViewUtils.cs" />
     <Compile Include="Library\Wrappers\UsageStatsWrapper.cs" />
+    <Compile Include="MainApplication.cs" />
     <Compile Include="Receivers\BootMessageReceiver.cs" />
     <Compile Include="Receivers\GenericBroadcastReceiver.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -401,7 +400,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\layout_rounded.xml">
+    <AndroidResource Include="Resources\drawable\rounded_corners.xml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
   </ItemGroup>
@@ -472,6 +471,28 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\template_schedule_row.xml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\rounded_corners_ripple.xml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\fragment_store.xml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\fragment_blackout_setup.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\fragment_blackout_setup_menu.xml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
   </ItemGroup>

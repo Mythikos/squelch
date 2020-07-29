@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/layout_rounded"
     android:backgroundTint="@color/White">
     <TextView
         android:layout_width="match_parent"
@@ -133,11 +132,6 @@
                 android:text="@string/label_col_blackout_blacklist"
                 android:padding="10dp"
                 android:layout_gravity="center"/>
-            <TextView
-                android:minWidth="30px"
-                android:minHeight="30px"
-                xmlns="http://schemas.android.com/apk/res/android"
-                android:id="@+id/textView1" />
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
@@ -163,9 +157,11 @@
             android:layout_height="wrap_content"
             android:text="@string/action_cancel"
             android:layout_weight="0.5"
+            android:background="@drawable/rounded_corners_ripple"
+            android:layout_margin="10dp"
             android:backgroundTint="@color/buttonNegativeBackground"
             android:textColor="@color/buttonNegativeForeground"
-            android:visibility="gone"
+            android:visibility="visible"
             android:clickable="true" />
         <Button
             android:id="@+id/dialog_blackout_details_positive_button"
@@ -173,9 +169,11 @@
             android:layout_height="wrap_content"
             android:text="@string/action_ok"
             android:layout_weight="0.5"
+            android:background="@drawable/rounded_corners_ripple"
+            android:layout_margin="10dp"
             android:backgroundTint="@color/buttonPositiveBackground"
             android:textColor="@color/buttonPositiveForeground"
-            android:visibility="gone"
+            android:visibility="visible"
             android:clickable="true" />
     </LinearLayout>
 </LinearLayout>

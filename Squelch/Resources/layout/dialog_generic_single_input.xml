@@ -4,8 +4,7 @@
     android:id="@+id/dialog_generic_single_input_root_layout"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/layout_rounded">
+    android:layout_height="match_parent">
     <TextView
         android:id="@+id/dialog_generic_single_input_title_label"
         android:layout_width="match_parent"
@@ -47,6 +46,8 @@
             android:layout_height="wrap_content"
             android:text="_neg button"
             android:layout_weight="0.5"
+            android:background="@drawable/rounded_corners_ripple"
+            android:layout_margin="10dp"
             android:backgroundTint="@color/buttonNegativeBackground"
             android:textColor="@color/buttonNegativeForeground"
             android:visibility="gone"
@@ -57,6 +58,8 @@
             android:layout_height="wrap_content"
             android:text="_pos button"
             android:layout_weight="0.5"
+            android:background="@drawable/rounded_corners_ripple"
+            android:layout_margin="10dp"
             android:backgroundTint="@color/buttonPositiveBackground"
             android:textColor="@color/buttonPositiveForeground"
             android:visibility="gone"
