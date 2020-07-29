@@ -1,9 +1,9 @@
 ﻿using Android.App;
 using Android.Content;
 using Squelch.Services;
-using Android.Support.V4.Content;
 using System;
 using Squelch.Library;
+using AndroidX.Core.Content;
 
 namespace Squelch.Receivers
 {
