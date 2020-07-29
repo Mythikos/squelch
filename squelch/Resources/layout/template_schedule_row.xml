@@ -9,6 +9,7 @@
     android:background="@drawable/rounded_corners_ripple"
     android:backgroundTint="@color/colorAccent"
     android:layout_gravity="center_horizontal"
+    android:elevation="10dp"
     android:padding="10dp">
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/template_schedule_row_hours_label"

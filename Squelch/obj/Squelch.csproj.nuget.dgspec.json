@@ -70,10 +70,6 @@
               "target": "Package",
               "version": "[1.0.0.1, )"
             },
-            "Xamarin.AndroidX.Legacy.Support.V4": {
-              "target": "Package",
-              "version": "[1.0.0.1, )"
-            },
             "Xamarin.AndroidX.Lifecycle.LiveData": {
               "target": "Package",
               "version": "[2.2.0.1, )"

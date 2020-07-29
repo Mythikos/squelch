@@ -1,1 +1,0 @@
-<menu xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android"><item android:id="@+id/fragment_blackout_setup_menu_show_system_applications" app:actionViewClass="android.widget.CheckBox" android:title="@string/action_show_system_applications" app:showAsAction="always" /></menu>

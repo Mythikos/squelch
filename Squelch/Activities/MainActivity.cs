@@ -248,9 +248,6 @@ namespace Squelch.Activities
 
             try
             {
-                //this.SupportFragmentManager.SetFragment(typeof(HomeFragment), true, true);
-                //return;
-
                 //
                 // Determine what fragment to load
                 if (string.IsNullOrWhiteSpace(UserSettings.GetFlagValue(UserSettings.FlagKeys.FirstTimeSetup_IsCompleted))) // First time setup

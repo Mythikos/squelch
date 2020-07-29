@@ -269,7 +269,7 @@ namespace Squelch.Library.Utilities
 
                 // Setup the negative button
                 negativeButton = layout.FindViewById<Button>(Resource.Id.dialog_blackout_details_negative_button);
-                if (blackoutItem.StatusCode == BlackoutItem.BlackoutStatusCode.Pending && blackoutItem.StartDateTime > DateTime.Now.AddMinutes(1))
+                if (blackoutItem.StartDateTime >= DateTime.Now.AddMinutes(1))
                 {
                     negativeButton.Visibility = ViewStates.Visible;
                     negativeButton.SetText(Resource.String.action_cancel);
@@ -277,14 +277,18 @@ namespace Squelch.Library.Utilities
                     {
                         // You cant cancel the blackout if it has already started ;)
                         if (blackoutItem.StartDateTime <= DateTime.Now || blackoutItem.IsBlackoutCancelled())
-                            return;
+                        {
+                            DisplayUtils.ShowToast(context, "Unable to cancel the blackout at this time.", ToastLength.Long);
+                        }
+                        else
+                        {
+                            blackoutItem.SetBlackoutFinished(BlackoutItem.BlackoutResultCode.Cancelled);
+                            await BlackoutDatabase.UpsertAsync(blackoutItem);
 
-                        blackoutItem.SetBlackoutFinished(BlackoutItem.BlackoutResultCode.Cancelled);
-                        await BlackoutDatabase.UpsertAsync(blackoutItem);
-
-                        // Report the cancellation event
-                        var firebaseAnalyticsManager = FirebaseAnalyticsManager.GetInstance();
-                        firebaseAnalyticsManager.SendBlackoutEvent(FirebaseAnalyticsManager.EVENT_BLACKOUT_CANCELLED, blackoutItem);
+                            // Report the cancellation event
+                            var firebaseAnalyticsManager = FirebaseAnalyticsManager.GetInstance();
+                            firebaseAnalyticsManager.SendBlackoutEvent(FirebaseAnalyticsManager.EVENT_BLACKOUT_CANCELLED, blackoutItem);
+                        }
 
                         if (dialog != null)
                             dialog.Dismiss();

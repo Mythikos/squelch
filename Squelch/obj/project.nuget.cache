@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cdt5xlrdbstsRAprvLKOcWBZGQyzk44EKMOsqIauViGW2a0FzgV8DNay3sETdO87EDMOUH6MSeLFUoga5EcY2A==",
+  "dgSpecHash": "kwbAsaBLek8OuNrEF9ZXRxoXusyNVmJAgfBsfcE+LRpaMEjbn82m2nHdsIKTiGW/kTD5se2q7mhy61/vVQlyWA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\squelch\\squelch.csproj",
   "expectedPackageFiles": [
@@ -70,7 +70,6 @@
     "C:\\Users\\Shizzlepoof\\.nuget\\packages\\xamarin.androidx.interpolator\\1.0.0.1\\xamarin.androidx.interpolator.1.0.0.1.nupkg.sha512",
     "C:\\Users\\Shizzlepoof\\.nuget\\packages\\xamarin.androidx.legacy.support.core.ui\\1.0.0.1\\xamarin.androidx.legacy.support.core.ui.1.0.0.1.nupkg.sha512",
     "C:\\Users\\Shizzlepoof\\.nuget\\packages\\xamarin.androidx.legacy.support.core.utils\\1.0.0.1\\xamarin.androidx.legacy.support.core.utils.1.0.0.1.nupkg.sha512",
-    "C:\\Users\\Shizzlepoof\\.nuget\\packages\\xamarin.androidx.legacy.support.v4\\1.0.0.1\\xamarin.androidx.legacy.support.v4.1.0.0.1.nupkg.sha512",
     "C:\\Users\\Shizzlepoof\\.nuget\\packages\\xamarin.androidx.lifecycle.common\\2.2.0.1\\xamarin.androidx.lifecycle.common.2.2.0.1.nupkg.sha512",
     "C:\\Users\\Shizzlepoof\\.nuget\\packages\\xamarin.androidx.lifecycle.livedata\\2.2.0.1\\xamarin.androidx.lifecycle.livedata.2.2.0.1.nupkg.sha512",
     "C:\\Users\\Shizzlepoof\\.nuget\\packages\\xamarin.androidx.lifecycle.livedata.core\\2.2.0.1\\xamarin.androidx.lifecycle.livedata.core.2.2.0.1.nupkg.sha512",
@@ -78,7 +77,6 @@
     "C:\\Users\\Shizzlepoof\\.nuget\\packages\\xamarin.androidx.lifecycle.viewmodel\\2.1.0.1\\xamarin.androidx.lifecycle.viewmodel.2.1.0.1.nupkg.sha512",
     "C:\\Users\\Shizzlepoof\\.nuget\\packages\\xamarin.androidx.loader\\1.1.0.1\\xamarin.androidx.loader.1.1.0.1.nupkg.sha512",
     "C:\\Users\\Shizzlepoof\\.nuget\\packages\\xamarin.androidx.localbroadcastmanager\\1.0.0.1\\xamarin.androidx.localbroadcastmanager.1.0.0.1.nupkg.sha512",
-    "C:\\Users\\Shizzlepoof\\.nuget\\packages\\xamarin.androidx.media\\1.1.0.1\\xamarin.androidx.media.1.1.0.1.nupkg.sha512",
     "C:\\Users\\Shizzlepoof\\.nuget\\packages\\xamarin.androidx.migration\\1.0.6.1\\xamarin.androidx.migration.1.0.6.1.nupkg.sha512",
     "C:\\Users\\Shizzlepoof\\.nuget\\packages\\xamarin.androidx.multidex\\2.0.1.1\\xamarin.androidx.multidex.2.0.1.1.nupkg.sha512",
     "C:\\Users\\Shizzlepoof\\.nuget\\packages\\xamarin.androidx.print\\1.0.0.1\\xamarin.androidx.print.1.0.0.1.nupkg.sha512",

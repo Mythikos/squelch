@@ -1,4 +1,5 @@
 ﻿using Android.Content.PM;
+using Android.Graphics;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
@@ -98,14 +99,23 @@ namespace Squelch.Fragments
                 _difficultyVeteranButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_difficulty_veteran_button);
                 _difficultyMasterButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_difficulty_master_button);
 
+                _difficultyNoviceButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
+                _difficultyVeteranButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
+                _difficultyMasterButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
+
                 _difficultyNoviceButton.Click += (s, e) =>
                 {
                     _difficultyNoviceButton.Background.Mutate();
-                    _difficultyNoviceButton.Background.SetColorFilter(new Android.Graphics.Color(ContextCompat.GetColor(this.Context, Resource.Color.difficultyNovice)), Android.Graphics.PorterDuff.Mode.SrcAtop);
+                    _difficultyNoviceButton.Background.SetColorFilter(new Color(ContextCompat.GetColor(this.Context, Resource.Color.difficultyNovice)), PorterDuff.Mode.SrcAtop);
+                    _difficultyNoviceButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.difficultyNoviceForeground));
+
                     _difficultyVeteranButton.Background.Mutate();
                     _difficultyVeteranButton.Background.ClearColorFilter();
+                    _difficultyVeteranButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
+
                     _difficultyMasterButton.Background.Mutate();
                     _difficultyMasterButton.Background.ClearColorFilter();
+                    _difficultyMasterButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
 
                     _blackoutDifficulty = BlackoutItem.BlackoutDifficultyCode.Novice;
                 };
@@ -113,10 +123,15 @@ namespace Squelch.Fragments
                 {
                     _difficultyNoviceButton.Background.Mutate();
                     _difficultyNoviceButton.Background.ClearColorFilter();
+                    _difficultyNoviceButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
+
                     _difficultyVeteranButton.Background.Mutate();
-                    _difficultyVeteranButton.Background.SetColorFilter(new Android.Graphics.Color(ContextCompat.GetColor(this.Context, Resource.Color.difficultyVeteran)), Android.Graphics.PorterDuff.Mode.SrcAtop);
+                    _difficultyVeteranButton.Background.SetColorFilter(new Color(ContextCompat.GetColor(this.Context, Resource.Color.difficultyVeteran)), PorterDuff.Mode.SrcAtop);
+                    _difficultyVeteranButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.difficultyVeteranForeground));
+
                     _difficultyMasterButton.Background.Mutate();
                     _difficultyMasterButton.Background.ClearColorFilter();
+                    _difficultyMasterButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
 
                     _blackoutDifficulty = BlackoutItem.BlackoutDifficultyCode.Veteran;
                 };
@@ -124,14 +139,19 @@ namespace Squelch.Fragments
                 {
                     _difficultyNoviceButton.Background.Mutate();
                     _difficultyNoviceButton.Background.ClearColorFilter();
+                    _difficultyNoviceButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
+
                     _difficultyVeteranButton.Background.Mutate();
                     _difficultyVeteranButton.Background.ClearColorFilter();
+                    _difficultyVeteranButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
+
                     _difficultyMasterButton.Background.Mutate();
-                    _difficultyMasterButton.Background.SetColorFilter(new Android.Graphics.Color(ContextCompat.GetColor(this.Context, Resource.Color.difficultyMaster)), Android.Graphics.PorterDuff.Mode.SrcAtop);
+                    _difficultyMasterButton.Background.SetColorFilter(new Color(ContextCompat.GetColor(this.Context, Resource.Color.difficultyMaster)), PorterDuff.Mode.SrcAtop);
+                    _difficultyMasterButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.difficultyMasterForeground));
 
                     _blackoutDifficulty = BlackoutItem.BlackoutDifficultyCode.Master;
                 };
-                _difficultyNoviceButton.CallOnClick();// Default to novice difficulty
+                _difficultyVeteranButton.CallOnClick(); // Default to novice difficulty
 
 
                 //
