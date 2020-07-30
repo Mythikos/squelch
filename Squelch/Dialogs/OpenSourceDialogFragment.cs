@@ -23,6 +23,7 @@ namespace Squelch.Fragments
         // Parent view items
         private LinearLayout _rootLayout;
         private LinearLayout _attributionLayout;
+        private Button _negativeButton;
         #endregion
 
         #region Native Events
@@ -45,6 +46,14 @@ namespace Squelch.Fragments
                 // Get Controls
                 _rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_open_source_root_layout);
                 _attributionLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_open_source_attribution_layout);
+                _negativeButton = view.FindViewById<Button>(Resource.Id.fragment_open_source_negative_button);
+
+                //
+                // Hook events
+                _negativeButton.Click += delegate
+                {
+                    this.Dismiss();
+                };
 
                 //
                 // Call ui methods
@@ -120,6 +129,7 @@ namespace Squelch.Fragments
                     ("Praeclarum", "sqlite-net-pcl", "MIT", "https://github.com/praeclarum/sqlite-net"),
                     ("Microsoft", "Google Play Services", "MIT", "https://github.com/xamarin/GooglePlayServicesComponents"),
                     ("Microsoft", "AndroidX", "MIT", "https://github.com/xamarin/AndroidX"),
+                    ("PhilJay", "MPAndroidChart", "Apache 2", "https://github.com/PhilJay/MPAndroidChart"),
                 };
 
                 //

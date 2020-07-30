@@ -514,8 +514,8 @@ namespace Squelch.Fragments
                     // Assign the values
                     BlackoutItem blackoutItem = new BlackoutItem
                     {
-                        StartDateTime = DateTime.Parse($"{_dateRangeStartDateButton.Text} {_dateRangeStartTimeButton.Text}"),
-                        EndDateTime = DateTime.Parse($"{_dateRangeEndDateButton.Text} {_dateRangeEndTimeButton.Text}"),
+                        ScheduledStartDateTime = DateTime.Parse($"{_dateRangeStartDateButton.Text} {_dateRangeStartTimeButton.Text}"),
+                        ScheduledEndDateTime = DateTime.Parse($"{_dateRangeEndDateButton.Text} {_dateRangeEndTimeButton.Text}"),
                         DifficultyCode = _blackoutDifficulty,
                         Bid = _bidNumberPicker.Value,
                         Blacklist = _applicationList.Where(x => x.IsSelected).Select(x => x.PackageName).ToList()

@@ -105,8 +105,8 @@ namespace Squelch.Library
                 {
                     var blackoutItem = new BlackoutItem()
                     {
-                        StartDateTime = DateTime.Today.AddDays(i - 10),
-                        EndDateTime = DateTime.Today.AddDays(i - 10).AddHours(12),
+                        ScheduledStartDateTime = DateTime.Today.AddDays(i - 10),
+                        ScheduledEndDateTime = DateTime.Today.AddDays(i - 10).AddHours(12),
                         DifficultyCode = ((i%10==0) ? BlackoutItem.BlackoutDifficultyCode.Master : ((i%5==0) ? BlackoutItem.BlackoutDifficultyCode.Veteran : BlackoutItem.BlackoutDifficultyCode.Novice)),
                         Bid = i,
                         Blacklist = blacklist
@@ -128,8 +128,8 @@ namespace Squelch.Library
         {
             BlackoutItem item = new BlackoutItem();
             item.Bid = 5;
-            item.StartDateTime = DateTime.Now.AddDays(1);
-            item.EndDateTime = DateTime.Now.AddDays(2);
+            item.ScheduledStartDateTime = DateTime.Now.AddDays(1);
+            item.ScheduledEndDateTime = DateTime.Now.AddDays(2);
             item.SetBlackoutPending();
             item.Blacklist = getRandomPackages(context.PackageManager.GetInstalledPackages(PackageInfoFlags.MatchAll), false);
 

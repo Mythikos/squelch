@@ -237,10 +237,10 @@ namespace Squelch.Library.Utilities
 
                 // Set title and message
                 startDateLabel = layout.FindViewById<TextView>(Resource.Id.dialog_blackout_details_data_layout_start_date_label);
-                startDateLabel.Text = $"{blackoutItem.StartDateTime}";
+                startDateLabel.Text = $"{blackoutItem.ScheduledStartDateTime}";
 
                 endDateLabel = layout.FindViewById<TextView>(Resource.Id.dialog_blackout_details_data_layout_end_date_label);
-                endDateLabel.Text = $"{blackoutItem.EndDateTime}";
+                endDateLabel.Text = $"{blackoutItem.ScheduledEndDateTime}";
 
                 bidLabel = layout.FindViewById<TextView>(Resource.Id.dialog_blackout_details_data_layout_bid_label);
                 bidLabel.Text = $"${blackoutItem.Bid}";
@@ -269,14 +269,14 @@ namespace Squelch.Library.Utilities
 
                 // Setup the negative button
                 negativeButton = layout.FindViewById<Button>(Resource.Id.dialog_blackout_details_negative_button);
-                if (blackoutItem.StartDateTime >= DateTime.Now.AddMinutes(1))
+                if (blackoutItem.ScheduledStartDateTime >= DateTime.Now.AddMinutes(1))
                 {
                     negativeButton.Visibility = ViewStates.Visible;
                     negativeButton.SetText(Resource.String.action_cancel);
                     negativeButton.Click += async delegate
                     {
                         // You cant cancel the blackout if it has already started ;)
-                        if (blackoutItem.StartDateTime <= DateTime.Now || blackoutItem.IsBlackoutCancelled())
+                        if (blackoutItem.ScheduledStartDateTime <= DateTime.Now || blackoutItem.IsBlackoutCancelled())
                         {
                             DisplayUtils.ShowToast(context, "Unable to cancel the blackout at this time.", ToastLength.Long);
                         }

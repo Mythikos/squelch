@@ -1,0 +1,6 @@
+C:\Users\Shizzlepoof\Desktop\Squelch\library-mpandroidchart\obj\Debug\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
+C:\Users\Shizzlepoof\Desktop\Squelch\library-mpandroidchart\obj\Debug\library-mpandroidchart.csproj.CoreCompileInputs.cache
+C:\Users\Shizzlepoof\Desktop\Squelch\library-mpandroidchart\bin\Debug\library-mpandroidchart.dll
+C:\Users\Shizzlepoof\Desktop\Squelch\library-mpandroidchart\bin\Debug\library-mpandroidchart.pdb
+C:\Users\Shizzlepoof\Desktop\Squelch\library-mpandroidchart\obj\Debug\library-mpandroidchart.dll
+C:\Users\Shizzlepoof\Desktop\Squelch\library-mpandroidchart\obj\Debug\library-mpandroidchart.pdb

@@ -554,7 +554,7 @@ namespace Squelch.Services
                         {
                             //
                             // Check to see if the active blackout item is still within the correct timespan and has the correct status code
-                            if (blackoutItem.StartDateTime < currentDateTime && blackoutItem.EndDateTime >= currentDateTime && blackoutItem.StatusCode != BlackoutItem.BlackoutStatusCode.Finished)
+                            if (blackoutItem.ScheduledStartDateTime < currentDateTime && blackoutItem.ScheduledEndDateTime >= currentDateTime && blackoutItem.StatusCode != BlackoutItem.BlackoutStatusCode.Finished)
                             {
                                 // Are we in the background?
                                 if (GeneralUtils.SelfIsInForeground(this) == false)

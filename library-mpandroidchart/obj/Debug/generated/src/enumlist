@@ -1,0 +1,17 @@
+com.github.mikephil.charting.animation.Easing$EasingOption:MikePhil.Charting.Animation:Easing.EasingOption
+com.github.mikephil.charting.charts.CombinedChart$DrawOrder:MikePhil.Charting.Charts:CombinedChart.DrawOrder
+com.github.mikephil.charting.charts.ScatterChart$ScatterShape:MikePhil.Charting.Charts:ScatterChart.ScatterShape
+com.github.mikephil.charting.components.Legend$LegendDirection:MikePhil.Charting.Components:Legend.LegendDirection
+com.github.mikephil.charting.components.Legend$LegendForm:MikePhil.Charting.Components:Legend.LegendForm
+com.github.mikephil.charting.components.Legend$LegendHorizontalAlignment:MikePhil.Charting.Components:Legend.LegendHorizontalAlignment
+com.github.mikephil.charting.components.Legend$LegendOrientation:MikePhil.Charting.Components:Legend.LegendOrientation
+com.github.mikephil.charting.components.Legend$LegendPosition:MikePhil.Charting.Components:Legend.LegendPosition
+com.github.mikephil.charting.components.Legend$LegendVerticalAlignment:MikePhil.Charting.Components:Legend.LegendVerticalAlignment
+com.github.mikephil.charting.components.LimitLine$LimitLabelPosition:MikePhil.Charting.Components:LimitLine.LimitLabelPosition
+com.github.mikephil.charting.components.XAxis$XAxisPosition:MikePhil.Charting.Components:XAxis.XAxisPosition
+com.github.mikephil.charting.components.YAxis$AxisDependency:MikePhil.Charting.Components:YAxis.AxisDependency
+com.github.mikephil.charting.components.YAxis$YAxisLabelPosition:MikePhil.Charting.Components:YAxis.YAxisLabelPosition
+com.github.mikephil.charting.data.DataSet$Rounding:MikePhil.Charting.Data:DataSet.Rounding
+com.github.mikephil.charting.data.LineDataSet$Mode:MikePhil.Charting.Data:LineDataSet.Mode
+com.github.mikephil.charting.data.PieDataSet$ValuePosition:MikePhil.Charting.Data:PieDataSet.ValuePosition
+com.github.mikephil.charting.listener.ChartTouchListener$ChartGesture:MikePhil.Charting.Listener:ChartTouchListener.ChartGesture

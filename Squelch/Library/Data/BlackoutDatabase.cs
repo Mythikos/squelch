@@ -168,7 +168,7 @@ namespace Squelch.Library.Data
 
             try
             {
-                result = await s_database.GetAllWithChildrenAsync<BlackoutItem>(x => x.StartDateTime >= startDateTime && x.EndDateTime <= endDateTime);
+                result = await s_database.GetAllWithChildrenAsync<BlackoutItem>(x => x.ScheduledStartDateTime >= startDateTime && x.ScheduledEndDateTime <= endDateTime);
             }
             catch (Exception ex)
             {
@@ -206,9 +206,9 @@ namespace Squelch.Library.Data
                     if (blackoutItems.Count > 0)
                     {
                         if (minimumStartTime != null)
-                            blackoutItem = blackoutItems.Where(x => x.StartDateTime <= minimumStartTime.Value).OrderBy(x => x.StartDateTime).FirstOrDefault();
+                            blackoutItem = blackoutItems.Where(x => x.ScheduledStartDateTime <= minimumStartTime.Value).OrderBy(x => x.ScheduledStartDateTime).FirstOrDefault();
                         else
-                            blackoutItem = blackoutItems.OrderBy(x => x.StartDateTime).FirstOrDefault();
+                            blackoutItem = blackoutItems.OrderBy(x => x.ScheduledStartDateTime).FirstOrDefault();
                     }
                 }
             }
@@ -235,7 +235,7 @@ namespace Squelch.Library.Data
                 blackoutItems = await BlackoutDatabase.FindAllAsync(BlackoutItem.BlackoutStatusCode.Active);
                 if (blackoutItems != null)
                     if (blackoutItems.Count > 0)
-                        blackoutItem = blackoutItems.OrderBy(x => x.StartDateTime).FirstOrDefault();
+                        blackoutItem = blackoutItems.OrderBy(x => x.ScheduledStartDateTime).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -259,10 +259,10 @@ namespace Squelch.Library.Data
 
             try
             {
-                blackoutItems = (await BlackoutDatabase.FindAllAsync(statusCode)).Where(x => x.StartDateTime <= targetDateTime && x.EndDateTime >= targetDateTime).ToList();
+                blackoutItems = (await BlackoutDatabase.FindAllAsync(statusCode)).Where(x => x.ScheduledStartDateTime <= targetDateTime && x.ScheduledEndDateTime >= targetDateTime).ToList();
                 if (blackoutItems != null)
                     if (blackoutItems.Count > 0)
-                        blackoutItem = blackoutItems.OrderBy(x => x.StartDateTime).FirstOrDefault();
+                        blackoutItem = blackoutItems.OrderBy(x => x.ScheduledStartDateTime).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -323,9 +323,9 @@ namespace Squelch.Library.Data
                 blackoutItem = await BlackoutDatabase.FindAsync(blackoutId);
                 if (blackoutItem != default)
                 {
-                    if (blackoutItem.StartDateTime < current)
+                    if (blackoutItem.ScheduledStartDateTime < current)
                     {
-                        if (blackoutItem.EndDateTime >= current)
+                        if (blackoutItem.ScheduledEndDateTime >= current)
                         {
                             if (blackoutItem.StatusCode != BlackoutItem.BlackoutStatusCode.Finished)
                             {
@@ -357,21 +357,21 @@ namespace Squelch.Library.Data
             {
                 //
                 // Step 1 : Look for blackouts that are still pending but have already elapsed
-                foreach (BlackoutItem item in (await BlackoutDatabase.FindAllAsync(BlackoutItem.BlackoutStatusCode.Pending)).OrderBy(x => x.EndDateTime))
+                foreach (BlackoutItem item in (await BlackoutDatabase.FindAllAsync(BlackoutItem.BlackoutStatusCode.Pending)).OrderBy(x => x.ScheduledEndDateTime))
                 {
                     // Has this blackout item elapsed yet?
-                    if (item.EndDateTime >= DateTime.Now.AddMinutes(5))
+                    if (item.ScheduledEndDateTime >= DateTime.Now.AddMinutes(5))
                         break;
 
                     // Update it
-                    Logger.Write(s_tag, $"Scrub: Found that blackout {item.Id} is still pending but its end datetime is {item.EndDateTime}. Marking blackout as skipped.", Logger.Severity.Info);
+                    Logger.Write(s_tag, $"Scrub: Found that blackout {item.Id} is still pending but its end datetime is {item.ScheduledEndDateTime}. Marking blackout as skipped.", Logger.Severity.Info);
                     item.SetBlackoutFinished(BlackoutItem.BlackoutResultCode.Skipped);
                     await BlackoutDatabase.UpsertAsync(item);
                 }
 
                 //
                 // Step 2 : Find and remove blackout data that is over 1 year old from its end datetime
-                foreach(BlackoutItem item in (await BlackoutDatabase.FindAllAsync()).Where(x => x.EndDateTime < DateTime.Now.AddYears(-1)).ToList())
+                foreach(BlackoutItem item in (await BlackoutDatabase.FindAllAsync()).Where(x => x.ScheduledEndDateTime < DateTime.Now.AddYears(-1)).ToList())
                 {
                     // Remove it
                     Logger.Write(s_tag, $"Scrub: Found that blackout {item.Id} is from over a year ago. Removing blackout from database.", Logger.Severity.Info);

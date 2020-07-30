@@ -145,11 +145,11 @@ namespace Squelch.Library.Singletons
                 analyticBundle.PutString("blackout_bid", blackout.Bid.ToString());
                 analyticBundle.PutString("blackout_difficulty", blackout.DifficultyCode.ToString().ToLower());
 
-                analyticBundle.PutString("blackout_startdatetime_hour", blackout.StartDateTime.Hour.ToString());
-                analyticBundle.PutString("blackout_startdatetime_day_of_week", blackout.StartDateTime.DayOfWeek.ToString());
+                analyticBundle.PutString("blackout_startdatetime_hour", blackout.ScheduledStartDateTime.Hour.ToString());
+                analyticBundle.PutString("blackout_startdatetime_day_of_week", blackout.ScheduledStartDateTime.DayOfWeek.ToString());
 
-                analyticBundle.PutString("blackout_enddatetime_hour", blackout.EndDateTime.Hour.ToString());
-                analyticBundle.PutString("blackout_enddatetime_day_of_week", blackout.EndDateTime.DayOfWeek.ToString());
+                analyticBundle.PutString("blackout_enddatetime_hour", blackout.ScheduledEndDateTime.Hour.ToString());
+                analyticBundle.PutString("blackout_enddatetime_day_of_week", blackout.ScheduledEndDateTime.DayOfWeek.ToString());
 
                 if (blockedApplicationCountByCategory[primaryCategoryBlocked] > 0)
                     analyticBundle.PutString("blackout_category_blocked_primary", primaryCategoryBlocked);

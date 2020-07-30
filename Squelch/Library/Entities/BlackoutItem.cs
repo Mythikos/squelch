@@ -14,11 +14,13 @@ namespace Squelch.Library.Entities
 
         #region Properties
         [PrimaryKey, AutoIncrement] public int Id { get; set; }
-        public DateTime StartDateTime { get; set; }
-        public DateTime EndDateTime { get; set; }
+        public DateTime ScheduledStartDateTime { get; set; }
+        public DateTime ScheduledEndDateTime { get; set; }
+        public DateTime ActualStartDateTime { get; set; }
+        public DateTime ActualEndDateTime { get; set; }
         public int Bid { get; set; }
-        public BlackoutStatusCode StatusCode { get; set; }
-        public BlackoutResultCode ResultCode { get; set; }
+        public BlackoutStatusCode StatusCode { get; set; } // Should be managed by the instance
+        public BlackoutResultCode ResultCode { get; set; } // Should be managed by the instance
         public BlackoutDifficultyCode DifficultyCode { get; set; }
         
         [TextBlob(nameof(BlacklistBlob))] public List<string> Blacklist { get; set; }
@@ -29,8 +31,10 @@ namespace Squelch.Library.Entities
         public BlackoutItem()
         {
             this.Id = 0;
-            this.StartDateTime = default(DateTime);
-            this.EndDateTime = default(DateTime);
+            this.ScheduledStartDateTime = default;
+            this.ScheduledEndDateTime = default;
+            this.ActualStartDateTime = default;
+            this.ActualEndDateTime = default;
             this.Bid = default(int);
             this.Blacklist = new List<string>();
             this.StatusCode = BlackoutStatusCode.Pending;
@@ -41,8 +45,10 @@ namespace Squelch.Library.Entities
         public BlackoutItem(BlackoutItem blackoutItem)
         {
             this.Id = blackoutItem.Id;
-            this.StartDateTime = blackoutItem.StartDateTime;
-            this.EndDateTime = blackoutItem.EndDateTime;
+            this.ScheduledStartDateTime = blackoutItem.ScheduledStartDateTime;
+            this.ScheduledEndDateTime = blackoutItem.ScheduledEndDateTime;
+            this.ActualStartDateTime = blackoutItem.ActualStartDateTime;
+            this.ActualEndDateTime = blackoutItem.ActualEndDateTime;
             this.Bid = blackoutItem.Bid;
             this.Blacklist = blackoutItem.Blacklist;
             this.StatusCode = blackoutItem.StatusCode;
@@ -50,11 +56,13 @@ namespace Squelch.Library.Entities
             this.DifficultyCode = BlackoutDifficultyCode.Veteran;
         }
 
-        public BlackoutItem(DateTime startDateTime, DateTime endDateTime, int bid, List<string> blockedApps, BlackoutStatusCode statusCode, BlackoutResultCode resultCode, BlackoutDifficultyCode difficultyCode)
+        public BlackoutItem(DateTime scheduledStartDateTime, DateTime scheduledEndDateTime, DateTime actualStartDateTime, DateTime actualEndDateTime,  int bid, List<string> blockedApps, BlackoutStatusCode statusCode, BlackoutResultCode resultCode, BlackoutDifficultyCode difficultyCode)
         {
             this.Id = 0;
-            this.StartDateTime = startDateTime;
-            this.EndDateTime = endDateTime;
+            this.ScheduledStartDateTime = scheduledStartDateTime;
+            this.ScheduledEndDateTime = scheduledEndDateTime;
+            this.ActualStartDateTime = actualStartDateTime;
+            this.ActualEndDateTime = actualEndDateTime;
             this.Bid = bid;
             this.Blacklist = blockedApps;
             this.StatusCode = statusCode;
@@ -64,20 +72,6 @@ namespace Squelch.Library.Entities
         #endregion
 
         #region Helper Methods
-        public BlackoutItem Copy(BlackoutItem blackoutItem)
-        {
-            this.Id = blackoutItem.Id;
-            this.StartDateTime = blackoutItem.StartDateTime;
-            this.EndDateTime = blackoutItem.EndDateTime;
-            this.Bid = blackoutItem.Bid;
-            this.Blacklist = blackoutItem.Blacklist;
-            this.StatusCode = blackoutItem.StatusCode;
-            this.ResultCode = blackoutItem.ResultCode;
-            this.DifficultyCode = blackoutItem.DifficultyCode;
-
-            return this;
-        }
-
         public BlackoutItem SetBlackoutPending()
         {
             this.StatusCode = BlackoutStatusCode.Pending;
@@ -86,16 +80,44 @@ namespace Squelch.Library.Entities
             return this;
         }
 
-        public BlackoutItem SetBlackoutActive()
+        public BlackoutItem SetBlackoutActive(DateTime actualStartDateTime = default)
         {
+            // If we are relying on default and the instance is still default, set the value
+            if (actualStartDateTime == default)
+            {
+                if (this.ActualStartDateTime == default)
+                {
+                    this.ActualStartDateTime = DateTime.Now;
+                }
+            }
+            // Otherwise, set the value regardless of the instance has a value
+            else
+            {
+                this.ActualStartDateTime = actualStartDateTime;
+            }
+
             this.StatusCode = BlackoutStatusCode.Active;
             this.ResultCode = BlackoutResultCode.Pending;
 
             return this;
         }
 
-        public BlackoutItem SetBlackoutFinished(BlackoutResultCode resultCode)
+        public BlackoutItem SetBlackoutFinished(BlackoutResultCode resultCode, DateTime actualEndDateTime = default)
         {
+            // If we are relying on default and the instance is still default, set the value
+            if (actualEndDateTime == default)
+            {
+                if (this.ActualEndDateTime == default)
+                {
+                    this.ActualEndDateTime = DateTime.Now;
+                }
+            }
+            // Otherwise, set the value regardless of the instance has a value
+            else
+            {
+                this.ActualEndDateTime = actualEndDateTime;
+            }
+
             this.StatusCode = BlackoutStatusCode.Finished;
             this.ResultCode = resultCode;
 
@@ -156,7 +178,7 @@ namespace Squelch.Library.Entities
 
             try
             {
-                if (!this.StartDateTime.Equals(DateTime.MinValue) && !this.StartDateTime.Equals(DateTime.MaxValue))
+                if (!this.ScheduledStartDateTime.Equals(DateTime.MinValue) && !this.ScheduledStartDateTime.Equals(DateTime.MaxValue))
                     bResult = true;
             }
             catch
@@ -177,7 +199,7 @@ namespace Squelch.Library.Entities
 
             try
             {
-                if (!this.EndDateTime.Equals(DateTime.MinValue) && !this.EndDateTime.Equals(DateTime.MaxValue))
+                if (!this.ScheduledEndDateTime.Equals(DateTime.MinValue) && !this.ScheduledEndDateTime.Equals(DateTime.MaxValue))
                     bResult = true;
             }
             catch
@@ -198,8 +220,8 @@ namespace Squelch.Library.Entities
 
             try
             {
-                if (this.StartDateTime < this.EndDateTime)
-                    if ((this.EndDateTime - this.StartDateTime).TotalMinutes >= 1)
+                if (this.ScheduledStartDateTime < this.ScheduledEndDateTime)
+                    if ((this.ScheduledEndDateTime - this.ScheduledStartDateTime).TotalMinutes >= 1)
                         bResult = true;
             }
             catch
@@ -212,7 +234,7 @@ namespace Squelch.Library.Entities
         #endregion
 
         #region Comparable Methods
-        public int CompareTo(BlackoutItem otherBlackoutItem) => this.StartDateTime.CompareTo(otherBlackoutItem.StartDateTime);
+        public int CompareTo(BlackoutItem otherBlackoutItem) => this.ScheduledStartDateTime.CompareTo(otherBlackoutItem.ScheduledStartDateTime);
         #endregion
     }
 }

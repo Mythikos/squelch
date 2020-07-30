@@ -251,8 +251,8 @@ namespace Squelch.Fragments
 
                 //
                 // Calculate progress
-                totalSeconds = Math.Max((_activeBlackout.EndDateTime - _activeBlackout.StartDateTime).TotalSeconds, 0);
-                elapsedSeconds = Math.Max((_activeBlackout.EndDateTime - DateTime.Now).TotalSeconds, 0);
+                totalSeconds = Math.Max((_activeBlackout.ScheduledEndDateTime - _activeBlackout.ScheduledStartDateTime).TotalSeconds, 0);
+                elapsedSeconds = Math.Max((_activeBlackout.ScheduledEndDateTime - DateTime.Now).TotalSeconds, 0);
                 percentageComplete = (int)Math.Floor((INDICATOR_MAX_VALUE / totalSeconds) * elapsedSeconds);
                 if (percentageComplete < 1)
                     percentageComplete = 1;
@@ -292,7 +292,7 @@ namespace Squelch.Fragments
 
                 //
                 // Calculate time remaining
-                timeRemaining = _activeBlackout.EndDateTime.Subtract(DateTime.Now);
+                timeRemaining = _activeBlackout.ScheduledEndDateTime.Subtract(DateTime.Now);
                 totalHours = Math.Max((timeRemaining.Days * 24) + timeRemaining.Hours, 0);
                 totalMinutes = Math.Max(timeRemaining.Minutes, 0);
                 totalSeconds = Math.Max(timeRemaining.Seconds, 0);
@@ -427,7 +427,7 @@ namespace Squelch.Fragments
             try
             {
                 // Is the bid greater than $0?
-                if (_activeBlackout.Bid > 0)
+                if (bid > 0)
                 {
                     (bool, string) result = await InAppPurchaseUtils.PurchaseAsync($"squelch_unlock_{bid.ToString().PadLeft(3, '0')}", true);
                     if (result.Item1 == true)

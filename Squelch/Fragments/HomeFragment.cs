@@ -345,7 +345,7 @@ namespace Squelch.Fragments
                 {
                     MainThread.BeginInvokeOnMainThread(() =>
                     { 
-                        _nextBlackoutStartDateLabel.Text = $"{Resources.GetString(Resource.String.label_col_blackout_start_date)} {blackoutItem.StartDateTime.ToString("MM/dd/yyyy hh:mm tt")}";
+                        _nextBlackoutStartDateLabel.Text = $"{Resources.GetString(Resource.String.label_col_blackout_start_date)} {blackoutItem.ScheduledStartDateTime.ToString("MM/dd/yyyy hh:mm tt")}";
                         _nextBlackoutDifficultyLabel.Text = $"{Resources.GetString(Resource.String.label_col_blackout_difficulty)} {blackoutItem.DifficultyCode.ToString()}";
                         _nextBlackoutCard.Visibility = ViewStates.Visible;
                     });

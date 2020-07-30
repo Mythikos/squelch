@@ -133,7 +133,7 @@ namespace Squelch.Fragments
                     await Task.Factory.StartNew(() =>
                     {
                         // Group all blackouts into dates
-                        var temporalLabels = pendingBlackouts.OrderBy(x => x.StartDateTime).Select(x => x.StartDateTime.TemporalLabel(DateTime.Today)).Distinct();
+                        var temporalLabels = pendingBlackouts.OrderBy(x => x.ScheduledStartDateTime).Select(x => x.ScheduledStartDateTime.TemporalLabel(DateTime.Today)).Distinct();
                         foreach (string label in temporalLabels)
                         {
                             var temporalLabel = new TextView(this.Context);
@@ -152,7 +152,7 @@ namespace Squelch.Fragments
                             itemParent.LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
                             itemParent.Orientation = Orientation.Vertical;
 
-                            var groupedBlackouts = pendingBlackouts.Where(x => x.StartDateTime.TemporalLabel(DateTime.Today).Equals(label, StringComparison.OrdinalIgnoreCase)).OrderBy(x => x.StartDateTime);
+                            var groupedBlackouts = pendingBlackouts.Where(x => x.ScheduledStartDateTime.TemporalLabel(DateTime.Today).Equals(label, StringComparison.OrdinalIgnoreCase)).OrderBy(x => x.ScheduledStartDateTime);
                             foreach (BlackoutItem groupedBlackout in groupedBlackouts)
                             {
                                 // Get layout and components
@@ -191,8 +191,8 @@ namespace Squelch.Fragments
                                         itemRangeLabel.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.difficultyNightmareForeground));
                                         break;
                                 }
-                                itemHoursLabel.Text = $"{Math.Round((groupedBlackout.EndDateTime - groupedBlackout.StartDateTime).TotalHours, 1).ToString()} Hours";
-                                itemRangeLabel.Text = $"Starts at {groupedBlackout.StartDateTime.ToString("h:mm tt")}";
+                                itemHoursLabel.Text = $"{Math.Round((groupedBlackout.ScheduledEndDateTime - groupedBlackout.ScheduledStartDateTime).TotalHours, 1).ToString()} Hours";
+                                itemRangeLabel.Text = $"Starts at {groupedBlackout.ScheduledStartDateTime.ToString("h:mm tt")}";
                                 itemParent.AddView(itemView);
                             }
 

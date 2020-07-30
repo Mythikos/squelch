@@ -74,6 +74,7 @@
   <string name="action_back">Back</string>
   <string name="action_create">Create</string>
   <string name="action_cancel">Cancel</string>
+  <string name="action_close">Close</string>
   <string name="action_ok">OK</string>
   <string name="action_setup">Setup</string>
   <string name="action_setup_blackout">Setup Blackout</string>

@@ -1,5 +1,0 @@
-[assembly:global::Android.Runtime.NamespaceMapping (Java = "com.annimon.stream", Managed="Com.Annimon.Stream")]
-[assembly:global::Android.Runtime.NamespaceMapping (Java = "com.annimon.stream.function", Managed="Com.Annimon.Stream.Function")]
-[assembly:global::Android.Runtime.NamespaceMapping (Java = "com.annimon.stream.internal", Managed="Com.Annimon.Stream.Internal")]
-[assembly:global::Android.Runtime.NamespaceMapping (Java = "com.annimon.stream.iterator", Managed="Com.Annimon.Stream.Iterator")]
-[assembly:global::Android.Runtime.NamespaceMapping (Java = "com.annimon.stream.operator", Managed="Com.Annimon.Stream.Operator")]

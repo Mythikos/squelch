@@ -5,9 +5,7 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "squelch", "squelch\squelch.csproj", "{8F94450C-9086-4CC1-A263-A931AC279FA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "library-material-calendar-view", "library-material-calendar-view\library-material-calendar-view.csproj", "{A046606E-B9CD-4F12-8DCA-E621B128AFA6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "library-lightweight-stream-api", "library-lightweight-stream-api\library-lightweight-stream-api.csproj", "{20446E5C-0DF1-4B5C-99F0-82B679BC6C32}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "library-mpandroidchart", "library-mpandroidchart\library-mpandroidchart.csproj", "{EFFF1C8E-0DFA-495B-A00A-FC25877B39E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,14 +19,10 @@ Global
 		{8F94450C-9086-4CC1-A263-A931AC279FA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F94450C-9086-4CC1-A263-A931AC279FA0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8F94450C-9086-4CC1-A263-A931AC279FA0}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{A046606E-B9CD-4F12-8DCA-E621B128AFA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A046606E-B9CD-4F12-8DCA-E621B128AFA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A046606E-B9CD-4F12-8DCA-E621B128AFA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A046606E-B9CD-4F12-8DCA-E621B128AFA6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{20446E5C-0DF1-4B5C-99F0-82B679BC6C32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{20446E5C-0DF1-4B5C-99F0-82B679BC6C32}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{20446E5C-0DF1-4B5C-99F0-82B679BC6C32}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{20446E5C-0DF1-4B5C-99F0-82B679BC6C32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFFF1C8E-0DFA-495B-A00A-FC25877B39E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFFF1C8E-0DFA-495B-A00A-FC25877B39E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFFF1C8E-0DFA-495B-A00A-FC25877B39E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFFF1C8E-0DFA-495B-A00A-FC25877B39E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
