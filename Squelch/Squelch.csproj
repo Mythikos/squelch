@@ -78,11 +78,11 @@
     <Compile Include="Fragments\FeedbackFragment.cs" />
     <Compile Include="Fragments\BlackoutFragment.cs" />
     <Compile Include="Dialogs\DonationDialogFragment.cs" />
-    <Compile Include="Fragments\StoreFragment.cs" />
     <Compile Include="Fragments\SettingsFragment.cs" />
     <Compile Include="Fragments\ScheduleFragment.cs" />
     <Compile Include="Fragments\HomeFragment.cs" />
     <Compile Include="Fragments\FirstTimeSetupFragment.cs" />
+    <Compile Include="Fragments\StatisticsFragment.cs" />
     <Compile Include="Library\Data\BlackoutDatabase.cs" />
     <Compile Include="Library\Data\UserSettings.cs" />
     <Compile Include="Library\Debugger.cs" />
@@ -480,12 +480,6 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\fragment_store.xml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\fragment_blackout_setup.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -511,6 +505,11 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\rounded_corners_bottom.xml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\fragment_statistics.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

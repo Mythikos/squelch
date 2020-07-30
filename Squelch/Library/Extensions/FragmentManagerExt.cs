@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Android.App;
+using System;
+using System.Runtime.CompilerServices;
 
 namespace Squelch.Library.Extensions
 {
@@ -60,14 +62,40 @@ namespace Squelch.Library.Extensions
             //transaction.Commit();
         }
 
+        /// <summary>
+        /// Shows the specified dialog fragment
+        /// </summary>
+        /// <param name="fragmentManager"></param>
+        /// <param name="dialogFragmentType"></param>
         public static void ShowDialogFragment(this AndroidX.Fragment.App.FragmentManager fragmentManager, Type dialogFragmentType)
         {
             ShowDialogFragment(fragmentManager, (AndroidX.Fragment.App.DialogFragment)Activator.CreateInstance(dialogFragmentType), dialogFragmentType);
         }
 
+        /// <summary>
+        /// Shows the specified dialog fragment
+        /// </summary>
+        /// <param name="fragmentManager"></param>
+        /// <param name="dialogFragment"></param>
+        /// <param name="dialogFragmentType"></param>
         public static void ShowDialogFragment(this AndroidX.Fragment.App.FragmentManager fragmentManager, AndroidX.Fragment.App.DialogFragment dialogFragment, Type dialogFragmentType)
         {
             dialogFragment.Show(fragmentManager, dialogFragmentType.Name);
+        }
+
+        /// <summary>
+        /// Refreshes the fragment it receives
+        /// </summary>
+        /// <param name="fragmentManager"></param>
+        /// <param name="fragmentType"></param>
+        public static void RefreshFragment(this AndroidX.Fragment.App.FragmentManager fragmentManager, AndroidX.Fragment.App.Fragment fragment)
+        {
+            AndroidX.Fragment.App.FragmentTransaction transaction;
+
+            transaction = fragmentManager.BeginTransaction();
+            transaction.Detach(fragment);
+            transaction.Attach(fragment);
+            transaction.Commit();
         }
     }
 }

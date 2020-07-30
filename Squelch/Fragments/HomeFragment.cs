@@ -112,7 +112,7 @@ namespace Squelch.Fragments
 
                 _donationPositiveButton.Click += delegate
                 {
-                    this.FragmentManager.ShowDialogFragment(typeof(DonationDialogFragment));
+                    this.ChildFragmentManager.ShowDialogFragment(typeof(DonationDialogFragment));
                 };
                 _donationNeutralButton.Click += delegate
                 {

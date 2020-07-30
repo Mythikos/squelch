@@ -14,13 +14,15 @@ using System.Collections.Generic;
 using AndroidX.Core.Widget;
 using AndroidX.Core.Content.Resources;
 using Android.Support.V4.Content;
+using Squelch.Library.Extensions;
+using System.Threading.Tasks;
 
 namespace Squelch.Fragments
 {
     public class DonationDialogFragment : DialogFragment
     {
         #region Instance Variables
-        private static readonly string _tag = typeof(StoreFragment).FullName;
+        private static readonly string _tag = typeof(DonationDialogFragment).FullName;
 
         // Parent view items
         private LinearLayout _rootLayout;
@@ -31,6 +33,12 @@ namespace Squelch.Fragments
         #endregion
 
         #region Native Methods
+        public override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            this.RequireParentFragment();
+        }
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             View view;
@@ -58,23 +66,44 @@ namespace Squelch.Fragments
                 _preset3RadioButton.Click += RadioButton_Click;
                 _otherRadioButton.Click += RadioButton_Click;
 
-                _positiveButton.Click += delegate
+                _positiveButton.Click += async delegate
                 {
+                    //
+                    // Get donation amount
+                    int amount = 0;
                     if (_preset1RadioButton.Checked == true)
-                    {
-                        ProcessDonation(int.Parse(_preset1RadioButton.Text));
-                    } 
+                        amount = int.Parse(_preset1RadioButton.Text.Replace("$", string.Empty).Replace(" ", string.Empty));
                     else if (_preset2RadioButton.Checked == true)
-                    {
-                        ProcessDonation(int.Parse(_preset2RadioButton.Text));
-                    }
+                        amount = int.Parse(_preset2RadioButton.Text.Replace("$", string.Empty).Replace(" ", string.Empty));
                     else if (_preset3RadioButton.Checked == true)
-                    {
-                        ProcessDonation(int.Parse(_preset3RadioButton.Text));
-                    }
+                        amount = int.Parse(_preset3RadioButton.Text.Replace("$", string.Empty).Replace(" ", string.Empty));
                     else if (_otherRadioButton.Checked == true)
+                        amount = _otherNumberPicker.Value;
+
+                    //
+                    // Process donation
+                    (bool, string) result = await InAppPurchaseUtils.PurchaseAsync($"squelch_donation_{amount.ToString().PadLeft(3, '0')}", true);
+                    if (result.Item1 == true)
                     {
-                        ProcessDonation(_otherNumberPicker.Value);
+                        // Set flag
+                        UserSettings.SetFlagValue(UserSettings.FlagKeys.Donation_Status, true.ToString());
+                        UserSettings.SetFlagValue(UserSettings.FlagKeys.Donation_StatusUpdatedOn, DateTime.Now.ToString());
+
+                        // Refresh parent and close
+                        DisplayUtils.ShowSnackbar(this.ParentFragment.View, "Thank you for your donation!", Snackbar.LengthLong);
+                        this.ParentFragment.FragmentManager.RefreshFragment(this.ParentFragment);
+                        this.Dismiss();
+                    }
+                    else
+                    {
+                        if (string.IsNullOrWhiteSpace(result.Item2) == false)
+                        {
+                            DisplayUtils.ShowSnackbar(this.ParentFragment.View, result.Item2, Snackbar.LengthLong);
+                        }
+                        else
+                        {
+                            DisplayUtils.ShowSnackbar(this.ParentFragment.View, "An unexpected error occurred. Please try again.", Snackbar.LengthLong);
+                        }
                     }
                 };
 
@@ -157,38 +186,6 @@ namespace Squelch.Fragments
             // Report to parent
             if (this.Activity is IIndeterminateProgressReporter)
                 ((IIndeterminateProgressReporter)this.Activity).SetProgressBarState(isWorking);
-        }
-
-        private async void ProcessDonation(int amount)
-        {
-            try
-            {
-                if (amount > 0)
-                {
-                    (bool, string) result = await InAppPurchaseUtils.PurchaseAsync($"squelch_donation_{amount.ToString().PadLeft(3, '0')}", true);
-                    if (result.Item1 == true)
-                    {
-                        UserSettings.SetFlagValue(UserSettings.FlagKeys.Donation_Status, true.ToString());
-                        UserSettings.SetFlagValue(UserSettings.FlagKeys.Donation_StatusUpdatedOn, DateTime.Now.ToString());
-                        DisplayUtils.ShowSnackbar(this.View, "Thank you for your donation!", Snackbar.LengthLong);
-                    }
-                    else
-                    {
-                        if (string.IsNullOrWhiteSpace(result.Item2) == false)
-                        {
-                            DisplayUtils.ShowSnackbar(this.View, result.Item2, Snackbar.LengthLong);
-                        }
-                    }
-                }
-                else
-                {
-                    DisplayUtils.ShowSnackbar(this.View, "An unexpected error occurred. Please try again later!", Snackbar.LengthLong);
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.Write(_tag, $"ProcessUnlock: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
-            }
         }
         #endregion
     }

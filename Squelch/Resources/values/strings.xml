@@ -13,7 +13,7 @@
   <string name="title_first_time_setup">First Time Setup</string>
   <string name="title_open_source">Open Source Software</string>
   <string name="title_feedback">Feedback</string>
-  <string name="title_store">Store</string>
+  <string name="title_statistics">Statistics</string>
 
   <!-- Content Descriptions -->
   <string name="content_description_logo">Squelch Logo</string>

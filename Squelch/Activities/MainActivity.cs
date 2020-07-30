@@ -100,8 +100,8 @@ namespace Squelch.Activities
                 case Resource.Id.navigation_settings:
                     this.SupportFragmentManager.SetFragment(typeof(SettingsFragment), true, true);
                     return true;
-                case Resource.Id.navigation_store:
-                    this.SupportFragmentManager.SetFragment(typeof(StoreFragment), true, true);
+                case Resource.Id.navigation_statistics:
+                    this.SupportFragmentManager.SetFragment(typeof(StatisticsFragment), true, true);
                     return true;
             }
             return false;
