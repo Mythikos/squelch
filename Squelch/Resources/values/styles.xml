@@ -8,4 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="NumberPickerAccentStyle">
+      <item name="android:backgroundTint">@color/colorAccent</item>
+      <item name="android:buttonTint">@color/colorAccentForeground</item>
+      <item name="android:textColorPrimary">@color/colorAccentForeground</item>
+      <item name="colorControlNormal">@color/colorAccentForeground</item>
+    </style>
 </resources>

@@ -27,7 +27,7 @@
   <string name="fragment_home_feedback_message_neutral">Hey! Are you enjoying squelch?</string>
   <string name="fragment_home_feedback_message_positive">Awesome! Can you give us some feedback on your experience?</string>
   <string name="fragment_home_feedback_message_negative">Oh no, we are sorry to hear that! Can you give us some feedback so we can better your experience in the future?</string>
-  <string name="fragment_home_donation_message_neutral">Hey there, Squelcher, shameless plug here. The squelch team works hard to provide you with the best app and experience we can. Would you consider giving the development team a small donation to help fuel future development?</string>
+  <string name="fragment_home_donation_message_neutral">Hey there, Squelcher! We see you\'ve been using Squelch recently. We\'ve worked hard to get the app to where it is today, and would love to continue work on improving the app into the future. Would you consider giving us a donation to help us with our development costs?</string>
 
   <string name="fragment_feedback_submission_error_unable_to_connect">Unable to connect to Squelch servers. Please try again later.</string>
   <string name="fragment_feedback_submission_error_no_option_selected">Please choose one of the available options.</string>
@@ -59,6 +59,9 @@
   <string name="fragment_blackout_setup_dates_plus_10_minutes">+10 Mins</string>
   <string name="fragment_blackout_setup_dates_plus_30_minutes">+30 Mins</string>
   <string name="fragment_blackout_setup_dates_now">Now</string>
+
+  <string name="fragment_donation_title_sub">By donating you are helping us continue to provide high quality applications for you!</string>
+  <string name="fragment_donation_user_prompt">Select what you are comfortable with donating to continue.</string>
 
   <!-- Permission Strings -->
   <string name="permission_usage_data">Usage Data</string>
@@ -154,12 +157,14 @@
   <string name="text_novice">Novice</string>
   <string name="text_veteran">Veteran</string>
   <string name="text_master">Master</string>
+  <string name="text_other">Other</string>
+  
   <string name="text_nightmare">Nightmare</string>
   <string name="text_sure_exclamation">Sure!</string>
   <string name="text_not_really">Not Really</string>
   <string name="text_no_thanks">No Thanks</string>
   <string name="text_maybe_later">Maybe Later</string>
-  <string name="text_never">Never</string>
+  <string name="text_nah">Nah</string>
 
   <!-- Special -->
   <string name="_blank"></string>

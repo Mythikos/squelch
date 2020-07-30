@@ -112,7 +112,7 @@ namespace Squelch.Fragments
 
                 _donationPositiveButton.Click += delegate
                 {
-                    this.FragmentManager.SetFragment(typeof(StoreFragment), true, true);
+                    this.FragmentManager.ShowDialogFragment(typeof(DonationDialogFragment));
                 };
                 _donationNeutralButton.Click += delegate
                 {
@@ -209,30 +209,6 @@ namespace Squelch.Fragments
                 finishedBlackoutCount = (await BlackoutDatabase.FindAllAsync(BlackoutItem.BlackoutStatusCode.Finished)).Count();
 
                 //
-                // Ask for donations?
-                if (finishedBlackoutCount >= 1)
-                {
-                    if (UserSettings.GetFlagValue(UserSettings.FlagKeys.Donation_Status, "false").Equals("true", StringComparison.OrdinalIgnoreCase))
-                    {
-                        // They donated before, lets wait a while before asking again
-                        lastPrompt = DateTime.Parse(UserSettings.GetFlagValue(UserSettings.FlagKeys.Donation_StatusUpdatedOn, DateTime.Now.ToString()));
-                        if (DateTime.Now.Subtract(lastPrompt).TotalDays >= 180)
-                            _donationCard.Visibility = ViewStates.Visible;
-                    }
-                    else if (UserSettings.GetFlagValue(UserSettings.FlagKeys.Donation_Status, "false").Equals("false", StringComparison.OrdinalIgnoreCase))
-                    {
-                        _donationCard.Visibility = ViewStates.Visible;
-                    }
-                    else if (UserSettings.GetFlagValue(UserSettings.FlagKeys.Donation_Status, "false").Equals("skipped", StringComparison.OrdinalIgnoreCase))
-                    {
-                        // They skipped when asked before
-                        lastPrompt = DateTime.Parse(UserSettings.GetFlagValue(UserSettings.FlagKeys.Donation_StatusUpdatedOn, DateTime.Now.ToString()));
-                        if (DateTime.Now.Subtract(lastPrompt).TotalDays >= 7)
-                            _donationCard.Visibility = ViewStates.Visible;
-                    }
-                }
-
-                //
                 // Ask for feedback
                 if (finishedBlackoutCount >= 3)
                 {
@@ -247,6 +223,31 @@ namespace Squelch.Fragments
                         lastPrompt = DateTime.Parse(UserSettings.GetFlagValue(UserSettings.FlagKeys.Feedback_StatusUpdatedOn, DateTime.Now.ToString()));
                         if (DateTime.Now.Subtract(lastPrompt).TotalDays >= 5)
                             _feedbackCard.Visibility = ViewStates.Visible;
+                    }
+                }
+
+                //
+                // Ask for donations?
+                if (finishedBlackoutCount >= 5)
+                {
+                    if (UserSettings.GetFlagValue(UserSettings.FlagKeys.Donation_Status, "false").Equals("true", StringComparison.OrdinalIgnoreCase) 
+                        || UserSettings.GetFlagValue(UserSettings.FlagKeys.Donation_Status, "false").Equals("never", StringComparison.OrdinalIgnoreCase))
+                    {
+                        // They donated before, lets wait a while before asking again
+                        lastPrompt = DateTime.Parse(UserSettings.GetFlagValue(UserSettings.FlagKeys.Donation_StatusUpdatedOn, DateTime.Now.ToString()));
+                        if (DateTime.Now.Subtract(lastPrompt).TotalDays >= 180)
+                            _donationCard.Visibility = ViewStates.Visible;
+                    }
+                    else if (UserSettings.GetFlagValue(UserSettings.FlagKeys.Donation_Status, "false").Equals("false", StringComparison.OrdinalIgnoreCase))
+                    {
+                        _donationCard.Visibility = ViewStates.Visible;
+                    }
+                    else if (UserSettings.GetFlagValue(UserSettings.FlagKeys.Donation_Status, "false").Equals("skipped", StringComparison.OrdinalIgnoreCase))
+                    {
+                        // They skipped when asked before
+                        lastPrompt = DateTime.Parse(UserSettings.GetFlagValue(UserSettings.FlagKeys.Donation_StatusUpdatedOn, DateTime.Now.ToString()));
+                        if (DateTime.Now.Subtract(lastPrompt).TotalDays >= 14)
+                            _donationCard.Visibility = ViewStates.Visible;
                     }
                 }
 

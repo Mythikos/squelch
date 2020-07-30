@@ -52,6 +52,7 @@ namespace Squelch.Fragments
         // Apps
         private LinearLayout _applicationLayout;
         private RecyclerView _applicationRecyclerView;
+        private CheckBox _applicationShowSystemAppsCheckbox;
         private IMenuItem _applicationShowSystemAppsMenuItem;
 
         // Review
@@ -430,17 +431,16 @@ namespace Squelch.Fragments
         public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
         {
             // Create a new checkbox to add to the options menu
-            var applicationShowSystemAppsCheckbox = new CheckBox(this.Context);
-            applicationShowSystemAppsCheckbox.Checked = false;
-            applicationShowSystemAppsCheckbox.Click += delegate { ApplicationList_Filter(); };
-            applicationShowSystemAppsCheckbox.Text = GetString(Resource.String.action_show_system_applications);
-            applicationShowSystemAppsCheckbox.SetForegroundGravity(GravityFlags.End);
-            applicationShowSystemAppsCheckbox.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimaryForeground)); // This is the title bar which is colorPrimary
-            applicationShowSystemAppsCheckbox.ButtonTintList = ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimaryForeground); // This is the title bar which is colorPrimary
+            _applicationShowSystemAppsCheckbox = (CheckBox)this.LayoutInflater.Inflate(Resource.Drawable.check_box_right, null);
+            _applicationShowSystemAppsCheckbox.Checked = false;
+            _applicationShowSystemAppsCheckbox.Click += delegate { ApplicationList_Filter(); };
+            _applicationShowSystemAppsCheckbox.Text = GetString(Resource.String.action_show_system_applications);
+            _applicationShowSystemAppsCheckbox.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimaryForeground)); // This is the title bar which is colorPrimary
+            _applicationShowSystemAppsCheckbox.ButtonTintList = ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimaryForeground); // This is the title bar which is colorPrimary
 
             // Add new item to menu
             _applicationShowSystemAppsMenuItem = menu.Add(GetString(Resource.String.action_show_system_applications));
-            _applicationShowSystemAppsMenuItem.SetActionView(applicationShowSystemAppsCheckbox);
+            _applicationShowSystemAppsMenuItem.SetActionView(_applicationShowSystemAppsCheckbox);
             _applicationShowSystemAppsMenuItem.SetShowAsAction(ShowAsAction.Always);
             _applicationShowSystemAppsMenuItem.SetVisible(false);
         }
