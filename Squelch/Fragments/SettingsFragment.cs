@@ -195,7 +195,7 @@ namespace Squelch.Fragments
                 {
                     try
                     {
-                        this.FragmentManager.ShowDialogFragment(typeof(OpenSourceDialogFragment));
+                        this.ChildFragmentManager.ShowDialogFragment(typeof(OpenSourceDialogFragment));
                     }
                     finally { SetIsWorking(false); }
                 };

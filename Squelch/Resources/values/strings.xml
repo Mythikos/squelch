@@ -60,8 +60,7 @@
   <string name="fragment_blackout_setup_dates_plus_30_minutes">+30 Mins</string>
   <string name="fragment_blackout_setup_dates_now">Now</string>
 
-  <string name="fragment_donation_title_sub">By donating you are helping us continue to provide high quality applications for you!</string>
-  <string name="fragment_donation_user_prompt">Select what you are comfortable with donating to continue.</string>
+  <string name="fragment_donation_title_sub">By donating you are helping us continue to provide high quality applications for you!\n\nSelect what you are comfortable with donating to continue.</string>
 
   <!-- Permission Strings -->
   <string name="permission_usage_data">Usage Data</string>

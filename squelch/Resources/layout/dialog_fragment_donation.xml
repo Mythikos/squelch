@@ -43,14 +43,6 @@
         android:gravity="center"
         android:textColor="@color/White"
         android:padding="10dp"
-        android:text="@string/fragment_donation_user_prompt"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:gravity="center"
-        android:textColor="@color/White"
-        android:padding="10dp"
         android:text="@string/fragment_donation_title_sub"/>
     <ScrollView
         android:layout_weight="1"

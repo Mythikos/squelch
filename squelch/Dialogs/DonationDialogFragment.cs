@@ -45,7 +45,7 @@ namespace Squelch.Fragments
 
             //
             // Inflate the layour
-            view = inflater.Inflate(Resource.Layout.fragment_donation, container, false);
+            view = inflater.Inflate(Resource.Layout.dialog_fragment_donation, container, false);
 
             try
             {
