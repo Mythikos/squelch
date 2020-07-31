@@ -68,6 +68,18 @@
   
   <string name="fragment_donation_title_sub">Select what you are comfortable with donating to continue.</string>
 
+  <string name="fragment_schedule_notice_no_items">No items to display - try setting up a blackout!</string>
+  
+  <string name="fragment_statistics_filter_one_week">1W</string>
+  <string name="fragment_statistics_filter_one_month">1M</string>
+  <string name="fragment_statistics_filter_one_year">1Y</string>
+  <string name="fragment_statistics_chart_title_outcomes">Outcomes</string>
+  <string name="fragment_statistics_chart_title_difficulties">Difficulties</string>
+  <string name="fragment_statistics_chart_title_bids">Bids</string>
+  <string name="fragment_statistics_chart_description_outcomes">The outcomes to your blackouts</string>
+  <string name="fragment_statistics_chart_description_difficulties">The difficulties of your blackouts</string>
+  <string name="fragment_statistics_chart_description_bids">The bids of your blackouts split by outcomes</string>
+
   <!-- Permission Strings -->
   <string name="permission_usage_data">Usage Data</string>
   <string name="permission_application_overlay">Application Overlay</string>
@@ -170,7 +182,6 @@
   <string name="text_total_bids">Total Bids</string>
   <string name="text_total_time_saved">Total Time Saved</string>
   <string name="text_total_blackouts">Total Blackouts</string>
-  <string name="text_statuses">Statuses</string>
 
   <!-- Difficulty -->
   <string name="text_novice">Novice</string>

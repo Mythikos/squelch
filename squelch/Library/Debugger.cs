@@ -103,6 +103,9 @@ namespace Squelch.Library
                 blacklist = getRandomPackages(context.PackageManager.GetInstalledPackages(PackageInfoFlags.MatchAll), false);
                 for (int i = testDataCount; i > 0; i--)
                 {
+                    if (i == 0) 
+                        continue;
+
                     var blackoutItem = new BlackoutItem()
                     {
                         ScheduledStartDateTime = DateTime.Today.AddDays(i - 50),
@@ -110,7 +113,7 @@ namespace Squelch.Library
                         DifficultyCode = ((i%10==0) ? BlackoutItem.BlackoutDifficultyCode.Master : ((i%5==0) ? BlackoutItem.BlackoutDifficultyCode.Veteran : BlackoutItem.BlackoutDifficultyCode.Novice)),
                         Bid = i,
                         Blacklist = blacklist
-                    }.SetBlackoutPending();
+                    }.SetBlackoutFinished(((i % 10 == 0) ? BlackoutItem.BlackoutResultCode.Failed : ((i % 5 == 0) ? BlackoutItem.BlackoutResultCode.Success : BlackoutItem.BlackoutResultCode.Cancelled)));
                     blackouts.Add(blackoutItem);
                 }
 

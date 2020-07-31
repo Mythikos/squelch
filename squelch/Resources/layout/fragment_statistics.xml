@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_statistics_root_layout"
     android:animateLayoutChanges="true"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -15,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="1W"
+            android:text="@string/fragment_statistics_filter_one_week"
             android:textColor="@color/colorPrimaryForeground"
             android:background="@drawable/rounded_corners_ripple"
             android:backgroundTint="@color/colorPrimary" 
@@ -25,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="1M"
+            android:text="@string/fragment_statistics_filter_one_month"
             android:textColor="@color/colorPrimaryForeground"
             android:background="@drawable/rounded_corners_ripple"
             android:backgroundTint="@color/colorPrimary" 
@@ -35,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="1Y"
+            android:text="@string/fragment_statistics_filter_one_year"
             android:textColor="@color/colorPrimaryForeground"
             android:background="@drawable/rounded_corners_ripple"
             android:backgroundTint="@color/colorPrimary" 
@@ -121,18 +122,49 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/text_statuses"
+                android:text="@string/fragment_statistics_chart_title_outcomes"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:padding="10dp"/>
             <com.github.mikephil.charting.charts.PieChart
-                android:id="@+id/fragment_statistics_blackout_statuses_pie_chart"
+                android:id="@+id/fragment_statistics_blackout_status_pie_chart"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"/>
+                android:layout_height="300dp"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorPrimary"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_statistics_chart_title_difficulties"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:padding="10dp"/>
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/fragment_statistics_blackout_difficulty_pie_chart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_statistics_chart_title_bids"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:padding="10dp"/>
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/fragment_statistics_blackout_bid_pie_chart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"/>
+
+            <!-- Spacer -->
+            <View
+                android:layout_height="20dp"
+                android:layout_width="match_parent"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

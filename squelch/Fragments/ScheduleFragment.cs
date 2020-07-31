@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace Squelch.Fragments
 {
@@ -119,16 +120,13 @@ namespace Squelch.Fragments
 
             try
             {
+                // Clear items
+                this._itemLayout.RemoveAllViews();
+
                 // Load blackouts
                 pendingBlackouts = await BlackoutDatabase.FindAllAsync(BlackoutItem.BlackoutStatusCode.Pending);
                 if (pendingBlackouts.Count > 0)
                 {
-                    // Clear items
-                    Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
-                    {
-                        this._itemLayout.RemoveAllViews();
-                    });
-
                     // Build new ones
                     await Task.Factory.StartNew(() =>
                     {
@@ -199,10 +197,9 @@ namespace Squelch.Fragments
                             var spacer = new View(this.Context);
                             spacer.LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent, 20);
 
-
-                            // Attach new items
-                            Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
+                            MainThread.BeginInvokeOnMainThread(() =>
                             {
+                                // Attach new items
                                 this._itemLayout.AddView(temporalLabel);
                                 if (!string.IsNullOrWhiteSpace(dateLabel.Text))
                                     this._itemLayout.AddView(dateLabel);
@@ -211,6 +208,16 @@ namespace Squelch.Fragments
                             });
                         }
                     });
+                }
+                else
+                {
+                    var noItemsLabel = new TextView(this.Context);
+                    noItemsLabel.LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
+                    noItemsLabel.Text = GetString(Resource.String.fragment_schedule_notice_no_items);
+                    noItemsLabel.Gravity = GravityFlags.Center;
+                    noItemsLabel.SetTextSize(Android.Util.ComplexUnitType.Dip, 16);
+                    noItemsLabel.SetTypeface(null, Android.Graphics.TypefaceStyle.Bold);
+                    this._itemLayout.AddView(noItemsLabel);
                 }
             }
             finally
