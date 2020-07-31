@@ -106,7 +106,7 @@ namespace Squelch.Fragments
                 // Set view stuff
                 _stepId = 0;
                 _problemLabel.Text = string.Empty;
-                _dialogPositiveButton.SetText(Resource.String.action_get_started);
+                _dialogPositiveButton.SetText(Resource.String.text_get_started);
                 PositiveButton_Click(this, null);
 
                 //
@@ -157,7 +157,7 @@ namespace Squelch.Fragments
             try
             {
                 // Determine action
-                if (_dialogPositiveButton.Text.Equals(GetString(Resource.String.action_finish), StringComparison.OrdinalIgnoreCase))
+                if (_dialogPositiveButton.Text.Equals(GetString(Resource.String.text_finish), StringComparison.OrdinalIgnoreCase))
                 {
                     UserSettings.Id = UserItem.CreateNewId();
 
@@ -274,7 +274,7 @@ namespace Squelch.Fragments
                 switch (step)
                 {
                     case STEP_WELCOME:
-                        _dialogPositiveButton.SetText(Resource.String.action_get_started);
+                        _dialogPositiveButton.SetText(Resource.String.text_get_started);
                         _welcomeLayout.Visibility = ViewStates.Visible;
                         _specialPermissionsLayout.Visibility = ViewStates.Gone;
                         _userNameLayout.Visibility = ViewStates.Gone;
@@ -282,7 +282,7 @@ namespace Squelch.Fragments
                         _dialogPositiveButton.Visibility = ViewStates.Visible;
                         break;
                     case STEP_SPECIAL_PERMISSIONS:
-                        _dialogPositiveButton.SetText(Resource.String.action_next);
+                        _dialogPositiveButton.SetText(Resource.String.text_next);
                         _welcomeLayout.Visibility = ViewStates.Gone;
                         _specialPermissionsLayout.Visibility = ViewStates.Visible;
                         _userNameLayout.Visibility = ViewStates.Gone;
@@ -295,7 +295,7 @@ namespace Squelch.Fragments
                             UIHandleSpecialPermissions();
                         break;
                     case STEP_PERSONALIZE:
-                        _dialogPositiveButton.SetText(Resource.String.action_finish);
+                        _dialogPositiveButton.SetText(Resource.String.text_finish);
                         _welcomeLayout.Visibility = ViewStates.Gone;
                         _specialPermissionsLayout.Visibility = ViewStates.Gone;
                         _userNameLayout.Visibility = ViewStates.Visible;

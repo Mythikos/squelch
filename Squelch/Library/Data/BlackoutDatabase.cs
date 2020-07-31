@@ -168,7 +168,11 @@ namespace Squelch.Library.Data
 
             try
             {
-                result = await s_database.GetAllWithChildrenAsync<BlackoutItem>(x => x.ScheduledStartDateTime >= startDateTime && x.ScheduledEndDateTime <= endDateTime);
+                result = await s_database.GetAllWithChildrenAsync<BlackoutItem>(x =>
+                    (startDateTime >= x.ScheduledStartDateTime && startDateTime <= x.ScheduledEndDateTime) // Overlapping
+                    || (endDateTime >= x.ScheduledStartDateTime && endDateTime <= x.ScheduledEndDateTime) // After or overlapping
+                    || (startDateTime <= x.ScheduledEndDateTime && endDateTime >= x.ScheduledStartDateTime) // Before or overlapping
+                );
             }
             catch (Exception ex)
             {
@@ -336,6 +340,49 @@ namespace Squelch.Library.Data
                 }
             }
             catch { result = false; }
+
+            return result;
+        }
+
+        public static async Task<Dictionary<string, string>> GetBlackoutStatistics(DateTime startDateTime, DateTime endDateTime)
+        {
+            Dictionary<string, string> result;
+            List<BlackoutItem> blackouts;
+
+            try
+            {
+                //
+                // Initialize
+                result = new Dictionary<string, string>();
+                blackouts = await BlackoutDatabase.FindAllAsync(startDateTime, endDateTime);
+
+                //
+                // Get Totals
+                result.Add("total_bids_all", blackouts.Sum(x => x.Bid).ToString());
+                result.Add("total_blackouts_all", blackouts.Count().ToString());
+                result.Add("total_milliseconds_actual_all", blackouts.Sum(x => (x.ActualEndDateTime - x.ActualStartDateTime).TotalMilliseconds).ToString());
+                result.Add("total_milliseconds_scheduled__all", blackouts.Sum(x => (x.ScheduledEndDateTime - x.ScheduledStartDateTime).TotalMilliseconds).ToString());
+
+                foreach (BlackoutItem.BlackoutDifficultyCode difficultyCode in Enum.GetValues(typeof(BlackoutItem.BlackoutDifficultyCode)))
+                {
+                    result.Add($"total_bids_{difficultyCode.ToString().ToLower()}", blackouts.Where(x => x.DifficultyCode.Equals(difficultyCode)).Sum(x => x.Bid).ToString());
+                    result.Add($"total_blackouts_{difficultyCode.ToString().ToLower()}", blackouts.Count(x => x.DifficultyCode.Equals(difficultyCode)).ToString());
+                    result.Add($"total_milliseconds_actual_{difficultyCode.ToString().ToLower()}", blackouts.Where(x => x.DifficultyCode.Equals(difficultyCode)).Sum(x => (x.ActualEndDateTime - x.ActualStartDateTime).TotalMilliseconds).ToString());
+                    result.Add($"total_milliseconds_scheduled_{difficultyCode.ToString().ToLower()}", blackouts.Where(x => x.DifficultyCode.Equals(difficultyCode)).Sum(x => (x.ScheduledEndDateTime - x.ScheduledStartDateTime).TotalMilliseconds).ToString());
+                }
+
+                foreach (BlackoutItem.BlackoutResultCode resultCode in Enum.GetValues(typeof(BlackoutItem.BlackoutResultCode)))
+                {
+                    result.Add($"total_bids_{resultCode.ToString().ToLower()}", blackouts.Where(x => x.ResultCode.Equals(resultCode)).Sum(x => x.Bid).ToString());
+                    result.Add($"total_blackouts_{resultCode.ToString().ToLower()}", blackouts.Count(x => x.ResultCode.Equals(resultCode)).ToString());
+                    result.Add($"total_milliseconds_actual_{resultCode.ToString().ToLower()}", blackouts.Where(x => x.ResultCode.Equals(resultCode)).Sum(x => (x.ActualEndDateTime - x.ActualStartDateTime).TotalMilliseconds).ToString());
+                    result.Add($"total_milliseconds_scheduled_{resultCode.ToString().ToLower()}", blackouts.Where(x => x.ResultCode.Equals(resultCode)).Sum(x => (x.ScheduledEndDateTime - x.ScheduledStartDateTime).TotalMilliseconds).ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                result = new Dictionary<string, string>();
+            }
 
             return result;
         }

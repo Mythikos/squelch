@@ -143,8 +143,8 @@ namespace Squelch.Fragments
                 // Init view
                 _questionId = -1;
                 _problemLabel.Text = string.Empty;
-                _dialogPositiveButton.SetButtonText("Next");
-                _dialogNegativeButton.SetButtonText("Cancel");
+                _dialogPositiveButton.SetText(Resource.String.text_next);
+                _dialogNegativeButton.SetText(Resource.String.text_cancel);
                 PositiveButton_Click(this, null);
             }
             catch (Exception ex)
@@ -218,9 +218,9 @@ namespace Squelch.Fragments
                 GeneralUtils.HideSoftKeyboard(this.Activity, this.Context);
 
                 // Determine action
-                if (_dialogPositiveButton.Text == GetString(Resource.String.action_next))
+                if (_dialogPositiveButton.Text == GetString(Resource.String.text_next))
                     NextStep();
-                else if (_dialogPositiveButton.Text == GetString(Resource.String.action_submit))
+                else if (_dialogPositiveButton.Text == GetString(Resource.String.text_submit))
                     SubmitFeedback();
             }
             catch (Exception ex)
@@ -242,9 +242,9 @@ namespace Squelch.Fragments
                 GeneralUtils.HideSoftKeyboard(this.Activity, this.Context);
 
                 // Determine action
-                if (_dialogNegativeButton.Text == GetString(Resource.String.action_back))
+                if (_dialogNegativeButton.Text == GetString(Resource.String.text_back))
                     PreviousStep();
-                else if (_dialogNegativeButton.Text == GetString(Resource.String.action_cancel))
+                else if (_dialogNegativeButton.Text == GetString(Resource.String.text_cancel))
                     ConfirmClose();
             }
             catch (Exception ex)
@@ -353,20 +353,20 @@ namespace Squelch.Fragments
                 // Handle buttons
                 if (step <= 0)
                 {
-                    _dialogNegativeButton.SetText(Resource.String.action_cancel);
-                    _dialogPositiveButton.SetText(Resource.String.action_next);
+                    _dialogNegativeButton.SetText(Resource.String.text_cancel);
+                    _dialogPositiveButton.SetText(Resource.String.text_next);
                     _dataConsentLabel.Visibility = ViewStates.Gone;
                 }
                 else if (step >= _questionTuples.Count - 1)
                 {
-                    _dialogNegativeButton.SetText(Resource.String.action_back);
-                    _dialogPositiveButton.SetText(Resource.String.action_submit);
+                    _dialogNegativeButton.SetText(Resource.String.text_back);
+                    _dialogPositiveButton.SetText(Resource.String.text_submit);
                     _dataConsentLabel.Visibility = ViewStates.Visible;
                 }
                 else
                 {
-                    _dialogNegativeButton.SetText(Resource.String.action_back);
-                    _dialogPositiveButton.SetText(Resource.String.action_next);
+                    _dialogNegativeButton.SetText(Resource.String.text_back);
+                    _dialogPositiveButton.SetText(Resource.String.text_next);
                     _dataConsentLabel.Visibility = ViewStates.Gone;
                 }
             }
@@ -568,7 +568,7 @@ namespace Squelch.Fragments
 
             try
             {
-                DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_confirm), GetString(Resource.String.text_are_you_sure_cancel), true, "Yes", delegate { this.FragmentManager.PopBackStack(); }, "Cancel");
+                DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_confirm), GetString(Resource.String.text_are_you_sure_cancel), true, GetString(Resource.String.text_yes), delegate { this.FragmentManager.PopBackStack(); }, GetString(Resource.String.text_cancel));
             }
             catch (Exception ex)
             {

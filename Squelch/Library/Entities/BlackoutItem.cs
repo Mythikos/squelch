@@ -118,6 +118,13 @@ namespace Squelch.Library.Entities
                 this.ActualEndDateTime = actualEndDateTime;
             }
 
+            // If the start date was not handled yet, lets handle it?
+            if (this.ActualStartDateTime == default)
+            {
+                this.ActualStartDateTime = this.ActualEndDateTime;
+            }
+
+            // Set status and results
             this.StatusCode = BlackoutStatusCode.Finished;
             this.ResultCode = resultCode;
 

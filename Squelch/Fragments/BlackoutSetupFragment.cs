@@ -396,8 +396,8 @@ namespace Squelch.Fragments
                 // Set view stuff
                 _stepId = 0;
                 _problemLabel.Text = string.Empty;
-                _dialogPositiveButton.SetButtonText(GetString(Resource.String.action_next));
-                _dialogNegativeButton.SetButtonText(GetString(Resource.String.action_cancel));
+                _dialogPositiveButton.SetButtonText(GetString(Resource.String.text_next));
+                _dialogNegativeButton.SetButtonText(GetString(Resource.String.text_cancel));
                 PositiveButton_Click(this, null);
             }
             catch (Exception ex)
@@ -434,15 +434,14 @@ namespace Squelch.Fragments
             _applicationShowSystemAppsCheckbox = (CheckBox)this.LayoutInflater.Inflate(Resource.Drawable.check_box_right, null);
             _applicationShowSystemAppsCheckbox.Checked = false;
             _applicationShowSystemAppsCheckbox.Click += delegate { ApplicationList_Filter(); };
-            _applicationShowSystemAppsCheckbox.Text = GetString(Resource.String.action_show_system_applications);
+            _applicationShowSystemAppsCheckbox.Text = GetString(Resource.String.text_show_system_applications);
             _applicationShowSystemAppsCheckbox.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimaryForeground)); // This is the title bar which is colorPrimary
             _applicationShowSystemAppsCheckbox.ButtonTintList = ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimaryForeground); // This is the title bar which is colorPrimary
 
             // Add new item to menu
-            _applicationShowSystemAppsMenuItem = menu.Add(GetString(Resource.String.action_show_system_applications));
+            _applicationShowSystemAppsMenuItem = menu.Add(GetString(Resource.String.text_show_system_applications));
             _applicationShowSystemAppsMenuItem.SetActionView(_applicationShowSystemAppsCheckbox);
             _applicationShowSystemAppsMenuItem.SetShowAsAction(ShowAsAction.Always);
-            _applicationShowSystemAppsMenuItem.SetVisible(false);
         }
         #endregion
 
@@ -464,13 +463,13 @@ namespace Squelch.Fragments
                     // If its locked, its being forced for one reason or another, dont allow a toggle
                     if (uiApplicationItem.IsDifficultyLocked)
                     {
-                        DisplayUtils.ShowGenericAlertDialog(this.Context, "Notice", "This application cannot be toggled due to the blackout difficulty.", true, "Ok");
+                        DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_notice), "This application cannot be toggled due to the blackout difficulty.", true, GetString(Resource.String.text_ok));
                     }
 
                     // If its recommended to be locked, notify them (and then unlock it if they are being stingy)
                     else if (uiApplicationItem.IsSelected && EnforcerUtils.ShouldBlockApplication(this.Context, uiApplicationItem.PackageName))
                     {
-                        DisplayUtils.ShowGenericAlertDialog(this.Context, "Notice", "This application can circumvent how Squelch functions.\n\nIt is recommended that you keep this application blocked.", true, "Unblock", delegate { uiApplicationItem.SetSelected(false); }, "Cancel");
+                        DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_notice), "This application can circumvent how Squelch functions.\n\nIt is recommended that you keep this application blocked.", true, GetString(Resource.String.text_unlock), delegate { uiApplicationItem.SetSelected(false); }, GetString(Resource.String.text_cancel));
                     }
 
                     // Toggle as normal
@@ -504,11 +503,11 @@ namespace Squelch.Fragments
                 _dialogNegativeButton.Enabled = false;
 
                 // Determine action
-                if (_dialogPositiveButton.Text.Equals(GetString(Resource.String.action_next)))
+                if (_dialogPositiveButton.Text.Equals(GetString(Resource.String.text_next)))
                 {
                     NextStep();
                 }
-                else if (_dialogPositiveButton.Text.Equals(GetString(Resource.String.action_finish)))
+                else if (_dialogPositiveButton.Text.Equals(GetString(Resource.String.text_finish)))
                 {
                     //
                     // Assign the values
@@ -561,11 +560,11 @@ namespace Squelch.Fragments
                 _dialogNegativeButton.Enabled = false;
 
                 // Determine action
-                if (_dialogNegativeButton.Text.Equals(GetString(Resource.String.action_back)))
+                if (_dialogNegativeButton.Text.Equals(GetString(Resource.String.text_back)))
                 {
                     PreviousStep();
                 }
-                else if (_dialogNegativeButton.Text.Equals(GetString(Resource.String.action_cancel)))
+                else if (_dialogNegativeButton.Text.Equals(GetString(Resource.String.text_cancel)))
                 {
                     ConfirmClose();
                 }
@@ -609,7 +608,7 @@ namespace Squelch.Fragments
         {
             try
             {
-                DisplayUtils.ShowGenericAlertDialog(this.Context, "Confirm", "Are you sure you want to cancel this setup?", true, "Yes", delegate { this.FragmentManager.PopBackStack(); }, "No");
+                DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_confirm), GetString(Resource.String.text_are_you_sure_cancel), true, GetString(Resource.String.text_yes), delegate { this.FragmentManager.PopBackStack(); }, GetString(Resource.String.text_no));
             }
             catch (Exception ex)
             {
@@ -681,7 +680,7 @@ namespace Squelch.Fragments
             {
                 //
                 // Add / remove system apps
-                if (_applicationShowSystemAppsMenuItem.IsChecked)
+                if (_applicationShowSystemAppsCheckbox.Checked)
                 {
                     _applicationListAdapter.ApplicationList = _applicationList
                         .OrderBy(x => x.Name)
@@ -772,25 +771,23 @@ namespace Squelch.Fragments
                 switch (step)
                 {
                     case STEP_DIFFICULTY:
-                        _dialogPositiveButton.SetText(Resource.String.action_next);
-                        _dialogNegativeButton.SetText(Resource.String.action_cancel);
-                        _titleLabel.Text = "What difficulty do you want to use?";
+                        _dialogPositiveButton.SetText(Resource.String.text_next);
+                        _dialogNegativeButton.SetText(Resource.String.text_cancel);
+                        _titleLabel.SetText(Resource.String.fragment_blackout_setup_difficulty_title);
                         _difficultyLayout.Visibility = ViewStates.Visible;
                         _bidLayout.Visibility = ViewStates.Gone;
                         _daterangeLayout.Visibility = ViewStates.Gone;
-                        _applicationLayout.Visibility = ViewStates.Gone;
-                        _applicationShowSystemAppsMenuItem.SetVisible(false);
+                        _applicationLayout.Visibility = _applicationShowSystemAppsCheckbox.Visibility = ViewStates.Gone;
                         _reviewLayout.Visibility = ViewStates.Gone;
                         break;
                     case STEP_BID:
-                        _dialogPositiveButton.SetText(Resource.String.action_next);
-                        _dialogNegativeButton.SetText(Resource.String.action_back);
-                        _titleLabel.Text = "How much would you like to bid against yourself?";
+                        _dialogPositiveButton.SetText(Resource.String.text_next);
+                        _dialogNegativeButton.SetText(Resource.String.text_back);
+                        _titleLabel.SetText(Resource.String.fragment_blackout_setup_bid_title);
                         _difficultyLayout.Visibility = ViewStates.Gone;
                         _bidLayout.Visibility = ViewStates.Visible;
                         _daterangeLayout.Visibility = ViewStates.Gone;
-                        _applicationLayout.Visibility = ViewStates.Gone;
-                        _applicationShowSystemAppsMenuItem.SetVisible(false);
+                        _applicationLayout.Visibility = _applicationShowSystemAppsCheckbox.Visibility = ViewStates.Gone;
                         _reviewLayout.Visibility = ViewStates.Gone;
                         switch (_blackoutDifficulty)
                         {
@@ -811,37 +808,34 @@ namespace Squelch.Fragments
                         _bidValidValueRangeLabel.Text = string.Format(GetString(Resource.String.fragment_blackout_setup_bid_range), _bidNumberPicker.MinValue, _bidNumberPicker.MaxValue);
                         break;
                     case STEP_DATE_RANGE:
-                        _dialogPositiveButton.SetText(Resource.String.action_next);
-                        _dialogNegativeButton.SetText(Resource.String.action_back);
-                        _titleLabel.Text = "What date and time ranges will this blackout apply too?";
+                        _dialogPositiveButton.SetText(Resource.String.text_next);
+                        _dialogNegativeButton.SetText(Resource.String.text_back);
+                        _titleLabel.SetText(Resource.String.fragment_blackout_setup_date_range_title);
                         _difficultyLayout.Visibility = ViewStates.Gone;
                         _bidLayout.Visibility = ViewStates.Gone;
                         _daterangeLayout.Visibility = ViewStates.Visible;
-                        _applicationLayout.Visibility = ViewStates.Gone;
-                        _applicationShowSystemAppsMenuItem.SetVisible(false);
+                        _applicationLayout.Visibility = _applicationShowSystemAppsCheckbox.Visibility = ViewStates.Gone;
                         _reviewLayout.Visibility = ViewStates.Gone;
                         break;
                     case STEP_APPLICATIONS:
-                        _dialogPositiveButton.SetText(Resource.String.action_next);
-                        _dialogNegativeButton.SetText(Resource.String.action_back);
-                        _titleLabel.Text = "What applications do you want to block?";
+                        _dialogPositiveButton.SetText(Resource.String.text_next);
+                        _dialogNegativeButton.SetText(Resource.String.text_back);
+                        _titleLabel.SetText(Resource.String.fragment_blackout_setup_application_selection_title);
                         _difficultyLayout.Visibility = ViewStates.Gone;
                         _bidLayout.Visibility = ViewStates.Gone;
                         _daterangeLayout.Visibility = ViewStates.Gone;
-                        _applicationLayout.Visibility = ViewStates.Visible;
-                        _applicationShowSystemAppsMenuItem.SetVisible(true);
+                        _applicationLayout.Visibility = _applicationShowSystemAppsCheckbox.Visibility = ViewStates.Visible;
                         _reviewLayout.Visibility = ViewStates.Gone;
                         ApplicationList_Filter();
                         break;
                     case STEP_REVIEW:
-                        _dialogPositiveButton.SetText(Resource.String.action_finish);
-                        _dialogNegativeButton.SetText(Resource.String.action_back);
-                        _titleLabel.Text = "Review";
+                        _dialogPositiveButton.SetText(Resource.String.text_finish);
+                        _dialogNegativeButton.SetText(Resource.String.text_back);
+                        _titleLabel.SetText(Resource.String.fragment_blackout_setup_review_title);
                         _difficultyLayout.Visibility = ViewStates.Gone;
                         _bidLayout.Visibility = ViewStates.Gone;
                         _daterangeLayout.Visibility = ViewStates.Gone;
-                        _applicationLayout.Visibility = ViewStates.Gone;
-                        _applicationShowSystemAppsMenuItem.SetVisible(false);
+                        _applicationLayout.Visibility = _applicationShowSystemAppsCheckbox.Visibility = ViewStates.Gone;
                         _reviewLayout.Visibility = ViewStates.Visible;
                         _reviewDifficultyLabel.Text = _blackoutDifficulty.ToString();
                         _reviewBidLabel.Text = $"${_bidNumberPicker.Value}";
@@ -853,8 +847,7 @@ namespace Squelch.Fragments
                         _difficultyLayout.Visibility = ViewStates.Gone;
                         _bidLayout.Visibility = ViewStates.Gone;
                         _daterangeLayout.Visibility = ViewStates.Gone;
-                        _applicationLayout.Visibility = ViewStates.Gone;
-                        _applicationShowSystemAppsMenuItem.SetVisible(false);
+                        _applicationLayout.Visibility = _applicationShowSystemAppsCheckbox.Visibility = ViewStates.Gone;
                         _reviewLayout.Visibility = ViewStates.Gone;
                         break;
                 }

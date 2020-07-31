@@ -200,11 +200,11 @@ namespace Squelch.Fragments
                 // Make sure blackout is present
                 if (_activeBlackout == null)
                 {
-                    DisplayUtils.ShowSnackbar(this.View, "Unable to determine current blackout configuration.", Snackbar.LengthIndefinite);
+                    DisplayUtils.ShowSnackbar(this.View, GetString(Resource.String.error_unable_to_determine_blackout), Snackbar.LengthIndefinite);
                     return;
                 }
 
-                DisplayUtils.ShowGenericAlertDialog(this.Context, "Stop Blackout", "You are opting to unlock your device and set the current blackout as failed. Are you sure you wish to continue?", true, "Yes", delegate { ProcessUnlock(_activeBlackout.Bid); }, "No", delegate { });
+                DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_confirm), GetString(Resource.String.fragment_blackout_confirmation_message), true, GetString(Resource.String.text_yes), delegate { ProcessUnlock(_activeBlackout.Bid); }, GetString(Resource.String.text_no), delegate { });
             }
             catch (Exception ex)
             {

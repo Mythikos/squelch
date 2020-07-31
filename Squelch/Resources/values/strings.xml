@@ -45,11 +45,15 @@
   <string name="fragment_settings_end_user_licensing_agreement_description">View our EULA</string>
   <string name="fragment_settings_open_source_software_description">License details for open source software</string>
 
+  <string name="fragment_blackout_setup_difficulty_title">What difficulty do you want to use?</string>
+  <string name="fragment_blackout_setup_date_range_title">What date and time ranges will this blackout apply too?</string>
+  <string name="fragment_blackout_setup_application_selection_title">What applications do you want to block?</string>
+  <string name="fragment_blackout_setup_bid_title">How much would you like to bid against yourself?</string>
+  <string name="fragment_blackout_setup_review_title">Review</string>
   <string name="fragment_blackout_setup_novice_difficulty_description">Bid range: $0 - $400. No applications are blocked by default.</string>
   <string name="fragment_blackout_setup_veteran_difficulty_description">Bid range: $1 - $400. No applications are blocked by default.</string>
   <string name="fragment_blackout_setup_master_difficulty_description">Bid range: $1 - $400. All non-system applications are blocked by default.</string>
   <string name="fragment_blackout_setup_bid_range">Bid Range: ${0} - ${1}</string>
-
   <string name="fragment_blackout_setup_dates_start_date_time">Start Date / Time</string>
   <string name="fragment_blackout_setup_dates_end_date_time">End Date / Time</string>
   <string name="fragment_blackout_setup_dates_tap_to_set_time">Tap to set time</string>
@@ -60,27 +64,13 @@
   <string name="fragment_blackout_setup_dates_plus_30_minutes">+30 Mins</string>
   <string name="fragment_blackout_setup_dates_now">Now</string>
 
-  <string name="fragment_donation_title_sub">By donating you are helping us continue to provide high quality applications for you!\n\nSelect what you are comfortable with donating to continue.</string>
+  <string name="fragment_blackout_confirmation_message">You are opting to unlock your device and set the current blackout as failed. Are you sure you wish to continue?</string>
+  
+  <string name="fragment_donation_title_sub">Select what you are comfortable with donating to continue.</string>
 
   <!-- Permission Strings -->
   <string name="permission_usage_data">Usage Data</string>
   <string name="permission_application_overlay">Application Overlay</string>
-
-  <!-- Action Strings -->
-  <string name="action_get_started">Get Started</string>
-  <string name="action_next">Next</string>
-  <string name="action_previous">Previous</string>
-  <string name="action_finish">Finish</string>
-  <string name="action_back">Back</string>
-  <string name="action_create">Create</string>
-  <string name="action_cancel">Cancel</string>
-  <string name="action_close">Close</string>
-  <string name="action_ok">OK</string>
-  <string name="action_setup">Setup</string>
-  <string name="action_setup_blackout">Setup Blackout</string>
-  <string name="action_unlock">Unlock</string>
-  <string name="action_submit">Submit</string>
-  <string name="action_show_system_applications">Show System</string>
 
   <!-- Consent Strings -->
   <string name="consent_statement"><![CDATA[By continuing, you agree to our <a href="https://squelch.app/privacy">Privacy Policy</a> and our <a href="https://squelch.app/eula">End User Licensing Agreement</a>.]]></string>
@@ -134,38 +124,65 @@
   <string name="label_privacy_policy">Privacy Policy</string>
   <string name="label_open_source_software">Open Source Software</string>
 
+  <!-- Action Strings -->
+  <string name="text_get_started">Get Started</string>
+  <string name="text_next">Next</string>
+  <string name="text_previous">Previous</string>
+  <string name="text_finish">Finish</string>
+  <string name="text_back">Back</string>
+  <string name="text_create">Create</string>
+  <string name="text_close">Close</string>
+  <string name="text_ok">OK</string>
+  <string name="text_setup">Setup</string>
+  <string name="text_setup_blackout">Setup Blackout</string>
+  <string name="text_submit">Submit</string>
+  <string name="text_show_system_applications">Show System</string>
+  <string name="text_yes">Yes</string>
+  <string name="text_no">No</string>
+  <string name="text_cancel">Cancel</string>
+  <string name="text_unlock">Unlock</string>
+  
   <!-- Uncategorized -->
   <string name="text_next_blackout">Next Blackout</string>
   <string name="text_error">Error</string>
   <string name="text_duplicate">Duplicate</string>
   <string name="text_success">Success</string>
   <string name="text_confirm">Confirm</string>
-  <string name="text_are_you_sure_cancel">Are you sure you want to cancel this action?</string>
   <string name="text_once_a_day">Once a day</string>
   <string name="text_once_a_week">Once a week</string>
   <string name="text_once_a_month">Once a month</string>
   <string name="text_once_a_year">Once a year</string>
   <string name="text_i_dont_really_use_it">I don\'t really use it</string>
-  <string name="text_yes">Yes</string>
   <string name="text_partially">Partially</string>
-  <string name="text_no">No</string>
+  <string name="text_notice">Notice</string>
   <string name="text_very_satisfied">Very Satisfied</string>
   <string name="text_somewhat_satisfied">Somewhat Satisfied</string>
   <string name="text_neutral">Neutral</string>
   <string name="text_somewhat_dissatisfied">Somewhat Dissatisfied</string>
   <string name="text_very_dissatisfied">Very Dissatisfied</string>
-  <string name="text_novice">Novice</string>
-  <string name="text_veteran">Veteran</string>
-  <string name="text_master">Master</string>
   <string name="text_other">Other</string>
-  
-  <string name="text_nightmare">Nightmare</string>
   <string name="text_sure_exclamation">Sure!</string>
   <string name="text_not_really">Not Really</string>
   <string name="text_no_thanks">No Thanks</string>
   <string name="text_maybe_later">Maybe Later</string>
   <string name="text_nah">Nah</string>
+  <string name="text_are_you_sure_cancel">Are you sure you want to cancel?</string>
+  <string name="text_total_bids">Total Bids</string>
+  <string name="text_total_time_saved">Total Time Saved</string>
+  <string name="text_total_blackouts">Total Blackouts</string>
+  <string name="text_statuses">Statuses</string>
+
+  <!-- Difficulty -->
+  <string name="text_novice">Novice</string>
+  <string name="text_veteran">Veteran</string>
+  <string name="text_master">Master</string>
+  <string name="text_nightmare">Nightmare</string>
 
   <!-- Special -->
   <string name="_blank"></string>
+
+  <!-- Errors -->
+  <string name="error_unexpected_error_occured">An unexpected error occured. Please try again later.</string>
+  <string name="error_unable_to_perform_this_action">Unable to perform this action at this time.</string>
+  <string name="error_unable_to_determine_blackout">Unable to determine current blackout configuration.</string>
 </resources>

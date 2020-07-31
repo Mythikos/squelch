@@ -260,7 +260,7 @@ namespace Squelch.Library.Utilities
                 // Setup the positive button
                 positiveButton = layout.FindViewById<Button>(Resource.Id.dialog_blackout_details_positive_button);
                 positiveButton.Visibility = ViewStates.Visible;
-                positiveButton.SetText(Resource.String.action_ok);
+                positiveButton.SetText(Resource.String.text_ok);
                 positiveButton.Click += delegate
                 {
                     if (dialog != null)
@@ -272,26 +272,31 @@ namespace Squelch.Library.Utilities
                 if (blackoutItem.ScheduledStartDateTime >= DateTime.Now.AddMinutes(1))
                 {
                     negativeButton.Visibility = ViewStates.Visible;
-                    negativeButton.SetText(Resource.String.action_cancel);
-                    negativeButton.Click += async delegate
+                    negativeButton.SetText(Resource.String.text_cancel);
+                    negativeButton.Click += delegate
                     {
-                        // You cant cancel the blackout if it has already started ;)
-                        if (blackoutItem.ScheduledStartDateTime <= DateTime.Now || blackoutItem.IsBlackoutCancelled())
-                        {
-                            DisplayUtils.ShowToast(context, "Unable to cancel the blackout at this time.", ToastLength.Long);
-                        }
-                        else
-                        {
-                            blackoutItem.SetBlackoutFinished(BlackoutItem.BlackoutResultCode.Cancelled);
-                            await BlackoutDatabase.UpsertAsync(blackoutItem);
+                        DisplayUtils.ShowGenericAlertDialog(context, context.GetString(Resource.String.text_confirm), context.GetString(Resource.String.text_are_you_sure_cancel), true,
+                            context.GetString(Resource.String.text_yes), async delegate
+                            {
+                                if (blackoutItem.ScheduledStartDateTime <= DateTime.Now || blackoutItem.IsBlackoutCancelled())
+                                {
+                                    DisplayUtils.ShowToast(context, context.GetString(Resource.String.error_unable_to_perform_this_action), ToastLength.Long);
+                                }
+                                else
+                                {
+                                    blackoutItem.SetBlackoutFinished(BlackoutItem.BlackoutResultCode.Cancelled);
+                                    await BlackoutDatabase.UpsertAsync(blackoutItem);
 
-                            // Report the cancellation event
-                            var firebaseAnalyticsManager = FirebaseAnalyticsManager.GetInstance();
-                            firebaseAnalyticsManager.SendBlackoutEvent(FirebaseAnalyticsManager.EVENT_BLACKOUT_CANCELLED, blackoutItem);
-                        }
+                                    // Report the cancellation event
+                                    var firebaseAnalyticsManager = FirebaseAnalyticsManager.GetInstance();
+                                    firebaseAnalyticsManager.SendBlackoutEvent(FirebaseAnalyticsManager.EVENT_BLACKOUT_CANCELLED, blackoutItem);
+                                }
 
-                        if (dialog != null)
-                            dialog.Dismiss();
+                                if (dialog != null)
+                                    dialog.Dismiss();
+                            },
+                            context.GetString(Resource.String.text_no)
+                        );
                     };
                 }
 

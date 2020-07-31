@@ -86,7 +86,7 @@ namespace Squelch.Library
 
         public static async Task InsertTestBlackoutData(Context context)
         {
-            int testDataCount = 50;
+            int testDataCount = 100;
             List<BlackoutItem> blackouts;
             List<string> blacklist;
 
@@ -105,8 +105,8 @@ namespace Squelch.Library
                 {
                     var blackoutItem = new BlackoutItem()
                     {
-                        ScheduledStartDateTime = DateTime.Today.AddDays(i - 10),
-                        ScheduledEndDateTime = DateTime.Today.AddDays(i - 10).AddHours(12),
+                        ScheduledStartDateTime = DateTime.Today.AddDays(i - 50),
+                        ScheduledEndDateTime = DateTime.Today.AddDays(i - 50).AddHours(12),
                         DifficultyCode = ((i%10==0) ? BlackoutItem.BlackoutDifficultyCode.Master : ((i%5==0) ? BlackoutItem.BlackoutDifficultyCode.Veteran : BlackoutItem.BlackoutDifficultyCode.Novice)),
                         Bid = i,
                         Blacklist = blacklist

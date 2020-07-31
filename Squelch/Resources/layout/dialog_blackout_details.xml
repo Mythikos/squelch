@@ -132,6 +132,9 @@
                 android:text="@string/label_col_blackout_blacklist"
                 android:padding="10dp"
                 android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
@@ -155,7 +158,7 @@
             android:id="@+id/dialog_blackout_details_negative_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/action_cancel"
+            android:text="@string/text_cancel"
             android:layout_weight="0.5"
             android:background="@drawable/rounded_corners_ripple"
             android:layout_margin="10dp"
@@ -167,7 +170,7 @@
             android:id="@+id/dialog_blackout_details_positive_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/action_ok"
+            android:text="@string/text_close"
             android:layout_weight="0.5"
             android:background="@drawable/rounded_corners_ripple"
             android:layout_margin="10dp"
