@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:versionCode="1" android:versionName="1.0" package="com.squelch.android" android:installLocation="internalOnly">
-	<uses-sdk android:minSdkVersion="22" android:targetSdkVersion="28" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:versionCode="1" android:versionName="1.4.0" package="com.squelch.android" android:installLocation="internalOnly">
+	<uses-sdk android:minSdkVersion="23" android:targetSdkVersion="28" />
 	<uses-permission android:name="android.permission.INTERNET" android:required="true" />
 	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" android:required="true" />
 	<uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" android:required="true" tools:ignore="ProtectedPermissions" />

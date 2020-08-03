@@ -43,6 +43,11 @@
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
     <AndroidUseAapt2>true</AndroidUseAapt2>
+    <AndroidKeyStore>true</AndroidKeyStore>
+    <AndroidSigningKeyStore>C:\Users\Shizzlepoof\Desktop\squelch.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>squelch</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>squelch</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>squelch</AndroidSigningKeyPass>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
