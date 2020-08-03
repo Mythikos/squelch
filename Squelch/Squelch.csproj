@@ -65,6 +65,15 @@
     <EnableLLVM>false</EnableLLVM>
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
+    <AndroidSupportedAbis>armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
+    <AndroidUseAapt2>true</AndroidUseAapt2>
+    <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
+    <MandroidI18n />
+    <AndroidKeyStore>true</AndroidKeyStore>
+    <AndroidSigningKeyStore>C:\Users\Shizzlepoof\Desktop\squelch.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>squelch</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>squelch</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>squelch</AndroidSigningKeyPass>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="library-mpandroidchart">
