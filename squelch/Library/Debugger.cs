@@ -106,15 +106,23 @@ namespace Squelch.Library
                     if (i == 0) 
                         continue;
 
-                    var blackoutItem = new BlackoutItem()
+                    blackouts.Add(new BlackoutItem()
                     {
                         ScheduledStartDateTime = DateTime.Today.AddDays(i - 50),
                         ScheduledEndDateTime = DateTime.Today.AddDays(i - 50).AddHours(12),
-                        DifficultyCode = ((i%10==0) ? BlackoutItem.BlackoutDifficultyCode.Master : ((i%5==0) ? BlackoutItem.BlackoutDifficultyCode.Veteran : BlackoutItem.BlackoutDifficultyCode.Novice)),
+                        DifficultyCode = ((i % 10 == 0) ? BlackoutItem.BlackoutDifficultyCode.Master : ((i % 5 == 0) ? BlackoutItem.BlackoutDifficultyCode.Veteran : BlackoutItem.BlackoutDifficultyCode.Novice)),
                         Bid = i,
                         Blacklist = blacklist
-                    }.SetBlackoutFinished(((i % 10 == 0) ? BlackoutItem.BlackoutResultCode.Failed : ((i % 5 == 0) ? BlackoutItem.BlackoutResultCode.Success : BlackoutItem.BlackoutResultCode.Cancelled)));
-                    blackouts.Add(blackoutItem);
+                    }.SetBlackoutPending());
+
+                    blackouts.Add(new BlackoutItem()
+                    {
+                        ScheduledStartDateTime = DateTime.Today.AddDays(i - 50),
+                        ScheduledEndDateTime = DateTime.Today.AddDays(i - 50).AddHours(12),
+                        DifficultyCode = ((i % 10 == 0) ? BlackoutItem.BlackoutDifficultyCode.Master : ((i % 5 == 0) ? BlackoutItem.BlackoutDifficultyCode.Veteran : BlackoutItem.BlackoutDifficultyCode.Novice)),
+                        Bid = i,
+                        Blacklist = blacklist
+                    }.SetBlackoutFinished(((i % 10 == 0) ? BlackoutItem.BlackoutResultCode.Failed : ((i % 5 == 0) ? BlackoutItem.BlackoutResultCode.Success : BlackoutItem.BlackoutResultCode.Cancelled))));
                 }
 
                 Logger.Write(_tag, "Adding test data...", Logger.Severity.Info);

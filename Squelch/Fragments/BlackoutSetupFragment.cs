@@ -1,5 +1,6 @@
 ﻿using Android.Content.PM;
 using Android.Graphics;
+using Android.Opengl;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
@@ -442,6 +443,7 @@ namespace Squelch.Fragments
             _applicationShowSystemAppsMenuItem = menu.Add(GetString(Resource.String.text_show_system_applications));
             _applicationShowSystemAppsMenuItem.SetActionView(_applicationShowSystemAppsCheckbox);
             _applicationShowSystemAppsMenuItem.SetShowAsAction(ShowAsAction.Always);
+            _applicationShowSystemAppsMenuItem.SetVisible((_stepId == STEP_APPLICATIONS) ? true : false);
         }
         #endregion
 
@@ -767,7 +769,7 @@ namespace Squelch.Fragments
         {
             try
             {
-                // Handle move
+                // Handle move and view state
                 switch (step)
                 {
                     case STEP_DIFFICULTY:
@@ -851,6 +853,9 @@ namespace Squelch.Fragments
                         _reviewLayout.Visibility = ViewStates.Gone;
                         break;
                 }
+
+                // Set the menu state based on the result of the switch
+                _applicationShowSystemAppsMenuItem.SetVisible((_applicationLayout.Visibility == ViewStates.Visible) ? true : false);
             }
             catch (Exception ex)
             {
