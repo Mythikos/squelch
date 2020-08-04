@@ -17,7 +17,7 @@ using Squelch.Library;
 using Squelch.Library.Data;
 using Squelch.Library.Entities;
 using Squelch.Library.Interfaces;
-using Squelch.Library.Singletons;
+using Squelch.Library.Utilities;
 
 namespace Squelch.Fragments
 {
@@ -125,8 +125,7 @@ namespace Squelch.Fragments
 
                 //
                 // Set firebase screen
-                var firebaseAnalyticsManager = FirebaseAnalyticsManager.GetInstance();
-                firebaseAnalyticsManager.SetCurrentScreen(this);
+                FirebaseAnalyticsUtils.SetCurrentScreen(this);
 
             }
             catch (Exception ex)

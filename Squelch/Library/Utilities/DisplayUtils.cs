@@ -8,7 +8,6 @@ using Google.Android.Material.Snackbar;
 using Google.Android.Material.TextField;
 using Squelch.Library.Data;
 using Squelch.Library.Entities;
-using Squelch.Library.Singletons;
 using System;
 using System.Linq;
 
@@ -288,8 +287,7 @@ namespace Squelch.Library.Utilities
                                     await BlackoutDatabase.UpsertAsync(blackoutItem);
 
                                     // Report the cancellation event
-                                    var firebaseAnalyticsManager = FirebaseAnalyticsManager.GetInstance();
-                                    firebaseAnalyticsManager.SendBlackoutEvent(FirebaseAnalyticsManager.EVENT_BLACKOUT_CANCELLED, blackoutItem);
+                                    FirebaseAnalyticsUtils.SendBlackoutEvent(FirebaseAnalyticsUtils.EVENT_BLACKOUT_CANCELLED, blackoutItem);
                                 }
 
                                 if (dialog != null)

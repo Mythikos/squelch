@@ -8,39 +8,12 @@ using Firebase.Auth;
 using Squelch.Library.Data;
 using Squelch.Library.Entities;
 
-namespace Squelch.Library.Singletons
+namespace Squelch.Library.Utilities
 {
-    internal class FirebaseAnalyticsManager
+    internal static class FirebaseAnalyticsUtils
     {
-        #region Singleton Support
-        #region Instance Variables and Properties
-        private static FirebaseAnalyticsManager _instance = null;
-        public static FirebaseAnalyticsManager GetInstance()
-        {
-            if (_instance == null)
-                _instance = new FirebaseAnalyticsManager();
-
-            return _instance;
-        }
-        #endregion
-
-        #region Construtors
-        private FirebaseAnalyticsManager()
-        {
-            _analytics = FirebaseAnalytics.GetInstance(Application.Context);
-            _analytics.SetUserId(UserSettings.Id);
-#if DEBUG
-            _analytics.SetAnalyticsCollectionEnabled(false);
-#else
-            _analytics.SetAnalyticsCollectionEnabled(true);
-#endif
-        }
-        #endregion
-        #endregion
-
         #region Instance Variables
-        private static readonly string s_tag = typeof(FirebaseAnalyticsManager).FullName;
-        private FirebaseAnalytics _analytics;
+        private static readonly string s_tag = typeof(FirebaseAnalyticsUtils).FullName;
         #endregion
 
         #region Constants
@@ -49,44 +22,62 @@ namespace Squelch.Library.Singletons
         internal const string EVENT_BLACKOUT_SUCCESSFUL = "blackout_successful";
         #endregion
 
-        public void SetCurrentScreen(Activity activity)
+        public static void SetCurrentScreen(Activity activity)
         {
+#if !DEBUG
+            FirebaseAnalytics analytics;
+
             try
             {
-                _analytics.SetCurrentScreen(activity, activity.GetType().Name, activity.GetType().Name);
+                analytics = FirebaseAnalytics.GetInstance(Application.Context);
+                analytics.SetUserId(UserSettings.Id);
+                analytics.SetCurrentScreen(activity, activity.GetType().Name, activity.GetType().Name);
             }
             catch (Exception ex)
             {
-                Logger.Write(s_tag, ex, Logger.Severity.Error);
+                Logger.Write(s_tag, $"SetCurrentScreen: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
             }
+#endif
         }
 
-        public void SetCurrentScreen(AndroidX.Fragment.App.Fragment fragment)
+        public static void SetCurrentScreen(AndroidX.Fragment.App.Fragment fragment)
         {
+#if !DEBUG
+            FirebaseAnalytics analytics;
+
             try
             {
-                _analytics.SetCurrentScreen(fragment.Activity, fragment.GetType().Name, fragment.GetType().Name);
+                analytics = FirebaseAnalytics.GetInstance(Application.Context);
+                analytics.SetUserId(UserSettings.Id); 
+                analytics.SetCurrentScreen(fragment.Activity, fragment.GetType().Name, fragment.GetType().Name);
             }
             catch (Exception ex)
             {
-                Logger.Write(s_tag, ex, Logger.Severity.Error);
+                Logger.Write(s_tag, $"SetCurrentScreen: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
             }
+#endif
         }
 
-        public void SendEvent(string eventName, Bundle analyticBundle)
+        public static void SendEvent(string eventName, Bundle analyticBundle)
         {
+#if !DEBUG
+            FirebaseAnalytics analytics;
+
             try
             {
-                _analytics.LogEvent(eventName, analyticBundle);
+                analytics = FirebaseAnalytics.GetInstance(Application.Context);
+                analytics.SetUserId(UserSettings.Id); 
+                analytics.LogEvent(eventName, analyticBundle);
             }
             catch (Exception ex)
             {
-                Logger.Write(s_tag, ex, Logger.Severity.Error);
+                Logger.Write(s_tag, $"SendEvent: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
             }
+#endif
         }
 
         #region Helper Methods
-        public void SendBlackoutEvent(string eventName, BlackoutItem blackout)
+        public static void SendBlackoutEvent(string eventName, BlackoutItem blackout)
         {
             Bundle analyticBundle;
             Dictionary<string, int> blockedApplicationCountByCategory;
@@ -161,11 +152,11 @@ namespace Squelch.Library.Singletons
                     analyticBundle.PutString("blackout_category_blocked_tertiary", tertiaryCategoryBlocked);
 
                 // Log the event
-                this.SendEvent(eventName, analyticBundle);
+                FirebaseAnalyticsUtils.SendEvent(eventName, analyticBundle);
             }
             catch (Exception ex)
             {
-                Logger.Write(s_tag, ex, Logger.Severity.Error);
+                Logger.Write(s_tag, $"SendBlackoutEvent: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
             }
         }
         #endregion

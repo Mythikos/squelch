@@ -8,7 +8,6 @@ using Squelch.Library;
 using Squelch.Library.Data;
 using Squelch.Library.Extensions;
 using Squelch.Library.Interfaces;
-using Squelch.Library.Singletons;
 using Squelch.Library.Utilities;
 using System;
 using System.Threading.Tasks;
@@ -218,8 +217,6 @@ namespace Squelch.Fragments
         {
             base.OnResume();
 
-            FirebaseAnalyticsManager firebaseAnalyticsManager;
-
             try
             {
                 //
@@ -228,8 +225,7 @@ namespace Squelch.Fragments
 
                 //
                 // Set firebase screen
-                firebaseAnalyticsManager = FirebaseAnalyticsManager.GetInstance();
-                firebaseAnalyticsManager.SetCurrentScreen(this);
+                FirebaseAnalyticsUtils.SetCurrentScreen(this);
             }
             catch (Exception ex)
             {

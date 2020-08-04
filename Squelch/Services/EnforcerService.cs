@@ -11,7 +11,6 @@ using Android.Widget;
 using Squelch.Library;
 using Squelch.Library.Data;
 using Squelch.Library.Entities;
-using Squelch.Library.Singletons;
 using Squelch.Library.Utilities;
 using Squelch.Library.Wrappers;
 using System;
@@ -324,8 +323,8 @@ namespace Squelch.Services
         {
             //
             // Vars
-            FirebaseAnalyticsManager firebaseAnalyticsManager;
             BlackoutItem blackoutItem;
+
             try
             {
                 if (_activeBlackoutId != null)
@@ -343,13 +342,12 @@ namespace Squelch.Services
 
                         //
                         // Send blackout analytics
-                        firebaseAnalyticsManager = FirebaseAnalyticsManager.GetInstance();
                         if (blackoutItem.IsBlackoutSuccessful())
-                            firebaseAnalyticsManager.SendBlackoutEvent(FirebaseAnalyticsManager.EVENT_BLACKOUT_SUCCESSFUL, blackoutItem);
+                            FirebaseAnalyticsUtils.SendBlackoutEvent(FirebaseAnalyticsUtils.EVENT_BLACKOUT_SUCCESSFUL, blackoutItem);
                         else if (blackoutItem.IsBlackoutFailed())
-                            firebaseAnalyticsManager.SendBlackoutEvent(FirebaseAnalyticsManager.EVENT_BLACKOUT_FAILED, blackoutItem);
+                            FirebaseAnalyticsUtils.SendBlackoutEvent(FirebaseAnalyticsUtils.EVENT_BLACKOUT_FAILED, blackoutItem);
                         else if (blackoutItem.IsBlackoutCancelled())
-                            firebaseAnalyticsManager.SendBlackoutEvent(FirebaseAnalyticsManager.EVENT_BLACKOUT_CANCELLED, blackoutItem);
+                            FirebaseAnalyticsUtils.SendBlackoutEvent(FirebaseAnalyticsUtils.EVENT_BLACKOUT_CANCELLED, blackoutItem);
                     }
                 }
 

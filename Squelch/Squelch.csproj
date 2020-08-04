@@ -112,7 +112,7 @@
     <Compile Include="Library\Extensions\ViewExt.cs" />
     <Compile Include="Library\Interfaces\IIndeterminateProgressReporter.cs" />
     <Compile Include="Library\Logger.cs" />
-    <Compile Include="Library\Singletons\FirebaseAnalyticsManager.cs" />
+    <Compile Include="Library\Utilities\FirebaseAnalyticsUtils.cs" />
     <Compile Include="Library\UI\ApplicationListItem.cs" />
     <Compile Include="Library\UI\BlackoutListItem.cs" />
     <Compile Include="Library\Utilities\DisplayUtils.cs" />
@@ -160,7 +160,7 @@
       <Version>2.2.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Firebase.Analytics">
-      <Version>71.1630.1</Version>
+      <Version>71.1630.4</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Google.Android.Material" Version="1.0.0.1" />
     <PackageReference Include="Xamarin.AndroidX.Legacy.Support.Core.Utils" Version="1.0.0.1" />
