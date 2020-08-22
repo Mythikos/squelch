@@ -115,7 +115,7 @@ namespace Squelch.Fragments
                 // Setup view
                 _positiveButton.Visibility = ViewStates.Gone;
                 _otherNumberPicker.MinValue = 1;
-                _otherNumberPicker.MaxValue = 400;
+                _otherNumberPicker.MaxValue = 250;
                 _otherNumberPicker.Value = 5;
             }
             catch (Exception ex)

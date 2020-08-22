@@ -50,10 +50,10 @@
   <string name="fragment_blackout_setup_application_selection_title">What applications do you want to block?</string>
   <string name="fragment_blackout_setup_bid_title">How much would you like to bid against yourself?</string>
   <string name="fragment_blackout_setup_review_title">Review</string>
-  <string name="fragment_blackout_setup_novice_difficulty_description">Bid range: $0 - $400. No applications are blocked by default.</string>
-  <string name="fragment_blackout_setup_veteran_difficulty_description">Bid range: $1 - $400. No applications are blocked by default.</string>
-  <string name="fragment_blackout_setup_master_difficulty_description">Bid range: $1 - $400. All non-system applications are blocked by default.</string>
-  <string name="fragment_blackout_setup_bid_range">Bid Range: ${0} - ${1}</string>
+  <string name="fragment_blackout_setup_novice_difficulty_description">Bid range: $0 - $250 (USD). No applications are blocked by default.</string>
+  <string name="fragment_blackout_setup_veteran_difficulty_description">Bid range: $1 - $250 (USD). No applications are blocked by default.</string>
+  <string name="fragment_blackout_setup_master_difficulty_description">Bid range: $1 - $250 (USD). All non-system applications are blocked by default.</string>
+  <string name="fragment_blackout_setup_bid_range">Bid Range: ${0} - ${1} (USD)</string>
   <string name="fragment_blackout_setup_dates_start_date_time">Start Date / Time</string>
   <string name="fragment_blackout_setup_dates_end_date_time">End Date / Time</string>
   <string name="fragment_blackout_setup_dates_tap_to_set_time">Tap to set time</string>

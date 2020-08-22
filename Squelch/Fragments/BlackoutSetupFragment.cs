@@ -791,15 +791,15 @@ namespace Squelch.Fragments
                         {
                             case BlackoutItem.BlackoutDifficultyCode.Novice:
                                 _bidNumberPicker.MinValue = 0;
-                                _bidNumberPicker.MaxValue = 400;
+                                _bidNumberPicker.MaxValue = 250;
                                 break;
                             case BlackoutItem.BlackoutDifficultyCode.Veteran:
                                 _bidNumberPicker.MinValue = 1;
-                                _bidNumberPicker.MaxValue = 400;
+                                _bidNumberPicker.MaxValue = 250;
                                 break;
                             case BlackoutItem.BlackoutDifficultyCode.Master:
                                 _bidNumberPicker.MinValue = 1;
-                                _bidNumberPicker.MaxValue = 400;
+                                _bidNumberPicker.MaxValue = 250;
                                 break;
                         }
                         _bidNumberPicker.Value = _bidNumberPicker.MinValue;

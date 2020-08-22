@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Blackout"
+        android:text="@string/title_blackout"
         android:textSize="20dp"
         android:padding="10dp"
         android:background="@color/colorPrimary"
@@ -68,7 +68,7 @@
                     android:layout_margin="10dp"
                     android:backgroundTint="@color/buttonPositiveBackground"
                     android:textColor="@color/buttonPositiveForeground"
-                    android:text="Back"
+                    android:text="@string/text_back"
                     android:clickable="true" />
                 <Button
                     android:id="@+id/overlay_blackout_squelch_button"
@@ -79,7 +79,7 @@
                     android:layout_margin="10dp"
                     android:backgroundTint="@color/buttonPositiveBackground"
                     android:textColor="@color/buttonPositiveForeground"
-                    android:text="Unlock"
+                    android:text="@string/text_unlock"
                     android:clickable="true" />
             </LinearLayout>
         </LinearLayout>
