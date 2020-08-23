@@ -427,7 +427,7 @@ namespace Squelch.Fragments
                 // Is the bid greater than $0?
                 if (bid > 0)
                 {
-                    (bool, string) result = await InAppPurchaseUtils.PurchaseAsync($"squelch_unlock_{bid.ToString().PadLeft(3, '0')}", true);
+                    (bool, string) result = await InAppPurchaseUtils.PurchaseAsync($"device_unlock_{bid.ToString().PadLeft(3, '0')}", true);
                     if (result.Item1 == true)
                     {
                         _activeBlackout.SetBlackoutFinished(BlackoutItem.BlackoutResultCode.Failed);

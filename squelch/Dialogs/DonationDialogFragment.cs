@@ -81,7 +81,7 @@ namespace Squelch.Fragments
 
                     //
                     // Process donation
-                    (bool, string) result = await InAppPurchaseUtils.PurchaseAsync($"squelch_donation_{amount.ToString().PadLeft(3, '0')}", true);
+                    (bool, string) result = await InAppPurchaseUtils.PurchaseAsync($"donation_{amount.ToString().PadLeft(3, '0')}", true);
                     if (result.Item1 == true)
                     {
                         // Set flag
