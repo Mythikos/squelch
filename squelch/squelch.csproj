@@ -74,6 +74,7 @@
     <AndroidSigningStorePass>squelch</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>squelch</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>squelch</AndroidSigningKeyPass>
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="library-mpandroidchart">
