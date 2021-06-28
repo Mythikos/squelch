@@ -461,13 +461,13 @@ namespace Squelch.Fragments
                     // If its locked, its being forced for one reason or another, dont allow a toggle
                     if (uiApplicationItem.IsDifficultyLocked)
                     {
-                        DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_notice), "This application cannot be toggled due to the blackout difficulty.", true, GetString(Resource.String.text_ok));
+                        DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_notice), this.GetString(Resource.String.fragment_blackout_setup_application_selection_blocked_by_difficulty_warning), true, GetString(Resource.String.text_ok));
                     }
 
                     // If its recommended to be locked, notify them (and then unlock it if they are being stingy)
                     else if (uiApplicationItem.IsSelected && EnforcerUtils.ShouldBlockApplication(this.Context, uiApplicationItem.PackageName))
                     {
-                        DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_notice), "This application can circumvent how Squelch functions.\n\nIt is recommended that you keep this application blocked.", true, GetString(Resource.String.text_unlock), delegate { uiApplicationItem.SetSelected(false); }, GetString(Resource.String.text_cancel));
+                        DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_notice), this.GetString(Resource.String.fragment_blackout_setup_application_selection_circumvents_behavior_warning), true, GetString(Resource.String.text_unlock), delegate { uiApplicationItem.SetSelected(false); }, GetString(Resource.String.text_cancel));
                     }
 
                     // Toggle as normal
@@ -889,43 +889,43 @@ namespace Squelch.Fragments
                         // Date Ranges
                         if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {_dateRangeStartTimeButton.Text}", out startDateTime) == false) // Start date is valid
                         {
-                            _problemLabel.Text += "Start date is not valid. ";
+                            _problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_start_date_invalid) + " ";
                             return false;
                         }
 
                         if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {_dateRangeEndTimeButton.Text}", out endDateTime) == false) // End date is valid
                         {
-                            _problemLabel.Text += "End date is not valid. ";
+                            _problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_end_date_invalid) + " ";
                             return false;
                         }
 
                         if (endDateTime < DateTime.Now) // The end date is before the current time, whats the point?
                         {
-                            _problemLabel.Text += "End date is not valid as it is in the past. ";
+                            _problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_end_date_in_the_past) + " ";
                             return false;
                         }
 
                         if (startDateTime > endDateTime) // Start date must be before the end date
                         {
-                            _problemLabel.Text += "Start date can not be greater than the end date. ";
+                            _problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_start_date_cannot_be_greater_than_end_date) + " ";
                             return false;
                         }
 
                         if ((endDateTime - startDateTime).TotalMinutes < 1) // Blackout must be more than 1 minute
                         {
-                            _problemLabel.Text += "The duration of the blackout must be at least 1 minute or more. ";
+                            _problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_duration_of_blackout_must_be_greater_than_1_minute) + " ";
                             return false;
                         }
 
                         if (endDateTime.Subtract(DateTime.Now).TotalDays > 30) // Blackout must be less than 30 days
                         {
-                            _problemLabel.Text += "The duration of a blackout must be 30 days or less.";
+                            _problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_duration_of_blackout_must_be_less_than_30_days) + " ";
                             return false;
                         }
 
                         if (await BlackoutDatabase.HasConflictInRangeAsync(startDateTime, endDateTime))
                         {
-                            _problemLabel.Text += "Blackout start and end date/time can not overlap an existing blackout. ";
+                            _problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_blackout_overlaps) + " ";
                             return false;
                         }
                         break;
@@ -933,7 +933,7 @@ namespace Squelch.Fragments
                         // Applications
                         if (_applicationList.Where(x => x.IsSelected).Select(x => x.PackageName).ToList().Count() <= 0)
                         {
-                            _problemLabel.Text += "No applications are selected for blackout. ";
+                            _problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_no_application_selected) + " ";
                             return false;
                         }
                         break;

@@ -328,9 +328,31 @@ namespace Squelch.Fragments
                 {
                     if (_informationLayout.Visibility != ViewStates.Visible)
                     {
-                        _difficultyLabel.Text = _activeBlackout != null ? _activeBlackout.DifficultyCode.ToString() : "Unknown";
-                        _bidLabel.Text = _activeBlackout != null ? $"${_activeBlackout.Bid}" : "Unknown";
+                        var difficultyText = this.GetString(Resource.String.text_unknown);
+                        if (_activeBlackout != null)
+                        {
+                            switch (_activeBlackout.DifficultyCode)
+                            {
+                                case BlackoutItem.BlackoutDifficultyCode.Novice:
+                                    difficultyText = this.GetString(Resource.String.text_novice);
+                                    break;
+                                case BlackoutItem.BlackoutDifficultyCode.Veteran:
+                                    difficultyText = this.GetString(Resource.String.text_veteran);
+                                    break;
+                                case BlackoutItem.BlackoutDifficultyCode.Master:
+                                    difficultyText = this.GetString(Resource.String.text_master);
+                                    break;
+                                case BlackoutItem.BlackoutDifficultyCode.Nightmare:
+                                    difficultyText = this.GetString(Resource.String.text_nightmare);
+                                    break;
+                                default:
+                                    difficultyText = this.GetString(Resource.String.text_unknown);
+                                    break;
+                            }
+                        }
 
+                        _difficultyLabel.Text = difficultyText;
+                        _bidLabel.Text = _activeBlackout != null ? $"${_activeBlackout.Bid}" : this.GetString(Resource.String.text_unknown);
                         _informationLayout.Visibility = ViewStates.Visible;
                     }
                 });
@@ -432,7 +454,7 @@ namespace Squelch.Fragments
                     {
                         _activeBlackout.SetBlackoutFinished(BlackoutItem.BlackoutResultCode.Failed);
                         await BlackoutDatabase.UpsertAsync(_activeBlackout);
-                        DisplayUtils.ShowSnackbar(this.View, "Unlocked!", Snackbar.LengthLong);
+                        DisplayUtils.ShowSnackbar(this.View, this.GetString(Resource.String.fragment_blackout_unlocked), Snackbar.LengthLong);
                     }
                     else
                     {
@@ -444,7 +466,7 @@ namespace Squelch.Fragments
                 {
                     _activeBlackout.SetBlackoutFinished(BlackoutItem.BlackoutResultCode.Failed);
                     await BlackoutDatabase.UpsertAsync(_activeBlackout);
-                    DisplayUtils.ShowSnackbar(this.View, "Unlocked!", Snackbar.LengthLong);
+                    DisplayUtils.ShowSnackbar(this.View, this.GetString(Resource.String.fragment_blackout_unlocked), Snackbar.LengthLong);
                 }
             }
             catch (Exception ex)

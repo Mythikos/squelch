@@ -174,7 +174,7 @@ namespace Squelch.Fragments
                 // Display error if we got a blank response
                 if (string.IsNullOrWhiteSpace(requestResponse))
                 {
-                    DisplayUtils.ShowGenericAlertDialog(this.Context, "Error", GetString(Resource.String.fragment_feedback_submission_error_unable_to_connect), false, "Ok", delegate { this.FragmentManager.PopBackStack(); });
+                    DisplayUtils.ShowGenericAlertDialog(this.Context, this.GetString(Resource.String.text_error), GetString(Resource.String.fragment_feedback_submission_error_unable_to_connect), false, this.GetString(Resource.String.text_ok), delegate { this.FragmentManager.PopBackStack(); });
                 }
             }
             catch (Exception ex)
@@ -458,7 +458,7 @@ namespace Squelch.Fragments
 
                         // Set success
                         this.SetIsWorking(false);
-                        DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_success), GetString(Resource.String.fragment_feedback_submission_success), true, "Ok");
+                        DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_success), GetString(Resource.String.fragment_feedback_submission_success), true, this.GetString(Resource.String.text_ok));
 
                         // Pop the backstack
                         this.FragmentManager.PopBackStack();
@@ -466,33 +466,33 @@ namespace Squelch.Fragments
                     else if (resultCode.Value<string>() == "-2") // Duplicate
                     {
                         this.SetIsWorking(false);
-                        DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_duplicate), GetString(Resource.String.fragment_feedback_submission_duplicate), true, "Ok");
+                        DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_duplicate), GetString(Resource.String.fragment_feedback_submission_duplicate), true, this.GetString(Resource.String.text_ok));
                         Logger.Write(_tag, $"SubmitFeedback: User has already submitted feedback... but can see this fragment?", Logger.Severity.Info);
                     }
                     else if (resultCode.Value<string>() == "-1") // Error
                     {
                         this.SetIsWorking(false);
-                        DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_error), GetString(Resource.String.fragment_feedback_submission_error_unexpected), true, "Ok");
+                        DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_error), GetString(Resource.String.fragment_feedback_submission_error_unexpected), true, this.GetString(Resource.String.text_ok));
                         Logger.Write(_tag, $"SubmitFeedback: An error was indicated by the server", Logger.Severity.Error);
                     }
                     else
                     {
                         this.SetIsWorking(false);
-                        DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_error), GetString(Resource.String.fragment_feedback_submission_error_unexpected), true, "Ok");
+                        DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_error), GetString(Resource.String.fragment_feedback_submission_error_unexpected), true, this.GetString(Resource.String.text_ok));
                         Logger.Write(_tag, $"SubmitFeedback: An unrecognized result code was received", Logger.Severity.Error);
                     }
                 }
                 else // Unable to parse response, something probably went wrong
                 {
                     this.SetIsWorking(false);
-                    DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_error), GetString(Resource.String.fragment_feedback_submission_error_unexpected), true, "Ok");
+                    DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_error), GetString(Resource.String.fragment_feedback_submission_error_unexpected), true, this.GetString(Resource.String.text_ok));
                     Logger.Write(_tag, $"SubmitFeedback: An error occured when attempting to parse the http response", Logger.Severity.Error);
                 }
             }
             catch (Exception ex)
             {
                 this.SetIsWorking(false);
-                DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_error), GetString(Resource.String.fragment_feedback_submission_error_unexpected), true, "Ok");
+                DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_error), GetString(Resource.String.fragment_feedback_submission_error_unexpected), true, this.GetString(Resource.String.text_ok));
                 Logger.Write(_tag, $"SubmitFeedback: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
             }
         }

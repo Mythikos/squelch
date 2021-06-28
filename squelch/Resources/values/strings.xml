@@ -63,10 +63,22 @@
   <string name="fragment_blackout_setup_dates_plus_10_minutes">+10 Mins</string>
   <string name="fragment_blackout_setup_dates_plus_30_minutes">+30 Mins</string>
   <string name="fragment_blackout_setup_dates_now">Now</string>
-
+  <string name="fragment_blackout_setup_application_selection_blocked_by_difficulty_warning">This application cannot be toggled due to the blackout difficulty.</string>
+  <string name="fragment_blackout_setup_application_selection_circumvents_behavior_warning">This application can circumvent how Squelch functions.\n\nIt is recommended that you keep this application blocked.</string>
+  <string name="fragment_blackout_setup_validation_start_date_invalid">Start date is not valid.</string>
+  <string name="fragment_blackout_setup_validation_start_date_cannot_be_greater_than_end_date">Start date is not valid.</string>
+  <string name="fragment_blackout_setup_validation_end_date_invalid">End date is not valid.</string>
+  <string name="fragment_blackout_setup_validation_end_date_in_the_past">End date is not valid as it is in the past.</string>
+  <string name="fragment_blackout_setup_validation_duration_of_blackout_must_be_less_than_30_days">The duration of a blackout must be 30 days or less.</string>
+  <string name="fragment_blackout_setup_validation_duration_of_blackout_must_be_greater_than_1_minute">The duration of the blackout must be at least 1 minute or more.</string>
+  <string name="fragment_blackout_setup_validation_blackout_overlaps">Blackout start and end date/time can not overlap an existing blackout.</string>
+  <string name="fragment_blackout_setup_validation_no_application_selected">No applications are selected for blackout.</string>
+  
   <string name="fragment_blackout_confirmation_message">You are opting to unlock your device and set the current blackout as failed. Are you sure you wish to continue?</string>
+  <string name="fragment_blackout_unlocked">Unlocked!</string>
   
   <string name="fragment_donation_title_sub">Select what you are comfortable with donating to continue.</string>
+  <string name="fragment_donation_thank_you">Thank you for your donation!</string>
 
   <string name="fragment_schedule_notice_no_items">No items to display - try setting up a blackout!</string>
   
@@ -182,6 +194,7 @@
   <string name="text_total_bids">Total Bids</string>
   <string name="text_total_time_saved">Total Time Saved</string>
   <string name="text_total_blackouts">Total Blackouts</string>
+  <string name="text_unknown">Unknown</string>
 
   <!-- Difficulty -->
   <string name="text_novice">Novice</string>

@@ -89,7 +89,7 @@ namespace Squelch.Fragments
                         UserSettings.SetFlagValue(UserSettings.FlagKeys.Donation_StatusUpdatedOn, DateTime.Now.ToString());
 
                         // Refresh parent and close
-                        DisplayUtils.ShowSnackbar(this.ParentFragment.View, "Thank you for your donation!", Snackbar.LengthLong);
+                        DisplayUtils.ShowSnackbar(this.ParentFragment.View, this.GetString(Resource.String.fragment_donation_thank_you), Snackbar.LengthLong);
                         this.ParentFragment.FragmentManager.RefreshFragment(this.ParentFragment);
                         this.Dismiss();
                     }
@@ -101,7 +101,7 @@ namespace Squelch.Fragments
                         }
                         else
                         {
-                            DisplayUtils.ShowSnackbar(this.ParentFragment.View, "An unexpected error occurred. Please try again.", Snackbar.LengthLong);
+                            DisplayUtils.ShowSnackbar(this.ParentFragment.View, this.GetString(Resource.String.error_unexpected_error_occured), Snackbar.LengthLong);
                         }
                     }
                 };
