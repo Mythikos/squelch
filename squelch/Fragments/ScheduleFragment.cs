@@ -187,8 +187,8 @@ namespace Squelch.Fragments
                                         itemRangeLabel.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.difficultyNightmareForeground));
                                         break;
                                 }
-                                itemHoursLabel.Text = $"{Math.Round((groupedBlackout.ScheduledEndDateTime - groupedBlackout.ScheduledStartDateTime).TotalHours, 1).ToString()} Hours";
-                                itemRangeLabel.Text = $"Starts at {groupedBlackout.ScheduledStartDateTime.ToString("h:mm tt")}";
+                                itemHoursLabel.Text = string.Format(this.GetString(Resource.String.fragment_schedule_hours_label), Math.Round((groupedBlackout.ScheduledEndDateTime - groupedBlackout.ScheduledStartDateTime).TotalHours, 1).ToString());
+                                itemRangeLabel.Text = string.Format(this.GetString(Resource.String.fragment_schedule_range_label), groupedBlackout.ScheduledStartDateTime.ToString("h:mm tt"));
                                 itemParent.AddView(itemView);
                             }
 

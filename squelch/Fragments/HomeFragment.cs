@@ -319,7 +319,7 @@ namespace Squelch.Fragments
 
             try
             {
-                greetings = new List<string> { "Hello", "Welcome back", "Howdy", "Whats up", "How's it going", "Hey", "Nice to see you" };
+                greetings = this.GetString(Resource.String.fragment_home_greeting_list).Split('|').ToList();
                 if (string.IsNullOrWhiteSpace(UserSettings.FirstName))
                     MainThread.BeginInvokeOnMainThread(() => _greetingLabel.Text = $"{greetings.Random()}!");
                 else
@@ -343,8 +343,8 @@ namespace Squelch.Fragments
                 {
                     MainThread.BeginInvokeOnMainThread(() =>
                     { 
-                        _nextBlackoutStartDateLabel.Text = $"{Resources.GetString(Resource.String.label_col_blackout_start_date)} {blackoutItem.ScheduledStartDateTime.ToString("MM/dd/yyyy hh:mm tt")}";
-                        _nextBlackoutDifficultyLabel.Text = $"{Resources.GetString(Resource.String.label_col_blackout_difficulty)} {blackoutItem.DifficultyCode.ToString()}";
+                        _nextBlackoutStartDateLabel.Text = $"{this.GetString(Resource.String.label_col_blackout_start_date)} {blackoutItem.ScheduledStartDateTime.ToString("MM/dd/yyyy hh:mm tt")}";
+                        _nextBlackoutDifficultyLabel.Text = $"{this.GetString(Resource.String.label_col_blackout_difficulty)} {blackoutItem.DifficultyCode.ToString()}";
                         _nextBlackoutCard.Visibility = ViewStates.Visible;
                     });
                 }
@@ -353,8 +353,8 @@ namespace Squelch.Fragments
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
                         _nextBlackoutCard.Visibility = ViewStates.Gone;
-                        _nextBlackoutStartDateLabel.Text = $"{Resources.GetString(Resource.String.label_col_blackout_start_date)} n/a";
-                        _nextBlackoutDifficultyLabel.Text = $"{Resources.GetString(Resource.String.label_col_blackout_difficulty)} n/a";
+                        _nextBlackoutStartDateLabel.Text = $"{this.GetString(Resource.String.label_col_blackout_start_date)} n/a";
+                        _nextBlackoutDifficultyLabel.Text = $"{this.GetString(Resource.String.label_col_blackout_difficulty)} n/a";
                     });
                 }
             }

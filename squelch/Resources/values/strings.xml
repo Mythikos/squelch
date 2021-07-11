@@ -18,12 +18,20 @@
   <!-- Content Descriptions -->
   <string name="content_description_logo">Squelch Logo</string>
   <string name="content_description_clock_icon">Clock Icon</string>
+  
+  <!-- Service Specific -->
+  <string name="service_enforcer_title">Enforcer</string>
+  <string name="service_enforcer_waiting_message">Waiting for blackout</string>
+  <string name="service_enforcer_active_message">Blackout is active</string>
+  <string name="service_enforcer_react_generic_application">That application</string>
+  <string name="service_enforcer_react_blacklist_message">{0} is on your blacklist!</string>
 
   <!-- Fragment Specific -->
   <string name="fragment_first_time_setup_welcome_message">Welcome to Squelch, the app that helps you conquer your digital addiction and live with less distraction.</string>
   <string name="fragment_first_time_setup_special_permissions_message">In order for Squelch to work for you, it needs your permission to do the following:</string>
   <string name="fragment_first_time_setup_personalize_message">Personalize Squelch by providing some basic information. You can skip this step by pressing finish below.</string>
 
+  <string name="fragment_home_greeting_list">Hello|Welcome back|Howdy|Whats up|How's it going|Hey|Nice to see you</string>
   <string name="fragment_home_feedback_message_neutral">Hey! Are you enjoying squelch?</string>
   <string name="fragment_home_feedback_message_positive">Awesome! Can you give us some feedback on your experience?</string>
   <string name="fragment_home_feedback_message_negative">Oh no, we are sorry to hear that! Can you give us some feedback so we can better your experience in the future?</string>
@@ -44,6 +52,12 @@
   <string name="fragment_settings_privacy_policy_description">View our Privacy Policy</string>
   <string name="fragment_settings_end_user_licensing_agreement_description">View our EULA</string>
   <string name="fragment_settings_open_source_software_description">License details for open source software</string>
+  <string name="fragment_settings_prompt_first_name">Please provide your first name</string>
+  <string name="fragment_settings_prompt_last_name">Please provide your last name</string>
+  <string name="fragment_settings_toast_id_copied">Id copied to clipboard!</string>
+  <string name="fragment_settings_toast_version_copied">Version copied to clipboard!</string>
+  <string name="fragment_settings_version">Version {0}</string>
+  <string name="fragment_settings_build">Build {0}</string>
 
   <string name="fragment_blackout_setup_difficulty_title">What difficulty do you want to use?</string>
   <string name="fragment_blackout_setup_date_range_title">What date and time ranges will this blackout apply too?</string>
@@ -81,6 +95,8 @@
   <string name="fragment_donation_thank_you">Thank you for your donation!</string>
 
   <string name="fragment_schedule_notice_no_items">No items to display - try setting up a blackout!</string>
+  <string name="fragment_schedule_range_label">{0} Hours</string>
+  <string name="fragment_schedule_hours_label">Starts at {0}</string>
   
   <string name="fragment_statistics_filter_one_week">1W</string>
   <string name="fragment_statistics_filter_one_month">1M</string>
@@ -163,6 +179,7 @@
   <string name="text_show_system_applications">Show System</string>
   <string name="text_yes">Yes</string>
   <string name="text_no">No</string>
+  <string name="text_save">Save</string>
   <string name="text_cancel">Cancel</string>
   <string name="text_unlock">Unlock</string>
   
@@ -195,6 +212,22 @@
   <string name="text_total_time_saved">Total Time Saved</string>
   <string name="text_total_blackouts">Total Blackouts</string>
   <string name="text_unknown">Unknown</string>
+  <string name="text_undefined">Undefined</string>
+  <string name="text_undefined_input">(undefined)</string>
+  <string name="text_active">Active</string>
+  <string name="text_inactive">Inactive</string>
+  
+  <!-- Abbreviations -->
+  <string name="text_hour_singular_abbreviated">hr</string>
+  <string name="text_hour_plural_abbreviated">hrs</string>
+  <string name="text_hour_both_abbreviated">hr(s)</string>
+  <string name="text_minute_singular_abbreviated">min</string>
+  <string name="text_minute_plural_abbreviated">mins</string>
+  <string name="text_minute_both_abbreviated">min(s)</string>
+  <string name="text_second_singular_abbreviated">sec</string>
+  <string name="text_second_plural_abbreviated">secs</string>
+  <string name="text_second_both_abbreviated">sec(s)</string>
+  
 
   <!-- Difficulty -->
   <string name="text_novice">Novice</string>

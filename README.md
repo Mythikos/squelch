@@ -14,22 +14,11 @@
 ## Working
 Modify code and layout files to use strings.xml instead of hardcoded values. Remaining:
 
-Fragments/
-* FirstTimeSetupFragment
-* HomeFragment
-* ScheduleFragment
-* SettingsFragment
-* StatisticsFragment
-
-Services/
-* EnforcerService
-
 Resources/layouts/
 * ALL LAYOUT FILES
 
 Resources/Menu/
 * Navigation
-
 
 ## Changelog:
 n/a

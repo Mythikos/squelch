@@ -320,15 +320,15 @@ namespace Squelch.Fragments
 
             if (span.Hours > 0)
             {
-                result = $"{Math.Round(span.TotalHours, 1)} hr(s)";
+                result = $"{Math.Round(span.TotalHours, 1)} {this.GetString(Resource.String.text_hour_both_abbreviated)}";
             }
             else if (span.Minutes > 0)
             {
-                result = $"{Math.Round(span.TotalMinutes, 1)} min(s)";
+                result = $"{Math.Round(span.TotalMinutes, 1)} {this.GetString(Resource.String.text_minute_both_abbreviated)}";
             }
             else
             {
-                result = $"{span.Seconds} sec(s)";
+                result = $"{span.Seconds} {this.GetString(Resource.String.text_second_both_abbreviated)}";
             }
 
             return result;

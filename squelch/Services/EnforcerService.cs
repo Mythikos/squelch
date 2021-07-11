@@ -55,9 +55,6 @@ namespace Squelch.Services
         private const long ENFORCEMENT_POLLING_TIMER_MILLIS = 5000;
         private const long ENFORCEMENT_REACT_TIMER_MILLIS = 500;
         private const string NOTIFICATION_CHANNEL_ID = "enforcer_service_notification_channel";
-        private const string NOTIFICATION_TITLE = "Enforcer";
-        private const string NOTIFICATION_MESSAGE_WAITING = "Waiting for blackout";
-        private const string NOTIFICATION_MESSAGE_ACTIVE = "Blackout is active";
         #endregion
 
         #region Native Methods
@@ -67,7 +64,7 @@ namespace Squelch.Services
 
             //
             // Call start foreground (required for android 9 +)
-            StartForeground(FOREGROUND_ID, NotificationUtils.CreateNotification(this, NOTIFICATION_CHANNEL_ID, NOTIFICATION_TITLE, NOTIFICATION_MESSAGE_WAITING, true, NotificationImportance.Low));
+            StartForeground(FOREGROUND_ID, NotificationUtils.CreateNotification(this, NOTIFICATION_CHANNEL_ID, this.GetString(Resource.String.service_enforcer_title), this.GetString(Resource.String.service_enforcer_waiting_message), true, NotificationImportance.Low));
 
             //
             // Initialize overlay and window manager
@@ -302,7 +299,7 @@ namespace Squelch.Services
                 // Update foreground notification
                 if (this._notificationManager == null)
                     this._notificationManager = (NotificationManager)GetSystemService(Context.NotificationService);
-                this._notificationManager.Notify(FOREGROUND_ID, NotificationUtils.CreateNotification(this, NOTIFICATION_CHANNEL_ID, NOTIFICATION_TITLE, NOTIFICATION_MESSAGE_ACTIVE, true, NotificationImportance.Low));
+                this._notificationManager.Notify(FOREGROUND_ID, NotificationUtils.CreateNotification(this, NOTIFICATION_CHANNEL_ID, this.GetString(Resource.String.service_enforcer_title), this.GetString(Resource.String.service_enforcer_active_message), true, NotificationImportance.Low));
 
                 //
                 // Send a broadcast that the blackout has started
@@ -362,7 +359,7 @@ namespace Squelch.Services
                 // Update foreground notification
                 if (this._notificationManager == null)
                     this._notificationManager = (NotificationManager)GetSystemService(Context.NotificationService);
-                this._notificationManager.Notify(FOREGROUND_ID, NotificationUtils.CreateNotification(this, NOTIFICATION_CHANNEL_ID, NOTIFICATION_TITLE, NOTIFICATION_MESSAGE_WAITING, true, NotificationImportance.Low));
+                this._notificationManager.Notify(FOREGROUND_ID, NotificationUtils.CreateNotification(this, NOTIFICATION_CHANNEL_ID, this.GetString(Resource.String.service_enforcer_title), this.GetString(Resource.String.service_enforcer_waiting_message), true, NotificationImportance.Low));
 
                 //
                 // Send a broadcast that the blackout has ended
@@ -411,12 +408,12 @@ namespace Squelch.Services
                             applicationLabel = application.LoadLabel(this.PackageManager);
 
                         if (string.IsNullOrWhiteSpace(applicationLabel) == true)
-                            applicationLabel = $"That application";
+                            applicationLabel = this.GetString(Resource.String.service_enforcer_react_generic_application);
 
                         // Display it
                         MainThread.BeginInvokeOnMainThread(() =>
                         {
-                            _overlayNoticeLabel.SetText($"{applicationLabel} is on your blacklist!", TextView.BufferType.Editable);
+                            _overlayNoticeLabel.SetText(string.Format(this.GetString(Resource.String.service_enforcer_react_blacklist_message), applicationLabel), TextView.BufferType.Editable);
                             if (this._overlayView.IsShown == false)
                                 this._windowManager.AddView(_overlayView, _overlayLayoutParameters);
                         });

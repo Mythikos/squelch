@@ -67,7 +67,7 @@ namespace Squelch.Fragments
                         SetIsWorking(true);
 
                         await Clipboard.SetTextAsync(_versionContentLabel.Text);
-                        DisplayUtils.ShowToast(this.Context, "Id copied to clipboard");
+                        DisplayUtils.ShowToast(this.Context, this.GetString(Resource.String.fragment_settings_toast_id_copied));
                     }
                     finally { SetIsWorking(false); }
                 };
@@ -82,19 +82,19 @@ namespace Squelch.Fragments
                         DisplayUtils.ShowGenericSingleInputAlertDialog(
                             this.Context,
                             Resources.GetString(Resource.String.label_first_name),
-                            "Please provide your first name",
+                            this.GetString(Resource.String.fragment_settings_prompt_first_name),
                             UserSettings.FirstName,
                             Resources.GetString(Resource.String.label_first_name),
                             Android.Text.InputTypes.ClassText,
                             true,
                             true,
-                            "Save",
+                            this.GetString(Resource.String.text_save),
                             async delegate (string value) 
                             { 
                                 UserSettings.FirstName = value?.Trim();
                                 await RedrawView();
                             },
-                            "Cancel",
+                            this.GetString(Resource.String.text_cancel),
                             null
                         );
                     }
@@ -111,18 +111,18 @@ namespace Squelch.Fragments
                         var dialog = DisplayUtils.ShowGenericSingleInputAlertDialog(
                             this.Context,
                             Resources.GetString(Resource.String.label_last_name),
-                            "Please provide your last name",
+                            this.GetString(Resource.String.fragment_settings_prompt_last_name),
                             UserSettings.LastName,
                             Resources.GetString(Resource.String.label_last_name),
                             Android.Text.InputTypes.ClassText,
                             true,
                             true,
-                            "Save",
+                            this.GetString(Resource.String.text_save),
                             async delegate (string value) { 
                                 UserSettings.LastName = value?.Trim();
                                 await RedrawView();
                             },
-                            "Cancel",
+                            this.GetString(Resource.String.text_cancel),
                             null
                         );
                     }
@@ -156,7 +156,7 @@ namespace Squelch.Fragments
                         SetIsWorking(true);
 
                         await Clipboard.SetTextAsync(_versionContentLabel.Text);
-                        DisplayUtils.ShowToast(this.Context, "Version copied to clipboard");
+                        DisplayUtils.ShowToast(this.Context, this.GetString(Resource.String.fragment_settings_toast_version_copied));
                     }
                     finally { SetIsWorking(false); }
                 };
@@ -279,8 +279,8 @@ namespace Squelch.Fragments
                     userFirstName = UserSettings.FirstName;
                     userLastName = UserSettings.LastName;
 
-                    usageStatsState = (PermissionUtils.GetUsageDataPermission(this.Context, false)) ? "Active" : "Inactive";
-                    applicationOverlayState = (PermissionUtils.GetApplicationOverlayPermission(this.Context, false)) ? "Active" : "Inactive";
+                    usageStatsState = (PermissionUtils.GetUsageDataPermission(this.Context, false)) ? this.GetString(Resource.String.text_active) : this.GetString(Resource.String.text_inactive);
+                    applicationOverlayState = (PermissionUtils.GetApplicationOverlayPermission(this.Context, false)) ? this.GetString(Resource.String.text_active) : this.GetString(Resource.String.text_inactive);
 
                     selfVersionName = await GeneralUtils.SelfVersionNameAsync(this.Context);
                     selfVersionCode = (await GeneralUtils.SelfVersionCodeAsync(this.Context)).ToString();
@@ -288,14 +288,14 @@ namespace Squelch.Fragments
 
                 //
                 // Assign view values
-                _idContentLabel.Text = (string.IsNullOrWhiteSpace(userId) ? "(undefined)" : userId);
-                _firstNameContentLabel.Text = (string.IsNullOrWhiteSpace(userFirstName) ? "(undefined)" : userFirstName);
-                _lastNameContentLabel.Text = (string.IsNullOrWhiteSpace(userLastName) ? "(undefined)" : userLastName);
+                _idContentLabel.Text = (string.IsNullOrWhiteSpace(userId) ? this.GetString(Resource.String.text_undefined_input) : userId);
+                _firstNameContentLabel.Text = (string.IsNullOrWhiteSpace(userFirstName) ? this.GetString(Resource.String.text_undefined_input) : userFirstName);
+                _lastNameContentLabel.Text = (string.IsNullOrWhiteSpace(userLastName) ? this.GetString(Resource.String.text_undefined_input) : userLastName);
 
-                _usageStatsStateLabel.Text = (string.IsNullOrWhiteSpace(usageStatsState) ? "(undefined)" : usageStatsState);
-                _applicationOverlayStateLabel.Text = (string.IsNullOrWhiteSpace(applicationOverlayState) ? "(undefined)" : applicationOverlayState);
+                _usageStatsStateLabel.Text = (string.IsNullOrWhiteSpace(usageStatsState) ? this.GetString(Resource.String.text_undefined_input) : usageStatsState);
+                _applicationOverlayStateLabel.Text = (string.IsNullOrWhiteSpace(applicationOverlayState) ? this.GetString(Resource.String.text_undefined_input) : applicationOverlayState);
 
-                _versionContentLabel.Text = $"Version {selfVersionName} - Build {selfVersionCode}";
+                _versionContentLabel.Text = $"{string.Format(this.GetString(Resource.String.fragment_settings_version), selfVersionName)} - {string.Format(this.GetString(Resource.String.fragment_settings_build), selfVersionCode)}";
             }
             catch (Exception ex)
             {
