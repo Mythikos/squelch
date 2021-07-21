@@ -270,7 +270,7 @@ namespace MikePhil.Charting.Listener {
 					return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.ChartTouchListener.ChartGesture> (__v.Handle, JniHandleOwnership.TransferLocalRef);
 				}
 			}
-			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/listener/ChartTouchListener$ChartGesture", typeof (ChartGesture));
+			internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/listener/ChartTouchListener$ChartGesture", typeof (ChartGesture));
 			internal static new IntPtr class_ref {
 				get {
 					return _members.JniPeerType.PeerReference.Handle;
@@ -321,7 +321,7 @@ namespace MikePhil.Charting.Listener {
 
 		}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/listener/ChartTouchListener", typeof (ChartTouchListener));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/listener/ChartTouchListener", typeof (ChartTouchListener));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;
@@ -590,7 +590,7 @@ namespace MikePhil.Charting.Listener {
 
 		public ChartTouchListenerInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/listener/ChartTouchListener", typeof (ChartTouchListenerInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/listener/ChartTouchListener", typeof (ChartTouchListenerInvoker));
 
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }

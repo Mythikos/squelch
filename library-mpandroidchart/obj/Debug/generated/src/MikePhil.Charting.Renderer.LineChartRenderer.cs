@@ -185,7 +185,7 @@ namespace MikePhil.Charting.Renderer {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/LineChartRenderer", typeof (LineChartRenderer));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/renderer/LineChartRenderer", typeof (LineChartRenderer));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

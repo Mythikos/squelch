@@ -17,9 +17,9 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/interfaces/dataprovider/ScatterDataProvider", DoNotGenerateAcw=true)]
-	internal partial class IScatterDataProviderInvoker : global::Java.Lang.Object, IScatterDataProvider {
+	internal class IScatterDataProviderInvoker : global::Java.Lang.Object, IScatterDataProvider {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/interfaces/dataprovider/ScatterDataProvider", typeof (IScatterDataProviderInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/interfaces/dataprovider/ScatterDataProvider", typeof (IScatterDataProviderInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

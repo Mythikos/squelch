@@ -132,7 +132,7 @@ namespace MikePhil.Charting.Buffer {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/buffer/AbstractBuffer", typeof (AbstractBuffer));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/buffer/AbstractBuffer", typeof (AbstractBuffer));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;
@@ -344,7 +344,7 @@ namespace MikePhil.Charting.Buffer {
 
 		public AbstractBufferInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/buffer/AbstractBuffer", typeof (AbstractBufferInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/buffer/AbstractBuffer", typeof (AbstractBufferInvoker));
 
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }

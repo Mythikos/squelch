@@ -49,7 +49,7 @@ namespace MikePhil.Charting.Util {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/MPPointD", typeof (MPPointD));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/utils/MPPointD", typeof (MPPointD));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

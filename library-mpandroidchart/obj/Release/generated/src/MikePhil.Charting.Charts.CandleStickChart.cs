@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Charts {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/charts/CandleStickChart", DoNotGenerateAcw=true)]
 	public partial class CandleStickChart : global::MikePhil.Charting.Charts.BarLineChartBase, global::MikePhil.Charting.Interfaces.Dataprovider.ICandleDataProvider {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/charts/CandleStickChart", typeof (CandleStickChart));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/charts/CandleStickChart", typeof (CandleStickChart));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

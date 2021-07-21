@@ -32,9 +32,9 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/interfaces/dataprovider/BarDataProvider", DoNotGenerateAcw=true)]
-	internal partial class IBarDataProviderInvoker : global::Java.Lang.Object, IBarDataProvider {
+	internal class IBarDataProviderInvoker : global::Java.Lang.Object, IBarDataProvider {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/interfaces/dataprovider/BarDataProvider", typeof (IBarDataProviderInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/interfaces/dataprovider/BarDataProvider", typeof (IBarDataProviderInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

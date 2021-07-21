@@ -7,7 +7,7 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 
 	// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='ChartInterface']"
 	[Register ("com/github/mikephil/charting/interfaces/dataprovider/ChartInterface", "", "MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker")]
-	public partial interface IChartInterface : IJavaObject, IJavaPeerable {
+	public partial interface IChartInterface : IJavaObject {
 
 		global::MikePhil.Charting.Util.MPPointF CenterOfView {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='ChartInterface']/method[@name='getCenterOfView' and count(parameter)=0]"
@@ -77,9 +77,9 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/interfaces/dataprovider/ChartInterface", DoNotGenerateAcw=true)]
-	internal partial class IChartInterfaceInvoker : global::Java.Lang.Object, IChartInterface {
+	internal class IChartInterfaceInvoker : global::Java.Lang.Object, IChartInterface {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/interfaces/dataprovider/ChartInterface", typeof (IChartInterfaceInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/interfaces/dataprovider/ChartInterface", typeof (IChartInterfaceInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

@@ -50,7 +50,7 @@ namespace MikePhil.Charting.Charts {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/charts/PieRadarChartBase", typeof (PieRadarChartBase));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/charts/PieRadarChartBase", typeof (PieRadarChartBase));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;
@@ -781,7 +781,7 @@ namespace MikePhil.Charting.Charts {
 
 		public PieRadarChartBaseInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/charts/PieRadarChartBase", typeof (PieRadarChartBaseInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/charts/PieRadarChartBase", typeof (PieRadarChartBaseInvoker));
 
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }

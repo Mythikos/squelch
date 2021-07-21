@@ -31,7 +31,7 @@ namespace MikePhil.Charting.Formatter {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/formatter/PercentFormatter", typeof (PercentFormatter));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/formatter/PercentFormatter", typeof (PercentFormatter));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

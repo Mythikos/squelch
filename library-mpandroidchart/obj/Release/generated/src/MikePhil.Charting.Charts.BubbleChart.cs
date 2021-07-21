@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Charts {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/charts/BubbleChart", DoNotGenerateAcw=true)]
 	public partial class BubbleChart : global::MikePhil.Charting.Charts.BarLineChartBase, global::MikePhil.Charting.Interfaces.Dataprovider.IBubbleDataProvider {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/charts/BubbleChart", typeof (BubbleChart));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/charts/BubbleChart", typeof (BubbleChart));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

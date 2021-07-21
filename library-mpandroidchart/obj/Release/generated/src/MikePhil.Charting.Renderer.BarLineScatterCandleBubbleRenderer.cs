@@ -95,7 +95,7 @@ namespace MikePhil.Charting.Renderer {
 					}
 				}
 			}
-			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/BarLineScatterCandleBubbleRenderer$XBounds", typeof (XBounds));
+			internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/renderer/BarLineScatterCandleBubbleRenderer$XBounds", typeof (XBounds));
 			internal static new IntPtr class_ref {
 				get {
 					return _members.JniPeerType.PeerReference.Handle;
@@ -170,7 +170,7 @@ namespace MikePhil.Charting.Renderer {
 
 		}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/BarLineScatterCandleBubbleRenderer", typeof (BarLineScatterCandleBubbleRenderer));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/renderer/BarLineScatterCandleBubbleRenderer", typeof (BarLineScatterCandleBubbleRenderer));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;
@@ -285,7 +285,7 @@ namespace MikePhil.Charting.Renderer {
 
 		public BarLineScatterCandleBubbleRendererInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/BarLineScatterCandleBubbleRenderer", typeof (BarLineScatterCandleBubbleRendererInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/renderer/BarLineScatterCandleBubbleRenderer", typeof (BarLineScatterCandleBubbleRendererInvoker));
 
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }

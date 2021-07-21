@@ -119,7 +119,7 @@ namespace MikePhil.Charting.Renderer {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/DataRenderer", typeof (DataRenderer));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/renderer/DataRenderer", typeof (DataRenderer));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;
@@ -463,7 +463,7 @@ namespace MikePhil.Charting.Renderer {
 
 		public DataRendererInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/DataRenderer", typeof (DataRendererInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/renderer/DataRenderer", typeof (DataRendererInvoker));
 
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }

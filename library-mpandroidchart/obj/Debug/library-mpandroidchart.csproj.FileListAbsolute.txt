@@ -4,3 +4,8 @@ C:\Users\Shizzlepoof\Desktop\Squelch\library-mpandroidchart\bin\Debug\library-mp
 C:\Users\Shizzlepoof\Desktop\Squelch\library-mpandroidchart\bin\Debug\library-mpandroidchart.pdb
 C:\Users\Shizzlepoof\Desktop\Squelch\library-mpandroidchart\obj\Debug\library-mpandroidchart.dll
 C:\Users\Shizzlepoof\Desktop\Squelch\library-mpandroidchart\obj\Debug\library-mpandroidchart.pdb
+C:\Users\vlakatos\Desktop\squelch\library-mpandroidchart\bin\Debug\library-mpandroidchart.dll
+C:\Users\vlakatos\Desktop\squelch\library-mpandroidchart\bin\Debug\library-mpandroidchart.pdb
+C:\Users\vlakatos\Desktop\squelch\library-mpandroidchart\obj\Debug\library-mpandroidchart.csprojAssemblyReference.cache
+C:\Users\vlakatos\Desktop\squelch\library-mpandroidchart\obj\Debug\library-mpandroidchart.dll
+C:\Users\vlakatos\Desktop\squelch\library-mpandroidchart\obj\Debug\library-mpandroidchart.pdb

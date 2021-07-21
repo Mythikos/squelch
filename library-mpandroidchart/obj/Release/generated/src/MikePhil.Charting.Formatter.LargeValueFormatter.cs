@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Formatter {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/formatter/LargeValueFormatter", DoNotGenerateAcw=true)]
 	public partial class LargeValueFormatter : global::Java.Lang.Object, global::MikePhil.Charting.Formatter.IAxisValueFormatter, global::MikePhil.Charting.Formatter.IValueFormatter {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/formatter/LargeValueFormatter", typeof (LargeValueFormatter));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/formatter/LargeValueFormatter", typeof (LargeValueFormatter));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

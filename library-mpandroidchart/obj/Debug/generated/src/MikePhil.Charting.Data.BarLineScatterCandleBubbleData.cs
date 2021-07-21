@@ -10,7 +10,7 @@ namespace MikePhil.Charting.Data {
 	[global::Java.Interop.JavaTypeParameters (new string [] {"T extends com.github.mikephil.charting.interfaces.datasets.IBarLineScatterCandleBubbleDataSet<? extends com.github.mikephil.charting.data.Entry>"})]
 	public abstract partial class BarLineScatterCandleBubbleData : global::MikePhil.Charting.Data.ChartData {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/BarLineScatterCandleBubbleData", typeof (BarLineScatterCandleBubbleData));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/BarLineScatterCandleBubbleData", typeof (BarLineScatterCandleBubbleData));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;
@@ -103,7 +103,7 @@ namespace MikePhil.Charting.Data {
 
 		public BarLineScatterCandleBubbleDataInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/BarLineScatterCandleBubbleData", typeof (BarLineScatterCandleBubbleDataInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/data/BarLineScatterCandleBubbleData", typeof (BarLineScatterCandleBubbleDataInvoker));
 
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }

@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Listener {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/listener/OnDrawLineChartTouchListener", DoNotGenerateAcw=true)]
 	public partial class OnDrawLineChartTouchListener : global::Android.Views.GestureDetector.SimpleOnGestureListener, global::Android.Views.View.IOnTouchListener {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/listener/OnDrawLineChartTouchListener", typeof (OnDrawLineChartTouchListener));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/listener/OnDrawLineChartTouchListener", typeof (OnDrawLineChartTouchListener));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

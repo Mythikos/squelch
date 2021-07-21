@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Charts {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/charts/LineChart", DoNotGenerateAcw=true)]
 	public partial class LineChart : global::MikePhil.Charting.Charts.BarLineChartBase, global::MikePhil.Charting.Interfaces.Dataprovider.ILineDataProvider {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/charts/LineChart", typeof (LineChart));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/charts/LineChart", typeof (LineChart));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

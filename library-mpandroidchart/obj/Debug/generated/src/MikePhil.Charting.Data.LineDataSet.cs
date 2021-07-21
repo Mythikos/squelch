@@ -61,7 +61,7 @@ namespace MikePhil.Charting.Data {
 					return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineDataSet.Mode> (__v.Handle, JniHandleOwnership.TransferLocalRef);
 				}
 			}
-			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/LineDataSet$Mode", typeof (Mode));
+			internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/LineDataSet$Mode", typeof (Mode));
 			internal static new IntPtr class_ref {
 				get {
 					return _members.JniPeerType.PeerReference.Handle;
@@ -112,7 +112,7 @@ namespace MikePhil.Charting.Data {
 
 		}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/LineDataSet", typeof (LineDataSet));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/LineDataSet", typeof (LineDataSet));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

@@ -49,7 +49,7 @@ namespace MikePhil.Charting.Animation {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/animation/ChartAnimator", typeof (ChartAnimator));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/animation/ChartAnimator", typeof (ChartAnimator));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

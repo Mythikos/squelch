@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Buffer {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/buffer/HorizontalBarBuffer", DoNotGenerateAcw=true)]
 	public partial class HorizontalBarBuffer : global::MikePhil.Charting.Buffer.BarBuffer {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/buffer/HorizontalBarBuffer", typeof (HorizontalBarBuffer));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/buffer/HorizontalBarBuffer", typeof (HorizontalBarBuffer));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

@@ -34,7 +34,7 @@ namespace MikePhil.Charting.Util {
 					}
 				}
 			}
-			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/ObjectPool$Poolable", typeof (Poolable));
+			internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/utils/ObjectPool$Poolable", typeof (Poolable));
 			internal static new IntPtr class_ref {
 				get {
 					return _members.JniPeerType.PeerReference.Handle;
@@ -100,7 +100,7 @@ namespace MikePhil.Charting.Util {
 
 			public PoolableInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
 
-			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/ObjectPool$Poolable", typeof (PoolableInvoker));
+			internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/utils/ObjectPool$Poolable", typeof (PoolableInvoker));
 
 			public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 				get { return _members; }
@@ -125,7 +125,7 @@ namespace MikePhil.Charting.Util {
 		}
 
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/ObjectPool", typeof (ObjectPool));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/utils/ObjectPool", typeof (ObjectPool));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

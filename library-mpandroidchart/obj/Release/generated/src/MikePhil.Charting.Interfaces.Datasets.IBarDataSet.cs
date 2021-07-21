@@ -46,9 +46,9 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/interfaces/datasets/IBarDataSet", DoNotGenerateAcw=true)]
-	internal partial class IBarDataSetInvoker : global::Java.Lang.Object, IBarDataSet {
+	internal class IBarDataSetInvoker : global::Java.Lang.Object, IBarDataSet {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/interfaces/datasets/IBarDataSet", typeof (IBarDataSetInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/interfaces/datasets/IBarDataSet", typeof (IBarDataSetInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

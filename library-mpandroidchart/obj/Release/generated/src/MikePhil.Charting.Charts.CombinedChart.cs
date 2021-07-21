@@ -115,7 +115,7 @@ namespace MikePhil.Charting.Charts {
 					return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.CombinedChart.DrawOrder> (__v.Handle, JniHandleOwnership.TransferLocalRef);
 				}
 			}
-			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/charts/CombinedChart$DrawOrder", typeof (DrawOrder));
+			internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/charts/CombinedChart$DrawOrder", typeof (DrawOrder));
 			internal static new IntPtr class_ref {
 				get {
 					return _members.JniPeerType.PeerReference.Handle;
@@ -166,7 +166,7 @@ namespace MikePhil.Charting.Charts {
 
 		}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/charts/CombinedChart", typeof (CombinedChart));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/charts/CombinedChart", typeof (CombinedChart));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

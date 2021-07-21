@@ -54,7 +54,7 @@ namespace MikePhil.Charting.Highlight {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/highlight/PieRadarHighlighter", typeof (PieRadarHighlighter));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/highlight/PieRadarHighlighter", typeof (PieRadarHighlighter));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;
@@ -155,7 +155,7 @@ namespace MikePhil.Charting.Highlight {
 
 		public PieRadarHighlighterInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/highlight/PieRadarHighlighter", typeof (PieRadarHighlighterInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/highlight/PieRadarHighlighter", typeof (PieRadarHighlighterInvoker));
 
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }

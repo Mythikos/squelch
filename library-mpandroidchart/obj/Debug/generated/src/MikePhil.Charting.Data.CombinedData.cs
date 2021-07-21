@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Data {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/data/CombinedData", DoNotGenerateAcw=true)]
 	public partial class CombinedData : global::MikePhil.Charting.Data.BarLineScatterCandleBubbleData {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/CombinedData", typeof (CombinedData));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/CombinedData", typeof (CombinedData));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

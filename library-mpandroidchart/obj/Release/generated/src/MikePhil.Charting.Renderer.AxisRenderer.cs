@@ -141,7 +141,7 @@ namespace MikePhil.Charting.Renderer {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/AxisRenderer", typeof (AxisRenderer));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/renderer/AxisRenderer", typeof (AxisRenderer));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;
@@ -452,7 +452,7 @@ namespace MikePhil.Charting.Renderer {
 
 		public AxisRendererInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/AxisRenderer", typeof (AxisRendererInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/renderer/AxisRenderer", typeof (AxisRendererInvoker));
 
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }

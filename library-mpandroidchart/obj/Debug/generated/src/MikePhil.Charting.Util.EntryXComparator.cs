@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Util {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/utils/EntryXComparator", DoNotGenerateAcw=true)]
 	public partial class EntryXComparator : global::Java.Lang.Object, global::Java.Util.IComparator {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/EntryXComparator", typeof (EntryXComparator));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/utils/EntryXComparator", typeof (EntryXComparator));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

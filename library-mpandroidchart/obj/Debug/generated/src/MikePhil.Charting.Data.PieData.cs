@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Data {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/data/PieData", DoNotGenerateAcw=true)]
 	public partial class PieData : global::MikePhil.Charting.Data.ChartData {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/PieData", typeof (PieData));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/PieData", typeof (PieData));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

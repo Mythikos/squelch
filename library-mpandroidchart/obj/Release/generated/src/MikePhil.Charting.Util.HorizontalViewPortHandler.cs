@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Util {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/utils/HorizontalViewPortHandler", DoNotGenerateAcw=true)]
 	public partial class HorizontalViewPortHandler : global::MikePhil.Charting.Util.ViewPortHandler {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/HorizontalViewPortHandler", typeof (HorizontalViewPortHandler));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/utils/HorizontalViewPortHandler", typeof (HorizontalViewPortHandler));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

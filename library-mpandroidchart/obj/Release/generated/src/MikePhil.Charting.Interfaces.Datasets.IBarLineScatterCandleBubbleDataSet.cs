@@ -18,9 +18,9 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/interfaces/datasets/IBarLineScatterCandleBubbleDataSet", DoNotGenerateAcw=true)]
-	internal partial class IBarLineScatterCandleBubbleDataSetInvoker : global::Java.Lang.Object, IBarLineScatterCandleBubbleDataSet {
+	internal class IBarLineScatterCandleBubbleDataSetInvoker : global::Java.Lang.Object, IBarLineScatterCandleBubbleDataSet {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/interfaces/datasets/IBarLineScatterCandleBubbleDataSet", typeof (IBarLineScatterCandleBubbleDataSetInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/interfaces/datasets/IBarLineScatterCandleBubbleDataSet", typeof (IBarLineScatterCandleBubbleDataSetInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

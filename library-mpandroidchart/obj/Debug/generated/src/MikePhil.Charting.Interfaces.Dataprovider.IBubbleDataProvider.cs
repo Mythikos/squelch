@@ -17,9 +17,9 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/interfaces/dataprovider/BubbleDataProvider", DoNotGenerateAcw=true)]
-	internal partial class IBubbleDataProviderInvoker : global::Java.Lang.Object, IBubbleDataProvider {
+	internal class IBubbleDataProviderInvoker : global::Java.Lang.Object, IBubbleDataProvider {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/interfaces/dataprovider/BubbleDataProvider", typeof (IBubbleDataProviderInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/interfaces/dataprovider/BubbleDataProvider", typeof (IBubbleDataProviderInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

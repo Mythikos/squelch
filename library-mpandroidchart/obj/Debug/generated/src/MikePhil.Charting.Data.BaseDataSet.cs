@@ -286,7 +286,7 @@ namespace MikePhil.Charting.Data {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/BaseDataSet", typeof (BaseDataSet));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/BaseDataSet", typeof (BaseDataSet));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;
@@ -2263,7 +2263,7 @@ namespace MikePhil.Charting.Data {
 
 		public BaseDataSetInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/BaseDataSet", typeof (BaseDataSetInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/data/BaseDataSet", typeof (BaseDataSetInvoker));
 
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }

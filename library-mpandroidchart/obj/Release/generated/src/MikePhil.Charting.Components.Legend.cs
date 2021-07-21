@@ -117,7 +117,7 @@ namespace MikePhil.Charting.Components {
 					return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.Legend.LegendDirection> (__v.Handle, JniHandleOwnership.TransferLocalRef);
 				}
 			}
-			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/components/Legend$LegendDirection", typeof (LegendDirection));
+			internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/components/Legend$LegendDirection", typeof (LegendDirection));
 			internal static new IntPtr class_ref {
 				get {
 					return _members.JniPeerType.PeerReference.Handle;
@@ -244,7 +244,7 @@ namespace MikePhil.Charting.Components {
 					return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.Legend.LegendForm> (__v.Handle, JniHandleOwnership.TransferLocalRef);
 				}
 			}
-			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/components/Legend$LegendForm", typeof (LegendForm));
+			internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/components/Legend$LegendForm", typeof (LegendForm));
 			internal static new IntPtr class_ref {
 				get {
 					return _members.JniPeerType.PeerReference.Handle;
@@ -335,7 +335,7 @@ namespace MikePhil.Charting.Components {
 					return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.Legend.LegendHorizontalAlignment> (__v.Handle, JniHandleOwnership.TransferLocalRef);
 				}
 			}
-			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/components/Legend$LegendHorizontalAlignment", typeof (LegendHorizontalAlignment));
+			internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/components/Legend$LegendHorizontalAlignment", typeof (LegendHorizontalAlignment));
 			internal static new IntPtr class_ref {
 				get {
 					return _members.JniPeerType.PeerReference.Handle;
@@ -414,7 +414,7 @@ namespace MikePhil.Charting.Components {
 					return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.Legend.LegendOrientation> (__v.Handle, JniHandleOwnership.TransferLocalRef);
 				}
 			}
-			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/components/Legend$LegendOrientation", typeof (LegendOrientation));
+			internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/components/Legend$LegendOrientation", typeof (LegendOrientation));
 			internal static new IntPtr class_ref {
 				get {
 					return _members.JniPeerType.PeerReference.Handle;
@@ -626,7 +626,7 @@ namespace MikePhil.Charting.Components {
 					return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.Legend.LegendPosition> (__v.Handle, JniHandleOwnership.TransferLocalRef);
 				}
 			}
-			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/components/Legend$LegendPosition", typeof (LegendPosition));
+			internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/components/Legend$LegendPosition", typeof (LegendPosition));
 			internal static new IntPtr class_ref {
 				get {
 					return _members.JniPeerType.PeerReference.Handle;
@@ -717,7 +717,7 @@ namespace MikePhil.Charting.Components {
 					return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.Legend.LegendVerticalAlignment> (__v.Handle, JniHandleOwnership.TransferLocalRef);
 				}
 			}
-			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/components/Legend$LegendVerticalAlignment", typeof (LegendVerticalAlignment));
+			internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/components/Legend$LegendVerticalAlignment", typeof (LegendVerticalAlignment));
 			internal static new IntPtr class_ref {
 				get {
 					return _members.JniPeerType.PeerReference.Handle;
@@ -768,7 +768,7 @@ namespace MikePhil.Charting.Components {
 
 		}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/components/Legend", typeof (Legend));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/components/Legend", typeof (Legend));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

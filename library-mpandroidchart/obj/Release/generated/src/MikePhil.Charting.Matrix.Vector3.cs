@@ -105,7 +105,7 @@ namespace MikePhil.Charting.Matrix {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/matrix/Vector3", typeof (Vector3));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/matrix/Vector3", typeof (Vector3));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

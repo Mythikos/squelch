@@ -7,7 +7,7 @@ namespace MikePhil.Charting.Listener {
 
 	// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.listener']/interface[@name='OnDrawListener']"
 	[Register ("com/github/mikephil/charting/listener/OnDrawListener", "", "MikePhil.Charting.Listener.IOnDrawListenerSupportInvoker")]
-	public partial interface IOnDrawListenerSupport : IJavaObject, IJavaPeerable {
+	public partial interface IOnDrawListenerSupport : IJavaObject {
 
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.listener']/interface[@name='OnDrawListener']/method[@name='onDrawFinished' and count(parameter)=1 and parameter[1][@type='com.github.mikephil.charting.data.DataSet&lt;?&gt;']]"
 		[Register ("onDrawFinished", "(Lcom/github/mikephil/charting/data/DataSet;)V", "GetOnDrawFinished_Lcom_github_mikephil_charting_data_DataSet_Handler:MikePhil.Charting.Listener.IOnDrawListenerSupportInvoker, library-mpandroidchart")]
@@ -24,9 +24,9 @@ namespace MikePhil.Charting.Listener {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/listener/OnDrawListener", DoNotGenerateAcw=true)]
-	internal partial class IOnDrawListenerSupportInvoker : global::Java.Lang.Object, IOnDrawListenerSupport {
+	internal class IOnDrawListenerSupportInvoker : global::Java.Lang.Object, IOnDrawListenerSupport {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/listener/OnDrawListener", typeof (IOnDrawListenerSupportInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/listener/OnDrawListener", typeof (IOnDrawListenerSupportInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

@@ -93,7 +93,7 @@ namespace MikePhil.Charting.Jobs {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/jobs/ZoomJob", typeof (ZoomJob));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/jobs/ZoomJob", typeof (ZoomJob));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

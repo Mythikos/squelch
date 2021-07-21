@@ -356,9 +356,9 @@ namespace MikePhil.Charting.Animation {
 		}
 
 		[global::Android.Runtime.Register ("com/github/mikephil/charting/animation/Easing$EasingFunction", DoNotGenerateAcw=true)]
-		internal partial class IEasingFunctionInvoker : global::Java.Lang.Object, IEasingFunction {
+		internal class IEasingFunctionInvoker : global::Java.Lang.Object, IEasingFunction {
 
-			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/animation/Easing$EasingFunction", typeof (IEasingFunctionInvoker));
+			internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/animation/Easing$EasingFunction", typeof (IEasingFunctionInvoker));
 
 			static IntPtr java_class_ref {
 				get { return _members.JniPeerType.PeerReference.Handle; }
@@ -776,7 +776,7 @@ namespace MikePhil.Charting.Animation {
 					return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.EasingOption> (__v.Handle, JniHandleOwnership.TransferLocalRef);
 				}
 			}
-			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/animation/Easing$EasingOption", typeof (EasingOption));
+			internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/animation/Easing$EasingOption", typeof (EasingOption));
 			internal static new IntPtr class_ref {
 				get {
 					return _members.JniPeerType.PeerReference.Handle;
@@ -827,7 +827,7 @@ namespace MikePhil.Charting.Animation {
 
 		}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/animation/Easing", typeof (Easing));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/animation/Easing", typeof (Easing));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

@@ -30,9 +30,9 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/interfaces/dataprovider/BarLineScatterCandleBubbleDataProvider", DoNotGenerateAcw=true)]
-	internal partial class IBarLineScatterCandleBubbleDataProviderInvoker : global::Java.Lang.Object, IBarLineScatterCandleBubbleDataProvider {
+	internal class IBarLineScatterCandleBubbleDataProviderInvoker : global::Java.Lang.Object, IBarLineScatterCandleBubbleDataProvider {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/interfaces/dataprovider/BarLineScatterCandleBubbleDataProvider", typeof (IBarLineScatterCandleBubbleDataProviderInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/interfaces/dataprovider/BarLineScatterCandleBubbleDataProvider", typeof (IBarLineScatterCandleBubbleDataProviderInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

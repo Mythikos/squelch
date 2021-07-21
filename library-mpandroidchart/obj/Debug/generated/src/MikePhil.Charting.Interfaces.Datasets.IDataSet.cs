@@ -8,7 +8,7 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 	// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.datasets']/interface[@name='IDataSet']"
 	[Register ("com/github/mikephil/charting/interfaces/datasets/IDataSet", "", "MikePhil.Charting.Interfaces.Datasets.IDataSetInvoker")]
 	[global::Java.Interop.JavaTypeParameters (new string [] {"T extends com.github.mikephil.charting.data.Entry"})]
-	public partial interface IDataSet : IJavaObject, IJavaPeerable {
+	public partial interface IDataSet : IJavaObject {
 
 		global::MikePhil.Charting.Components.YAxis.AxisDependency AxisDependency {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.datasets']/interface[@name='IDataSet']/method[@name='getAxisDependency' and count(parameter)=0]"
@@ -223,9 +223,9 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/interfaces/datasets/IDataSet", DoNotGenerateAcw=true)]
-	internal partial class IDataSetInvoker : global::Java.Lang.Object, IDataSet {
+	internal class IDataSetInvoker : global::Java.Lang.Object, IDataSet {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/interfaces/datasets/IDataSet", typeof (IDataSetInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/interfaces/datasets/IDataSet", typeof (IDataSetInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

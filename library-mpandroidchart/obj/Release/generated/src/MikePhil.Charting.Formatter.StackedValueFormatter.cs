@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Formatter {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/formatter/StackedValueFormatter", DoNotGenerateAcw=true)]
 	public partial class StackedValueFormatter : global::Java.Lang.Object, global::MikePhil.Charting.Formatter.IValueFormatter {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/formatter/StackedValueFormatter", typeof (StackedValueFormatter));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/formatter/StackedValueFormatter", typeof (StackedValueFormatter));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

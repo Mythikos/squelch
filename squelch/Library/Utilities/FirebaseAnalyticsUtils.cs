@@ -4,7 +4,6 @@ using System.Linq;
 using Android.App;
 using Android.OS;
 using Firebase.Analytics;
-using Firebase.Auth;
 using Squelch.Library.Data;
 using Squelch.Library.Entities;
 

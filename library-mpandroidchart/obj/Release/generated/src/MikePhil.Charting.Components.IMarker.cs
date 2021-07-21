@@ -7,7 +7,7 @@ namespace MikePhil.Charting.Components {
 
 	// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.components']/interface[@name='IMarker']"
 	[Register ("com/github/mikephil/charting/components/IMarker", "", "MikePhil.Charting.Components.IMarkerInvoker")]
-	public partial interface IMarker : IJavaObject, IJavaPeerable {
+	public partial interface IMarker : IJavaObject {
 
 		global::MikePhil.Charting.Util.MPPointF Offset {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.components']/interface[@name='IMarker']/method[@name='getOffset' and count(parameter)=0]"
@@ -29,9 +29,9 @@ namespace MikePhil.Charting.Components {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/components/IMarker", DoNotGenerateAcw=true)]
-	internal partial class IMarkerInvoker : global::Java.Lang.Object, IMarker {
+	internal class IMarkerInvoker : global::Java.Lang.Object, IMarker {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/components/IMarker", typeof (IMarkerInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/components/IMarker", typeof (IMarkerInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

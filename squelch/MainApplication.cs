@@ -9,7 +9,6 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Plugin.CurrentActivity;
 
 namespace Squelch
 {
@@ -28,7 +27,6 @@ namespace Squelch
         public override void OnCreate()
         {
             base.OnCreate();
-            CrossCurrentActivity.Current.Init(this);
         }
     }
 }

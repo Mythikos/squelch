@@ -7,7 +7,7 @@ namespace MikePhil.Charting.Renderer.Scatter {
 
 	// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.renderer.scatter']/interface[@name='IShapeRenderer']"
 	[Register ("com/github/mikephil/charting/renderer/scatter/IShapeRenderer", "", "MikePhil.Charting.Renderer.Scatter.IShapeRendererInvoker")]
-	public partial interface IShapeRenderer : IJavaObject, IJavaPeerable {
+	public partial interface IShapeRenderer : IJavaObject {
 
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.renderer.scatter']/interface[@name='IShapeRenderer']/method[@name='renderShape' and count(parameter)=6 and parameter[1][@type='android.graphics.Canvas'] and parameter[2][@type='com.github.mikephil.charting.interfaces.datasets.IScatterDataSet'] and parameter[3][@type='com.github.mikephil.charting.utils.ViewPortHandler'] and parameter[4][@type='float'] and parameter[5][@type='float'] and parameter[6][@type='android.graphics.Paint']]"
 		[Register ("renderShape", "(Landroid/graphics/Canvas;Lcom/github/mikephil/charting/interfaces/datasets/IScatterDataSet;Lcom/github/mikephil/charting/utils/ViewPortHandler;FFLandroid/graphics/Paint;)V", "GetRenderShape_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_interfaces_datasets_IScatterDataSet_Lcom_github_mikephil_charting_utils_ViewPortHandler_FFLandroid_graphics_Paint_Handler:MikePhil.Charting.Renderer.Scatter.IShapeRendererInvoker, library-mpandroidchart")]
@@ -16,9 +16,9 @@ namespace MikePhil.Charting.Renderer.Scatter {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/renderer/scatter/IShapeRenderer", DoNotGenerateAcw=true)]
-	internal partial class IShapeRendererInvoker : global::Java.Lang.Object, IShapeRenderer {
+	internal class IShapeRendererInvoker : global::Java.Lang.Object, IShapeRenderer {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/scatter/IShapeRenderer", typeof (IShapeRendererInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/renderer/scatter/IShapeRenderer", typeof (IShapeRendererInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

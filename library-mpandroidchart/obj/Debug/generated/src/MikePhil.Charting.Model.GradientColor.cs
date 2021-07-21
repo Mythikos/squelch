@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Model {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/model/GradientColor", DoNotGenerateAcw=true)]
 	public partial class GradientColor : global::Java.Lang.Object {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/model/GradientColor", typeof (GradientColor));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/model/GradientColor", typeof (GradientColor));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

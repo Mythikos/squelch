@@ -7,7 +7,7 @@ namespace MikePhil.Charting.Formatter {
 
 	// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.formatter']/interface[@name='ColorFormatter']"
 	[Register ("com/github/mikephil/charting/formatter/ColorFormatter", "", "MikePhil.Charting.Formatter.IColorFormatterInvoker")]
-	public partial interface IColorFormatter : IJavaObject, IJavaPeerable {
+	public partial interface IColorFormatter : IJavaObject {
 
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.formatter']/interface[@name='ColorFormatter']/method[@name='getColor' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='com.github.mikephil.charting.data.Entry'] and parameter[3][@type='com.github.mikephil.charting.interfaces.datasets.IDataSet']]"
 		[Register ("getColor", "(ILcom/github/mikephil/charting/data/Entry;Lcom/github/mikephil/charting/interfaces/datasets/IDataSet;)I", "GetGetColor_ILcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_interfaces_datasets_IDataSet_Handler:MikePhil.Charting.Formatter.IColorFormatterInvoker, library-mpandroidchart")]
@@ -16,9 +16,9 @@ namespace MikePhil.Charting.Formatter {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/formatter/ColorFormatter", DoNotGenerateAcw=true)]
-	internal partial class IColorFormatterInvoker : global::Java.Lang.Object, IColorFormatter {
+	internal class IColorFormatterInvoker : global::Java.Lang.Object, IColorFormatter {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/formatter/ColorFormatter", typeof (IColorFormatterInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/formatter/ColorFormatter", typeof (IColorFormatterInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

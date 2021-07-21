@@ -97,7 +97,7 @@ namespace MikePhil.Charting.Jobs {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/jobs/ViewPortJob", typeof (ViewPortJob));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/jobs/ViewPortJob", typeof (ViewPortJob));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;
@@ -226,7 +226,7 @@ namespace MikePhil.Charting.Jobs {
 
 		public ViewPortJobInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/jobs/ViewPortJob", typeof (ViewPortJobInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/jobs/ViewPortJob", typeof (ViewPortJobInvoker));
 
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }

@@ -33,7 +33,7 @@ namespace MikePhil.Charting {
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting']/class[@name='BuildConfig']/field[@name='VERSION_NAME']"
 		[Register ("VERSION_NAME")]
 		public const string VersionName = (string) "3.0.3";
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/BuildConfig", typeof (BuildConfig));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/BuildConfig", typeof (BuildConfig));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

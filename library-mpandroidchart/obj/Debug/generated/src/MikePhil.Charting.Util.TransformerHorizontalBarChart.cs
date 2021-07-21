@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Util {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/utils/TransformerHorizontalBarChart", DoNotGenerateAcw=true)]
 	public partial class TransformerHorizontalBarChart : global::MikePhil.Charting.Util.Transformer {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/TransformerHorizontalBarChart", typeof (TransformerHorizontalBarChart));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/utils/TransformerHorizontalBarChart", typeof (TransformerHorizontalBarChart));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

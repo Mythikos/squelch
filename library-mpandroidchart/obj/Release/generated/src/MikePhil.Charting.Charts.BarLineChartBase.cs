@@ -562,7 +562,7 @@ namespace MikePhil.Charting.Charts {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/charts/BarLineChartBase", typeof (BarLineChartBase));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/charts/BarLineChartBase", typeof (BarLineChartBase));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;
@@ -3445,7 +3445,7 @@ namespace MikePhil.Charting.Charts {
 
 		public BarLineChartBaseInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/charts/BarLineChartBase", typeof (BarLineChartBaseInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/charts/BarLineChartBase", typeof (BarLineChartBaseInvoker));
 
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }

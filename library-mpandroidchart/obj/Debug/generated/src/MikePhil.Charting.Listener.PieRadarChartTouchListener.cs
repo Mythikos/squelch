@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Listener {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/listener/PieRadarChartTouchListener", DoNotGenerateAcw=true)]
 	public partial class PieRadarChartTouchListener : global::MikePhil.Charting.Listener.ChartTouchListener {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/listener/PieRadarChartTouchListener", typeof (PieRadarChartTouchListener));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/listener/PieRadarChartTouchListener", typeof (PieRadarChartTouchListener));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

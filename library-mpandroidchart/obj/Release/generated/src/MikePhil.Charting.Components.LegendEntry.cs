@@ -135,7 +135,7 @@ namespace MikePhil.Charting.Components {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/components/LegendEntry", typeof (LegendEntry));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/components/LegendEntry", typeof (LegendEntry));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

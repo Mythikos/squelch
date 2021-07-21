@@ -89,7 +89,7 @@ namespace MikePhil.Charting.Util {
 				return global::Android.Runtime.JavaArray<int>.FromJniHandle (__v.Handle, JniHandleOwnership.TransferLocalRef);
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/ColorTemplate", typeof (ColorTemplate));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/utils/ColorTemplate", typeof (ColorTemplate));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;
@@ -130,7 +130,7 @@ namespace MikePhil.Charting.Util {
 
 		public static unsafe int HoloBlue {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='ColorTemplate']/method[@name='getHoloBlue' and count(parameter)=0]"
-			[Register ("getHoloBlue", "()I", "")]
+			[Register ("getHoloBlue", "()I", "GetGetHoloBlueHandler")]
 			get {
 				const string __id = "getHoloBlue.()I";
 				try {

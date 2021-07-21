@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Exception {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/exception/DrawingDataSetNotCreatedException", DoNotGenerateAcw=true)]
 	public partial class DrawingDataSetNotCreatedException : global::Java.Lang.RuntimeException {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/exception/DrawingDataSetNotCreatedException", typeof (DrawingDataSetNotCreatedException));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/exception/DrawingDataSetNotCreatedException", typeof (DrawingDataSetNotCreatedException));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

@@ -149,7 +149,7 @@ namespace MikePhil.Charting.Data {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/RadarDataSet", typeof (RadarDataSet));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/RadarDataSet", typeof (RadarDataSet));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

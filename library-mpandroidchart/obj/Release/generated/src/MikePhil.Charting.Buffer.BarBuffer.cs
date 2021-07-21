@@ -109,7 +109,7 @@ namespace MikePhil.Charting.Buffer {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/buffer/BarBuffer", typeof (BarBuffer));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/buffer/BarBuffer", typeof (BarBuffer));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

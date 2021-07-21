@@ -7,7 +7,7 @@ namespace MikePhil.Charting.Formatter {
 
 	// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.formatter']/interface[@name='IFillFormatter']"
 	[Register ("com/github/mikephil/charting/formatter/IFillFormatter", "", "MikePhil.Charting.Formatter.IFillFormatterInvoker")]
-	public partial interface IFillFormatter : IJavaObject, IJavaPeerable {
+	public partial interface IFillFormatter : IJavaObject {
 
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.formatter']/interface[@name='IFillFormatter']/method[@name='getFillLinePosition' and count(parameter)=2 and parameter[1][@type='com.github.mikephil.charting.interfaces.datasets.ILineDataSet'] and parameter[2][@type='com.github.mikephil.charting.interfaces.dataprovider.LineDataProvider']]"
 		[Register ("getFillLinePosition", "(Lcom/github/mikephil/charting/interfaces/datasets/ILineDataSet;Lcom/github/mikephil/charting/interfaces/dataprovider/LineDataProvider;)F", "GetGetFillLinePosition_Lcom_github_mikephil_charting_interfaces_datasets_ILineDataSet_Lcom_github_mikephil_charting_interfaces_dataprovider_LineDataProvider_Handler:MikePhil.Charting.Formatter.IFillFormatterInvoker, library-mpandroidchart")]
@@ -16,9 +16,9 @@ namespace MikePhil.Charting.Formatter {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/formatter/IFillFormatter", DoNotGenerateAcw=true)]
-	internal partial class IFillFormatterInvoker : global::Java.Lang.Object, IFillFormatter {
+	internal class IFillFormatterInvoker : global::Java.Lang.Object, IFillFormatter {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/formatter/IFillFormatter", typeof (IFillFormatterInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/formatter/IFillFormatter", typeof (IFillFormatterInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

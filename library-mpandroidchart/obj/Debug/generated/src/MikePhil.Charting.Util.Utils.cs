@@ -41,7 +41,7 @@ namespace MikePhil.Charting.Util {
 				return __v;
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/Utils", typeof (Utils));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/utils/Utils", typeof (Utils));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;
@@ -82,7 +82,7 @@ namespace MikePhil.Charting.Util {
 
 		public static unsafe global::MikePhil.Charting.Formatter.IValueFormatter DefaultValueFormatter {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='Utils']/method[@name='getDefaultValueFormatter' and count(parameter)=0]"
-			[Register ("getDefaultValueFormatter", "()Lcom/github/mikephil/charting/formatter/IValueFormatter;", "")]
+			[Register ("getDefaultValueFormatter", "()Lcom/github/mikephil/charting/formatter/IValueFormatter;", "GetGetDefaultValueFormatterHandler")]
 			get {
 				const string __id = "getDefaultValueFormatter.()Lcom/github/mikephil/charting/formatter/IValueFormatter;";
 				try {
@@ -95,7 +95,7 @@ namespace MikePhil.Charting.Util {
 
 		public static unsafe int MaximumFlingVelocity {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='Utils']/method[@name='getMaximumFlingVelocity' and count(parameter)=0]"
-			[Register ("getMaximumFlingVelocity", "()I", "")]
+			[Register ("getMaximumFlingVelocity", "()I", "GetGetMaximumFlingVelocityHandler")]
 			get {
 				const string __id = "getMaximumFlingVelocity.()I";
 				try {
@@ -108,7 +108,7 @@ namespace MikePhil.Charting.Util {
 
 		public static unsafe int MinimumFlingVelocity {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='Utils']/method[@name='getMinimumFlingVelocity' and count(parameter)=0]"
-			[Register ("getMinimumFlingVelocity", "()I", "")]
+			[Register ("getMinimumFlingVelocity", "()I", "GetGetMinimumFlingVelocityHandler")]
 			get {
 				const string __id = "getMinimumFlingVelocity.()I";
 				try {
@@ -121,7 +121,7 @@ namespace MikePhil.Charting.Util {
 
 		public static unsafe int SDKInt {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='Utils']/method[@name='getSDKInt' and count(parameter)=0]"
-			[Register ("getSDKInt", "()I", "")]
+			[Register ("getSDKInt", "()I", "GetGetSDKIntHandler")]
 			get {
 				const string __id = "getSDKInt.()I";
 				try {
@@ -684,7 +684,7 @@ namespace MikePhil.Charting.Util {
 
 		public UtilsInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/Utils", typeof (UtilsInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/utils/Utils", typeof (UtilsInvoker));
 
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }

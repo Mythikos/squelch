@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Renderer {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/renderer/XAxisRendererRadarChart", DoNotGenerateAcw=true)]
 	public partial class XAxisRendererRadarChart : global::MikePhil.Charting.Renderer.XAxisRenderer {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/XAxisRendererRadarChart", typeof (XAxisRendererRadarChart));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/renderer/XAxisRendererRadarChart", typeof (XAxisRendererRadarChart));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

@@ -32,9 +32,9 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/interfaces/datasets/IScatterDataSet", DoNotGenerateAcw=true)]
-	internal partial class IScatterDataSetInvoker : global::Java.Lang.Object, IScatterDataSet {
+	internal class IScatterDataSetInvoker : global::Java.Lang.Object, IScatterDataSet {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/interfaces/datasets/IScatterDataSet", typeof (IScatterDataSetInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/interfaces/datasets/IScatterDataSet", typeof (IScatterDataSetInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

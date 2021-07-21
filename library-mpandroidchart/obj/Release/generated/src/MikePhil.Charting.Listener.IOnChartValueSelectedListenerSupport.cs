@@ -7,7 +7,7 @@ namespace MikePhil.Charting.Listener {
 
 	// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.listener']/interface[@name='OnChartValueSelectedListener']"
 	[Register ("com/github/mikephil/charting/listener/OnChartValueSelectedListener", "", "MikePhil.Charting.Listener.IOnChartValueSelectedListenerSupportInvoker")]
-	public partial interface IOnChartValueSelectedListenerSupport : IJavaObject, IJavaPeerable {
+	public partial interface IOnChartValueSelectedListenerSupport : IJavaObject {
 
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.listener']/interface[@name='OnChartValueSelectedListener']/method[@name='onNothingSelected' and count(parameter)=0]"
 		[Register ("onNothingSelected", "()V", "GetOnNothingSelectedHandler:MikePhil.Charting.Listener.IOnChartValueSelectedListenerSupportInvoker, library-mpandroidchart")]
@@ -20,9 +20,9 @@ namespace MikePhil.Charting.Listener {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/listener/OnChartValueSelectedListener", DoNotGenerateAcw=true)]
-	internal partial class IOnChartValueSelectedListenerSupportInvoker : global::Java.Lang.Object, IOnChartValueSelectedListenerSupport {
+	internal class IOnChartValueSelectedListenerSupportInvoker : global::Java.Lang.Object, IOnChartValueSelectedListenerSupport {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/listener/OnChartValueSelectedListener", typeof (IOnChartValueSelectedListenerSupportInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/listener/OnChartValueSelectedListener", typeof (IOnChartValueSelectedListenerSupportInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

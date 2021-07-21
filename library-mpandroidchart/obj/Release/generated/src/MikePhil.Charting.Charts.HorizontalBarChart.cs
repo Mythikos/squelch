@@ -31,7 +31,7 @@ namespace MikePhil.Charting.Charts {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/charts/HorizontalBarChart", typeof (HorizontalBarChart));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/charts/HorizontalBarChart", typeof (HorizontalBarChart));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

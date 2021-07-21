@@ -14,9 +14,9 @@ namespace Java.Interop {
 #endif // def MONODROID_TIMING
 			Java.Interop.TypeManager.RegisterPackages (
 					new string[]{
+						"com/github/mikephil/charting",
 						"com/github/mikephil/charting/animation",
 						"com/github/mikephil/charting/buffer",
-						"com/github/mikephil/charting",
 						"com/github/mikephil/charting/charts",
 						"com/github/mikephil/charting/components",
 						"com/github/mikephil/charting/data",
@@ -33,9 +33,9 @@ namespace Java.Interop {
 						"com/github/mikephil/charting/utils",
 					},
 					new Converter<string, Type>[]{
+						lookup_com_github_mikephil_charting_package,
 						lookup_com_github_mikephil_charting_animation_package,
 						lookup_com_github_mikephil_charting_buffer_package,
-						lookup_com_github_mikephil_charting_package,
 						lookup_com_github_mikephil_charting_charts_package,
 						lookup_com_github_mikephil_charting_components_package,
 						lookup_com_github_mikephil_charting_data_package,
@@ -65,6 +65,18 @@ namespace Java.Interop {
 			return Type.GetType (managedType);
 		}
 
+		static string[] package_com_github_mikephil_charting_mappings;
+		static Type lookup_com_github_mikephil_charting_package (string klass)
+		{
+			if (package_com_github_mikephil_charting_mappings == null) {
+				package_com_github_mikephil_charting_mappings = new string[]{
+					"com/github/mikephil/charting/BuildConfig:MikePhil.Charting.BuildConfig",
+				};
+			}
+
+			return Lookup (package_com_github_mikephil_charting_mappings, klass);
+		}
+
 		static string[] package_com_github_mikephil_charting_animation_mappings;
 		static Type lookup_com_github_mikephil_charting_animation_package (string klass)
 		{
@@ -91,18 +103,6 @@ namespace Java.Interop {
 			}
 
 			return Lookup (package_com_github_mikephil_charting_buffer_mappings, klass);
-		}
-
-		static string[] package_com_github_mikephil_charting_mappings;
-		static Type lookup_com_github_mikephil_charting_package (string klass)
-		{
-			if (package_com_github_mikephil_charting_mappings == null) {
-				package_com_github_mikephil_charting_mappings = new string[]{
-					"com/github/mikephil/charting/BuildConfig:MikePhil.Charting.BuildConfig",
-				};
-			}
-
-			return Lookup (package_com_github_mikephil_charting_mappings, klass);
 		}
 
 		static string[] package_com_github_mikephil_charting_charts_mappings;

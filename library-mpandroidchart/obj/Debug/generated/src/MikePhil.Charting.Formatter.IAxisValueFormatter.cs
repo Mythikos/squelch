@@ -7,7 +7,7 @@ namespace MikePhil.Charting.Formatter {
 
 	// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.formatter']/interface[@name='IAxisValueFormatter']"
 	[Register ("com/github/mikephil/charting/formatter/IAxisValueFormatter", "", "MikePhil.Charting.Formatter.IAxisValueFormatterInvoker")]
-	public partial interface IAxisValueFormatter : IJavaObject, IJavaPeerable {
+	public partial interface IAxisValueFormatter : IJavaObject {
 
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.formatter']/interface[@name='IAxisValueFormatter']/method[@name='getFormattedValue' and count(parameter)=2 and parameter[1][@type='float'] and parameter[2][@type='com.github.mikephil.charting.components.AxisBase']]"
 		[Register ("getFormattedValue", "(FLcom/github/mikephil/charting/components/AxisBase;)Ljava/lang/String;", "GetGetFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_Handler:MikePhil.Charting.Formatter.IAxisValueFormatterInvoker, library-mpandroidchart")]
@@ -16,9 +16,9 @@ namespace MikePhil.Charting.Formatter {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/formatter/IAxisValueFormatter", DoNotGenerateAcw=true)]
-	internal partial class IAxisValueFormatterInvoker : global::Java.Lang.Object, IAxisValueFormatter {
+	internal class IAxisValueFormatterInvoker : global::Java.Lang.Object, IAxisValueFormatter {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/formatter/IAxisValueFormatter", typeof (IAxisValueFormatterInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/formatter/IAxisValueFormatter", typeof (IAxisValueFormatterInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

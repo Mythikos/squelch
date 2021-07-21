@@ -7,7 +7,7 @@ namespace MikePhil.Charting.Listener {
 
 	// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.listener']/interface[@name='OnChartGestureListener']"
 	[Register ("com/github/mikephil/charting/listener/OnChartGestureListener", "", "MikePhil.Charting.Listener.IOnChartGestureListenerSupportInvoker")]
-	public partial interface IOnChartGestureListenerSupport : IJavaObject, IJavaPeerable {
+	public partial interface IOnChartGestureListenerSupport : IJavaObject {
 
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.listener']/interface[@name='OnChartGestureListener']/method[@name='onChartDoubleTapped' and count(parameter)=1 and parameter[1][@type='android.view.MotionEvent']]"
 		[Register ("onChartDoubleTapped", "(Landroid/view/MotionEvent;)V", "GetOnChartDoubleTapped_Landroid_view_MotionEvent_Handler:MikePhil.Charting.Listener.IOnChartGestureListenerSupportInvoker, library-mpandroidchart")]
@@ -44,9 +44,9 @@ namespace MikePhil.Charting.Listener {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/listener/OnChartGestureListener", DoNotGenerateAcw=true)]
-	internal partial class IOnChartGestureListenerSupportInvoker : global::Java.Lang.Object, IOnChartGestureListenerSupport {
+	internal class IOnChartGestureListenerSupportInvoker : global::Java.Lang.Object, IOnChartGestureListenerSupport {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/listener/OnChartGestureListener", typeof (IOnChartGestureListenerSupportInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/listener/OnChartGestureListener", typeof (IOnChartGestureListenerSupportInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

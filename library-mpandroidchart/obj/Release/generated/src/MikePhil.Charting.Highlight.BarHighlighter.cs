@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Highlight {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/highlight/BarHighlighter", DoNotGenerateAcw=true)]
 	public partial class BarHighlighter : global::MikePhil.Charting.Highlight.ChartHighlighter {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/highlight/BarHighlighter", typeof (BarHighlighter));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/highlight/BarHighlighter", typeof (BarHighlighter));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

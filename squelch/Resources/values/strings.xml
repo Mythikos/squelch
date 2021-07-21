@@ -31,7 +31,7 @@
   <string name="fragment_first_time_setup_special_permissions_message">In order for Squelch to work for you, it needs your permission to do the following:</string>
   <string name="fragment_first_time_setup_personalize_message">Personalize Squelch by providing some basic information. You can skip this step by pressing finish below.</string>
 
-  <string name="fragment_home_greeting_list">Hello|Welcome back|Howdy|Whats up|How's it going|Hey|Nice to see you</string>
+  <string name="fragment_home_greeting_list">Hello|Welcome back|Howdy|Whats up|How\'s it going|Hey|Nice to see you</string>
   <string name="fragment_home_feedback_message_neutral">Hey! Are you enjoying squelch?</string>
   <string name="fragment_home_feedback_message_positive">Awesome! Can you give us some feedback on your experience?</string>
   <string name="fragment_home_feedback_message_negative">Oh no, we are sorry to hear that! Can you give us some feedback so we can better your experience in the future?</string>

@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Renderer {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/renderer/HorizontalBarChartRenderer", DoNotGenerateAcw=true)]
 	public partial class HorizontalBarChartRenderer : global::MikePhil.Charting.Renderer.BarChartRenderer {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/HorizontalBarChartRenderer", typeof (HorizontalBarChartRenderer));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/renderer/HorizontalBarChartRenderer", typeof (HorizontalBarChartRenderer));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

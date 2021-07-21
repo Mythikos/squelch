@@ -72,9 +72,9 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/interfaces/datasets/IPieDataSet", DoNotGenerateAcw=true)]
-	internal partial class IPieDataSetInvoker : global::Java.Lang.Object, IPieDataSet {
+	internal class IPieDataSetInvoker : global::Java.Lang.Object, IPieDataSet {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/interfaces/datasets/IPieDataSet", typeof (IPieDataSetInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/interfaces/datasets/IPieDataSet", typeof (IPieDataSetInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

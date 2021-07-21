@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Components {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/components/MarkerView", DoNotGenerateAcw=true)]
 	public partial class MarkerView : global::Android.Widget.RelativeLayout, global::MikePhil.Charting.Components.IMarker {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/components/MarkerView", typeof (MarkerView));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/components/MarkerView", typeof (MarkerView));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

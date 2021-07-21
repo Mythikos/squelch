@@ -32,7 +32,7 @@ namespace MikePhil.Charting.Data {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/LineRadarDataSet", typeof (LineRadarDataSet));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/LineRadarDataSet", typeof (LineRadarDataSet));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;
@@ -398,7 +398,7 @@ namespace MikePhil.Charting.Data {
 
 		public LineRadarDataSetInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/LineRadarDataSet", typeof (LineRadarDataSetInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/data/LineRadarDataSet", typeof (LineRadarDataSetInvoker));
 
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }

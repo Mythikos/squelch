@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\library-mpandroidchart\\library-mpandroidchart.csproj": {}
+    "C:\\Users\\vlakatos\\Desktop\\squelch\\library-mpandroidchart\\library-mpandroidchart.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\library-mpandroidchart\\library-mpandroidchart.csproj": {
+    "C:\\Users\\vlakatos\\Desktop\\squelch\\library-mpandroidchart\\library-mpandroidchart.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\library-mpandroidchart\\library-mpandroidchart.csproj",
+        "projectUniqueName": "C:\\Users\\vlakatos\\Desktop\\squelch\\library-mpandroidchart\\library-mpandroidchart.csproj",
         "projectName": "library-mpandroidchart",
-        "projectPath": "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\library-mpandroidchart\\library-mpandroidchart.csproj",
-        "packagesPath": "C:\\Users\\Shizzlepoof\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Shizzlepoof\\Desktop\\Squelch\\library-mpandroidchart\\obj\\",
+        "projectPath": "C:\\Users\\vlakatos\\Desktop\\squelch\\library-mpandroidchart\\library-mpandroidchart.csproj",
+        "packagesPath": "C:\\Users\\vlakatos\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vlakatos\\Desktop\\squelch\\library-mpandroidchart\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Shizzlepoof\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vlakatos\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -27,6 +27,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://nugets.vapolia.fr/nuget/": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

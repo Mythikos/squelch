@@ -21,9 +21,9 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/interfaces/dataprovider/LineDataProvider", DoNotGenerateAcw=true)]
-	internal partial class ILineDataProviderInvoker : global::Java.Lang.Object, ILineDataProvider {
+	internal class ILineDataProviderInvoker : global::Java.Lang.Object, ILineDataProvider {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/interfaces/dataprovider/LineDataProvider", typeof (ILineDataProviderInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/interfaces/dataprovider/LineDataProvider", typeof (ILineDataProviderInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

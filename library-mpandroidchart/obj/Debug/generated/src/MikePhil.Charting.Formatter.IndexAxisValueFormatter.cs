@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Formatter {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/formatter/IndexAxisValueFormatter", DoNotGenerateAcw=true)]
 	public partial class IndexAxisValueFormatter : global::Java.Lang.Object, global::MikePhil.Charting.Formatter.IAxisValueFormatter {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/formatter/IndexAxisValueFormatter", typeof (IndexAxisValueFormatter));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/formatter/IndexAxisValueFormatter", typeof (IndexAxisValueFormatter));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

@@ -49,9 +49,9 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/interfaces/datasets/IRadarDataSet", DoNotGenerateAcw=true)]
-	internal partial class IRadarDataSetInvoker : global::Java.Lang.Object, IRadarDataSet {
+	internal class IRadarDataSetInvoker : global::Java.Lang.Object, IRadarDataSet {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/interfaces/datasets/IRadarDataSet", typeof (IRadarDataSetInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/interfaces/datasets/IRadarDataSet", typeof (IRadarDataSetInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

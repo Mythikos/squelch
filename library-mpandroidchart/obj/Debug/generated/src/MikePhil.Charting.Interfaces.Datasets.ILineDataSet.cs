@@ -80,9 +80,9 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/interfaces/datasets/ILineDataSet", DoNotGenerateAcw=true)]
-	internal partial class ILineDataSetInvoker : global::Java.Lang.Object, ILineDataSet {
+	internal class ILineDataSetInvoker : global::Java.Lang.Object, ILineDataSet {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/interfaces/datasets/ILineDataSet", typeof (ILineDataSetInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/interfaces/datasets/ILineDataSet", typeof (ILineDataSetInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

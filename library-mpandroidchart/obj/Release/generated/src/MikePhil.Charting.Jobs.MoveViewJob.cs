@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Jobs {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/jobs/MoveViewJob", DoNotGenerateAcw=true)]
 	public partial class MoveViewJob : global::MikePhil.Charting.Jobs.ViewPortJob {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/jobs/MoveViewJob", typeof (MoveViewJob));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/jobs/MoveViewJob", typeof (MoveViewJob));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

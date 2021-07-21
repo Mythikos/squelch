@@ -3713,7 +3713,7 @@
       </field>
       <field deprecated="not deprecated" final="false" name="mValueColors" jni-signature="Ljava/util/List;" static="false" transient="false" type="java.util.List" type-generic-aware="java.util.List&lt;java.lang.Integer&gt;" visibility="protected" volatile="false">
       </field>
-      <field deprecated="not deprecated" final="false" name="mValueFormatter" jni-signature="Lcom/github/mikephil/charting/formatter/IValueFormatter;" static="false" transient="true" type="com.github.mikephil.charting.formatter.IValueFormatter" type-generic-aware="com.github.mikephil.charting.formatter.IValueFormatter" visibility="protected" volatile="false">
+      <field deprecated="not deprecated" final="false" name="mValueFormatter" jni-signature="Lcom/github/mikephil/charting/formatter/IValueFormatter;" static="false" transient="true" type="com.github.mikephil.charting.formatter.IValueFormatter" type-generic-aware="com.github.mikephil.charting.formatter.IValueFormatter" visibility="protected" volatile="true">
       </field>
       <field deprecated="not deprecated" final="false" name="mValueTextSize" jni-signature="F" static="false" transient="false" type="float" type-generic-aware="float" visibility="protected" volatile="false">
       </field>

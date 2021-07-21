@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Util {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/utils/FileUtils", DoNotGenerateAcw=true)]
 	public partial class FileUtils : global::Java.Lang.Object {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/FileUtils", typeof (FileUtils));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/utils/FileUtils", typeof (FileUtils));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

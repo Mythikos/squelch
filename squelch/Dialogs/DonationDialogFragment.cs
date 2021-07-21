@@ -12,9 +12,9 @@ using System;
 using System.Collections.Generic;
 using AndroidX.Core.Widget;
 using AndroidX.Core.Content.Resources;
-using Android.Support.V4.Content;
 using Squelch.Library.Extensions;
 using System.Threading.Tasks;
+using AndroidX.Core.Content;
 
 namespace Squelch.Fragments
 {

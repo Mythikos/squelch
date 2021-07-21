@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Plugin.InAppBilling;
-using Plugin.InAppBilling.Abstractions;
 
 namespace Squelch.Library.Utilities
 {
@@ -20,9 +19,9 @@ namespace Squelch.Library.Utilities
         public static async Task<(bool, string)> PurchaseAsync(string productId, bool shouldConsume = true)
         {
             bool connected = false;
+            bool consumed = false;
             IInAppBilling billing;
             InAppBillingPurchase purchase;
-            InAppBillingPurchase consumedPurchased;
             (bool, string) result;
 
             //
@@ -33,29 +32,22 @@ namespace Squelch.Library.Utilities
             {
                 //
                 // Connect to the payment service
-                connected = await billing.ConnectAsync(ItemType.InAppPurchase);
+                connected = await billing.ConnectAsync();
                 if (connected)
                 {
                     //
                     // Attempt the purchase
-                    purchase = await billing.PurchaseAsync(productId, ItemType.InAppPurchase, "squelch_payload");
+                    purchase = await billing.PurchaseAsync(productId, ItemType.InAppPurchase);
                     if (purchase != null)
                     {
                         //
                         // Consume the purchase if we need to
                         if (shouldConsume)
                         {
-                            consumedPurchased = await billing.ConsumePurchaseAsync(productId, purchase.PurchaseToken);
-                            if (consumedPurchased != null)
+                            consumed = await billing.ConsumePurchaseAsync(productId, purchase.PurchaseToken);
+                            if (consumed == true)
                             {
-                                if (consumedPurchased.ConsumptionState == ConsumptionState.Consumed)
-                                {
-                                    result = (true, "Purchase was successful!");
-                                }
-                                else
-                                {
-                                    result = (false, "Purchase was successful but could not be consumed.");
-                                }
+                                result = (true, "Purchase was successful!");
                             }
                             else
                             {
@@ -92,12 +84,12 @@ namespace Squelch.Library.Utilities
                         if (shouldConsume)
                         {
                             if (!connected)
-                                connected = await billing.ConnectAsync(ItemType.InAppPurchase);
+                                connected = await billing.ConnectAsync();
 
                             // Are we still connected?
                             if (connected)
                             {
-                                consumedPurchased = null;
+                                consumed = false;
 
                                 // Get all purchases
                                 var previousPurchases = await CrossInAppBilling.Current.GetPurchasesAsync(ItemType.InAppPurchase);
@@ -107,23 +99,16 @@ namespace Squelch.Library.Utilities
                                     if (previousPurchase.ProductId.Equals(productId) && previousPurchase.ConsumptionState == ConsumptionState.NoYetConsumed)
                                     {
                                         // Consume it
-                                        consumedPurchased = await billing.ConsumePurchaseAsync(productId, previousPurchase.PurchaseToken);
-                                        if (consumedPurchased.ConsumptionState == ConsumptionState.Consumed)
+                                        consumed = await billing.ConsumePurchaseAsync(productId, previousPurchase.PurchaseToken);
+                                        if (consumed == true)
                                             break;
                                     }
                                 }
 
                                 // Check consumption
-                                if (consumedPurchased != null)
+                                if (consumed == true)
                                 {
-                                    if (consumedPurchased.ConsumptionState == ConsumptionState.Consumed)
-                                    {
-                                        result = (true, "Purchase was successful!");
-                                    }
-                                    else
-                                    {
-                                        result = (false, "Purchase is marked as already owned but it couldn't be consumed.");
-                                    }
+                                    result = (true, "Purchase was successful!");
                                 }
                                 else
                                 {

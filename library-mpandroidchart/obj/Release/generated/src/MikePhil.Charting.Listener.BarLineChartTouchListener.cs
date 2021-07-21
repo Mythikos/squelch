@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Listener {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/listener/BarLineChartTouchListener", DoNotGenerateAcw=true)]
 	public partial class BarLineChartTouchListener : global::MikePhil.Charting.Listener.ChartTouchListener {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/listener/BarLineChartTouchListener", typeof (BarLineChartTouchListener));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/listener/BarLineChartTouchListener", typeof (BarLineChartTouchListener));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

@@ -17,9 +17,9 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/interfaces/dataprovider/CombinedDataProvider", DoNotGenerateAcw=true)]
-	internal partial class ICombinedDataProviderInvoker : global::Java.Lang.Object, ICombinedDataProvider {
+	internal class ICombinedDataProviderInvoker : global::Java.Lang.Object, ICombinedDataProvider {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/interfaces/dataprovider/CombinedDataProvider", typeof (ICombinedDataProviderInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/interfaces/dataprovider/CombinedDataProvider", typeof (ICombinedDataProviderInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

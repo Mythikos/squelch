@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Components {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/components/MarkerImage", DoNotGenerateAcw=true)]
 	public partial class MarkerImage : global::Java.Lang.Object, global::MikePhil.Charting.Components.IMarker {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/components/MarkerImage", typeof (MarkerImage));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/components/MarkerImage", typeof (MarkerImage));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

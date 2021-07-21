@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Renderer {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/renderer/LineRadarRenderer", DoNotGenerateAcw=true)]
 	public abstract partial class LineRadarRenderer : global::MikePhil.Charting.Renderer.LineScatterCandleRadarRenderer {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/LineRadarRenderer", typeof (LineRadarRenderer));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/renderer/LineRadarRenderer", typeof (LineRadarRenderer));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;
@@ -126,7 +126,7 @@ namespace MikePhil.Charting.Renderer {
 
 		public LineRadarRendererInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/LineRadarRenderer", typeof (LineRadarRendererInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/renderer/LineRadarRenderer", typeof (LineRadarRendererInvoker));
 
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }

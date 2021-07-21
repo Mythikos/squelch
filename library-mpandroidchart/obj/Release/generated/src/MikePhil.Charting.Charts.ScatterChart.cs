@@ -97,7 +97,7 @@ namespace MikePhil.Charting.Charts {
 					return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.ScatterChart.ScatterShape> (__v.Handle, JniHandleOwnership.TransferLocalRef);
 				}
 			}
-			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/charts/ScatterChart$ScatterShape", typeof (ScatterShape));
+			internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/charts/ScatterChart$ScatterShape", typeof (ScatterShape));
 			internal static new IntPtr class_ref {
 				get {
 					return _members.JniPeerType.PeerReference.Handle;
@@ -160,7 +160,7 @@ namespace MikePhil.Charting.Charts {
 
 		}
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/charts/ScatterChart", typeof (ScatterChart));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/charts/ScatterChart", typeof (ScatterChart));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

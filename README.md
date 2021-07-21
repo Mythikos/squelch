@@ -10,6 +10,7 @@
 7. [Improvement] Add a job scheduler that checks to see if the EnforcerService is running, and if not, start it back up.
 8. [Improvement] Add Crashlytics
 9. [Improvement/Localization] Update the app to only use the string language documents to enable multi-language support for the app.
+10. [MUST] Update the in app billing plugin to v4
 
 ## Working
 Modify code and layout files to use strings.xml instead of hardcoded values. Remaining:

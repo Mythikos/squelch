@@ -33,9 +33,9 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/interfaces/datasets/ILineScatterCandleRadarDataSet", DoNotGenerateAcw=true)]
-	internal partial class ILineScatterCandleRadarDataSetInvoker : global::Java.Lang.Object, ILineScatterCandleRadarDataSet {
+	internal class ILineScatterCandleRadarDataSetInvoker : global::Java.Lang.Object, ILineScatterCandleRadarDataSet {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/interfaces/datasets/ILineScatterCandleRadarDataSet", typeof (ILineScatterCandleRadarDataSetInvoker));
+		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/interfaces/datasets/ILineScatterCandleRadarDataSet", typeof (ILineScatterCandleRadarDataSetInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }

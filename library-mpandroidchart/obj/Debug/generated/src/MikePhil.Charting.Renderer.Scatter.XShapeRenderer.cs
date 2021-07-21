@@ -9,7 +9,7 @@ namespace MikePhil.Charting.Renderer.Scatter {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/renderer/scatter/XShapeRenderer", DoNotGenerateAcw=true)]
 	public partial class XShapeRenderer : global::Java.Lang.Object, global::MikePhil.Charting.Renderer.Scatter.IShapeRenderer {
 
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/scatter/XShapeRenderer", typeof (XShapeRenderer));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/renderer/scatter/XShapeRenderer", typeof (XShapeRenderer));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;

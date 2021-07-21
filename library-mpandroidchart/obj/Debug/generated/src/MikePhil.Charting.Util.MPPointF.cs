@@ -61,7 +61,7 @@ namespace MikePhil.Charting.Util {
 				}
 			}
 		}
-		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/MPPointF", typeof (MPPointF));
+		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/utils/MPPointF", typeof (MPPointF));
 		internal static new IntPtr class_ref {
 			get {
 				return _members.JniPeerType.PeerReference.Handle;
@@ -123,7 +123,7 @@ namespace MikePhil.Charting.Util {
 
 		public static unsafe global::MikePhil.Charting.Util.MPPointF Instance {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='MPPointF']/method[@name='getInstance' and count(parameter)=0]"
-			[Register ("getInstance", "()Lcom/github/mikephil/charting/utils/MPPointF;", "")]
+			[Register ("getInstance", "()Lcom/github/mikephil/charting/utils/MPPointF;", "GetGetInstanceHandler")]
 			get {
 				const string __id = "getInstance.()Lcom/github/mikephil/charting/utils/MPPointF;";
 				try {
