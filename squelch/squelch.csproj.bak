@@ -26,15 +26,11 @@
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
-    <AndroidKeyStore>false</AndroidKeyStore>
-    <AndroidSigningKeyStore>
-    </AndroidSigningKeyStore>
-    <AndroidSigningKeyAlias>
-    </AndroidSigningKeyAlias>
-    <AndroidSigningKeyPass>
-    </AndroidSigningKeyPass>
-    <AndroidSigningStorePass>
-    </AndroidSigningStorePass>
+    <AndroidKeyStore>true</AndroidKeyStore>
+    <AndroidSigningKeyStore>C:\Users\vlakatos\Desktop\squelch.keystore</AndroidSigningKeyStore>
+    <AndroidSigningKeyAlias>squelch</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>squelch</AndroidSigningKeyPass>
+    <AndroidSigningStorePass>pgh^*f9Y8p!Ub3edRoSfJucU</AndroidSigningStorePass>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -52,6 +48,11 @@
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
     <AndroidUseAapt2>true</AndroidUseAapt2>
+    <AndroidKeyStore>true</AndroidKeyStore>
+    <AndroidSigningKeyStore>C:\Users\Shizzlepoof\Desktop\squelch.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>squelch</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>squelch</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>squelch</AndroidSigningKeyPass>
     <AndroidDexTool>d8</AndroidDexTool>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -74,6 +75,11 @@
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
     <MandroidI18n />
+    <AndroidKeyStore>true</AndroidKeyStore>
+    <AndroidSigningKeyStore>C:\Users\Shizzlepoof\Desktop\squelch.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>squelch</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>squelch</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>squelch</AndroidSigningKeyPass>
     <AndroidPackageFormat>apk</AndroidPackageFormat>
   </PropertyGroup>
   <ItemGroup>
