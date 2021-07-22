@@ -18,7 +18,7 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:text="@string/label_user"
+                android:text="@string/text_user"
                 android:paddingLeft="15dp"
                 android:paddingRight="10dp"
                 android:paddingTop="10dp"
@@ -41,7 +41,7 @@
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground">
                 <TextView
-                    android:text="@string/label_id"
+                    android:text="@string/text_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -68,7 +68,7 @@
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground">
                 <TextView
-                    android:text="@string/label_first_name"
+                    android:text="@string/text_first_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -95,7 +95,7 @@
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground">
                 <TextView
-                    android:text="@string/label_last_name"
+                    android:text="@string/text_last_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -117,7 +117,7 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:text="@string/label_permissions"
+                android:text="@string/text_permissions"
                 android:paddingLeft="15dp"
                 android:paddingRight="10dp"
                 android:paddingTop="10dp"
@@ -140,7 +140,7 @@
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground">
                 <TextView
-                    android:text="@string/permission_usage_data"
+                    android:text="@string/text_usage_data"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -167,7 +167,7 @@
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground">
                 <TextView
-                    android:text="@string/permission_application_overlay"
+                    android:text="@string/text_application_overlay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -189,7 +189,7 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:text="@string/label_about"
+                android:text="@string/text_about"
                 android:paddingLeft="15dp"
                 android:paddingRight="10dp"
                 android:paddingTop="10dp"
@@ -212,7 +212,7 @@
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground">
                 <TextView
-                    android:text="@string/label_version"
+                    android:text="@string/text_version"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -239,7 +239,7 @@
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground">
                 <TextView
-                    android:text="@string/label_privacy_policy"
+                    android:text="@string/text_privacy_policy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -266,7 +266,7 @@
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground">
                 <TextView
-                    android:text="@string/label_end_user_licensing_agreement"
+                    android:text="@string/text_end_user_licensing_agreement"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -293,7 +293,7 @@
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground">
                 <TextView
-                    android:text="@string/label_open_source_software"
+                    android:text="@string/text_open_source_software"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"

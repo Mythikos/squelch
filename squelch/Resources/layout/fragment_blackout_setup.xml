@@ -368,7 +368,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/label_col_blackout_start_date"
+                        android:text="@string/text_blackout_start_date_col"
                         android:padding="10dp"
                         android:textSize="14dp"
                         android:textStyle="bold"
@@ -388,7 +388,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/label_col_blackout_end_date"
+                        android:text="@string/text_blackout_end_date_col"
                         android:padding="10dp"
                         android:textSize="14dp"
                         android:textStyle="bold"
@@ -408,7 +408,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/label_col_blackout_bid"
+                        android:text="@string/text_blackout_bid_col"
                         android:padding="10dp"
                         android:textSize="14dp"
                         android:textStyle="bold"
@@ -428,7 +428,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/label_col_blackout_difficulty"
+                        android:text="@string/text_blackout_difficulty_col"
                         android:padding="10dp"
                         android:textSize="14dp"
                         android:textStyle="bold"
@@ -448,7 +448,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/label_col_blackout_blacklist"
+                        android:text="@string/text_blackout_blacklist_col"
                         android:padding="10dp"
                         android:textSize="14dp"
                         android:textStyle="bold"
@@ -492,7 +492,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/Red"
                 android:textStyle="bold"
-                android:text="Error Text"
+                android:text="_error"
                 android:id="@+id/fragment_blackout_setup_problem_label"/>
             <LinearLayout
                 android:layout_height="wrap_content"

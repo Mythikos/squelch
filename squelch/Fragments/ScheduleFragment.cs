@@ -41,7 +41,7 @@ namespace Squelch.Fragments
 
                 //
                 // Setup navbar
-                ((MainActivity)this.Activity).SetupNavigation(Resource.String.title_schedule, true, false);
+                ((MainActivity)this.Activity).SetupNavigation(Resource.String.text_schedule, true, false);
             }
             catch (Exception ex)
             {

@@ -24,7 +24,7 @@ using System;
 
 namespace Squelch.Activities
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize, ResizeableActivity = false)]
+    [Activity(Label = "@string/text_app_name", Theme = "@style/AppTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize, ResizeableActivity = false)]
     public class MainActivity : AppCompatActivity, BottomNavigationView.IOnNavigationItemSelectedListener, IIndeterminateProgressReporter
     {
         #region Instance Variables

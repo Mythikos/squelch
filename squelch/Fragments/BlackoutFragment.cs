@@ -68,7 +68,7 @@ namespace Squelch.Fragments
 
                 //
                 // Setup navbar
-                ((MainActivity)this.Activity).SetupNavigation(Resource.String.title_blackout, false, false);
+                ((MainActivity)this.Activity).SetupNavigation(Resource.String.text_blackout, false, false);
 
                 //
                 // Prepare view

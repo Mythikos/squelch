@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="We "
+            android:text="@string/fragment_open_source_header_pre"
             android:textColor="@color/White"
             android:textSize="20dp"/>
         <ImageView
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/White"
-            android:text=" Open Source"
+            android:text="@string/fragment_open_source_header_post"
             android:textSize="20dp"/>
     </LinearLayout>
     <TextView
@@ -43,7 +43,7 @@
         android:gravity="center"
         android:textColor="@color/White"
         android:padding="10dp"
-        android:text="Squelch was built using the following open source projects."/>
+        android:text="@string/fragment_open_source_built_with_message"/>
     <ScrollView
         android:id="@+id/fragment_open_source_content_layout"
         android:layout_weight="1"

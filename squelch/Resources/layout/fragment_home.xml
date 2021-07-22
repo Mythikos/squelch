@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:textAlignment="center"
-                android:text="Hello"
+                android:text="_greeting"
                 android:textSize="25dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="10dp"
@@ -188,7 +188,6 @@
                     <ImageView
                         android:layout_height="50dp"
                         android:layout_width="50dp"
-                        android:contentDescription="@string/content_description_clock_icon"
                         android:src="@drawable/ic_access_time"
                         android:tint="@color/colorPrimaryForeground"/>
                     <LinearLayout
@@ -206,14 +205,14 @@
                             android:id="@+id/fragment_home_next_blackout_card_start_date_label"
                             android:layout_height="wrap_content"
                             android:layout_width="match_parent"
-                            android:text="Start Date: n/a"
+                            android:text="_startdate"
                             android:textColor="@color/colorPrimaryForeground"
                             android:textSize="12dp"/>
                         <TextView
                             android:id="@+id/fragment_home_next_blackout_card_difficulty_label"
                             android:layout_height="wrap_content"
                             android:layout_width="match_parent"
-                            android:text="Difficulty: n/a"
+                            android:text="_difficulty"
                             android:textColor="@color/colorPrimaryForeground"
                             android:textSize="12dp"/>
                     </LinearLayout>
@@ -237,7 +236,7 @@
                     android:id="@+id/fragment_home_stats_layout_activity_title"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="Last 7 days"
+                    android:text="@string/fragment_home_stats_last_seven_days"
                     android:textColor="@color/White"
                     android:paddingBottom="5dp"/>
                 <View

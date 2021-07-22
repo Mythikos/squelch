@@ -1,0 +1,255 @@
+<resources>
+  <!-- ///////////////////// -->
+  <!--   Resource Specific   -->
+  <!-- ///////////////////// -->
+  <string name="service_enforcer_title">▄</string>
+  <string name="service_enforcer_waiting_message">▄</string>
+  <string name="service_enforcer_active_message">▄</string>
+  <string name="service_enforcer_react_generic_application">▄</string>
+  <string name="service_enforcer_react_blacklist_message">▄</string>
+
+  <string name="fragment_first_time_setup_welcome_message">▄</string>
+  <string name="fragment_first_time_setup_special_permissions_message">▄</string>
+  <string name="fragment_first_time_setup_personalize_message">▄</string>
+
+  <string name="fragment_home_greeting_list">▄</string>
+  <string name="fragment_home_feedback_message_neutral">▄</string>
+  <string name="fragment_home_feedback_message_positive">▄</string>
+  <string name="fragment_home_feedback_message_negative">▄</string>
+  <string name="fragment_home_donation_message_neutral">▄</string>
+  <string name="fragment_home_stats_last_seven_days">▄</string>
+  
+  <string name="fragment_feedback_submission_error_unable_to_connect">▄</string>
+  <string name="fragment_feedback_submission_error_no_option_selected">▄</string>
+  <string name="fragment_feedback_submission_error_unexpected">▄</string>
+  <string name="fragment_feedback_submission_duplicate">▄</string>
+  <string name="fragment_feedback_submission_success">▄</string>
+  <string name="fragment_feedback_question_0">▄</string>
+  <string name="fragment_feedback_question_1">▄</string>
+  <string name="fragment_feedback_question_2">▄</string>
+  <string name="fragment_feedback_question_3">▄</string>
+  <string name="fragment_feedback_question_4">▄</string>
+  <string name="fragment_feedback_question_5">▄</string>
+
+  <string name="fragment_settings_privacy_policy_description">▄</string>
+  <string name="fragment_settings_end_user_licensing_agreement_description">▄</string>
+  <string name="fragment_settings_open_source_software_description">▄</string>
+  <string name="fragment_settings_prompt_first_name">▄</string>
+  <string name="fragment_settings_prompt_last_name">▄</string>
+  <string name="fragment_settings_toast_id_copied">▄</string>
+  <string name="fragment_settings_toast_version_copied">▄</string>
+  <string name="fragment_settings_version">▄</string>
+  <string name="fragment_settings_build">▄</string>
+
+  <string name="fragment_blackout_setup_difficulty_title">▄</string>
+  <string name="fragment_blackout_setup_date_range_title">▄</string>
+  <string name="fragment_blackout_setup_application_selection_title">▄</string>
+  <string name="fragment_blackout_setup_bid_title">▄</string>
+  <string name="fragment_blackout_setup_review_title">▄</string>
+  <string name="fragment_blackout_setup_novice_difficulty_description">▄</string>
+  <string name="fragment_blackout_setup_veteran_difficulty_description">▄</string>
+  <string name="fragment_blackout_setup_master_difficulty_description">▄</string>
+  <string name="fragment_blackout_setup_bid_range">▄</string>
+  <string name="fragment_blackout_setup_dates_start_date_time">▄</string>
+  <string name="fragment_blackout_setup_dates_end_date_time">▄</string>
+  <string name="fragment_blackout_setup_dates_tap_to_set_time">▄</string>
+  <string name="fragment_blackout_setup_dates_tap_to_set_date">▄</string>
+  <string name="fragment_blackout_setup_dates_plus_1_minute">▄</string>
+  <string name="fragment_blackout_setup_dates_plus_5_minutes">▄</string>
+  <string name="fragment_blackout_setup_dates_plus_10_minutes">▄</string>
+  <string name="fragment_blackout_setup_dates_plus_30_minutes">▄</string>
+  <string name="fragment_blackout_setup_dates_now">▄</string>
+  <string name="fragment_blackout_setup_application_selection_blocked_by_difficulty_warning">▄</string>
+  <string name="fragment_blackout_setup_application_selection_circumvents_behavior_warning">▄</string>
+  <string name="fragment_blackout_setup_validation_start_date_invalid">▄</string>
+  <string name="fragment_blackout_setup_validation_start_date_cannot_be_greater_than_end_date">▄</string>
+  <string name="fragment_blackout_setup_validation_end_date_invalid">▄</string>
+  <string name="fragment_blackout_setup_validation_end_date_in_the_past">▄</string>
+  <string name="fragment_blackout_setup_validation_duration_of_blackout_must_be_less_than_30_days">▄</string>
+  <string name="fragment_blackout_setup_validation_duration_of_blackout_must_be_greater_than_1_minute">▄</string>
+  <string name="fragment_blackout_setup_validation_blackout_overlaps">▄</string>
+  <string name="fragment_blackout_setup_validation_no_application_selected">▄</string>
+  
+  <string name="fragment_blackout_confirmation_message">▄</string>
+  <string name="fragment_blackout_unlocked">▄</string>
+  
+  <string name="fragment_donation_title_sub">▄</string>
+  <string name="fragment_donation_thank_you">▄</string>
+  <string name="fragment_donation_header_pre">▄</string>
+  <string name="fragment_donation_header_post">▄</string>
+
+  <string name="fragment_open_source_header_pre">▄</string>
+  <string name="fragment_open_source_header_post">▄</string>
+  <string name="fragment_open_source_built_with_message">▄</string>
+
+  <string name="fragment_schedule_notice_no_items">▄</string>
+  <string name="fragment_schedule_range_label">▄</string>
+  <string name="fragment_schedule_hours_label">▄</string>
+  
+  <string name="fragment_statistics_filter_one_week">▄</string>
+  <string name="fragment_statistics_filter_one_month">▄</string>
+  <string name="fragment_statistics_filter_one_year">▄</string>
+  <string name="fragment_statistics_chart_title_outcomes">▄</string>
+  <string name="fragment_statistics_chart_title_difficulties">▄</string>
+  <string name="fragment_statistics_chart_title_bids">▄</string>
+  <string name="fragment_statistics_chart_description_outcomes">▄</string>
+  <string name="fragment_statistics_chart_description_difficulties">▄</string>
+  <string name="fragment_statistics_chart_description_bids">▄</string>
+  
+  <string name="overlay_blackout_application_is_in_blacklist">▄</string>
+  <!-- ///////////////////// -->
+
+  <!-- ///////////////////// -->
+  <!-- Various Words/Strings -->
+  <!-- ///////////////////// -->
+  <string name="text_app_name">▄</string>
+  <string name="text_app_tagline">▄</string>
+  <string name="text_home">▄</string>
+  <string name="text_blackout">▄</string>
+  <string name="text_blackout_details">▄</string>
+  <string name="text_blackout_setup">▄</string>
+  <string name="text_schedule">▄</string>
+  <string name="text_settings">▄</string>
+  <string name="text_first_time_setup">▄</string>
+  <string name="text_open_source">▄</string>
+  <string name="text_feedback">▄</string>
+  <string name="text_statistics">▄</string>
+  
+  <string name="text_get_started">▄</string>
+  <string name="text_next">▄</string>
+  <string name="text_previous">▄</string>
+  <string name="text_finish">▄</string>
+  <string name="text_back">▄</string>
+  <string name="text_create">▄</string>
+  <string name="text_close">▄</string>
+  <string name="text_ok">▄</string>
+  <string name="text_setup">▄</string>
+  <string name="text_setup_blackout">▄</string>
+  <string name="text_submit">▄</string>
+  <string name="text_show_system_applications">▄</string>
+  <string name="text_yes">▄</string>
+  <string name="text_no">▄</string>
+  <string name="text_save">▄</string>
+  <string name="text_cancel">▄</string>
+  <string name="text_unlock">▄</string>
+  <string name="text_next_blackout">▄</string>
+  <string name="text_error">▄</string>
+  <string name="text_duplicate">▄</string>
+  <string name="text_success">▄</string>
+  <string name="text_confirm">▄</string>
+  <string name="text_once_a_day">▄</string>
+  <string name="text_once_a_week">▄</string>
+  <string name="text_once_a_month">▄</string>
+  <string name="text_once_a_year">▄</string>
+  <string name="text_i_dont_really_use_it">▄</string>
+  <string name="text_partially">▄</string>
+  <string name="text_notice">▄</string>
+  <string name="text_very_satisfied">▄</string>
+  <string name="text_somewhat_satisfied">▄</string>
+  <string name="text_neutral">▄</string>
+  <string name="text_somewhat_dissatisfied">▄</string>
+  <string name="text_very_dissatisfied">▄</string>
+  <string name="text_other">▄</string>
+  <string name="text_sure_exclamation">▄</string>
+  <string name="text_not_really">▄</string>
+  <string name="text_no_thanks">▄</string>
+  <string name="text_maybe_later">▄</string>
+  <string name="text_nah">▄</string>
+  <string name="text_are_you_sure_cancel">▄</string>
+  <string name="text_total_bids">▄</string>
+  <string name="text_total_time_saved">▄</string>
+  <string name="text_total_blackouts">▄</string>
+  <string name="text_unknown">▄</string>
+  <string name="text_undefined">▄</string>
+  <string name="text_undefined_input">▄</string>
+  <string name="text_active">▄</string>
+  <string name="text_inactive">▄</string>
+  <string name="text_usage_data">▄</string>
+  <string name="text_application_overlay">▄</string>
+  
+  <string name="text_id">▄</string>
+  <string name="text_first_name">▄</string>
+  <string name="text_last_name">▄</string>
+  <string name="text_email_address">▄</string>
+  <string name="text_blackout_start_date">▄</string>
+  <string name="text_blackout_end_date">▄</string>
+  <string name="text_blackout_difficulty">▄</string>
+  <string name="text_blackout_bid">▄</string>
+  <string name="text_blackout_status">▄</string>
+  <string name="text_blackout_result">▄</string>
+  <string name="text_blackout_blacklist">▄</string>
+  <string name="text_permission">▄</string>
+  <string name="text_permissions">▄</string>
+  <string name="text_user">▄</string>
+  <string name="text_about">▄</string>
+  <string name="text_version">▄</string>
+  <string name="text_end_user_licensing_agreement">▄</string>
+  <string name="text_privacy_policy">▄</string>
+  <string name="text_open_source_software">▄</string>
+
+  <string name="text_id_col">▄:</string>
+  <string name="text_first_name_col">▄:</string>
+  <string name="text_last_name_col">▄:</string>
+  <string name="text_email_address_col">▄:</string>
+  <string name="text_blackout_start_date_col">▄:</string>
+  <string name="text_blackout_end_date_col">▄:</string>
+  <string name="text_blackout_difficulty_col">▄:</string>
+  <string name="text_blackout_bid_col">▄:</string>
+  <string name="text_blackout_status_col">▄:</string>
+  <string name="text_blackout_result_col">▄:</string>
+  <string name="text_blackout_blacklist_col">▄:</string>
+  <string name="text_permission_col">▄:</string>
+  <string name="text_permissions_col">▄:</string>
+  <string name="text_user_col">▄:</string>
+  <string name="text_about_col">▄:</string>
+  <string name="text_version_col">▄:</string>
+  <string name="text_end_user_licensing_agreement_col">▄:</string>
+  <string name="text_privacy_policy_col">▄:</string>
+  <string name="text_open_source_software_col">▄:</string>
+  
+  <!-- Difficulty -->
+  <string name="text_novice">▄</string>
+  <string name="text_veteran">▄</string>
+  <string name="text_master">▄</string>
+  <string name="text_nightmare">▄</string>
+  
+  <!-- Abbreviations -->
+  <string name="text_hour_singular_abbreviated">▄</string>
+  <string name="text_hour_plural_abbreviated">▄</string>
+  <string name="text_hour_both_abbreviated">▄</string>
+  <string name="text_minute_singular_abbreviated">▄</string>
+  <string name="text_minute_plural_abbreviated">▄</string>
+  <string name="text_minute_both_abbreviated">▄</string>
+  <string name="text_second_singular_abbreviated">▄</string>
+  <string name="text_second_plural_abbreviated">▄</string>
+  <string name="text_second_both_abbreviated">▄</string>
+
+  <!--    Consent Strings    -->
+  <string name="text_consent_statement"><![CDATA[▄]]></string>
+  <string name="text_consent_privacy_policy"><![CDATA[▄]]></string>
+  <string name="text_consent_end_user_licensing_agreement"><![CDATA[▄]]></string>
+  <!-- ///////////////////// -->
+
+  <!-- ///////////////////// -->
+  <!--        Links          -->
+  <!-- ///////////////////// -->
+  <string name="link_squelch_privacy_policy">https://squelch.app/privacy</string>
+  <string name="link_squelch_end_user_licensing_agreement">https://squelch.app/eula</string>
+  <string name="link_squelch_website">https://squelch.app</string>
+  <string name="link_squelch_faq">https://squelch.app/faq</string>
+  <!-- ///////////////////// -->
+  
+  <!-- ///////////////////// -->
+  <!--        Special        -->
+  <!-- ///////////////////// -->
+  <string name="_blank"></string>
+  <!-- ///////////////////// -->
+
+  <!-- ///////////////////// -->
+  <!--        Errors         -->
+  <!-- ///////////////////// -->
+  <string name="error_unexpected_error_occured">▄</string>
+  <string name="error_unable_to_perform_this_action">▄</string>
+  <string name="error_unable_to_determine_blackout">▄</string>
+  <!-- ///////////////////// -->
+</resources>

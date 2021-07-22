@@ -36,7 +36,7 @@ namespace Squelch.Library.Utilities
                 {
                     dialog = DisplayUtils.ShowGenericAlertDialog(
                         context,
-                        context.GetString(Resource.String.permission_usage_data),
+                        context.GetString(Resource.String.text_usage_data),
                         $"Squelch needs the ability to monitor usage stats of your device.{System.Environment.NewLine}{System.Environment.NewLine}Press OK and we will take you to the setting, otherwise press Cancel.",
                         true,
                         context.GetString(Resource.String.text_ok), delegate { context.StartActivity(new Intent(Android.Provider.Settings.ActionUsageAccessSettings)); },
@@ -81,7 +81,7 @@ namespace Squelch.Library.Utilities
                 {
                     dialog = DisplayUtils.ShowGenericAlertDialog(
                         context,
-                        context.GetString(Resource.String.permission_application_overlay),
+                        context.GetString(Resource.String.text_application_overlay),
                         $"Squelch needs the ability to draw system overlays.{System.Environment.NewLine}{System.Environment.NewLine}Press OK and we will take you to the setting, otherwise press Cancel.",
                         true,
                         context.GetString(Resource.String.text_ok), delegate { context.StartActivity(new Intent(Android.Provider.Settings.ActionManageOverlayPermission)); },

@@ -390,7 +390,7 @@ namespace Squelch.Fragments
 
                 //
                 // Setup navbar
-                ((MainActivity)this.Activity).SetupNavigation(Resource.String.title_blackout_setup, false, true);
+                ((MainActivity)this.Activity).SetupNavigation(Resource.String.text_blackout_setup, false, true);
 
                 //
                 // Set view stuff

@@ -81,10 +81,10 @@ namespace Squelch.Fragments
                         SetIsWorking(true);
                         DisplayUtils.ShowGenericSingleInputAlertDialog(
                             this.Context,
-                            Resources.GetString(Resource.String.label_first_name),
+                            Resources.GetString(Resource.String.text_first_name),
                             this.GetString(Resource.String.fragment_settings_prompt_first_name),
                             UserSettings.FirstName,
-                            Resources.GetString(Resource.String.label_first_name),
+                            Resources.GetString(Resource.String.text_first_name),
                             Android.Text.InputTypes.ClassText,
                             true,
                             true,
@@ -110,10 +110,10 @@ namespace Squelch.Fragments
                         SetIsWorking(true);
                         var dialog = DisplayUtils.ShowGenericSingleInputAlertDialog(
                             this.Context,
-                            Resources.GetString(Resource.String.label_last_name),
+                            Resources.GetString(Resource.String.text_last_name),
                             this.GetString(Resource.String.fragment_settings_prompt_last_name),
                             UserSettings.LastName,
-                            Resources.GetString(Resource.String.label_last_name),
+                            Resources.GetString(Resource.String.text_last_name),
                             Android.Text.InputTypes.ClassText,
                             true,
                             true,
@@ -201,7 +201,7 @@ namespace Squelch.Fragments
 
                 //
                 // Setup navbar
-                ((MainActivity)this.Activity).SetupNavigation(Resource.String.title_settings, true, false);
+                ((MainActivity)this.Activity).SetupNavigation(Resource.String.text_settings, true, false);
             }
             catch (Exception ex)
             {

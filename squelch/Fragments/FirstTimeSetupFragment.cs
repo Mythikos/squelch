@@ -59,7 +59,7 @@ namespace Squelch.Fragments
                 _rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_first_time_setup_root_layout);
                 _problemLabel = view.FindViewById<TextView>(Resource.Id.fragment_first_time_setup_problem_label);
                 _dataConsentLabel = view.FindViewById<TextView>(Resource.Id.fragment_first_time_setup_data_consent_label);
-                _dataConsentLabel.TextFormatted = ViewUtils.FormattedTextFromHTML(GetString(Resource.String.consent_statement));
+                _dataConsentLabel.TextFormatted = ViewUtils.FormattedTextFromHTML(GetString(Resource.String.text_consent_statement));
                 _dataConsentLabel.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;
 
                 //
@@ -110,7 +110,7 @@ namespace Squelch.Fragments
 
                 //
                 // Setup toolbar
-                ((MainActivity)this.Activity).SetupNavigation(Resource.String.title_first_time_setup, false, false);
+                ((MainActivity)this.Activity).SetupNavigation(Resource.String.text_first_time_setup, false, false);
             }
             catch (Exception ex)
             {

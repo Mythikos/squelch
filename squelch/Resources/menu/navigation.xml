@@ -5,13 +5,13 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home"
-        android:title="@string/title_home" 
+        android:title="@string/text_home" 
         app:showAsAction="always|withText"/>
 
     <item
         android:id="@+id/navigation_schedule"
         android:icon="@drawable/ic_calendar"
-        android:title="@string/title_schedule"
+        android:title="@string/text_schedule"
         app:showAsAction="always|withText"/>
 
     <item
@@ -23,13 +23,13 @@
     <item
         android:id="@+id/navigation_settings"
         android:icon="@drawable/ic_settings"
-        android:title="@string/title_settings" 
+        android:title="@string/text_settings" 
         app:showAsAction="always|withText"/>
 
   <item
         android:id="@+id/navigation_statistics"
         android:icon="@drawable/ic_history"
-        android:title="@string/title_statistics"
+        android:title="@string/text_statistics"
         app:showAsAction="always|withText"/>
 
 </menu>

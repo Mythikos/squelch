@@ -40,7 +40,6 @@
                     android:layout_gravity="center"
                     android:layout_weight="0.5"
                     android:src="@drawable/ic_launcher"
-                    android:contentDescription="@string/content_description_logo"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,7 +54,7 @@
                     android:layout_marginEnd="10dp"
                     android:layout_weight="0.5"
                     android:gravity="center"
-                    android:text="@string/app_name"
+                    android:text="@string/text_app_name"
                     android:textColor="@color/colorPrimaryForeground"
                     android:textSize="36sp"
                     android:textStyle="bold"
@@ -68,7 +67,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="@string/app_tagline"
+                    android:text="@string/text_app_tagline"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryForeground"
                     android:textStyle="bold"
@@ -132,7 +131,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:text="@string/permission_usage_data"
+                    android:text="@string/text_usage_data"
                     android:textColor="@color/colorAccentForeground"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -163,7 +162,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:text="@string/permission_application_overlay"
+                    android:text="@string/text_application_overlay"
                     android:textColor="@color/colorAccentForeground"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -197,7 +196,7 @@
                     android:id="@+id/fragment_first_time_setup_personalize_first_name_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/label_first_name"
+                    android:hint="@string/text_first_name"
                     android:imeOptions="actionNext"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -210,7 +209,7 @@
                     android:id="@+id/fragment_first_time_setup_personalize_last_name_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/label_last_name"
+                    android:hint="@string/text_last_name"
                     android:imeOptions="actionDone"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>

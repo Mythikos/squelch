@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title_blackout"
+        android:text="@string/text_blackout"
         android:textSize="20dp"
         android:padding="10dp"
         android:background="@color/colorPrimary"
@@ -36,7 +36,7 @@
                 android:id="@+id/overlay_blackout_notice_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="That application is on your blacklist!"
+                android:text="@string/overlay_blackout_application_is_in_blacklist"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 android:textSize="20dp" />

@@ -143,7 +143,7 @@ namespace Squelch.Fragments
 
                 //
                 // Setup navbar
-                ((MainActivity)this.Activity).SetupNavigation(Resource.String.title_home, true, false);
+                ((MainActivity)this.Activity).SetupNavigation(Resource.String.text_home, true, false);
 
                 //
                 // Call UI display methods
@@ -343,8 +343,8 @@ namespace Squelch.Fragments
                 {
                     MainThread.BeginInvokeOnMainThread(() =>
                     { 
-                        _nextBlackoutStartDateLabel.Text = $"{this.GetString(Resource.String.label_col_blackout_start_date)} {blackoutItem.ScheduledStartDateTime.ToString("MM/dd/yyyy hh:mm tt")}";
-                        _nextBlackoutDifficultyLabel.Text = $"{this.GetString(Resource.String.label_col_blackout_difficulty)} {blackoutItem.DifficultyCode.ToString()}";
+                        _nextBlackoutStartDateLabel.Text = $"{this.GetString(Resource.String.text_blackout_start_date_col)} {blackoutItem.ScheduledStartDateTime.ToString("MM/dd/yyyy hh:mm tt")}";
+                        _nextBlackoutDifficultyLabel.Text = $"{this.GetString(Resource.String.text_blackout_difficulty_col)} {blackoutItem.DifficultyCode.ToString()}";
                         _nextBlackoutCard.Visibility = ViewStates.Visible;
                     });
                 }
@@ -353,8 +353,8 @@ namespace Squelch.Fragments
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
                         _nextBlackoutCard.Visibility = ViewStates.Gone;
-                        _nextBlackoutStartDateLabel.Text = $"{this.GetString(Resource.String.label_col_blackout_start_date)} n/a";
-                        _nextBlackoutDifficultyLabel.Text = $"{this.GetString(Resource.String.label_col_blackout_difficulty)} n/a";
+                        _nextBlackoutStartDateLabel.Text = $"{this.GetString(Resource.String.text_blackout_start_date_col)} n/a";
+                        _nextBlackoutDifficultyLabel.Text = $"{this.GetString(Resource.String.text_blackout_difficulty_col)} n/a";
                     });
                 }
             }

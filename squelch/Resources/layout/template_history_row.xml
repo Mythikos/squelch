@@ -28,7 +28,7 @@
 				android:id="@+id/template_history_row_result"
 				android:layout_height="wrap_content"
 				android:layout_width="wrap_content"
-				android:text="name"
+				android:text="_name"
 				android:paddingBottom="5dp"
 				android:gravity="center"
 				android:textSize="20dp" />
@@ -36,7 +36,7 @@
 				android:id="@+id/template_history_row_bid"
 				android:layout_height="wrap_content"
 				android:layout_width="wrap_content"
-				android:text="status"
+				android:text="_status"
 				android:textSize="12dp"/>
     </LinearLayout>
   </LinearLayout>

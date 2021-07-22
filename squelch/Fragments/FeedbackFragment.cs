@@ -71,7 +71,7 @@ namespace Squelch.Fragments
                 _rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_feedback_root_layout);
                 _problemLabel = view.FindViewById<TextView>(Resource.Id.fragment_feedback_problem_label);
                 _dataConsentLabel = view.FindViewById<TextView>(Resource.Id.fragment_feedback_data_consent_label);
-                _dataConsentLabel.TextFormatted = Library.Utilities.ViewUtils.FormattedTextFromHTML(this.Resources.GetString(Resource.String.consent_statement));
+                _dataConsentLabel.TextFormatted = Library.Utilities.ViewUtils.FormattedTextFromHTML(this.Resources.GetString(Resource.String.text_consent_statement));
                 _dataConsentLabel.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;
 
                 _dialogPositiveButton = view.FindViewById<Button>(Resource.Id.fragment_feedback_button_positive);
@@ -136,7 +136,7 @@ namespace Squelch.Fragments
 
                 //
                 // Setup navbar
-                ((MainActivity)this.Activity).SetupNavigation(Resource.String.title_feedback, false, true);
+                ((MainActivity)this.Activity).SetupNavigation(Resource.String.text_feedback, false, true);
 
                 //
                 // Init view

@@ -99,7 +99,7 @@ namespace Squelch.Fragments
 
                 //
                 // Setup navbar
-                ((MainActivity)this.Activity).SetupNavigation(Resource.String.title_statistics, true, false);
+                ((MainActivity)this.Activity).SetupNavigation(Resource.String.text_statistics, true, false);
             }
             catch (Exception ex)
             {

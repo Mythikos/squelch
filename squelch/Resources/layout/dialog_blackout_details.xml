@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title_blackout_details"
+        android:text="@string/text_blackout_details"
         android:textSize="@dimen/abc_text_size_title_material"
         android:textStyle="bold"
         android:textColor="@color/colorPrimaryForeground"
@@ -27,7 +27,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_col_blackout_start_date"
+                android:text="@string/text_blackout_start_date_col"
                 android:padding="10dp"
                 android:layout_gravity="center"/>
             <TextView
@@ -44,7 +44,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_col_blackout_end_date"
+                android:text="@string/text_blackout_end_date_col"
                 android:padding="10dp"
                 android:layout_gravity="center"/>
             <TextView
@@ -61,7 +61,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_col_blackout_bid"
+                android:text="@string/text_blackout_bid_col"
                 android:padding="10dp"
                 android:layout_gravity="center"/>
             <TextView
@@ -78,7 +78,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_col_blackout_difficulty"
+                android:text="@string/text_blackout_difficulty_col"
                 android:padding="10dp"
                 android:layout_gravity="center"/>
             <TextView
@@ -95,7 +95,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_col_blackout_status"
+                android:text="@string/text_blackout_status_col"
                 android:padding="10dp"
                 android:layout_gravity="center"/>
             <TextView
@@ -112,7 +112,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_col_blackout_result"
+                android:text="@string/text_blackout_result_col"
                 android:padding="10dp"
                 android:layout_gravity="center"/>
             <TextView
@@ -129,7 +129,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_col_blackout_blacklist"
+                android:text="@string/text_blackout_blacklist_col"
                 android:padding="10dp"
                 android:layout_gravity="center"/>
             <TextView
