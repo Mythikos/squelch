@@ -81,27 +81,27 @@ namespace Squelch.Fragments
 
                     //
                     // Process donation
-                    (bool, string) result = await InAppPurchaseUtils.PurchaseAsync($"donation_{amount.ToString().PadLeft(3, '0')}", true);
-                    if (result.Item1 == true)
+                    InAppPurchaseUtils.PurchaseResult result = await InAppPurchaseUtils.PurchaseAsync($"donation_{amount.ToString().PadLeft(3, '0')}", true);
+                    if (result.Successful == true)
                     {
                         // Set flag
                         UserSettings.SetFlagValue(UserSettings.FlagKeys.Donation_Status, true.ToString());
                         UserSettings.SetFlagValue(UserSettings.FlagKeys.Donation_StatusUpdatedOn, DateTime.Now.ToString());
 
                         // Refresh parent and close
-                        DisplayUtils.ShowSnackbar(this.ParentFragment.View, this.GetString(Resource.String.fragment_donation_thank_you), Snackbar.LengthLong);
+                        DisplayUtils.ShowSnackbar(this.ParentFragment.View, Resource.String.fragment_donation_thank_you, Snackbar.LengthLong);
                         this.ParentFragment.FragmentManager.RefreshFragment(this.ParentFragment);
                         this.Dismiss();
                     }
                     else
                     {
-                        if (string.IsNullOrWhiteSpace(result.Item2) == false)
+                        if (string.IsNullOrWhiteSpace(this.GetString(result.MessageResourceId)) == false)
                         {
-                            DisplayUtils.ShowSnackbar(this.ParentFragment.View, result.Item2, Snackbar.LengthLong);
+                            DisplayUtils.ShowSnackbar(this.ParentFragment.View, result.MessageResourceId, Snackbar.LengthLong);
                         }
                         else
                         {
-                            DisplayUtils.ShowSnackbar(this.ParentFragment.View, this.GetString(Resource.String.error_unexpected_error_occured), Snackbar.LengthLong);
+                            DisplayUtils.ShowSnackbar(this.ParentFragment.View, Resource.String.error_unexpected_error_occured, Snackbar.LengthLong);
                         }
                     }
                 };

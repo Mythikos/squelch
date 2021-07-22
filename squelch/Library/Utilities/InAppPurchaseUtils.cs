@@ -16,13 +16,13 @@ namespace Squelch.Library.Utilities
         /// <param name="productId"></param>
         /// <param name="shouldConsume"></param>
         /// <returns>(result, resultMessage)</returns>
-        public static async Task<(bool, string)> PurchaseAsync(string productId, bool shouldConsume = true)
+        public static async Task<PurchaseResult> PurchaseAsync(string productId, bool shouldConsume = true)
         {
             bool connected = false;
             bool consumed = false;
             IInAppBilling billing;
             InAppBillingPurchase purchase;
-            (bool, string) result;
+            PurchaseResult result;
 
             //
             // Get current billing interface
@@ -47,26 +47,26 @@ namespace Squelch.Library.Utilities
                             consumed = await billing.ConsumePurchaseAsync(productId, purchase.PurchaseToken);
                             if (consumed == true)
                             {
-                                result = (true, "Purchase was successful!");
+                                result = new PurchaseResult(true, Resource.String.inapppurchaseutils_purchase_was_successful);
                             }
                             else
                             {
-                                result = (false, "Purchase was successful but could not be consumed.");
+                                result = new PurchaseResult(false, Resource.String.inapppurchaseutils_purchase_was_successful_but_could_not_consume);
                             }
                         }
                         else
                         {
-                            result = (true, "Purchase was successful!");
+                            result = new PurchaseResult(true, Resource.String.inapppurchaseutils_purchase_was_successful);
                         }
                     }
                     else
                     {
-                        result = (false, "Purchase was not successful.");
+                        result = new PurchaseResult(false, Resource.String.inapppurchaseutils_purchase_was_not_successful);
                     }
                 }
                 else
                 {
-                    result = (false, "Unable to connect to payment service.");
+                    result = new PurchaseResult(false, Resource.String.inapppurchaseutils_unable_to_connect);
                 }
             }
             catch (InAppBillingPurchaseException ex)
@@ -75,7 +75,7 @@ namespace Squelch.Library.Utilities
                 {
                     if (ex.PurchaseError == PurchaseError.UserCancelled)
                     {
-                        result = (false, string.Empty);
+                        result = new PurchaseResult(false, Resource.String._blank);
                     }
                     // Was the purchase already made?
                     else if (ex.PurchaseError == PurchaseError.AlreadyOwned)
@@ -108,40 +108,40 @@ namespace Squelch.Library.Utilities
                                 // Check consumption
                                 if (consumed == true)
                                 {
-                                    result = (true, "Purchase was successful!");
+                                    result = new PurchaseResult(true, Resource.String.inapppurchaseutils_purchase_was_successful);
                                 }
                                 else
                                 {
-                                    result = (false, "Unable to consume the purchase.");
+                                    result = new PurchaseResult(false, Resource.String.inapppurchaseutils_unable_to_consume);
                                 }
                             }
                             else
                             {
-                                result = (false, "Not connected to payment service. Please try again later.");
+                                result = new PurchaseResult(false, Resource.String.inapppurchaseutils_unable_to_connect);
                             }
                         }
                         else
                         {
                             Logger.Write(s_tag, $"PurchaseAsync: {Logger.CreateExceptionString(ex)}", Logger.Severity.Warn);
-                            result = (true, "You already own this item.");
+                            result = new PurchaseResult(true, Resource.String.inapppurchaseutils_item_already_owned);
                         }
                     }
                     else
                     {
                         Logger.Write(s_tag, $"PurchaseAsync: {ex.PurchaseError.ToString()}: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
-                        result = (false, "An unexpected error has occured. Please try again later.");
+                        result = new PurchaseResult(false, Resource.String.error_unexpected_error_occured);
                     }
                 }
                 else
                 {
                     Logger.Write(s_tag, $"PurchaseAsync: Exception variable was received by catch as null", Logger.Severity.Error);
-                    result = (false, "An unexpected error has occured. Please try again later.");
+                    result = new PurchaseResult(false, Resource.String.error_unexpected_error_occured);
                 }
             }
             catch (Exception ex)
             {
                 Logger.Write(s_tag, $"PurchaseAsync: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
-                result = (false, "An unexpected error has occured. Please try again later.");
+                result = new PurchaseResult(false, Resource.String.error_unexpected_error_occured);
             }
             finally
             {
@@ -152,5 +152,25 @@ namespace Squelch.Library.Utilities
 
             return result;
         }
+
+        #region Internal Classes
+        internal class PurchaseResult
+        {
+            public bool Successful { get; set; }
+            public int MessageResourceId { get; set; }
+
+            public PurchaseResult()
+            {
+                this.Successful = false;
+                this.MessageResourceId = 0;
+            }
+
+            public PurchaseResult(bool successful, int messageResourceId)
+            {
+                this.Successful = successful;
+                this.MessageResourceId = messageResourceId;
+            }
+        }
+        #endregion
     }
 }

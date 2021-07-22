@@ -67,7 +67,7 @@ namespace Squelch.Fragments
                         SetIsWorking(true);
 
                         await Clipboard.SetTextAsync(_versionContentLabel.Text);
-                        DisplayUtils.ShowToast(this.Context, this.GetString(Resource.String.fragment_settings_toast_id_copied));
+                        DisplayUtils.ShowToast(this.Context, Resource.String.fragment_settings_toast_id_copied);
                     }
                     finally { SetIsWorking(false); }
                 };
@@ -81,20 +81,20 @@ namespace Squelch.Fragments
                         SetIsWorking(true);
                         DisplayUtils.ShowGenericSingleInputAlertDialog(
                             this.Context,
-                            Resources.GetString(Resource.String.text_first_name),
-                            this.GetString(Resource.String.fragment_settings_prompt_first_name),
+                            Resource.String.text_first_name,
+                            Resource.String.fragment_settings_prompt_first_name,
                             UserSettings.FirstName,
-                            Resources.GetString(Resource.String.text_first_name),
+                            Resource.String.text_first_name,
                             Android.Text.InputTypes.ClassText,
                             true,
                             true,
-                            this.GetString(Resource.String.text_save),
+                            Resource.String.text_save,
                             async delegate (string value) 
                             { 
                                 UserSettings.FirstName = value?.Trim();
                                 await RedrawView();
                             },
-                            this.GetString(Resource.String.text_cancel),
+                            Resource.String.text_cancel,
                             null
                         );
                     }
@@ -110,19 +110,19 @@ namespace Squelch.Fragments
                         SetIsWorking(true);
                         var dialog = DisplayUtils.ShowGenericSingleInputAlertDialog(
                             this.Context,
-                            Resources.GetString(Resource.String.text_last_name),
-                            this.GetString(Resource.String.fragment_settings_prompt_last_name),
+                            Resource.String.text_last_name,
+                            Resource.String.fragment_settings_prompt_last_name,
                             UserSettings.LastName,
-                            Resources.GetString(Resource.String.text_last_name),
+                            Resource.String.text_last_name,
                             Android.Text.InputTypes.ClassText,
                             true,
                             true,
-                            this.GetString(Resource.String.text_save),
+                            Resource.String.text_save,
                             async delegate (string value) { 
                                 UserSettings.LastName = value?.Trim();
                                 await RedrawView();
                             },
-                            this.GetString(Resource.String.text_cancel),
+                            Resource.String.text_cancel,
                             null
                         );
                     }
@@ -156,7 +156,7 @@ namespace Squelch.Fragments
                         SetIsWorking(true);
 
                         await Clipboard.SetTextAsync(_versionContentLabel.Text);
-                        DisplayUtils.ShowToast(this.Context, this.GetString(Resource.String.fragment_settings_toast_version_copied));
+                        DisplayUtils.ShowToast(this.Context, Resource.String.fragment_settings_toast_version_copied);
                     }
                     finally { SetIsWorking(false); }
                 };

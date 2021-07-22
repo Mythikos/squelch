@@ -198,11 +198,11 @@ namespace Squelch.Fragments
                 // Make sure blackout is present
                 if (_activeBlackout == null)
                 {
-                    DisplayUtils.ShowSnackbar(this.View, GetString(Resource.String.error_unable_to_determine_blackout), Snackbar.LengthIndefinite);
+                    DisplayUtils.ShowSnackbar(this.View, Resource.String.error_unable_to_determine_blackout, Snackbar.LengthIndefinite);
                     return;
                 }
 
-                DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_confirm), GetString(Resource.String.fragment_blackout_confirmation_message), true, GetString(Resource.String.text_yes), delegate { ProcessUnlock(_activeBlackout.Bid); }, GetString(Resource.String.text_no), delegate { });
+                DisplayUtils.ShowGenericAlertDialog(this.Context, Resource.String.text_confirm, Resource.String.fragment_blackout_confirmation_message, true, Resource.String.text_yes, delegate { ProcessUnlock(_activeBlackout.Bid); }, Resource.String.text_no, delegate { });
             }
             catch (Exception ex)
             {
@@ -449,24 +449,24 @@ namespace Squelch.Fragments
                 // Is the bid greater than $0?
                 if (bid > 0)
                 {
-                    (bool, string) result = await InAppPurchaseUtils.PurchaseAsync($"device_unlock_{bid.ToString().PadLeft(3, '0')}", true);
-                    if (result.Item1 == true)
+                    InAppPurchaseUtils.PurchaseResult result = await InAppPurchaseUtils.PurchaseAsync($"device_unlock_{bid.ToString().PadLeft(3, '0')}", true);
+                    if (result.Successful == true)
                     {
                         _activeBlackout.SetBlackoutFinished(BlackoutItem.BlackoutResultCode.Failed);
                         await BlackoutDatabase.UpsertAsync(_activeBlackout);
-                        DisplayUtils.ShowSnackbar(this.View, this.GetString(Resource.String.fragment_blackout_unlocked), Snackbar.LengthLong);
+                        DisplayUtils.ShowSnackbar(this.View, Resource.String.fragment_blackout_unlocked, Snackbar.LengthLong);
                     }
                     else
                     {
-                        if (string.IsNullOrWhiteSpace(result.Item2) == false)
-                            DisplayUtils.ShowSnackbar(this.View, result.Item2, Snackbar.LengthLong);
+                        if (string.IsNullOrWhiteSpace(this.GetString(result.MessageResourceId)) == false)
+                            DisplayUtils.ShowSnackbar(this.View, result.MessageResourceId, Snackbar.LengthLong);
                     }
                 }
                 else
                 {
                     _activeBlackout.SetBlackoutFinished(BlackoutItem.BlackoutResultCode.Failed);
                     await BlackoutDatabase.UpsertAsync(_activeBlackout);
-                    DisplayUtils.ShowSnackbar(this.View, this.GetString(Resource.String.fragment_blackout_unlocked), Snackbar.LengthLong);
+                    DisplayUtils.ShowSnackbar(this.View, Resource.String.fragment_blackout_unlocked, Snackbar.LengthLong);
                 }
             }
             catch (Exception ex)

@@ -461,13 +461,13 @@ namespace Squelch.Fragments
                     // If its locked, its being forced for one reason or another, dont allow a toggle
                     if (uiApplicationItem.IsDifficultyLocked)
                     {
-                        DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_notice), this.GetString(Resource.String.fragment_blackout_setup_application_selection_blocked_by_difficulty_warning), true, GetString(Resource.String.text_ok));
+                        DisplayUtils.ShowGenericAlertDialog(this.Context, Resource.String.text_notice, Resource.String.fragment_blackout_setup_application_selection_blocked_by_difficulty_warning, true, Resource.String.text_ok);
                     }
 
                     // If its recommended to be locked, notify them (and then unlock it if they are being stingy)
                     else if (uiApplicationItem.IsSelected && EnforcerUtils.ShouldBlockApplication(this.Context, uiApplicationItem.PackageName))
                     {
-                        DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_notice), this.GetString(Resource.String.fragment_blackout_setup_application_selection_circumvents_behavior_warning), true, GetString(Resource.String.text_unlock), delegate { uiApplicationItem.SetSelected(false); }, GetString(Resource.String.text_cancel));
+                        DisplayUtils.ShowGenericAlertDialog(this.Context, Resource.String.text_notice, Resource.String.fragment_blackout_setup_application_selection_circumvents_behavior_warning, true, Resource.String.text_unlock, delegate { uiApplicationItem.SetSelected(false); }, Resource.String.text_cancel);
                     }
 
                     // Toggle as normal
@@ -606,7 +606,7 @@ namespace Squelch.Fragments
         {
             try
             {
-                DisplayUtils.ShowGenericAlertDialog(this.Context, GetString(Resource.String.text_confirm), GetString(Resource.String.text_are_you_sure_cancel), true, GetString(Resource.String.text_yes), delegate { this.FragmentManager.PopBackStack(); }, GetString(Resource.String.text_no));
+                DisplayUtils.ShowGenericAlertDialog(this.Context, Resource.String.text_confirm, Resource.String.text_are_you_sure_cancel, true, Resource.String.text_yes, delegate { this.FragmentManager.PopBackStack(); }, Resource.String.text_no);
             }
             catch (Exception ex)
             {

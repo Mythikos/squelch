@@ -36,11 +36,11 @@ namespace Squelch.Library.Utilities
                 {
                     dialog = DisplayUtils.ShowGenericAlertDialog(
                         context,
-                        context.GetString(Resource.String.text_usage_data),
-                        $"Squelch needs the ability to monitor usage stats of your device.{System.Environment.NewLine}{System.Environment.NewLine}Press OK and we will take you to the setting, otherwise press Cancel.",
+                        Resource.String.text_usage_data,
+                        Resource.String.permissionutils_usage_data_request_prompt,
                         true,
-                        context.GetString(Resource.String.text_ok), delegate { context.StartActivity(new Intent(Android.Provider.Settings.ActionUsageAccessSettings)); },
-                        context.GetString(Resource.String.text_cancel)
+                        Resource.String.text_ok, delegate { context.StartActivity(new Intent(Android.Provider.Settings.ActionUsageAccessSettings)); },
+                        Resource.String.text_cancel
                     );
 
                     //Callback on show
@@ -81,11 +81,11 @@ namespace Squelch.Library.Utilities
                 {
                     dialog = DisplayUtils.ShowGenericAlertDialog(
                         context,
-                        context.GetString(Resource.String.text_application_overlay),
-                        $"Squelch needs the ability to draw system overlays.{System.Environment.NewLine}{System.Environment.NewLine}Press OK and we will take you to the setting, otherwise press Cancel.",
+                        Resource.String.text_application_overlay,
+                        Resource.String.permissionutils_application_overlay_request_prompt,
                         true,
-                        context.GetString(Resource.String.text_ok), delegate { context.StartActivity(new Intent(Android.Provider.Settings.ActionManageOverlayPermission)); },
-                        context.GetString(Resource.String.text_cancel)
+                        Resource.String.text_ok, delegate { context.StartActivity(new Intent(Android.Provider.Settings.ActionManageOverlayPermission)); },
+                        Resource.String.text_cancel
                     );
 
                     //Callback on show

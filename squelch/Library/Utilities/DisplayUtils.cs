@@ -8,6 +8,7 @@ using Google.Android.Material.Snackbar;
 using Google.Android.Material.TextField;
 using Squelch.Library.Data;
 using Squelch.Library.Entities;
+using Squelch.Library.Extensions;
 using System;
 using System.Linq;
 
@@ -19,39 +20,39 @@ namespace Squelch.Library.Utilities
         /// Shows a toast notification
         /// </summary>
         /// <param name="context"></param>
-        /// <param name="message"></param>
+        /// <param name="messageTextResourceId"></param>
         /// <param name="length"></param>
-        internal static void ShowToast(Context context, string message, ToastLength length = ToastLength.Short)
+        internal static void ShowToast(Context context, int messageTextResourceId, ToastLength length = ToastLength.Short)
         {
-            Toast.MakeText(context, message, length).Show();
+            Toast.MakeText(context, messageTextResourceId, length).Show();
         }
 
         /// <summary>
         /// Shows a snackbar on screen
         /// </summary>
         /// <param name="view"></param>
-        /// <param name="message"></param>
+        /// <param name="messageTextResourceId"></param>
         /// <param name="length"></param>
-        /// <param name="actionText"></param>
+        /// <param name="actionTextResourceId"></param>
         /// <param name="clickHandler"></param>
-        internal static void ShowSnackbar(Android.Views.View view, string message, int length = Snackbar.LengthShort, string actionText = "OK", Action<Android.Views.View> clickHandler = null)
+        internal static void ShowSnackbar(Android.Views.View view, int messageTextResourceId, int length = Snackbar.LengthShort, int actionTextResourceId = Resource.String.text_ok, Action<Android.Views.View> clickHandler = null)
         {
-            Snackbar.Make(view, message, length).SetAction(actionText, clickHandler).Show();
+            Snackbar.Make(view, messageTextResourceId, length).SetAction(view.Context.GetString(actionTextResourceId), clickHandler).Show();
         }
 
         /// <summary>
         /// Creates and shows an alert dialog
         /// </summary>
         /// <param name="context"></param>
-        /// <param name="title"></param>
-        /// <param name="message"></param>
+        /// <param name="titleTextResourceId"></param>
+        /// <param name="messageTextResourceId"></param>
         /// <param name="cancelable"></param>
-        /// <param name="positiveButtonText"></param>
+        /// <param name="positiveButtonTextResourceId"></param>
         /// <param name="positiveAction"></param>
-        /// <param name="negativeButtonText"></param>
+        /// <param name="negativeButtonTextResourceId"></param>
         /// <param name="negativeAction"></param>
         /// <returns></returns>
-        internal static AlertDialog ShowGenericAlertDialog(Context context, string title, string message, bool cancelable = true, string positiveButtonText = null, Action positiveAction = null, string negativeButtonText = null, Action negativeAction = null)
+        internal static AlertDialog ShowGenericAlertDialog(Context context, int titleTextResourceId, int messageTextResourceId, bool cancelable = true, int? positiveButtonTextResourceId = null, Action positiveAction = null, int? negativeButtonTextResourceId = null, Action negativeAction = null)
         {
             AlertDialog dialog = null;
             View layout;
@@ -69,17 +70,17 @@ namespace Squelch.Library.Utilities
 
                 // Set title and message
                 titleLabel = layout.FindViewById<TextView>(Resource.Id.dialog_generic_title_label);
-                titleLabel.Text = title;
+                titleLabel.Text = context.GetString(titleTextResourceId);
 
                 descriptionLabel = layout.FindViewById<TextView>(Resource.Id.dialog_generic_desciption_label);
-                descriptionLabel.Text = message;
+                descriptionLabel.Text = context.GetString(messageTextResourceId);
 
                 // Setup the positive button
-                if (string.IsNullOrWhiteSpace(positiveButtonText) == false)
+                if (positiveButtonTextResourceId != null)
                 {
                     positiveButton = layout.FindViewById<Button>(Resource.Id.dialog_generic_positive_button);
                     positiveButton.Visibility = ViewStates.Visible;
-                    positiveButton.Text = positiveButtonText;
+                    positiveButton.Text = context.GetString(positiveButtonTextResourceId.Value);
                     positiveButton.Click += delegate
                     {
                         positiveAction?.Invoke();
@@ -89,11 +90,11 @@ namespace Squelch.Library.Utilities
                 }
 
                 // Setup the negative button
-                if (string.IsNullOrWhiteSpace(negativeButtonText) == false)
+                if (negativeButtonTextResourceId != null)
                 {
                     negativeButton = layout.FindViewById<Button>(Resource.Id.dialog_generic_negative_button);
                     negativeButton.Visibility = ViewStates.Visible;
-                    negativeButton.Text = negativeButtonText;
+                    negativeButton.Text = context.GetString(negativeButtonTextResourceId.Value);
                     negativeButton.Click += delegate
                     {
                         negativeAction?.Invoke();
@@ -122,15 +123,15 @@ namespace Squelch.Library.Utilities
         /// Creates and shows an alert dialog
         /// </summary>
         /// <param name="context"></param>
-        /// <param name="title"></param>
-        /// <param name="message"></param>
+        /// <param name="titleTextResourceId"></param>
+        /// <param name="messageTextResourceId"></param>
         /// <param name="cancelable"></param>
-        /// <param name="positiveButtonText"></param>
+        /// <param name="positiveButtonTextResourceId"></param>
         /// <param name="positiveAction"></param>
-        /// <param name="negativeButtonText"></param>
+        /// <param name="negativeButtonTextResourceId"></param>
         /// <param name="negativeAction"></param>
         /// <returns></returns>
-        internal static AlertDialog ShowGenericSingleInputAlertDialog(Context context, string title, string message, string inputValue = null, string inputHint = null, InputTypes inputType = InputTypes.ClassText, bool focusInput = true, bool cancelable = true, string positiveButtonText = null, Action<string> positiveAction = null, string negativeButtonText = null, Action<string> negativeAction = null)
+        internal static AlertDialog ShowGenericSingleInputAlertDialog(Context context, int titleTextResourceId, int messageTextResourceId, string inputValueText = null, int? inputHintTextResourceId = null, InputTypes inputType = InputTypes.ClassText, bool focusInput = true, bool cancelable = true, int? positiveButtonTextResourceId = null, Action<string> positiveAction = null, int? negativeButtonTextResourceId = null, Action<string> negativeAction = null)
         {
             AlertDialog dialog = null;
             View layout;
@@ -149,23 +150,23 @@ namespace Squelch.Library.Utilities
 
                 // Set title and message
                 titleLabel = layout.FindViewById<TextView>(Resource.Id.dialog_generic_single_input_title_label);
-                titleLabel.Text = title;
+                titleLabel.Text = context.GetString(titleTextResourceId);
 
                 descriptionLabel = layout.FindViewById<TextView>(Resource.Id.dialog_generic_single_input_desciption_label);
-                descriptionLabel.Text = message;
+                descriptionLabel.Text = context.GetString(messageTextResourceId);
 
                 // Set input hint
                 textInput = layout.FindViewById<TextInputEditText>(Resource.Id.dialog_generic_single_input_text_input);
-                textInput.Hint = inputHint ?? string.Empty;
-                textInput.Text = inputValue ?? string.Empty;
+                textInput.Hint = inputHintTextResourceId == null ? context.GetString(inputHintTextResourceId.Value) : string.Empty;
+                textInput.Text = inputValueText ?? string.Empty;
                 textInput.InputType = inputType;
 
                 // Setup the positive button
-                if (string.IsNullOrWhiteSpace(positiveButtonText) == false)
+                if (positiveButtonTextResourceId != null)
                 {
                     positiveButton = layout.FindViewById<Button>(Resource.Id.dialog_generic_single_input_positive_button);
                     positiveButton.Visibility = ViewStates.Visible;
-                    positiveButton.Text = positiveButtonText;
+                    positiveButton.Text = context.GetString(positiveButtonTextResourceId.Value);
                     positiveButton.Click += delegate
                     {
                         positiveAction?.Invoke(textInput.Text);
@@ -175,11 +176,11 @@ namespace Squelch.Library.Utilities
                 }
 
                 // Setup the negative button
-                if (string.IsNullOrWhiteSpace(negativeButtonText) == false)
+                if (negativeButtonTextResourceId != null)
                 {
                     negativeButton = layout.FindViewById<Button>(Resource.Id.dialog_generic_single_input_negative_button);
                     negativeButton.Visibility = ViewStates.Visible;
-                    negativeButton.Text = negativeButtonText;
+                    negativeButton.Text = context.GetString(negativeButtonTextResourceId.Value);
                     negativeButton.Click += delegate
                     {
                         negativeAction?.Invoke(textInput.Text);
@@ -225,6 +226,7 @@ namespace Squelch.Library.Utilities
             LayoutInflater layoutInflater;
             TextView startDateLabel, endDateLabel, bidLabel, difficultyLabel, statusLabel, resultLabel, blacklistLabel;
             Button positiveButton, negativeButton;
+            string difficultyText, statusText, resultText;
 
             //
             // Create dialog builder instance
@@ -236,22 +238,73 @@ namespace Squelch.Library.Utilities
 
                 // Set title and message
                 startDateLabel = layout.FindViewById<TextView>(Resource.Id.dialog_blackout_details_data_layout_start_date_label);
-                startDateLabel.Text = $"{blackoutItem.ScheduledStartDateTime}";
+                startDateLabel.Text = $"{blackoutItem.ScheduledStartDateTime.FormatDate()} @ {blackoutItem.ScheduledStartDateTime.FormatTime()}";
 
                 endDateLabel = layout.FindViewById<TextView>(Resource.Id.dialog_blackout_details_data_layout_end_date_label);
-                endDateLabel.Text = $"{blackoutItem.ScheduledEndDateTime}";
+                endDateLabel.Text = $"{blackoutItem.ScheduledEndDateTime.FormatDate()} @ {blackoutItem.ScheduledEndDateTime.FormatTime()}";
 
                 bidLabel = layout.FindViewById<TextView>(Resource.Id.dialog_blackout_details_data_layout_bid_label);
                 bidLabel.Text = $"${blackoutItem.Bid}";
 
                 difficultyLabel = layout.FindViewById<TextView>(Resource.Id.dialog_blackout_details_data_layout_difficulty_label);
-                difficultyLabel.Text = $"{blackoutItem.DifficultyCode}";
+                difficultyText = context.GetString(Resource.String.text_unknown);
+                switch (blackoutItem.DifficultyCode)
+                {
+                    case BlackoutItem.BlackoutDifficultyCode.Novice:
+                        difficultyText = context.GetString(Resource.String.text_novice);
+                        break;
+                    case BlackoutItem.BlackoutDifficultyCode.Veteran:
+                        difficultyText = context.GetString(Resource.String.text_veteran);
+                        break;
+                    case BlackoutItem.BlackoutDifficultyCode.Master:
+                        difficultyText = context.GetString(Resource.String.text_master);
+                        break;
+                    case BlackoutItem.BlackoutDifficultyCode.Nightmare:
+                        difficultyText = context.GetString(Resource.String.text_nightmare);
+                        break;
+                    default:
+                        difficultyText = context.GetString(Resource.String.text_unknown);
+                        break;
+                }
+                difficultyLabel.Text = difficultyText;
 
                 statusLabel = layout.FindViewById<TextView>(Resource.Id.dialog_blackout_details_data_layout_status_label);
-                statusLabel.Text = $"{blackoutItem.StatusCode}";
+                statusText = context.GetString(Resource.String.text_unknown);
+                switch(blackoutItem.StatusCode)
+                {
+                    case BlackoutItem.BlackoutStatusCode.Active:
+                        statusText = context.GetString(Resource.String.text_active);
+                        break;
+                    case BlackoutItem.BlackoutStatusCode.Finished:
+                        statusText = context.GetString(Resource.String.text_finished);
+                        break;
+                    case BlackoutItem.BlackoutStatusCode.Pending:
+                        statusText = context.GetString(Resource.String.text_pending);
+                        break;
+                }
+                statusLabel.Text = statusText;
 
                 resultLabel = layout.FindViewById<TextView>(Resource.Id.dialog_blackout_details_data_layout_result_label);
-                resultLabel.Text = $"{blackoutItem.ResultCode}";
+                resultText = context.GetString(Resource.String.text_unknown);
+                switch(blackoutItem.ResultCode)
+                {
+                    case BlackoutItem.BlackoutResultCode.Cancelled:
+                        resultText = context.GetString(Resource.String.text_cancelled);
+                        break;
+                    case BlackoutItem.BlackoutResultCode.Failed:
+                        resultText = context.GetString(Resource.String.text_failed);
+                        break;
+                    case BlackoutItem.BlackoutResultCode.Pending:
+                        resultText = context.GetString(Resource.String.text_pending);
+                        break;
+                    case BlackoutItem.BlackoutResultCode.Skipped:
+                        resultText = context.GetString(Resource.String.text_skipped);
+                        break;
+                    case BlackoutItem.BlackoutResultCode.Success:
+                        resultText = context.GetString(Resource.String.text_success);
+                        break;
+                }
+                resultLabel.Text = resultText;
 
                 blacklistLabel = layout.FindViewById<TextView>(Resource.Id.dialog_blackout_details_data_layout_blacklist_label);
                 blacklistLabel.Text = $"{string.Join(", ", context.PackageManager.GetInstalledApplications(PackageInfoFlags.MatchAll).ToList().Where(x => blackoutItem.Blacklist.Contains(x.PackageName)).Select(x => x.LoadLabel(context.PackageManager)).ToList())}";
@@ -274,12 +327,12 @@ namespace Squelch.Library.Utilities
                     negativeButton.SetText(Resource.String.text_cancel);
                     negativeButton.Click += delegate
                     {
-                        DisplayUtils.ShowGenericAlertDialog(context, context.GetString(Resource.String.text_confirm), context.GetString(Resource.String.text_are_you_sure_cancel), true,
-                            context.GetString(Resource.String.text_yes), async delegate
+                        DisplayUtils.ShowGenericAlertDialog(context, Resource.String.text_confirm, Resource.String.text_are_you_sure_cancel, true,
+                            Resource.String.text_yes, async delegate
                             {
                                 if (blackoutItem.ScheduledStartDateTime <= DateTime.Now || blackoutItem.IsBlackoutCancelled())
                                 {
-                                    DisplayUtils.ShowToast(context, context.GetString(Resource.String.error_unable_to_perform_this_action), ToastLength.Long);
+                                    DisplayUtils.ShowToast(context, Resource.String.error_unable_to_perform_this_action, ToastLength.Long);
                                 }
                                 else
                                 {
@@ -293,7 +346,7 @@ namespace Squelch.Library.Utilities
                                 if (dialog != null)
                                     dialog.Dismiss();
                             },
-                            context.GetString(Resource.String.text_no)
+                            Resource.String.text_no
                         );
                     };
                 }
