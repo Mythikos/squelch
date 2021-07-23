@@ -184,7 +184,7 @@ namespace Squelch.Fragments
                 {
                     DatePickerDialogFragment datePickerFragment = DatePickerDialogFragment.NewInstance(delegate (DateTime dateTime)
                     {
-                        _dateRangeStartDateButton.Text = dateTime.FormatDate();
+                        _dateRangeStartDateButton.Text = DateUtils.FormatDateLong(dateTime);
                     });
                     datePickerFragment.Show(this.FragmentManager, $"{this.GetType().Name}{typeof(DatePickerDialogFragment).Name}");
                 };
@@ -192,7 +192,7 @@ namespace Squelch.Fragments
                 {
                     TimePickerDialogFragment timePickerFragment = TimePickerDialogFragment.NewInstance(delegate (DateTime dateTime)
                     {
-                        _dateRangeStartTimeButton.Text = dateTime.FormatTime();
+                        _dateRangeStartTimeButton.Text = DateUtils.FormatTime(dateTime, UserSettings.FormatTimeAsMilitary);
                     });
                     timePickerFragment.Show(this.FragmentManager, $"{this.GetType().Name}{typeof(DatePickerDialogFragment).Name}");
                 };
@@ -200,7 +200,7 @@ namespace Squelch.Fragments
                 {
                     DatePickerDialogFragment datePickerFragment = DatePickerDialogFragment.NewInstance(delegate (DateTime dateTime)
                     {
-                        _dateRangeEndDateButton.Text = dateTime.FormatDate();
+                        _dateRangeEndDateButton.Text = DateUtils.FormatDateLong(dateTime);
                     });
                     datePickerFragment.Show(this.FragmentManager, $"{this.GetType().Name}{typeof(DatePickerDialogFragment).Name}");
                 };
@@ -208,7 +208,7 @@ namespace Squelch.Fragments
                 {
                     TimePickerDialogFragment timePickerFragment = TimePickerDialogFragment.NewInstance(delegate (DateTime dateTime)
                     {
-                        _dateRangeEndTimeButton.Text = dateTime.FormatTime();
+                        _dateRangeEndTimeButton.Text = DateUtils.FormatTime(dateTime, UserSettings.FormatTimeAsMilitary);
                     });
                     timePickerFragment.Show(this.FragmentManager, $"{this.GetType().Name}{typeof(DatePickerDialogFragment).Name}");
                 };
@@ -221,8 +221,8 @@ namespace Squelch.Fragments
                     dateTime = DateTime.Now;
 
                     // Set labels
-                    _dateRangeStartDateButton.Text = dateTime.FormatDate();
-                    _dateRangeStartTimeButton.Text = dateTime.FormatTime();
+                    _dateRangeStartDateButton.Text = DateUtils.FormatDateLong(dateTime);
+                    _dateRangeStartTimeButton.Text = DateUtils.FormatTime(dateTime, UserSettings.FormatTimeAsMilitary);
                 };
 
                 _dateRangeStartPlus1Button.Click += delegate
@@ -232,14 +232,14 @@ namespace Squelch.Fragments
                     // Both date and time are not valid
                     if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
                         // Time is not valid
-                        if (DateTime.TryParse($"{DateTime.Now.FormatDate()} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
+                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(DateTime.Now)} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
                             // Date is not valid
-                            if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {DateTime.Now.FormatTime()}", out dateTime) == false)
+                            if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {DateUtils.FormatTime(DateTime.Now, UserSettings.FormatTimeAsMilitary)}", out dateTime) == false)
                                 dateTime = DateTime.Now;
 
                     // Set labels
-                    _dateRangeStartDateButton.Text = dateTime.AddMinutes(1).FormatDate();
-                    _dateRangeStartTimeButton.Text = dateTime.AddMinutes(1).FormatTime();
+                    _dateRangeStartDateButton.Text = DateUtils.FormatDateLong(dateTime.AddMinutes(1));
+                    _dateRangeStartTimeButton.Text = DateUtils.FormatTime(dateTime.AddMinutes(1), UserSettings.FormatTimeAsMilitary);
                 };
                 _dateRangeStartPlus5Button.Click += delegate
                 {
@@ -248,14 +248,14 @@ namespace Squelch.Fragments
                     // Both date and time are not valid
                     if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
                         // Time is not valid
-                        if (DateTime.TryParse($"{DateTime.Now.FormatDate()} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
+                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(DateTime.Now)} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
                             // Date is not valid
-                            if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {DateTime.Now.FormatTime()}", out dateTime) == false)
+                            if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {DateUtils.FormatTime(DateTime.Now, UserSettings.FormatTimeAsMilitary)}", out dateTime) == false)
                                 dateTime = DateTime.Now;
 
                     // Set labels
-                    _dateRangeStartDateButton.Text = dateTime.AddMinutes(5).FormatDate();
-                    _dateRangeStartTimeButton.Text = dateTime.AddMinutes(5).FormatTime();
+                    _dateRangeStartDateButton.Text = DateUtils.FormatDateLong(dateTime.AddMinutes(5));
+                    _dateRangeStartTimeButton.Text = DateUtils.FormatTime(dateTime.AddMinutes(5), UserSettings.FormatTimeAsMilitary);
                 };
                 _dateRangeStartPlus10Button.Click += delegate
                 {
@@ -264,14 +264,14 @@ namespace Squelch.Fragments
                     // Both date and time are not valid
                     if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
                         // Time is not valid
-                        if (DateTime.TryParse($"{DateTime.Now.FormatDate()} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
+                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(DateTime.Now)} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
                             // Date is not valid
-                            if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {DateTime.Now.FormatTime()}", out dateTime) == false)
+                            if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {DateUtils.FormatTime(DateTime.Now, UserSettings.FormatTimeAsMilitary)}", out dateTime) == false)
                                 dateTime = DateTime.Now;
 
                     // Set labels
-                    _dateRangeStartDateButton.Text = dateTime.AddMinutes(10).FormatDate();
-                    _dateRangeStartTimeButton.Text = dateTime.AddMinutes(10).FormatTime();
+                    _dateRangeStartDateButton.Text = DateUtils.FormatDateLong(dateTime.AddMinutes(10));
+                    _dateRangeStartTimeButton.Text = DateUtils.FormatTime(dateTime.AddMinutes(10), UserSettings.FormatTimeAsMilitary);
                 };
                 _dateRangeStartPlus30Button.Click += delegate
                 {
@@ -280,14 +280,14 @@ namespace Squelch.Fragments
                     // Both date and time are not valid
                     if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
                         // Time is not valid
-                        if (DateTime.TryParse($"{DateTime.Now.FormatDate()} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
+                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(DateTime.Now)} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
                             // Date is not valid
-                            if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {DateTime.Now.FormatTime()}", out dateTime) == false)
+                            if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {DateUtils.FormatTime(DateTime.Now, UserSettings.FormatTimeAsMilitary)}", out dateTime) == false)
                                 dateTime = DateTime.Now;
 
                     // Set labels
-                    _dateRangeStartDateButton.Text = dateTime.AddMinutes(30).FormatDate();
-                    _dateRangeStartTimeButton.Text = dateTime.AddMinutes(30).FormatTime();
+                    _dateRangeStartDateButton.Text = DateUtils.FormatDateLong(dateTime.AddMinutes(30));
+                    _dateRangeStartTimeButton.Text = DateUtils.FormatTime(dateTime.AddMinutes(30), UserSettings.FormatTimeAsMilitary);
                 };
 
                 _dateRangeEndPlus1Button.Click += delegate
@@ -297,14 +297,14 @@ namespace Squelch.Fragments
                     // Both date and time are not valid
                     if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
                         // Time is not valid
-                        if (DateTime.TryParse($"{DateTime.Now.FormatDate()} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
+                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(DateTime.Now)} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
                             // Date is not valid
-                            if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {DateTime.Now.FormatTime()}", out dateTime) == false)
+                            if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {DateUtils.FormatTime(DateTime.Now, UserSettings.FormatTimeAsMilitary)}", out dateTime) == false)
                                 dateTime = DateTime.Now;
 
                     // Set labels
-                    _dateRangeEndDateButton.Text = dateTime.AddMinutes(1).FormatDate();
-                    _dateRangeEndTimeButton.Text = dateTime.AddMinutes(1).FormatTime();
+                    _dateRangeEndDateButton.Text = DateUtils.FormatDateLong(dateTime.AddMinutes(1));
+                    _dateRangeEndTimeButton.Text = DateUtils.FormatTime(dateTime.AddMinutes(1), UserSettings.FormatTimeAsMilitary);
                 };
                 _dateRangeEndPlus5Button.Click += delegate
                 {
@@ -313,14 +313,14 @@ namespace Squelch.Fragments
                     // Both date and time are not valid
                     if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
                         // Time is not valid
-                        if (DateTime.TryParse($"{DateTime.Now.FormatDate()} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
+                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(DateTime.Now)} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
                             // Date is not valid
-                            if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {DateTime.Now.FormatTime()}", out dateTime) == false)
+                            if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {DateUtils.FormatTime(DateTime.Now, UserSettings.FormatTimeAsMilitary)}", out dateTime) == false)
                                 dateTime = DateTime.Now;
 
                     // Set labels
-                    _dateRangeEndDateButton.Text = dateTime.AddMinutes(5).FormatDate();
-                    _dateRangeEndTimeButton.Text = dateTime.AddMinutes(5).FormatTime();
+                    _dateRangeEndDateButton.Text = DateUtils.FormatDateLong(dateTime.AddMinutes(5));
+                    _dateRangeEndTimeButton.Text = DateUtils.FormatTime(dateTime.AddMinutes(5), UserSettings.FormatTimeAsMilitary);
                 };
                 _dateRangeEndPlus10Button.Click += delegate
                 {
@@ -329,14 +329,14 @@ namespace Squelch.Fragments
                     // Both date and time are not valid
                     if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
                         // Time is not valid
-                        if (DateTime.TryParse($"{DateTime.Now.FormatDate()} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
+                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(DateTime.Now)} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
                             // Date is not valid
-                            if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {DateTime.Now.FormatTime()}", out dateTime) == false)
+                            if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {DateUtils.FormatTime(DateTime.Now, UserSettings.FormatTimeAsMilitary)}", out dateTime) == false)
                                 dateTime = DateTime.Now;
 
                     // Set labels
-                    _dateRangeEndDateButton.Text = dateTime.AddMinutes(10).FormatDate();
-                    _dateRangeEndTimeButton.Text = dateTime.AddMinutes(10).FormatTime();
+                    _dateRangeEndDateButton.Text = DateUtils.FormatDateLong(dateTime.AddMinutes(10));
+                    _dateRangeEndTimeButton.Text = DateUtils.FormatTime(dateTime.AddMinutes(10), UserSettings.FormatTimeAsMilitary);
                 };
                 _dateRangeEndPlus30Button.Click += delegate
                 {
@@ -345,14 +345,14 @@ namespace Squelch.Fragments
                     // Both date and time are not valid
                     if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
                         // Time is not valid
-                        if (DateTime.TryParse($"{DateTime.Now.FormatDate()} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
+                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(DateTime.Now)} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
                             // Date is not valid
-                            if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {DateTime.Now.FormatTime()}", out dateTime) == false)
+                            if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {DateUtils.FormatTime(DateTime.Now, UserSettings.FormatTimeAsMilitary)}", out dateTime) == false)
                                 dateTime = DateTime.Now;
 
                     // Set labels
-                    _dateRangeEndDateButton.Text = dateTime.AddMinutes(30).FormatDate();
-                    _dateRangeEndTimeButton.Text = dateTime.AddMinutes(30).FormatTime();
+                    _dateRangeEndDateButton.Text = DateUtils.FormatDateLong(dateTime.AddMinutes(30));
+                    _dateRangeEndTimeButton.Text = DateUtils.FormatTime(dateTime.AddMinutes(30), UserSettings.FormatTimeAsMilitary);
                 };
 
                 //
@@ -501,11 +501,11 @@ namespace Squelch.Fragments
                 _dialogNegativeButton.Enabled = false;
 
                 // Determine action
-                if (_dialogPositiveButton.Text.Equals(GetString(Resource.String.text_next)))
+                if (_dialogPositiveButton.Text.Equals(GetString(Resource.String.text_next))) // This is dumb but meh
                 {
                     NextStep();
                 }
-                else if (_dialogPositiveButton.Text.Equals(GetString(Resource.String.text_finish)))
+                else if (_dialogPositiveButton.Text.Equals(GetString(Resource.String.text_finish))) // This is dumb but meh
                 {
                     //
                     // Assign the values

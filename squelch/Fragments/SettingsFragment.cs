@@ -10,6 +10,7 @@ using Squelch.Library.Extensions;
 using Squelch.Library.Interfaces;
 using Squelch.Library.Utilities;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 
@@ -24,8 +25,8 @@ namespace Squelch.Fragments
         private LinearLayout _rootLayout;
 
         // User settings related
-        private LinearLayout _idLayout, _firstNameLayout, _lastNameLayout;
-        private TextView _idContentLabel, _firstNameContentLabel, _lastNameContentLabel;
+        private LinearLayout _idLayout, _firstNameLayout, _lastNameLayout, _timeFormatLayout;
+        private TextView _idContentLabel, _firstNameContentLabel, _lastNameContentLabel, _timeFormatContentLabel;
 
         // Permissions settings related
         private LinearLayout _usageStatsLayout, _applicationOverlayLayout;
@@ -120,6 +121,34 @@ namespace Squelch.Fragments
                             Resource.String.text_save,
                             async delegate (string value) { 
                                 UserSettings.LastName = value?.Trim();
+                                await RedrawView();
+                            },
+                            Resource.String.text_cancel,
+                            null
+                        );
+                    }
+                    finally { SetIsWorking(false); }
+                };
+
+                _timeFormatLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_user_time_format_layout);
+                _timeFormatContentLabel = view.FindViewById<TextView>(Resource.Id.fragment_settings_user_time_format_content_label);
+                _timeFormatLayout.Click += delegate
+                {
+                    try
+                    {
+                        SetIsWorking(true);
+                        var dialog = DisplayUtils.ShowGenericSingleComboAlertDialog(
+                            this.Context,
+                            Resource.String.text_time_format,
+                            Resource.String.fragment_settings_prompt_time_format,
+                            new List<int>() { Resource.String.fragment_settings_user_time_format_military, Resource.String.fragment_settings_user_time_format_civilian },
+                            UserSettings.FormatTimeAsMilitary ? Resource.String.fragment_settings_user_time_format_military : Resource.String.fragment_settings_user_time_format_civilian,
+                            Android.Text.InputTypes.ClassText,
+                            true,
+                            true,
+                            Resource.String.text_save,
+                            async delegate (string value) {
+                                UserSettings.FormatTimeAsMilitary = value.Equals(this.GetString(Resource.String.fragment_settings_user_time_format_military));
                                 await RedrawView();
                             },
                             Resource.String.text_cancel,
@@ -260,6 +289,7 @@ namespace Squelch.Fragments
             string userId = string.Empty;
             string userFirstName = string.Empty;
             string userLastName = string.Empty;
+            bool userFormatTimeAsMilitary = false;
             string usageStatsState = string.Empty;
             string applicationOverlayState = string.Empty;
             string selfVersionName = string.Empty;
@@ -278,6 +308,7 @@ namespace Squelch.Fragments
                     userId = UserSettings.Id;
                     userFirstName = UserSettings.FirstName;
                     userLastName = UserSettings.LastName;
+                    userFormatTimeAsMilitary = UserSettings.FormatTimeAsMilitary;
 
                     usageStatsState = (PermissionUtils.GetUsageDataPermission(this.Context, false)) ? this.GetString(Resource.String.text_active) : this.GetString(Resource.String.text_inactive);
                     applicationOverlayState = (PermissionUtils.GetApplicationOverlayPermission(this.Context, false)) ? this.GetString(Resource.String.text_active) : this.GetString(Resource.String.text_inactive);
@@ -291,6 +322,7 @@ namespace Squelch.Fragments
                 _idContentLabel.Text = (string.IsNullOrWhiteSpace(userId) ? this.GetString(Resource.String.text_undefined_input) : userId);
                 _firstNameContentLabel.Text = (string.IsNullOrWhiteSpace(userFirstName) ? this.GetString(Resource.String.text_undefined_input) : userFirstName);
                 _lastNameContentLabel.Text = (string.IsNullOrWhiteSpace(userLastName) ? this.GetString(Resource.String.text_undefined_input) : userLastName);
+                _timeFormatContentLabel.Text = (userFormatTimeAsMilitary) ? this.GetString(Resource.String.fragment_settings_user_time_format_military) : this.GetString(Resource.String.fragment_settings_user_time_format_civilian);
 
                 _usageStatsStateLabel.Text = (string.IsNullOrWhiteSpace(usageStatsState) ? this.GetString(Resource.String.text_undefined_input) : usageStatsState);
                 _applicationOverlayStateLabel.Text = (string.IsNullOrWhiteSpace(applicationOverlayState) ? this.GetString(Resource.String.text_undefined_input) : applicationOverlayState);

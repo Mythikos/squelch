@@ -50,7 +50,8 @@ namespace Squelch.Services
         internal const string BROADCAST_BLACKOUT_STARTED = "com.squelch.android.enforcerservice.broadcast.BLACKOUT_STARTED";
         internal const string BROADCAST_BLACKOUT_ENDED = "com.squelch.android.enforcerservice.broadcast.BLACKOUT_ENDED";
         internal const string ACTION_START = "com.squelch.android.enforcerservice.action.START";
-        internal const string ACTION_STOP = "com.squelch.android.enforcerservice.action.STOP"; // Not used
+        internal const string ACTION_STOP = "com.squelch.android.enforcerservice.action.STOP";
+        internal const string ACTION_RESTART = "com.squelch.android.enforcerservice.action.RESTART";
 
         private const long ENFORCEMENT_POLLING_TIMER_MILLIS = 5000;
         private const long ENFORCEMENT_REACT_TIMER_MILLIS = 500;
@@ -161,6 +162,11 @@ namespace Squelch.Services
                             DeinitializeService();
                         else
                             Logger.Write(s_tag, $"StartCommandResult: {ACTION_STOP} action received but the service is already stopped", Logger.Severity.Warn);
+                        break;
+                    case ACTION_RESTART:
+                        if (EnforcerService.IsRunning == true)
+                            DeinitializeService();
+                        InitializeService();
                         break;
                     default:
                         Logger.Write(s_tag, $"StartCommandResult: Action not supported by service", Logger.Severity.Error);

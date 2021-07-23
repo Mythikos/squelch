@@ -106,13 +106,13 @@
     <Compile Include="Library\Debugger.cs" />
     <Compile Include="Library\Entities\BlackoutItem.cs" />
     <Compile Include="Library\Entities\UserItem.cs" />
-    <Compile Include="Library\Extensions\DateTimeExt.cs" />
     <Compile Include="Library\Extensions\ListExt.cs" />
     <Compile Include="Library\Extensions\PackageManagerExt.cs" />
     <Compile Include="Library\Extensions\FragmentManagerExt.cs" />
     <Compile Include="Library\Extensions\ViewExt.cs" />
     <Compile Include="Library\Interfaces\IIndeterminateProgressReporter.cs" />
     <Compile Include="Library\Logger.cs" />
+    <Compile Include="Library\Utilities\DateUtils.cs" />
     <Compile Include="Library\Utilities\FirebaseAnalyticsUtils.cs" />
     <Compile Include="Library\UI\ApplicationListItem.cs" />
     <Compile Include="Library\UI\BlackoutListItem.cs" />
@@ -533,8 +533,13 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\values-hi\strings.xml">
+    <AndroidResource Include="Resources\values-es\strings.xml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\dialog_generic_combo_input.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

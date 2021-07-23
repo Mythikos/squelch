@@ -108,7 +108,6 @@ namespace Squelch.Fragments
                 ((IIndeterminateProgressReporter)this.Activity).SetProgressBarState(isWorking);
         }
 
-
         private async void UIDisplaySchedule()
         {
             List<BlackoutItem> pendingBlackouts;
@@ -129,7 +128,7 @@ namespace Squelch.Fragments
                     await Task.Factory.StartNew(() =>
                     {
                         // Group all blackouts into dates
-                        var temporalLabels = pendingBlackouts.OrderBy(x => x.ScheduledStartDateTime).Select(x => x.ScheduledStartDateTime.TemporalLabel(DateTime.Today)).Distinct();
+                        var temporalLabels = pendingBlackouts.OrderBy(x => x.ScheduledStartDateTime).Select(x => DateUtils.GetTemporalLabel(this.Context, x.ScheduledStartDateTime, DateTime.Today)).Distinct();
                         foreach (string label in temporalLabels)
                         {
                             var temporalLabel = new TextView(this.Context);
@@ -139,8 +138,9 @@ namespace Squelch.Fragments
                             temporalLabel.SetTypeface(null, Android.Graphics.TypefaceStyle.Bold);
 
                             var dateLabel = new TextView(this.Context);
+                            var dateFromTemporal = DateUtils.GetDateTimeFromTemporalLabel(this.Context, label, (DateTime)DateTime.Today);
                             dateLabel.LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent);
-                            dateLabel.Text = DateTimeExt.DateTimeFromTemporalLabel(label, (DateTime)DateTime.Today)?.ToString("MMMM yyyy") ?? string.Empty;
+                            dateLabel.Text = dateFromTemporal != null ? DateUtils.FormatDateCustom(dateFromTemporal.Value, "MMMM yyyy") : string.Empty;
                             dateLabel.SetTextSize(Android.Util.ComplexUnitType.Dip, 10);
                             dateLabel.SetTypeface(null, Android.Graphics.TypefaceStyle.Bold);
 
@@ -148,7 +148,7 @@ namespace Squelch.Fragments
                             itemParent.LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
                             itemParent.Orientation = Orientation.Vertical;
 
-                            var groupedBlackouts = pendingBlackouts.Where(x => x.ScheduledStartDateTime.TemporalLabel(DateTime.Today).Equals(label, StringComparison.OrdinalIgnoreCase)).OrderBy(x => x.ScheduledStartDateTime);
+                            var groupedBlackouts = pendingBlackouts.Where(x => DateUtils.GetTemporalLabel(this.Context, x.ScheduledStartDateTime, DateTime.Today).Equals(label, StringComparison.OrdinalIgnoreCase)).OrderBy(x => x.ScheduledStartDateTime);
                             foreach (BlackoutItem groupedBlackout in groupedBlackouts)
                             {
                                 // Get layout and components
@@ -188,7 +188,7 @@ namespace Squelch.Fragments
                                         break;
                                 }
                                 itemHoursLabel.Text = string.Format(this.GetString(Resource.String.fragment_schedule_hours_label), Math.Round((groupedBlackout.ScheduledEndDateTime - groupedBlackout.ScheduledStartDateTime).TotalHours, 1).ToString());
-                                itemRangeLabel.Text = string.Format(this.GetString(Resource.String.fragment_schedule_range_label), groupedBlackout.ScheduledStartDateTime.ToString("h:mm tt"));
+                                itemRangeLabel.Text = string.Format(this.GetString(Resource.String.fragment_schedule_range_label), DateUtils.FormatTime(groupedBlackout.ScheduledStartDateTime, UserSettings.FormatTimeAsMilitary));
                                 itemParent.AddView(itemView);
                             }
 

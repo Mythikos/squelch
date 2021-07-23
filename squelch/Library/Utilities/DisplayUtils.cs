@@ -10,6 +10,7 @@ using Squelch.Library.Data;
 using Squelch.Library.Entities;
 using Squelch.Library.Extensions;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Squelch.Library.Utilities
@@ -213,6 +214,106 @@ namespace Squelch.Library.Utilities
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="titleTextResourceId"></param>
+        /// <param name="messageTextResourceId"></param>
+        /// <param name="optionTextResourceIds"></param>
+        /// <param name="selectedOptionResourceId"></param>
+        /// <param name="inputType"></param>
+        /// <param name="focusInput"></param>
+        /// <param name="cancelable"></param>
+        /// <param name="positiveButtonTextResourceId"></param>
+        /// <param name="positiveAction"></param>
+        /// <param name="negativeButtonTextResourceId"></param>
+        /// <param name="negativeAction"></param>
+        /// <returns></returns>
+        internal static AlertDialog ShowGenericSingleComboAlertDialog(Context context, int titleTextResourceId, int messageTextResourceId, List<int> optionsArrayResourceIds, int? selectedOptionResourceId = null, InputTypes inputType = InputTypes.ClassText, bool focusInput = true, bool cancelable = true, int? positiveButtonTextResourceId = null, Action<string> positiveAction = null, int? negativeButtonTextResourceId = null, Action<string> negativeAction = null)
+        {
+            AlertDialog dialog = null;
+            View layout;
+            LayoutInflater layoutInflater;
+            TextView titleLabel, descriptionLabel;
+            Button positiveButton, negativeButton;
+            Spinner spinner;
+            ArrayAdapter arrayAdapter;
+
+            //
+            // Create dialog builder instance
+            using (AlertDialog.Builder builder = new AlertDialog.Builder(context))
+            {
+                // Inflate layout
+                layoutInflater = (LayoutInflater)context.GetSystemService(Context.LayoutInflaterService);
+                layout = layoutInflater.Inflate(Resource.Layout.dialog_generic_combo_input, null);
+
+                // Set title and message
+                titleLabel = layout.FindViewById<TextView>(Resource.Id.dialog_generic_combo_input_title_label);
+                titleLabel.Text = context.GetString(titleTextResourceId);
+
+                descriptionLabel = layout.FindViewById<TextView>(Resource.Id.dialog_generic_combo_input_desciption_label);
+                descriptionLabel.Text = context.GetString(messageTextResourceId);
+
+                // Setup spinner
+                spinner = layout.FindViewById<Spinner>(Resource.Id.dialog_generic_combo_input_text_input);
+                arrayAdapter = new ArrayAdapter<string>(context, Android.Resource.Layout.SimpleSpinnerItem, optionsArrayResourceIds.Select(x => context.GetString(x)).ToList());
+                arrayAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+                spinner.Adapter = arrayAdapter;
+                if (selectedOptionResourceId != null)
+                    spinner.SetSelection(arrayAdapter.GetPosition(context.GetString(selectedOptionResourceId.Value)));
+
+                // Setup the positive button
+                if (positiveButtonTextResourceId != null)
+                {
+                    positiveButton = layout.FindViewById<Button>(Resource.Id.dialog_generic_combo_input_positive_button);
+                    positiveButton.Visibility = ViewStates.Visible;
+                    positiveButton.Text = context.GetString(positiveButtonTextResourceId.Value);
+                    positiveButton.Click += delegate
+                    {
+                        positiveAction?.Invoke((string)spinner.SelectedItem);
+                        if (dialog != null)
+                            dialog.Dismiss();
+                    };
+                }
+
+                // Setup the negative button
+                if (negativeButtonTextResourceId != null)
+                {
+                    negativeButton = layout.FindViewById<Button>(Resource.Id.dialog_generic_combo_input_negative_button);
+                    negativeButton.Visibility = ViewStates.Visible;
+                    negativeButton.Text = context.GetString(negativeButtonTextResourceId.Value);
+                    negativeButton.Click += delegate
+                    {
+                        negativeAction?.Invoke((string)spinner.SelectedItem);
+                        if (dialog != null)
+                            dialog.Dismiss();
+                    };
+                }
+
+                // Set the view
+                builder.SetView(layout);
+
+                // Set if the dialog can be cancelled without the negative button
+                builder.SetCancelable(cancelable);
+
+                //
+                // Create and show the dialog
+                dialog = builder.Create();
+                if (focusInput)
+                    dialog.Window.SetSoftInputMode(SoftInput.StateVisible);
+                dialog.Show();
+
+                //
+                // Handle focus
+                if (focusInput)
+                    spinner.RequestFocus();
+            }
+
+            // Return this dialog
+            return dialog;
+        }
+
+        /// <summary>
         /// Creates and shows an alert dialog that shows blackout information
         /// </summary>
         /// <param name="context"></param>
@@ -238,10 +339,10 @@ namespace Squelch.Library.Utilities
 
                 // Set title and message
                 startDateLabel = layout.FindViewById<TextView>(Resource.Id.dialog_blackout_details_data_layout_start_date_label);
-                startDateLabel.Text = $"{blackoutItem.ScheduledStartDateTime.FormatDate()} @ {blackoutItem.ScheduledStartDateTime.FormatTime()}";
+                startDateLabel.Text = $"{DateUtils.FormatDateLong(blackoutItem.ScheduledStartDateTime)} @ {DateUtils.FormatTime(blackoutItem.ScheduledStartDateTime, UserSettings.FormatTimeAsMilitary)}";
 
                 endDateLabel = layout.FindViewById<TextView>(Resource.Id.dialog_blackout_details_data_layout_end_date_label);
-                endDateLabel.Text = $"{blackoutItem.ScheduledEndDateTime.FormatDate()} @ {blackoutItem.ScheduledEndDateTime.FormatTime()}";
+                endDateLabel.Text = $"{DateUtils.FormatDateLong(blackoutItem.ScheduledEndDateTime)} @ {DateUtils.FormatTime(blackoutItem.ScheduledEndDateTime, UserSettings.FormatTimeAsMilitary)}";
 
                 bidLabel = layout.FindViewById<TextView>(Resource.Id.dialog_blackout_details_data_layout_bid_label);
                 bidLabel.Text = $"${blackoutItem.Bid}";

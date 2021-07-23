@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Content.Res;
 using Android.OS;
 using Android.Runtime;
 using Android.Util;
@@ -10,6 +11,7 @@ using AndroidX.AppCompat.App;
 using AndroidX.Core.Content;
 using Google.Android.Material.BottomNavigation;
 using Google.Android.Material.FloatingActionButton;
+using Java.Util;
 using Plugin.InAppBilling;
 using Squelch.Fragments;
 using Squelch.Library;
@@ -24,7 +26,7 @@ using System;
 
 namespace Squelch.Activities
 {
-    [Activity(Label = "@string/text_app_name", Theme = "@style/AppTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize, ResizeableActivity = false)]
+    [Activity(Label = "@string/text_app_name", Theme = "@style/AppTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.Locale | ConfigChanges.Orientation | ConfigChanges.ScreenSize, ResizeableActivity = false)]
     public class MainActivity : AppCompatActivity, BottomNavigationView.IOnNavigationItemSelectedListener, IIndeterminateProgressReporter
     {
         #region Instance Variables
@@ -37,6 +39,7 @@ namespace Squelch.Activities
         internal ProgressBar ProgressBar { get; private set; }
         internal CurvedBottomNavigationView NavigationBar { get; private set; }
         internal FloatingActionButton NavigationBarSetupBlackoutButton { get; private set; }
+        private Locale _currentLocale;
 
         internal const int PERMISSION_INTERNET = 0;
         internal const int PERMISSION_RECEIVE_BOOT_COMPLETED = 1;
@@ -56,10 +59,10 @@ namespace Squelch.Activities
             // Get view elements
             _fragmentLayout = FindViewById<FrameLayout>(Resource.Id.activity_main_fragment_layout);
             this.ProgressBar = FindViewById<ProgressBar>(Resource.Id.activity_main_progress_bar);
-            
+
             this.NavigationBar = FindViewById<CurvedBottomNavigationView>(Resource.Id.activity_main_navigation);
             this.NavigationBar.SetOnNavigationItemSelectedListener(this);
-            
+
             this.NavigationBarSetupBlackoutButton = FindViewById<FloatingActionButton>(Resource.Id.activity_main_setup_blackout_fab_button);
             this.NavigationBarSetupBlackoutButton.Click += delegate { this.SupportFragmentManager.SetFragment(typeof(BlackoutSetupFragment), true, false); };
 
@@ -67,6 +70,7 @@ namespace Squelch.Activities
             // Instantiate
             _blackoutStartedReceiver = new GenericBroadcastReceiver(BlackoutBroadcastReceived);
             _blackoutEndedReceiver = new GenericBroadcastReceiver(BlackoutBroadcastReceived);
+            _currentLocale = Resources.Configuration.Locale;
 
             //
             // Default view values
@@ -123,7 +127,7 @@ namespace Squelch.Activities
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            switch(item.ItemId)
+            switch (item.ItemId)
             {
                 case Android.Resource.Id.Home:
                 case Resource.Id.homeAsUp:
@@ -241,6 +245,27 @@ namespace Squelch.Activities
             }
         }
 
+        protected override void OnResume()
+        {
+            base.OnResume();
+
+            //
+            // Local has changed
+            if (Resources.Configuration.Locale != _currentLocale)
+            {
+                //
+                // When configurations are changed, we need to update the foreground service
+                if (EnforcerService.IsRunning == true)
+                    ContextCompat.StartForegroundService(this, new Intent(this, typeof(EnforcerService)).SetAction(EnforcerService.ACTION_RESTART));
+
+                //
+                // Set new locale
+                _currentLocale = Resources.Configuration.Locale;
+                System.Globalization.CultureInfo.DefaultThreadCurrentCulture = new System.Globalization.CultureInfo(_currentLocale.ToString());
+                System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = new System.Globalization.CultureInfo(_currentLocale.ToString());
+            }
+        }
+
         protected override async void OnPostResume()
         {
             base.OnPostResume();
@@ -322,7 +347,7 @@ namespace Squelch.Activities
             if (this.ProgressBar != null)
             {
                 this.ProgressBar.Visibility = visible ? ViewStates.Visible : ViewStates.Gone;
-                
+
                 // Remove padding from bar
                 layoutParameters = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MatchParent, RelativeLayout.LayoutParams.WrapContent);
                 layoutParameters.SetMargins(0, 0, 0, 0);

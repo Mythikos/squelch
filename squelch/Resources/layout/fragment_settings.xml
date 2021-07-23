@@ -108,6 +108,33 @@
                     android:layout_height="wrap_content"/>
             </LinearLayout>
 
+            <!-- Setting: User: Format time as military -->
+            <LinearLayout
+                android:id="@+id/fragment_settings_user_time_format_layout"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
+                <TextView
+                    android:text="@string/text_time_format"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:paddingBottom="3dp"/>
+                <TextView
+                    android:id="@+id/fragment_settings_user_time_format_content_label"
+                    android:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
             <!-- Spacer -->
             <View
                 android:layout_height="20dp"

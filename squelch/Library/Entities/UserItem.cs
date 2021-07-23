@@ -9,6 +9,8 @@ namespace Squelch.Library.Entities
         public string Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string EmailAddress { get; set; }
+        public bool FormatTimeAsMilitary { get; set; } 
         public Dictionary<string, string> Flags;
 
         public UserItem()
@@ -16,6 +18,8 @@ namespace Squelch.Library.Entities
             this.Id = UserItem.CreateNewId();
             this.FirstName = string.Empty;
             this.LastName = string.Empty;
+            this.EmailAddress = string.Empty;
+            this.FormatTimeAsMilitary = false;
             this.Flags = new Dictionary<string, string>();
         }
 

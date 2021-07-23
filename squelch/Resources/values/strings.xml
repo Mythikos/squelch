@@ -12,7 +12,15 @@
   <string name="fragment_first_time_setup_special_permissions_message">In order for Squelch to work for you, it needs your permission to do the following:</string>
   <string name="fragment_first_time_setup_personalize_message">Personalize Squelch by providing some basic information. You can skip this step by pressing finish below.</string>
 
-  <string name="fragment_home_greeting_list">Hello|Welcome back|Howdy|Whats up|How\'s it going|Hey|Nice to see you</string>
+  <string-array name="fragment_home_greeting_list">
+    <item>Hello</item>
+    <item>Welcome back</item>
+    <item>Howdy</item>
+    <item>What\'s up</item>
+    <item>How\'s it going</item>
+    <item>Hey</item>
+    <item>Nice to see you</item>
+  </string-array>
   <string name="fragment_home_feedback_message_neutral">Hey! Are you enjoying squelch?</string>
   <string name="fragment_home_feedback_message_positive">Awesome! Can you give us some feedback on your experience?</string>
   <string name="fragment_home_feedback_message_negative">Oh no, we are sorry to hear that! Can you give us some feedback so we can better your experience in the future?</string>
@@ -36,10 +44,13 @@
   <string name="fragment_settings_open_source_software_description">License details for open source software</string>
   <string name="fragment_settings_prompt_first_name">Please provide your first name</string>
   <string name="fragment_settings_prompt_last_name">Please provide your last name</string>
+  <string name="fragment_settings_prompt_time_format">Please indicate which time format you prefer to view</string>
   <string name="fragment_settings_toast_id_copied">Id copied to clipboard!</string>
   <string name="fragment_settings_toast_version_copied">Version copied to clipboard!</string>
   <string name="fragment_settings_version">Version {0}</string>
   <string name="fragment_settings_build">Build {0}</string>
+  <string name="fragment_settings_user_time_format_military">Military</string>
+  <string name="fragment_settings_user_time_format_civilian">Civilian</string>
 
   <string name="fragment_blackout_setup_difficulty_title">What difficulty do you want to use?</string>
   <string name="fragment_blackout_setup_date_range_title">What date and time ranges will this blackout apply too?</string>
@@ -124,7 +135,7 @@
   <string name="text_open_source">Open Source Software</string>
   <string name="text_feedback">Feedback</string>
   <string name="text_statistics">Statistics</string>
-
+  <string name="text_time_format">Time Format</string>
   <string name="text_get_started">Get Started</string>
   <string name="text_next">Next</string>
   <string name="text_previous">Previous</string>
@@ -181,7 +192,13 @@
   <string name="text_cancelled">Cancelled</string>
   <string name="text_failed">Failed</string>
   <string name="text_skipped">Skipped</string>
-
+  <string name="text_today">Today</string>
+  <string name="text_tomorrow">Tomorrow</string>
+  <string name="text_next_week">Next Week</string>
+  <string name="text_this_month">This Month</string>
+  <string name="text_next_month">Next Month</string>
+  <string name="text_in_the_future">In The Future</string>
+  
   <string name="text_id">Id</string>
   <string name="text_first_name">First Name</string>
   <string name="text_last_name">Last Name</string>
@@ -269,4 +286,3 @@
   <string name="error_unable_to_determine_blackout">Unable to determine current blackout configuration.</string>
   <!-- ///////////////////// -->
 </resources>
-{"mode":"full","isActive":false}

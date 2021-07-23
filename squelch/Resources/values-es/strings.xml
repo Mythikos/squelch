@@ -12,13 +12,21 @@
   <string name="fragment_first_time_setup_special_permissions_message">▄</string>
   <string name="fragment_first_time_setup_personalize_message">▄</string>
 
-  <string name="fragment_home_greeting_list">▄</string>
+  <string-array name="fragment_home_greeting_list">
+    <item>▄</item>
+    <item>▄</item>
+    <item>▄</item>
+    <item>▄</item>
+    <item>▄</item>
+    <item>▄</item>
+    <item>▄</item>
+  </string-array>
   <string name="fragment_home_feedback_message_neutral">▄</string>
   <string name="fragment_home_feedback_message_positive">▄</string>
   <string name="fragment_home_feedback_message_negative">▄</string>
   <string name="fragment_home_donation_message_neutral">▄</string>
   <string name="fragment_home_stats_last_seven_days">▄</string>
-  
+
   <string name="fragment_feedback_submission_error_unable_to_connect">▄</string>
   <string name="fragment_feedback_submission_error_no_option_selected">▄</string>
   <string name="fragment_feedback_submission_error_unexpected">▄</string>
@@ -69,10 +77,10 @@
   <string name="fragment_blackout_setup_validation_duration_of_blackout_must_be_greater_than_1_minute">▄</string>
   <string name="fragment_blackout_setup_validation_blackout_overlaps">▄</string>
   <string name="fragment_blackout_setup_validation_no_application_selected">▄</string>
-  
+
   <string name="fragment_blackout_confirmation_message">▄</string>
   <string name="fragment_blackout_unlocked">▄</string>
-  
+
   <string name="fragment_donation_title_sub">▄</string>
   <string name="fragment_donation_thank_you">▄</string>
   <string name="fragment_donation_header_pre">▄</string>
@@ -85,7 +93,7 @@
   <string name="fragment_schedule_notice_no_items">▄</string>
   <string name="fragment_schedule_range_label">▄</string>
   <string name="fragment_schedule_hours_label">▄</string>
-  
+
   <string name="fragment_statistics_filter_one_week">▄</string>
   <string name="fragment_statistics_filter_one_month">▄</string>
   <string name="fragment_statistics_filter_one_year">▄</string>
@@ -95,9 +103,9 @@
   <string name="fragment_statistics_chart_description_outcomes">▄</string>
   <string name="fragment_statistics_chart_description_difficulties">▄</string>
   <string name="fragment_statistics_chart_description_bids">▄</string>
-  
+
   <string name="overlay_blackout_application_is_in_blacklist">▄</string>
-  
+
   <string name="inapppurchaseutils_purchase_was_successful">▄</string>
   <string name="inapppurchaseutils_purchase_was_not_successful">▄</string>
   <string name="inapppurchaseutils_purchase_was_successful_but_could_not_consume">▄</string>
@@ -124,7 +132,7 @@
   <string name="text_open_source">▄</string>
   <string name="text_feedback">▄</string>
   <string name="text_statistics">▄</string>
-  
+
   <string name="text_get_started">▄</string>
   <string name="text_next">▄</string>
   <string name="text_previous">▄</string>
@@ -178,11 +186,16 @@
   <string name="text_inactive">▄</string>
   <string name="text_usage_data">▄</string>
   <string name="text_application_overlay">▄</string>
-
   <string name="text_cancelled">▄</string>
   <string name="text_failed">▄</string>
   <string name="text_skipped">▄</string>
-  
+  <string name="text_today">▄</string>
+  <string name="text_tomorrow">▄</string>
+  <string name="text_next_week">▄</string>
+  <string name="text_this_month">▄</string>
+  <string name="text_next_month">▄</string>
+  <string name="text_in_the_future">▄</string>
+
   <string name="text_id">▄</string>
   <string name="text_first_name">▄</string>
   <string name="text_last_name">▄</string>
@@ -203,32 +216,32 @@
   <string name="text_privacy_policy">▄</string>
   <string name="text_open_source_software">▄</string>
 
-  <string name="text_id_col">▄:</string>
-  <string name="text_first_name_col">▄:</string>
-  <string name="text_last_name_col">▄:</string>
-  <string name="text_email_address_col">▄:</string>
-  <string name="text_blackout_start_date_col">▄:</string>
-  <string name="text_blackout_end_date_col">▄:</string>
-  <string name="text_blackout_difficulty_col">▄:</string>
-  <string name="text_blackout_bid_col">▄:</string>
-  <string name="text_blackout_status_col">▄:</string>
-  <string name="text_blackout_result_col">▄:</string>
-  <string name="text_blackout_blacklist_col">▄:</string>
-  <string name="text_permission_col">▄:</string>
-  <string name="text_permissions_col">▄:</string>
-  <string name="text_user_col">▄:</string>
-  <string name="text_about_col">▄:</string>
-  <string name="text_version_col">▄:</string>
-  <string name="text_end_user_licensing_agreement_col">▄:</string>
-  <string name="text_privacy_policy_col">▄:</string>
-  <string name="text_open_source_software_col">▄:</string>
-  
+  <string name="text_id_col">▄</string>
+  <string name="text_first_name_col">▄</string>
+  <string name="text_last_name_col">▄</string>
+  <string name="text_email_address_col">▄</string>
+  <string name="text_blackout_start_date_col">▄</string>
+  <string name="text_blackout_end_date_col">▄</string>
+  <string name="text_blackout_difficulty_col">▄</string>
+  <string name="text_blackout_bid_col">▄</string>
+  <string name="text_blackout_status_col">▄</string>
+  <string name="text_blackout_result_col">▄</string>
+  <string name="text_blackout_blacklist_col">▄</string>
+  <string name="text_permission_col">▄</string>
+  <string name="text_permissions_col">▄</string>
+  <string name="text_user_col">▄</string>
+  <string name="text_about_col">▄</string>
+  <string name="text_version_col">▄</string>
+  <string name="text_end_user_licensing_agreement_col">▄</string>
+  <string name="text_privacy_policy_col">▄</string>
+  <string name="text_open_source_software_col">▄</string>
+
   <!-- Difficulty -->
   <string name="text_novice">▄</string>
   <string name="text_veteran">▄</string>
   <string name="text_master">▄</string>
   <string name="text_nightmare">▄</string>
-  
+
   <!-- Abbreviations -->
   <string name="text_hour_singular_abbreviated">▄</string>
   <string name="text_hour_plural_abbreviated">▄</string>
@@ -239,11 +252,12 @@
   <string name="text_second_singular_abbreviated">▄</string>
   <string name="text_second_plural_abbreviated">▄</string>
   <string name="text_second_both_abbreviated">▄</string>
+  <string name="text_not_available_abbreviated">▄</string>
 
   <!--    Consent Strings    -->
-  <string name="text_consent_statement"><![CDATA[▄]]></string>
-  <string name="text_consent_privacy_policy"><![CDATA[▄]]></string>
-  <string name="text_consent_end_user_licensing_agreement"><![CDATA[▄]]></string>
+  <string name="text_consent_statement">▄</string>
+  <string name="text_consent_privacy_policy">▄</string>
+  <string name="text_consent_end_user_licensing_agreement">▄</string>
   <!-- ///////////////////// -->
 
   <!-- ///////////////////// -->
@@ -254,7 +268,7 @@
   <string name="link_squelch_website">https://squelch.app</string>
   <string name="link_squelch_faq">https://squelch.app/faq</string>
   <!-- ///////////////////// -->
-  
+
   <!-- ///////////////////// -->
   <!--        Special        -->
   <!-- ///////////////////// -->

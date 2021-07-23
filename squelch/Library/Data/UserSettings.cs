@@ -83,6 +83,12 @@ namespace Squelch.Library.Data
             get { return AppSettings.GetValueOrDefault(nameof(EmailAddress), string.Empty); }
             set { AppSettings.AddOrUpdateValue(nameof(EmailAddress), value); OnChange(nameof(EmailAddress), value); }
         }
+
+        public static bool FormatTimeAsMilitary
+        {
+            get { return AppSettings.GetValueOrDefault(nameof(FormatTimeAsMilitary), false); }
+            set { AppSettings.AddOrUpdateValue(nameof(FormatTimeAsMilitary), value); OnChange(nameof(FormatTimeAsMilitary), value.ToString()); }
+        }
         #endregion
 
         #region Flag Methods
@@ -108,7 +114,9 @@ namespace Squelch.Library.Data
                 {
                     Id = UserSettings.Id,
                     FirstName = UserSettings.FirstName,
-                    LastName = UserSettings.LastName
+                    LastName = UserSettings.LastName,
+                    EmailAddress = UserSettings.EmailAddress,
+                    FormatTimeAsMilitary = UserSettings.FormatTimeAsMilitary
                 };
 
                 // Iterate over flags and add to flag dictionary
