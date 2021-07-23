@@ -97,6 +97,16 @@
   <string name="fragment_statistics_chart_description_bids">▄</string>
   
   <string name="overlay_blackout_application_is_in_blacklist">▄</string>
+  
+  <string name="inapppurchaseutils_purchase_was_successful">▄</string>
+  <string name="inapppurchaseutils_purchase_was_not_successful">▄</string>
+  <string name="inapppurchaseutils_purchase_was_successful_but_could_not_consume">▄</string>
+  <string name="inapppurchaseutils_unable_to_connect">▄</string>
+  <string name="inapppurchaseutils_unable_to_consume">▄</string>
+  <string name="inapppurchaseutils_item_already_owned">▄</string>
+
+  <string name="permissionutils_usage_data_request_prompt">▄</string>
+  <string name="permissionutils_application_overlay_request_prompt">▄</string>
   <!-- ///////////////////// -->
 
   <!-- ///////////////////// -->
@@ -119,6 +129,8 @@
   <string name="text_next">▄</string>
   <string name="text_previous">▄</string>
   <string name="text_finish">▄</string>
+  <string name="text_finished">▄</string>
+  <string name="text_pending">▄</string>
   <string name="text_back">▄</string>
   <string name="text_create">▄</string>
   <string name="text_close">▄</string>
@@ -166,6 +178,10 @@
   <string name="text_inactive">▄</string>
   <string name="text_usage_data">▄</string>
   <string name="text_application_overlay">▄</string>
+
+  <string name="text_cancelled">▄</string>
+  <string name="text_failed">▄</string>
+  <string name="text_skipped">▄</string>
   
   <string name="text_id">▄</string>
   <string name="text_first_name">▄</string>

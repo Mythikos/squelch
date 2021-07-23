@@ -9830,167 +9830,170 @@ namespace Squelch
 			// aapt resource value: 0x7F0F011C
 			public const int text_no = 2131689756;
 			
-			// aapt resource value: 0x7F0F011F
-			public const int text_notice = 2131689759;
+			// aapt resource value: 0x7F0F0120
+			public const int text_notice = 2131689760;
 			
 			// aapt resource value: 0x7F0F011E
-			public const int text_not_really = 2131689758;
+			public const int text_not_available_abbreviated = 2131689758;
 			
-			// aapt resource value: 0x7F0F0120
-			public const int text_novice = 2131689760;
+			// aapt resource value: 0x7F0F011F
+			public const int text_not_really = 2131689759;
+			
+			// aapt resource value: 0x7F0F0121
+			public const int text_novice = 2131689761;
 			
 			// aapt resource value: 0x7F0F011D
 			public const int text_no_thanks = 2131689757;
 			
-			// aapt resource value: 0x7F0F0121
-			public const int text_ok = 2131689761;
-			
 			// aapt resource value: 0x7F0F0122
-			public const int text_once_a_day = 2131689762;
+			public const int text_ok = 2131689762;
 			
 			// aapt resource value: 0x7F0F0123
-			public const int text_once_a_month = 2131689763;
+			public const int text_once_a_day = 2131689763;
 			
 			// aapt resource value: 0x7F0F0124
-			public const int text_once_a_week = 2131689764;
+			public const int text_once_a_month = 2131689764;
 			
 			// aapt resource value: 0x7F0F0125
-			public const int text_once_a_year = 2131689765;
+			public const int text_once_a_week = 2131689765;
 			
 			// aapt resource value: 0x7F0F0126
-			public const int text_open_source = 2131689766;
+			public const int text_once_a_year = 2131689766;
 			
 			// aapt resource value: 0x7F0F0127
-			public const int text_open_source_software = 2131689767;
+			public const int text_open_source = 2131689767;
 			
 			// aapt resource value: 0x7F0F0128
-			public const int text_open_source_software_col = 2131689768;
+			public const int text_open_source_software = 2131689768;
 			
 			// aapt resource value: 0x7F0F0129
-			public const int text_other = 2131689769;
+			public const int text_open_source_software_col = 2131689769;
 			
 			// aapt resource value: 0x7F0F012A
-			public const int text_partially = 2131689770;
+			public const int text_other = 2131689770;
 			
 			// aapt resource value: 0x7F0F012B
-			public const int text_pending = 2131689771;
+			public const int text_partially = 2131689771;
 			
 			// aapt resource value: 0x7F0F012C
-			public const int text_permission = 2131689772;
-			
-			// aapt resource value: 0x7F0F012E
-			public const int text_permissions = 2131689774;
-			
-			// aapt resource value: 0x7F0F012F
-			public const int text_permissions_col = 2131689775;
+			public const int text_pending = 2131689772;
 			
 			// aapt resource value: 0x7F0F012D
-			public const int text_permission_col = 2131689773;
+			public const int text_permission = 2131689773;
+			
+			// aapt resource value: 0x7F0F012F
+			public const int text_permissions = 2131689775;
 			
 			// aapt resource value: 0x7F0F0130
-			public const int text_previous = 2131689776;
+			public const int text_permissions_col = 2131689776;
+			
+			// aapt resource value: 0x7F0F012E
+			public const int text_permission_col = 2131689774;
 			
 			// aapt resource value: 0x7F0F0131
-			public const int text_privacy_policy = 2131689777;
+			public const int text_previous = 2131689777;
 			
 			// aapt resource value: 0x7F0F0132
-			public const int text_privacy_policy_col = 2131689778;
+			public const int text_privacy_policy = 2131689778;
 			
 			// aapt resource value: 0x7F0F0133
-			public const int text_save = 2131689779;
+			public const int text_privacy_policy_col = 2131689779;
 			
 			// aapt resource value: 0x7F0F0134
-			public const int text_schedule = 2131689780;
+			public const int text_save = 2131689780;
 			
 			// aapt resource value: 0x7F0F0135
-			public const int text_second_both_abbreviated = 2131689781;
+			public const int text_schedule = 2131689781;
 			
 			// aapt resource value: 0x7F0F0136
-			public const int text_second_plural_abbreviated = 2131689782;
+			public const int text_second_both_abbreviated = 2131689782;
 			
 			// aapt resource value: 0x7F0F0137
-			public const int text_second_singular_abbreviated = 2131689783;
+			public const int text_second_plural_abbreviated = 2131689783;
 			
 			// aapt resource value: 0x7F0F0138
-			public const int text_settings = 2131689784;
+			public const int text_second_singular_abbreviated = 2131689784;
 			
 			// aapt resource value: 0x7F0F0139
-			public const int text_setup = 2131689785;
+			public const int text_settings = 2131689785;
 			
 			// aapt resource value: 0x7F0F013A
-			public const int text_setup_blackout = 2131689786;
+			public const int text_setup = 2131689786;
 			
 			// aapt resource value: 0x7F0F013B
-			public const int text_show_system_applications = 2131689787;
+			public const int text_setup_blackout = 2131689787;
 			
 			// aapt resource value: 0x7F0F013C
-			public const int text_skipped = 2131689788;
+			public const int text_show_system_applications = 2131689788;
 			
 			// aapt resource value: 0x7F0F013D
-			public const int text_somewhat_dissatisfied = 2131689789;
+			public const int text_skipped = 2131689789;
 			
 			// aapt resource value: 0x7F0F013E
-			public const int text_somewhat_satisfied = 2131689790;
+			public const int text_somewhat_dissatisfied = 2131689790;
 			
 			// aapt resource value: 0x7F0F013F
-			public const int text_statistics = 2131689791;
+			public const int text_somewhat_satisfied = 2131689791;
 			
 			// aapt resource value: 0x7F0F0140
-			public const int text_submit = 2131689792;
+			public const int text_statistics = 2131689792;
 			
 			// aapt resource value: 0x7F0F0141
-			public const int text_success = 2131689793;
+			public const int text_submit = 2131689793;
 			
 			// aapt resource value: 0x7F0F0142
-			public const int text_sure_exclamation = 2131689794;
+			public const int text_success = 2131689794;
 			
 			// aapt resource value: 0x7F0F0143
-			public const int text_total_bids = 2131689795;
+			public const int text_sure_exclamation = 2131689795;
 			
 			// aapt resource value: 0x7F0F0144
-			public const int text_total_blackouts = 2131689796;
+			public const int text_total_bids = 2131689796;
 			
 			// aapt resource value: 0x7F0F0145
-			public const int text_total_time_saved = 2131689797;
+			public const int text_total_blackouts = 2131689797;
 			
 			// aapt resource value: 0x7F0F0146
-			public const int text_undefined = 2131689798;
+			public const int text_total_time_saved = 2131689798;
 			
 			// aapt resource value: 0x7F0F0147
-			public const int text_undefined_input = 2131689799;
+			public const int text_undefined = 2131689799;
 			
 			// aapt resource value: 0x7F0F0148
-			public const int text_unknown = 2131689800;
+			public const int text_undefined_input = 2131689800;
 			
 			// aapt resource value: 0x7F0F0149
-			public const int text_unlock = 2131689801;
+			public const int text_unknown = 2131689801;
 			
 			// aapt resource value: 0x7F0F014A
-			public const int text_usage_data = 2131689802;
+			public const int text_unlock = 2131689802;
 			
 			// aapt resource value: 0x7F0F014B
-			public const int text_user = 2131689803;
+			public const int text_usage_data = 2131689803;
 			
 			// aapt resource value: 0x7F0F014C
-			public const int text_user_col = 2131689804;
+			public const int text_user = 2131689804;
 			
 			// aapt resource value: 0x7F0F014D
-			public const int text_version = 2131689805;
+			public const int text_user_col = 2131689805;
 			
 			// aapt resource value: 0x7F0F014E
-			public const int text_version_col = 2131689806;
+			public const int text_version = 2131689806;
 			
 			// aapt resource value: 0x7F0F014F
-			public const int text_very_dissatisfied = 2131689807;
+			public const int text_version_col = 2131689807;
 			
 			// aapt resource value: 0x7F0F0150
-			public const int text_very_satisfied = 2131689808;
+			public const int text_very_dissatisfied = 2131689808;
 			
 			// aapt resource value: 0x7F0F0151
-			public const int text_veteran = 2131689809;
+			public const int text_very_satisfied = 2131689809;
 			
 			// aapt resource value: 0x7F0F0152
-			public const int text_yes = 2131689810;
+			public const int text_veteran = 2131689810;
+			
+			// aapt resource value: 0x7F0F0153
+			public const int text_yes = 2131689811;
 			
 			// aapt resource value: 0x7F0F0000
 			public const int _blank = 2131689472;

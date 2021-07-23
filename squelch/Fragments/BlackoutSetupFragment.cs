@@ -827,6 +827,23 @@ namespace Squelch.Fragments
                         ApplicationList_Filter();
                         break;
                     case STEP_REVIEW:
+                        var blackoutDifficultyTextResourceId = Resource.String.text_unknown;
+                        switch (_blackoutDifficulty)
+                        {
+                            case BlackoutItem.BlackoutDifficultyCode.Novice:
+                                blackoutDifficultyTextResourceId = Resource.String.text_novice;
+                                break;
+                            case BlackoutItem.BlackoutDifficultyCode.Veteran:
+                                blackoutDifficultyTextResourceId = Resource.String.text_veteran;
+                                break;
+                            case BlackoutItem.BlackoutDifficultyCode.Master:
+                                blackoutDifficultyTextResourceId = Resource.String.text_master;
+                                break;
+                            case BlackoutItem.BlackoutDifficultyCode.Nightmare:
+                                blackoutDifficultyTextResourceId = Resource.String.text_nightmare;
+                                break;
+                        }
+
                         _dialogPositiveButton.SetText(Resource.String.text_finish);
                         _dialogNegativeButton.SetText(Resource.String.text_back);
                         _titleLabel.SetText(Resource.String.fragment_blackout_setup_review_title);
@@ -835,7 +852,7 @@ namespace Squelch.Fragments
                         _daterangeLayout.Visibility = ViewStates.Gone;
                         _applicationLayout.Visibility = _applicationShowSystemAppsCheckbox.Visibility = ViewStates.Gone;
                         _reviewLayout.Visibility = ViewStates.Visible;
-                        _reviewDifficultyLabel.Text = _blackoutDifficulty.ToString();
+                        _reviewDifficultyLabel.SetText(blackoutDifficultyTextResourceId);
                         _reviewBidLabel.Text = $"${_bidNumberPicker.Value}";
                         _reviewStartDateTimeLabel.Text = $"{_dateRangeStartDateButton.Text} @ {_dateRangeStartTimeButton.Text}";
                         _reviewEndDateTimeLabel.Text = $"{_dateRangeEndDateButton.Text} @ {_dateRangeEndTimeButton.Text}";

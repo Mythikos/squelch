@@ -342,9 +342,26 @@ namespace Squelch.Fragments
                 if (blackoutItem != default(BlackoutItem))
                 {
                     MainThread.BeginInvokeOnMainThread(() =>
-                    { 
+                    {
+                        var blackoutDifficultyTextResourceId = Resource.String.text_unknown;
+                        switch (blackoutItem.DifficultyCode)
+                        {
+                            case BlackoutItem.BlackoutDifficultyCode.Novice:
+                                blackoutDifficultyTextResourceId = Resource.String.text_novice;
+                                break;
+                            case BlackoutItem.BlackoutDifficultyCode.Veteran:
+                                blackoutDifficultyTextResourceId = Resource.String.text_veteran;
+                                break;
+                            case BlackoutItem.BlackoutDifficultyCode.Master:
+                                blackoutDifficultyTextResourceId = Resource.String.text_master;
+                                break;
+                            case BlackoutItem.BlackoutDifficultyCode.Nightmare:
+                                blackoutDifficultyTextResourceId = Resource.String.text_nightmare;
+                                break;
+                        }
+
                         _nextBlackoutStartDateLabel.Text = $"{this.GetString(Resource.String.text_blackout_start_date_col)} {blackoutItem.ScheduledStartDateTime.ToString("MM/dd/yyyy hh:mm tt")}";
-                        _nextBlackoutDifficultyLabel.Text = $"{this.GetString(Resource.String.text_blackout_difficulty_col)} {blackoutItem.DifficultyCode.ToString()}";
+                        _nextBlackoutDifficultyLabel.Text = $"{this.GetString(Resource.String.text_blackout_difficulty_col)} {this.GetString(blackoutDifficultyTextResourceId)}";
                         _nextBlackoutCard.Visibility = ViewStates.Visible;
                     });
                 }
@@ -353,8 +370,8 @@ namespace Squelch.Fragments
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
                         _nextBlackoutCard.Visibility = ViewStates.Gone;
-                        _nextBlackoutStartDateLabel.Text = $"{this.GetString(Resource.String.text_blackout_start_date_col)} n/a";
-                        _nextBlackoutDifficultyLabel.Text = $"{this.GetString(Resource.String.text_blackout_difficulty_col)} n/a";
+                        _nextBlackoutStartDateLabel.Text = $"{this.GetString(Resource.String.text_blackout_start_date_col)} {this.GetString(Resource.String.text_not_available_abbreviated)}";
+                        _nextBlackoutDifficultyLabel.Text = $"{this.GetString(Resource.String.text_blackout_difficulty_col)} {this.GetString(Resource.String.text_not_available_abbreviated)}";
                     });
                 }
             }

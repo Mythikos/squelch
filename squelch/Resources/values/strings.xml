@@ -238,6 +238,7 @@
   <string name="text_second_singular_abbreviated">sec</string>
   <string name="text_second_plural_abbreviated">secs</string>
   <string name="text_second_both_abbreviated">sec(s)</string>
+  <string name="text_not_available_abbreviated">n/a</string>
 
   <!--    Consent Strings    -->
   <string name="text_consent_statement"><![CDATA[By continuing, you agree to our <a href="https://squelch.app/privacy">Privacy Policy</a> and our <a href="https://squelch.app/eula">End User Licensing Agreement</a>.]]></string>
@@ -268,3 +269,4 @@
   <string name="error_unable_to_determine_blackout">Unable to determine current blackout configuration.</string>
   <!-- ///////////////////// -->
 </resources>
+{"mode":"full","isActive":false}
