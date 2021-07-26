@@ -9,17 +9,14 @@
 6. [Feature] Add trash talk option to overlay (user configurable).
 7. [Improvement] Add a job scheduler that checks to see if the EnforcerService is running, and if not, start it back up.
 8. [Improvement] Add Crashlytics
-9. [Improvement/Localization] Update the app to only use the string language documents to enable multi-language support for the app.
-10. [MUST] Update the in app billing plugin to v4
 
-## Working
-Modify code and layout files to use strings.xml instead of hardcoded values. Remaining:
-
-Resources/layouts/
-* ALL LAYOUT FILES
-
-Resources/Menu/
-* Navigation
+## Working:
+* Still need to update the statistics fragment to use localized strings.
+* Need to fix weird ordering on schedule fragment as a result of localization.
+* Need to fix the blackout fragment so that it doesn't rely on the text of the buttons to indicate if its done (might just ignore seeing Next/Finish wont be the same word... maybe?).
 
 ## Changelog:
-n/a
+* Added time format user setting.
+* Added DateUtils class for formatting datetimes using Android's built in DateUtil and SimpleDateFormatter.
+* Updated all text sources to use localized strings instead of hardcoded strings.
+* Updated in app billing plugin to v4.
