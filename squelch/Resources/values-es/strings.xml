@@ -12,13 +12,10 @@
   <string name="fragment_first_time_setup_special_permissions_message">▄</string>
   <string name="fragment_first_time_setup_personalize_message">▄</string>
 
-  <string-array name="fragment_home_greeting_list">
-    <item>▄</item>
-    <item>▄</item>
-    <item>▄</item>
-    <item>▄</item>
-    <item>▄</item>
-    <item>▄</item>
+  <string-array name="fragment_home_greeting_list_with_name">
+    <item>▄, {0}</item>
+  </string-array>
+  <string-array name="fragment_home_greeting_list_with_no_name">
     <item>▄</item>
   </string-array>
   <string name="fragment_home_feedback_message_neutral">▄</string>
@@ -44,10 +41,12 @@
   <string name="fragment_settings_open_source_software_description">▄</string>
   <string name="fragment_settings_prompt_first_name">▄</string>
   <string name="fragment_settings_prompt_last_name">▄</string>
+  <string name="fragment_settings_prompt_time_format">▄</string>
   <string name="fragment_settings_toast_id_copied">▄</string>
   <string name="fragment_settings_toast_version_copied">▄</string>
-  <string name="fragment_settings_version">▄</string>
-  <string name="fragment_settings_build">▄</string>
+  <string name="fragment_settings_version_and_build">▄ {0} - ▄ {1}</string>
+  <string name="fragment_settings_user_time_format_twelve_hour">▄</string>
+  <string name="fragment_settings_user_time_format_twenty_four_hour">▄</string>
 
   <string name="fragment_blackout_setup_difficulty_title">▄</string>
   <string name="fragment_blackout_setup_date_range_title">▄</string>
@@ -132,7 +131,7 @@
   <string name="text_open_source">▄</string>
   <string name="text_feedback">▄</string>
   <string name="text_statistics">▄</string>
-
+  <string name="text_time_format">▄</string>
   <string name="text_get_started">▄</string>
   <string name="text_next">▄</string>
   <string name="text_previous">▄</string>

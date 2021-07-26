@@ -10,7 +10,7 @@ namespace Squelch.Library.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
-        public bool FormatTimeAsMilitary { get; set; } 
+        public bool FormatTimeAsTwelveHour { get; set; } 
         public Dictionary<string, string> Flags;
 
         public UserItem()
@@ -19,7 +19,7 @@ namespace Squelch.Library.Entities
             this.FirstName = string.Empty;
             this.LastName = string.Empty;
             this.EmailAddress = string.Empty;
-            this.FormatTimeAsMilitary = false;
+            this.FormatTimeAsTwelveHour = true;
             this.Flags = new Dictionary<string, string>();
         }
 

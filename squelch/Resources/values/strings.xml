@@ -12,14 +12,23 @@
   <string name="fragment_first_time_setup_special_permissions_message">In order for Squelch to work for you, it needs your permission to do the following:</string>
   <string name="fragment_first_time_setup_personalize_message">Personalize Squelch by providing some basic information. You can skip this step by pressing finish below.</string>
 
-  <string-array name="fragment_home_greeting_list">
-    <item>Hello</item>
-    <item>Welcome back</item>
-    <item>Howdy</item>
-    <item>What\'s up</item>
-    <item>How\'s it going</item>
-    <item>Hey</item>
-    <item>Nice to see you</item>
+  <string-array name="fragment_home_greeting_list_with_name">
+    <item>Hello, {0}!</item>
+    <item>Welcome back, {0}!</item>
+    <item>Howdy, {0}!</item>
+    <item>What\'s up, {0}!</item>
+    <item>How\'s it going, {0}!</item>
+    <item>Hey, {0}!</item>
+    <item>Nice to see you, {0}!</item>
+  </string-array>
+  <string-array name="fragment_home_greeting_list_with_no_name">
+    <item>Hello!</item>
+    <item>Welcome back!</item>
+    <item>Howdy!</item>
+    <item>What\'s up!</item>
+    <item>How\'s it going!</item>
+    <item>Hey!</item>
+    <item>Nice to see you!</item>
   </string-array>
   <string name="fragment_home_feedback_message_neutral">Hey! Are you enjoying squelch?</string>
   <string name="fragment_home_feedback_message_positive">Awesome! Can you give us some feedback on your experience?</string>
@@ -47,10 +56,9 @@
   <string name="fragment_settings_prompt_time_format">Please indicate which time format you prefer to view</string>
   <string name="fragment_settings_toast_id_copied">Id copied to clipboard!</string>
   <string name="fragment_settings_toast_version_copied">Version copied to clipboard!</string>
-  <string name="fragment_settings_version">Version {0}</string>
-  <string name="fragment_settings_build">Build {0}</string>
-  <string name="fragment_settings_user_time_format_military">Military</string>
-  <string name="fragment_settings_user_time_format_civilian">Civilian</string>
+  <string name="fragment_settings_version_and_build">Version {0} - Build {1}</string>
+  <string name="fragment_settings_user_time_format_twelve_hour">Twelve Hour</string>
+  <string name="fragment_settings_user_time_format_twenty_four_hour">Twenty Four Hour</string>
 
   <string name="fragment_blackout_setup_difficulty_title">What difficulty do you want to use?</string>
   <string name="fragment_blackout_setup_date_range_title">What date and time ranges will this blackout apply too?</string>

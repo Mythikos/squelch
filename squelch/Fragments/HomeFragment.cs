@@ -319,11 +319,10 @@ namespace Squelch.Fragments
 
             try
             {
-                greetings = Resources.GetStringArray(Resource.Array.fragment_home_greeting_list).ToList();
                 if (string.IsNullOrWhiteSpace(UserSettings.FirstName))
-                    MainThread.BeginInvokeOnMainThread(() => _greetingLabel.Text = $"{greetings.Random()}!");
+                    MainThread.BeginInvokeOnMainThread(() => _greetingLabel.Text = Resources.GetStringArray(Resource.Array.fragment_home_greeting_list_with_no_name).ToList().Random());
                 else
-                    MainThread.BeginInvokeOnMainThread(() => _greetingLabel.Text = $"{greetings.Random()}, {UserSettings.FirstName}!");
+                    MainThread.BeginInvokeOnMainThread(() => _greetingLabel.Text = string.Format(Resources.GetStringArray(Resource.Array.fragment_home_greeting_list_with_name).ToList().Random(), UserSettings.FirstName));
             }
             catch (Exception ex)
             {
@@ -360,7 +359,7 @@ namespace Squelch.Fragments
                                 break;
                         }
 
-                        _nextBlackoutStartDateLabel.Text = $"{this.GetString(Resource.String.text_blackout_start_date_col)} {DateUtils.FormatDateShort(blackoutItem.ScheduledStartDateTime)} @ {DateUtils.FormatTime(blackoutItem.ScheduledStartDateTime, UserSettings.FormatTimeAsMilitary)}";
+                        _nextBlackoutStartDateLabel.Text = $"{this.GetString(Resource.String.text_blackout_start_date_col)} {DateUtils.FormatDateShort(this.Context, blackoutItem.ScheduledStartDateTime)} @ {DateUtils.FormatTime(this.Context, blackoutItem.ScheduledStartDateTime, UserSettings.FormatTimeAsTwelveHour)}";
                         _nextBlackoutDifficultyLabel.Text = $"{this.GetString(Resource.String.text_blackout_difficulty_col)} {this.GetString(blackoutDifficultyTextResourceId)}";
                         _nextBlackoutCard.Visibility = ViewStates.Visible;
                     });

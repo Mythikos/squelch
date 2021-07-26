@@ -5,10 +5,12 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Icu.Text;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using TextFormatter = Android.Text.Format;
 
 namespace Squelch.Library.Utilities
 {
@@ -36,7 +38,7 @@ namespace Squelch.Library.Utilities
             }
             else if (dayDifference <= 6)
             {
-                result = inputDate.ToString("dddd", System.Globalization.CultureInfo.DefaultThreadCurrentCulture);
+                result = DateUtils.FormatDateCustom(context, inputDate, "EEEE");
             }
             else if (dayDifference <= 13)
             {
@@ -77,23 +79,23 @@ namespace Squelch.Library.Utilities
             {
                 result = today.AddDays(1);
             }
-            else if (temporalLabel.Equals(today.AddDays(2).ToString("dddd", System.Globalization.CultureInfo.DefaultThreadCurrentCulture), StringComparison.OrdinalIgnoreCase))
+            else if (temporalLabel.Equals(DateUtils.FormatDateCustom(context, today.AddDays(2), "EEEE"), StringComparison.OrdinalIgnoreCase))
             {
                 result = today.AddDays(2);
             }
-            else if (temporalLabel.Equals(today.AddDays(3).ToString("dddd", System.Globalization.CultureInfo.DefaultThreadCurrentCulture), StringComparison.OrdinalIgnoreCase))
+            else if (temporalLabel.Equals(DateUtils.FormatDateCustom(context, today.AddDays(3), "EEEE"), StringComparison.OrdinalIgnoreCase))
             {
                 result = today.AddDays(3);
             }
-            else if (temporalLabel.Equals(today.AddDays(4).ToString("dddd", System.Globalization.CultureInfo.DefaultThreadCurrentCulture), StringComparison.OrdinalIgnoreCase))
+            else if (temporalLabel.Equals(DateUtils.FormatDateCustom(context, today.AddDays(4), "EEEE"), StringComparison.OrdinalIgnoreCase))
             {
                 result = today.AddDays(4);
             }
-            else if (temporalLabel.Equals(today.AddDays(5).ToString("dddd", System.Globalization.CultureInfo.DefaultThreadCurrentCulture), StringComparison.OrdinalIgnoreCase))
+            else if (temporalLabel.Equals(DateUtils.FormatDateCustom(context, today.AddDays(5), "EEEE"), StringComparison.OrdinalIgnoreCase))
             {
                 result = today.AddDays(5);
             }
-            else if (temporalLabel.Equals(today.AddDays(6).ToString("dddd", System.Globalization.CultureInfo.DefaultThreadCurrentCulture), StringComparison.OrdinalIgnoreCase))
+            else if (temporalLabel.Equals(DateUtils.FormatDateCustom(context, today.AddDays(6), "EEEE"), StringComparison.OrdinalIgnoreCase))
             {
                 result = today.AddDays(6);
             }
@@ -142,9 +144,9 @@ namespace Squelch.Library.Utilities
         /// </summary>
         /// <param name="inputDate"></param>
         /// <returns></returns>
-        internal static string FormatDateLong(DateTime inputDate)
+        internal static string FormatDateLong(Context context, DateTime inputDate)
         {
-            return inputDate.ToString("dddd, MMMM dd, yyyy", System.Globalization.CultureInfo.DefaultThreadCurrentCulture);
+            return TextFormatter.DateUtils.FormatDateTime(context, new DateTimeOffset(inputDate).ToUnixTimeMilliseconds(), TextFormatter.FormatStyleFlags.ShowDate | TextFormatter.FormatStyleFlags.ShowWeekday | TextFormatter.FormatStyleFlags.ShowYear);
         }
 
         /// <summary>
@@ -152,9 +154,9 @@ namespace Squelch.Library.Utilities
         /// </summary>
         /// <param name="inputDate"></param>
         /// <returns></returns>
-        internal static string FormatDateShort(DateTime inputDate)
+        internal static string FormatDateShort(Context context, DateTime inputDate)
         {
-            return inputDate.ToString("MM/dd/yyyy", System.Globalization.CultureInfo.DefaultThreadCurrentCulture);
+            return TextFormatter.DateUtils.FormatDateTime(context, new DateTimeOffset(inputDate).ToUnixTimeMilliseconds(), TextFormatter.FormatStyleFlags.ShowDate | TextFormatter.FormatStyleFlags.ShowYear);
         }
 
         /// <summary>
@@ -163,9 +165,9 @@ namespace Squelch.Library.Utilities
         /// <param name="inputDate"></param>
         /// <param name="format"></param>
         /// <returns></returns>
-        internal static string FormatDateCustom(DateTime inputDate, string format)
+        internal static string FormatDateCustom(Context context, DateTime inputDate, string format)
         {
-            return inputDate.ToString(format, System.Globalization.CultureInfo.DefaultThreadCurrentCulture);
+            return new SimpleDateFormat(format).Format(new DateTimeOffset(inputDate).ToUnixTimeMilliseconds());
         }
 
         /// <summary>
@@ -173,12 +175,12 @@ namespace Squelch.Library.Utilities
         /// </summary>
         /// <param name="inputTime"></param>
         /// <returns></returns>
-        internal static string FormatTime(DateTime inputTime, bool formatTimeAsMilitary)
+        internal static string FormatTime(Context context, DateTime inputTime, bool formatTimeAsTwelveHour)
         {
-            if (formatTimeAsMilitary)
-                return inputTime.ToString("HHmm", System.Globalization.CultureInfo.DefaultThreadCurrentCulture);
+            if (formatTimeAsTwelveHour)
+                return TextFormatter.DateUtils.FormatDateTime(context, new DateTimeOffset(inputTime).ToUnixTimeMilliseconds(), TextFormatter.FormatStyleFlags.ShowTime | TextFormatter.FormatStyleFlags.TwelveHour | TextFormatter.FormatStyleFlags.CapAmpm);
             else
-                return inputTime.ToString("hh:mm tt", System.Globalization.CultureInfo.DefaultThreadCurrentCulture);
+                return TextFormatter.DateUtils.FormatDateTime(context, new DateTimeOffset(inputTime).ToUnixTimeMilliseconds(), TextFormatter.FormatStyleFlags.ShowTime | TextFormatter.FormatStyleFlags.TwentyFourHour);
         }
     }
 }

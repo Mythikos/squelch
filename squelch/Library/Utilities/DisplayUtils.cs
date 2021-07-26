@@ -339,10 +339,10 @@ namespace Squelch.Library.Utilities
 
                 // Set title and message
                 startDateLabel = layout.FindViewById<TextView>(Resource.Id.dialog_blackout_details_data_layout_start_date_label);
-                startDateLabel.Text = $"{DateUtils.FormatDateLong(blackoutItem.ScheduledStartDateTime)} @ {DateUtils.FormatTime(blackoutItem.ScheduledStartDateTime, UserSettings.FormatTimeAsMilitary)}";
+                startDateLabel.Text = $"{DateUtils.FormatDateLong(context, blackoutItem.ScheduledStartDateTime)} @ {DateUtils.FormatTime(context, blackoutItem.ScheduledStartDateTime, UserSettings.FormatTimeAsTwelveHour)}";
 
                 endDateLabel = layout.FindViewById<TextView>(Resource.Id.dialog_blackout_details_data_layout_end_date_label);
-                endDateLabel.Text = $"{DateUtils.FormatDateLong(blackoutItem.ScheduledEndDateTime)} @ {DateUtils.FormatTime(blackoutItem.ScheduledEndDateTime, UserSettings.FormatTimeAsMilitary)}";
+                endDateLabel.Text = $"{DateUtils.FormatDateLong(context, blackoutItem.ScheduledEndDateTime)} @ {DateUtils.FormatTime(context, blackoutItem.ScheduledEndDateTime, UserSettings.FormatTimeAsTwelveHour)}";
 
                 bidLabel = layout.FindViewById<TextView>(Resource.Id.dialog_blackout_details_data_layout_bid_label);
                 bidLabel.Text = $"${blackoutItem.Bid}";

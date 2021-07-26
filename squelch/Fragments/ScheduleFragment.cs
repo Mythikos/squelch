@@ -127,6 +127,8 @@ namespace Squelch.Fragments
                     // Build new ones
                     await Task.Factory.StartNew(() =>
                     {
+
+
                         // Group all blackouts into dates
                         var temporalLabels = pendingBlackouts.OrderBy(x => x.ScheduledStartDateTime).Select(x => DateUtils.GetTemporalLabel(this.Context, x.ScheduledStartDateTime, DateTime.Today)).Distinct();
                         foreach (string label in temporalLabels)
@@ -140,7 +142,7 @@ namespace Squelch.Fragments
                             var dateLabel = new TextView(this.Context);
                             var dateFromTemporal = DateUtils.GetDateTimeFromTemporalLabel(this.Context, label, (DateTime)DateTime.Today);
                             dateLabel.LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent);
-                            dateLabel.Text = dateFromTemporal != null ? DateUtils.FormatDateCustom(dateFromTemporal.Value, "MMMM yyyy") : string.Empty;
+                            dateLabel.Text = dateFromTemporal != null ? DateUtils.FormatDateCustom(this.Context, dateFromTemporal.Value, "MMMM yyyy") : string.Empty;
                             dateLabel.SetTextSize(Android.Util.ComplexUnitType.Dip, 10);
                             dateLabel.SetTypeface(null, Android.Graphics.TypefaceStyle.Bold);
 
@@ -188,7 +190,7 @@ namespace Squelch.Fragments
                                         break;
                                 }
                                 itemHoursLabel.Text = string.Format(this.GetString(Resource.String.fragment_schedule_hours_label), Math.Round((groupedBlackout.ScheduledEndDateTime - groupedBlackout.ScheduledStartDateTime).TotalHours, 1).ToString());
-                                itemRangeLabel.Text = string.Format(this.GetString(Resource.String.fragment_schedule_range_label), DateUtils.FormatTime(groupedBlackout.ScheduledStartDateTime, UserSettings.FormatTimeAsMilitary));
+                                itemRangeLabel.Text = string.Format(this.GetString(Resource.String.fragment_schedule_range_label), DateUtils.FormatTime(this.Context, groupedBlackout.ScheduledStartDateTime, UserSettings.FormatTimeAsTwelveHour));
                                 itemParent.AddView(itemView);
                             }
 

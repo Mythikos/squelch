@@ -141,14 +141,14 @@ namespace Squelch.Fragments
                             this.Context,
                             Resource.String.text_time_format,
                             Resource.String.fragment_settings_prompt_time_format,
-                            new List<int>() { Resource.String.fragment_settings_user_time_format_military, Resource.String.fragment_settings_user_time_format_civilian },
-                            UserSettings.FormatTimeAsMilitary ? Resource.String.fragment_settings_user_time_format_military : Resource.String.fragment_settings_user_time_format_civilian,
+                            new List<int>() { Resource.String.fragment_settings_user_time_format_twelve_hour, Resource.String.fragment_settings_user_time_format_twenty_four_hour },
+                            UserSettings.FormatTimeAsTwelveHour ? Resource.String.fragment_settings_user_time_format_twelve_hour : Resource.String.fragment_settings_user_time_format_twenty_four_hour,
                             Android.Text.InputTypes.ClassText,
                             true,
                             true,
                             Resource.String.text_save,
                             async delegate (string value) {
-                                UserSettings.FormatTimeAsMilitary = value.Equals(this.GetString(Resource.String.fragment_settings_user_time_format_military));
+                                UserSettings.FormatTimeAsTwelveHour = value.Equals(this.GetString(Resource.String.fragment_settings_user_time_format_twelve_hour));
                                 await RedrawView();
                             },
                             Resource.String.text_cancel,
@@ -308,7 +308,7 @@ namespace Squelch.Fragments
                     userId = UserSettings.Id;
                     userFirstName = UserSettings.FirstName;
                     userLastName = UserSettings.LastName;
-                    userFormatTimeAsMilitary = UserSettings.FormatTimeAsMilitary;
+                    userFormatTimeAsMilitary = UserSettings.FormatTimeAsTwelveHour;
 
                     usageStatsState = (PermissionUtils.GetUsageDataPermission(this.Context, false)) ? this.GetString(Resource.String.text_active) : this.GetString(Resource.String.text_inactive);
                     applicationOverlayState = (PermissionUtils.GetApplicationOverlayPermission(this.Context, false)) ? this.GetString(Resource.String.text_active) : this.GetString(Resource.String.text_inactive);
@@ -322,12 +322,12 @@ namespace Squelch.Fragments
                 _idContentLabel.Text = (string.IsNullOrWhiteSpace(userId) ? this.GetString(Resource.String.text_undefined_input) : userId);
                 _firstNameContentLabel.Text = (string.IsNullOrWhiteSpace(userFirstName) ? this.GetString(Resource.String.text_undefined_input) : userFirstName);
                 _lastNameContentLabel.Text = (string.IsNullOrWhiteSpace(userLastName) ? this.GetString(Resource.String.text_undefined_input) : userLastName);
-                _timeFormatContentLabel.Text = (userFormatTimeAsMilitary) ? this.GetString(Resource.String.fragment_settings_user_time_format_military) : this.GetString(Resource.String.fragment_settings_user_time_format_civilian);
+                _timeFormatContentLabel.Text = (userFormatTimeAsMilitary) ? this.GetString(Resource.String.fragment_settings_user_time_format_twelve_hour) : this.GetString(Resource.String.fragment_settings_user_time_format_twenty_four_hour);
 
                 _usageStatsStateLabel.Text = (string.IsNullOrWhiteSpace(usageStatsState) ? this.GetString(Resource.String.text_undefined_input) : usageStatsState);
                 _applicationOverlayStateLabel.Text = (string.IsNullOrWhiteSpace(applicationOverlayState) ? this.GetString(Resource.String.text_undefined_input) : applicationOverlayState);
 
-                _versionContentLabel.Text = $"{string.Format(this.GetString(Resource.String.fragment_settings_version), selfVersionName)} - {string.Format(this.GetString(Resource.String.fragment_settings_build), selfVersionCode)}";
+                _versionContentLabel.Text = string.Format(this.GetString(Resource.String.fragment_settings_version_and_build), selfVersionName, selfVersionCode);
             }
             catch (Exception ex)
             {

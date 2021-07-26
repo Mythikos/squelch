@@ -39,7 +39,6 @@ namespace Squelch.Activities
         internal ProgressBar ProgressBar { get; private set; }
         internal CurvedBottomNavigationView NavigationBar { get; private set; }
         internal FloatingActionButton NavigationBarSetupBlackoutButton { get; private set; }
-        private Locale _currentLocale;
 
         internal const int PERMISSION_INTERNET = 0;
         internal const int PERMISSION_RECEIVE_BOOT_COMPLETED = 1;
@@ -70,7 +69,6 @@ namespace Squelch.Activities
             // Instantiate
             _blackoutStartedReceiver = new GenericBroadcastReceiver(BlackoutBroadcastReceived);
             _blackoutEndedReceiver = new GenericBroadcastReceiver(BlackoutBroadcastReceived);
-            _currentLocale = Resources.Configuration.Locale;
 
             //
             // Default view values
@@ -250,20 +248,9 @@ namespace Squelch.Activities
             base.OnResume();
 
             //
-            // Local has changed
-            if (Resources.Configuration.Locale != _currentLocale)
-            {
-                //
-                // When configurations are changed, we need to update the foreground service
-                if (EnforcerService.IsRunning == true)
-                    ContextCompat.StartForegroundService(this, new Intent(this, typeof(EnforcerService)).SetAction(EnforcerService.ACTION_RESTART));
-
-                //
-                // Set new locale
-                _currentLocale = Resources.Configuration.Locale;
-                System.Globalization.CultureInfo.DefaultThreadCurrentCulture = new System.Globalization.CultureInfo(_currentLocale.ToString());
-                System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = new System.Globalization.CultureInfo(_currentLocale.ToString());
-            }
+            // When configurations are changed, we need to update the foreground service
+            if (EnforcerService.IsRunning == true)
+                ContextCompat.StartForegroundService(this, new Intent(this, typeof(EnforcerService)).SetAction(EnforcerService.ACTION_RESTART));
         }
 
         protected override async void OnPostResume()

@@ -84,10 +84,10 @@ namespace Squelch.Library.Data
             set { AppSettings.AddOrUpdateValue(nameof(EmailAddress), value); OnChange(nameof(EmailAddress), value); }
         }
 
-        public static bool FormatTimeAsMilitary
+        public static bool FormatTimeAsTwelveHour
         {
-            get { return AppSettings.GetValueOrDefault(nameof(FormatTimeAsMilitary), false); }
-            set { AppSettings.AddOrUpdateValue(nameof(FormatTimeAsMilitary), value); OnChange(nameof(FormatTimeAsMilitary), value.ToString()); }
+            get { return AppSettings.GetValueOrDefault(nameof(FormatTimeAsTwelveHour), false); }
+            set { AppSettings.AddOrUpdateValue(nameof(FormatTimeAsTwelveHour), value); OnChange(nameof(FormatTimeAsTwelveHour), value.ToString()); }
         }
         #endregion
 
@@ -116,7 +116,7 @@ namespace Squelch.Library.Data
                     FirstName = UserSettings.FirstName,
                     LastName = UserSettings.LastName,
                     EmailAddress = UserSettings.EmailAddress,
-                    FormatTimeAsMilitary = UserSettings.FormatTimeAsMilitary
+                    FormatTimeAsTwelveHour = UserSettings.FormatTimeAsTwelveHour
                 };
 
                 // Iterate over flags and add to flag dictionary
