@@ -217,7 +217,7 @@
                         android:layout_width="wrap_content"
                         android:paddingBottom="25dp"
                         android:text="@string/fragment_feedback_question_3"/>
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:counterEnabled="true"
@@ -229,7 +229,7 @@
                             android:maxLength="500"
                             android:inputType="textMultiLine"
                             android:imeOptions="actionNext"/>
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
                     <TextView
                         android:id="@+id/fragment_feedback_question_3_answer"
                         android:layout_height="0dp"
@@ -251,7 +251,7 @@
                         android:layout_width="wrap_content"
                         android:paddingBottom="25dp"
                         android:text="@string/fragment_feedback_question_4"/>
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:counterEnabled="true"
@@ -263,7 +263,7 @@
                             android:maxLength="500"
                             android:inputType="textMultiLine"
                             android:imeOptions="actionNext"/>
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
                     <TextView
                         android:id="@+id/fragment_feedback_question_4_answer"
                         android:layout_height="0dp"
@@ -286,7 +286,7 @@
                         android:layout_width="wrap_content"
                         android:paddingBottom="25dp"
                         android:text="@string/fragment_feedback_question_5"/>
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:counterEnabled="true"
@@ -298,7 +298,7 @@
                             android:maxLength="100"
                             android:inputType="textMultiLine"
                             android:imeOptions="actionNext"/>
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
                     <TextView
                         android:id="@+id/fragment_feedback_question_5_answer"
                         android:layout_height="0dp"
