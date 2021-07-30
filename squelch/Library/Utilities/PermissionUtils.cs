@@ -2,7 +2,6 @@
 using Android.Content;
 using Android.OS;
 using System;
-using System.Runtime.CompilerServices;
 
 namespace Squelch.Library.Utilities
 {
@@ -68,7 +67,9 @@ namespace Squelch.Library.Utilities
 
             // Pre-M allowed this functionality
             if (Build.VERSION.SdkInt < BuildVersionCodes.M)
+            {
                 return true;
+            }
 
             // Check permissions
             opsManager = (AppOpsManager)context.GetSystemService(Context.AppOpsService);
@@ -109,10 +110,14 @@ namespace Squelch.Library.Utilities
             bool hasPermission = true;
 
             if (hasPermission)
+            {
                 hasPermission = PermissionUtils.GetUsageDataPermission(context, showDialog);
+            }
 
             if (hasPermission)
+            {
                 hasPermission = PermissionUtils.GetApplicationOverlayPermission(context, showDialog);
+            }
 
             return hasPermission;
         }

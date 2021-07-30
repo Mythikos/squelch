@@ -5,8 +5,8 @@
   <string name="service_enforcer_title">▄</string>
   <string name="service_enforcer_waiting_message">▄</string>
   <string name="service_enforcer_active_message">▄</string>
-  <string name="service_enforcer_react_generic_application">▄</string>
-  <string name="service_enforcer_react_blacklist_message">▄</string>
+  <string name="service_enforcer_react_blacklist_generic">▄</string>
+  <string name="service_enforcer_react_blacklist_specific">▄</string>
 
   <string name="fragment_first_time_setup_welcome_message">▄</string>
   <string name="fragment_first_time_setup_special_permissions_message">▄</string>
@@ -103,8 +103,6 @@
   <string name="fragment_statistics_chart_description_difficulties">▄</string>
   <string name="fragment_statistics_chart_description_bids">▄</string>
 
-  <string name="overlay_blackout_application_is_in_blacklist">▄</string>
-
   <string name="inapppurchaseutils_purchase_was_successful">▄</string>
   <string name="inapppurchaseutils_purchase_was_not_successful">▄</string>
   <string name="inapppurchaseutils_purchase_was_successful_but_could_not_consume">▄</string>
@@ -133,15 +131,15 @@
   <string name="text_statistics">▄</string>
   <string name="text_time_format">▄</string>
   <string name="text_get_started">▄</string>
-  <string name="text_next">▄</string>
-  <string name="text_previous">▄</string>
-  <string name="text_finish">▄</string>
-  <string name="text_finished">▄</string>
+  <string name="text_next">Próximo</string>
+  <string name="text_previous">Previo</string>
+  <string name="text_finish">Terminar</string>
+  <string name="text_finished">Terminado</string>
   <string name="text_pending">▄</string>
-  <string name="text_back">▄</string>
+  <string name="text_back">Atrás</string>
   <string name="text_create">▄</string>
-  <string name="text_close">▄</string>
-  <string name="text_ok">▄</string>
+  <string name="text_close">Cerrar</string>
+  <string name="text_ok">OK</string>
   <string name="text_setup">▄</string>
   <string name="text_setup_blackout">▄</string>
   <string name="text_submit">▄</string>
@@ -188,12 +186,12 @@
   <string name="text_cancelled">▄</string>
   <string name="text_failed">▄</string>
   <string name="text_skipped">▄</string>
-  <string name="text_today">▄</string>
-  <string name="text_tomorrow">▄</string>
-  <string name="text_next_week">▄</string>
-  <string name="text_this_month">▄</string>
-  <string name="text_next_month">▄</string>
-  <string name="text_in_the_future">▄</string>
+  <string name="text_today">Hoy dia</string>
+  <string name="text_tomorrow">Mañana</string>
+  <string name="text_next_week">La próxima semana</string>
+  <string name="text_this_month">Este mes</string>
+  <string name="text_next_month">Próximo mes</string>
+  <string name="text_in_the_future">En el futuro</string>
 
   <string name="text_id">▄</string>
   <string name="text_first_name">▄</string>

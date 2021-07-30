@@ -13,7 +13,9 @@ namespace Squelch.Library.Extensions
         {
             char[] result = new char[text.Length];
             for (int i = 0; i < text.Length; i++)
+            {
                 result[i] = text[i];
+            }
 
             button.SetText(result, 0, result.Length);
         }

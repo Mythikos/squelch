@@ -37,12 +37,16 @@ namespace Squelch.Library.Utilities
                     if (appBlacklistTuple.Item2.Equals("Equals"))
                     {
                         if (packageName.Equals(appBlacklistTuple.Item1, StringComparison.OrdinalIgnoreCase))
+                        {
                             return true;
+                        }
                     }
                     else if (appBlacklistTuple.Item2.Equals("Contains"))
                     {
                         if (packageName.Contains(appBlacklistTuple.Item1, StringComparison.OrdinalIgnoreCase))
+                        {
                             return true;
+                        }
                     }
                 }
             }

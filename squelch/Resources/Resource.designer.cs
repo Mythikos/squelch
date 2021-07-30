@@ -9661,10 +9661,10 @@ namespace Squelch
 			public const int service_enforcer_active_message = 2131755220;
 			
 			// aapt resource value: 0x7F1000D5
-			public const int service_enforcer_react_blacklist_message = 2131755221;
+			public const int service_enforcer_react_blacklist_generic = 2131755221;
 			
 			// aapt resource value: 0x7F1000D6
-			public const int service_enforcer_react_generic_application = 2131755222;
+			public const int service_enforcer_react_blacklist_specific = 2131755222;
 			
 			// aapt resource value: 0x7F1000D7
 			public const int service_enforcer_title = 2131755223;

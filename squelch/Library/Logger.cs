@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Android.Util;
+using System;
 using System.Diagnostics;
 using System.Text;
-using Android.Util;
 
 namespace Squelch.Library
 {
@@ -14,11 +14,15 @@ namespace Squelch.Library
             string messageFromException = string.Empty;
 
             if (string.IsNullOrWhiteSpace(tag))
+            {
                 throw new ArgumentNullException("tag");
+            }
 
             messageFromException = CreateExceptionString(ex);
             if (string.IsNullOrWhiteSpace(messageFromException))
+            {
                 throw new ArgumentNullException("message");
+            }
 
             Logger.Write(tag, messageFromException, severity);
         }
@@ -26,10 +30,14 @@ namespace Squelch.Library
         internal static void Write(string tag, string message, Severity severity)
         {
             if (string.IsNullOrWhiteSpace(tag))
+            {
                 throw new ArgumentNullException("tag");
+            }
 
             if (string.IsNullOrWhiteSpace(message))
+            {
                 throw new ArgumentNullException("message");
+            }
 
 #if DEBUG
             switch (severity)
@@ -77,9 +85,13 @@ namespace Squelch.Library
             StackTrace stackTrace;
 
             if (string.IsNullOrEmpty(indent))
+            {
                 indent = string.Empty;
+            }
             else if (indent.Length > 2)
+            {
                 stringBuilder.AppendFormat("{0}Inner ", indent);
+            }
 
             stackTrace = new StackTrace(ex);
             stringBuilder.AppendFormat("Exception Found:");

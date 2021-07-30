@@ -1,9 +1,6 @@
 ﻿using Android.Content.PM;
-using Java.Util.Logging;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using Squelch.Library;
 
 namespace Squelch.Library.Extensions
 {
@@ -20,9 +17,13 @@ namespace Squelch.Library.Extensions
             List<ApplicationInfo> applications = null;
 
             if (includeSystemApplications == true)
+            {
                 applications = packageManager.GetInstalledApplications(PackageInfoFlags.MatchAll).ToList();
+            }
             else
+            {
                 applications = packageManager.GetInstalledApplications(PackageInfoFlags.MatchAll).Where(x => (x.Flags & ApplicationInfoFlags.System) != ApplicationInfoFlags.System).ToList();
+            }
 
             return applications ?? new List<ApplicationInfo>();
         }

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Plugin.InAppBilling;
+using System;
 using System.Threading.Tasks;
-using Plugin.InAppBilling;
 
 namespace Squelch.Library.Utilities
 {
@@ -84,7 +84,9 @@ namespace Squelch.Library.Utilities
                         if (shouldConsume)
                         {
                             if (!connected)
+                            {
                                 connected = await billing.ConnectAsync();
+                            }
 
                             // Are we still connected?
                             if (connected)
@@ -92,7 +94,7 @@ namespace Squelch.Library.Utilities
                                 consumed = false;
 
                                 // Get all purchases
-                                var previousPurchases = await CrossInAppBilling.Current.GetPurchasesAsync(ItemType.InAppPurchase);
+                                System.Collections.Generic.IEnumerable<InAppBillingPurchase> previousPurchases = await CrossInAppBilling.Current.GetPurchasesAsync(ItemType.InAppPurchase);
                                 foreach (InAppBillingPurchase previousPurchase in previousPurchases)
                                 {
                                     // Find the unconsumed purchase of this product
@@ -101,7 +103,9 @@ namespace Squelch.Library.Utilities
                                         // Consume it
                                         consumed = await billing.ConsumePurchaseAsync(productId, previousPurchase.PurchaseToken);
                                         if (consumed == true)
+                                        {
                                             break;
+                                        }
                                     }
                                 }
 

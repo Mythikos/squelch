@@ -8,7 +8,6 @@ using Google.Android.Material.Snackbar;
 using Google.Android.Material.TextField;
 using Squelch.Library.Data;
 using Squelch.Library.Entities;
-using Squelch.Library.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -86,7 +85,9 @@ namespace Squelch.Library.Utilities
                     {
                         positiveAction?.Invoke();
                         if (dialog != null)
+                        {
                             dialog.Dismiss();
+                        }
                     };
                 }
 
@@ -100,7 +101,9 @@ namespace Squelch.Library.Utilities
                     {
                         negativeAction?.Invoke();
                         if (dialog != null)
+                        {
                             dialog.Dismiss();
+                        }
                     };
                 }
 
@@ -172,7 +175,9 @@ namespace Squelch.Library.Utilities
                     {
                         positiveAction?.Invoke(textInput.Text);
                         if (dialog != null)
+                        {
                             dialog.Dismiss();
+                        }
                     };
                 }
 
@@ -186,7 +191,9 @@ namespace Squelch.Library.Utilities
                     {
                         negativeAction?.Invoke(textInput.Text);
                         if (dialog != null)
+                        {
                             dialog.Dismiss();
+                        }
                     };
                 }
 
@@ -200,13 +207,18 @@ namespace Squelch.Library.Utilities
                 // Create and show the dialog
                 dialog = builder.Create();
                 if (focusInput)
+                {
                     dialog.Window.SetSoftInputMode(SoftInput.StateVisible);
+                }
+
                 dialog.Show();
 
                 //
                 // Handle focus
                 if (focusInput)
+                {
                     textInput.RequestFocus();
+                }
             }
 
             // Return this dialog
@@ -260,7 +272,9 @@ namespace Squelch.Library.Utilities
                 arrayAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
                 spinner.Adapter = arrayAdapter;
                 if (selectedOptionResourceId != null)
+                {
                     spinner.SetSelection(arrayAdapter.GetPosition(context.GetString(selectedOptionResourceId.Value)));
+                }
 
                 // Setup the positive button
                 if (positiveButtonTextResourceId != null)
@@ -272,7 +286,9 @@ namespace Squelch.Library.Utilities
                     {
                         positiveAction?.Invoke((string)spinner.SelectedItem);
                         if (dialog != null)
+                        {
                             dialog.Dismiss();
+                        }
                     };
                 }
 
@@ -286,7 +302,9 @@ namespace Squelch.Library.Utilities
                     {
                         negativeAction?.Invoke((string)spinner.SelectedItem);
                         if (dialog != null)
+                        {
                             dialog.Dismiss();
+                        }
                     };
                 }
 
@@ -300,13 +318,18 @@ namespace Squelch.Library.Utilities
                 // Create and show the dialog
                 dialog = builder.Create();
                 if (focusInput)
+                {
                     dialog.Window.SetSoftInputMode(SoftInput.StateVisible);
+                }
+
                 dialog.Show();
 
                 //
                 // Handle focus
                 if (focusInput)
+                {
                     spinner.RequestFocus();
+                }
             }
 
             // Return this dialog
@@ -371,7 +394,7 @@ namespace Squelch.Library.Utilities
 
                 statusLabel = layout.FindViewById<TextView>(Resource.Id.dialog_blackout_details_data_layout_status_label);
                 statusText = context.GetString(Resource.String.text_unknown);
-                switch(blackoutItem.StatusCode)
+                switch (blackoutItem.StatusCode)
                 {
                     case BlackoutItem.BlackoutStatusCode.Active:
                         statusText = context.GetString(Resource.String.text_active);
@@ -387,7 +410,7 @@ namespace Squelch.Library.Utilities
 
                 resultLabel = layout.FindViewById<TextView>(Resource.Id.dialog_blackout_details_data_layout_result_label);
                 resultText = context.GetString(Resource.String.text_unknown);
-                switch(blackoutItem.ResultCode)
+                switch (blackoutItem.ResultCode)
                 {
                     case BlackoutItem.BlackoutResultCode.Cancelled:
                         resultText = context.GetString(Resource.String.text_cancelled);
@@ -417,7 +440,9 @@ namespace Squelch.Library.Utilities
                 positiveButton.Click += delegate
                 {
                     if (dialog != null)
+                    {
                         dialog.Dismiss();
+                    }
                 };
 
                 // Setup the negative button
@@ -445,7 +470,9 @@ namespace Squelch.Library.Utilities
                                 }
 
                                 if (dialog != null)
+                                {
                                     dialog.Dismiss();
+                                }
                             },
                             Resource.String.text_no
                         );

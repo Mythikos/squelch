@@ -1,18 +1,16 @@
-﻿using System;
+﻿using Android.App;
+using Android.Content;
+using Android.Content.PM;
+using Android.OS;
+using Android.Views;
+using Squelch.Activities;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using Android.App;
-using Android.Content;
-using Android.Content.PM;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Squelch.Activities;
 
 namespace Squelch.Library.Utilities
 {
@@ -37,9 +35,15 @@ namespace Squelch.Library.Utilities
                 foregroundApplication = activityManager.RunningAppProcesses.Where(x => x.Importance == Importance.Foreground).FirstOrDefault();
 
                 if (foregroundApplication != null)
+                {
                     foreach (string packageName in foregroundApplication.PkgList)
+                    {
                         if (packageName.Equals(context.PackageName, StringComparison.OrdinalIgnoreCase))
+                        {
                             return true;
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -67,7 +71,9 @@ namespace Squelch.Library.Utilities
                 intent.AddFlags(ActivityFlags.NewTask);
                 intent.AddCategory(Intent.CategoryLauncher);
                 if (extras != null)
+                {
                     intent.PutExtras(extras);
+                }
 
                 //
                 // Open the activity
@@ -172,7 +178,10 @@ namespace Squelch.Library.Utilities
                 if (method.Equals("GET", StringComparison.OrdinalIgnoreCase))
                 {
                     if (string.IsNullOrWhiteSpace(dataString) == false)
+                    {
                         uri += "?" + dataString;
+                    }
+
                     webRequest = (HttpWebRequest)HttpWebRequest.Create(uri);
                     webRequest.Method = "GET";
                 }
@@ -184,7 +193,9 @@ namespace Squelch.Library.Utilities
                     webRequest.ContentType = "application/x-www-form-urlencoded";
                     webRequest.ContentLength = data.Length;
                     using (Stream stream = webRequest.GetRequestStream())
+                    {
                         stream.Write(data, 0, data.Length);
+                    }
                 }
                 else
                 {
@@ -196,8 +207,12 @@ namespace Squelch.Library.Utilities
                 webRequest.Timeout = 10000;
                 webResponse = (HttpWebResponse)webRequest.GetResponse();
                 if (webResponse.StatusCode == HttpStatusCode.OK)
+                {
                     using (StreamReader reader = new StreamReader(webResponse.GetResponseStream()))
+                    {
                         result = reader.ReadToEnd();
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -481,9 +496,14 @@ namespace Squelch.Library.Utilities
                 stringBuilder.Append($"Display: {Build.Display}\r\n");
                 stringBuilder.Append($"Id: {Build.Id}\r\n");
                 if (Build.VERSION.SdkInt < BuildVersionCodes.Lollipop)
+                {
                     stringBuilder.Append($"ABI: {Build.CpuAbi}\r\n");
+                }
                 else
+                {
                     stringBuilder.Append($"ABI: {(Build.SupportedAbis.Count > 0 ? Build.SupportedAbis[0] : "?")}\r\n");
+                }
+
                 stringBuilder.Append($"\r\n\r\n\r\n");
 
                 return stringBuilder.ToString();

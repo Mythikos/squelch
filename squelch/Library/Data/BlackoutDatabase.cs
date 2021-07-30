@@ -1,15 +1,14 @@
-﻿using System;
+﻿using SQLite;
+using SQLiteNetExtensions.Extensions;
+using SQLiteNetExtensionsAsync.Extensions;
+using Squelch.Library.Entities;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SQLite;
-using SQLiteNetExtensionsAsync.Extensions;
-using SQLiteNetExtensions.Extensions;
-using Squelch.Library.Entities;
-using Xamarin.Essentials;
 using System.Threading;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace Squelch.Library.Data
 {
@@ -26,7 +25,7 @@ namespace Squelch.Library.Data
         {
             s_databaseMaintenanceLock = new SemaphoreSlim(1, 1);
             s_database = new SQLiteAsyncConnection(new SQLiteConnectionString(Path.Combine(FileSystem.AppDataDirectory, "blackouts.db")));
-            var result = s_database.CreateTableAsync<BlackoutItem>(CreateFlags.ImplicitPK | CreateFlags.AutoIncPK).Result;
+            CreateTableResult result = s_database.CreateTableAsync<BlackoutItem>(CreateFlags.ImplicitPK | CreateFlags.AutoIncPK).Result;
         }
         #endregion
 
@@ -45,7 +44,9 @@ namespace Squelch.Library.Data
                 result = true;
 
                 if (result)
+                {
                     OnBlackoutTableChanged();
+                }
             }
             catch (Exception ex)
             {
@@ -65,15 +66,21 @@ namespace Squelch.Library.Data
                 await s_database.RunInTransactionAsync(transaction =>
                 {
                     if (blackoutItem.Id != 0)
+                    {
                         transaction.UpdateWithChildren(blackoutItem);
+                    }
                     else
+                    {
                         transaction.InsertWithChildren(blackoutItem);
+                    }
                 });
 
                 result = true;
 
                 if (result)
+                {
                     OnBlackoutTableChanged();
+                }
             }
             catch (Exception ex)
             {
@@ -97,10 +104,14 @@ namespace Squelch.Library.Data
                 });
 
                 if (affectedRows > 0)
+                {
                     result = true;
+                }
 
                 if (result)
+                {
                     OnBlackoutTableChanged();
+                }
             }
             catch (Exception ex)
             {
@@ -190,7 +201,9 @@ namespace Squelch.Library.Data
         /// </summary>
         /// <returns></returns>
         public static async Task<long> CountAsync()
-            => (await BlackoutDatabase.FindAllAsync()).Count;
+        {
+            return (await BlackoutDatabase.FindAllAsync()).Count;
+        }
 
         /// <summary>
         /// Returns the first pending blackout found
@@ -210,9 +223,13 @@ namespace Squelch.Library.Data
                     if (blackoutItems.Count > 0)
                     {
                         if (minimumStartTime != null)
+                        {
                             blackoutItem = blackoutItems.Where(x => x.ScheduledStartDateTime <= minimumStartTime.Value).OrderBy(x => x.ScheduledStartDateTime).FirstOrDefault();
+                        }
                         else
+                        {
                             blackoutItem = blackoutItems.OrderBy(x => x.ScheduledStartDateTime).FirstOrDefault();
+                        }
                     }
                 }
             }
@@ -238,8 +255,12 @@ namespace Squelch.Library.Data
             {
                 blackoutItems = await BlackoutDatabase.FindAllAsync(BlackoutItem.BlackoutStatusCode.Active);
                 if (blackoutItems != null)
+                {
                     if (blackoutItems.Count > 0)
+                    {
                         blackoutItem = blackoutItems.OrderBy(x => x.ScheduledStartDateTime).FirstOrDefault();
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -265,8 +286,12 @@ namespace Squelch.Library.Data
             {
                 blackoutItems = (await BlackoutDatabase.FindAllAsync(statusCode)).Where(x => x.ScheduledStartDateTime <= targetDateTime && x.ScheduledEndDateTime >= targetDateTime).ToList();
                 if (blackoutItems != null)
+                {
                     if (blackoutItems.Count > 0)
+                    {
                         blackoutItem = blackoutItems.OrderBy(x => x.ScheduledStartDateTime).FirstOrDefault();
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -292,8 +317,12 @@ namespace Squelch.Library.Data
             {
                 blackoutItems = (await BlackoutDatabase.FindAllAsync(startDateTime, endDateTime)).Where(x => x.StatusCode.Equals(BlackoutItem.BlackoutStatusCode.Finished) == false).ToList();
                 if (blackoutItems != null)
+                {
                     if (blackoutItems.Count > 0)
+                    {
                         result = true;
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -309,7 +338,9 @@ namespace Squelch.Library.Data
         /// </summary>
         /// <returns></returns>
         public static async Task<bool> HasActiveBackoutAsync()
-            => (await BlackoutDatabase.GetFirstActiveBlackoutAsync()) != default;
+        {
+            return (await BlackoutDatabase.GetFirstActiveBlackoutAsync()) != default;
+        }
 
         /// <summary>
         /// Checks to see if the specified blackout is still active and valid for this time 
@@ -379,7 +410,7 @@ namespace Squelch.Library.Data
                     result.Add($"total_milliseconds_scheduled_{resultCode.ToString().ToLower()}", blackouts.Where(x => x.ResultCode.Equals(resultCode)).Sum(x => (x.ScheduledEndDateTime - x.ScheduledStartDateTime).TotalMilliseconds).ToString());
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 result = new Dictionary<string, string>();
             }
@@ -408,7 +439,9 @@ namespace Squelch.Library.Data
                 {
                     // Has this blackout item elapsed yet?
                     if (item.ScheduledEndDateTime >= DateTime.Now.AddMinutes(5))
+                    {
                         break;
+                    }
 
                     // Update it
                     Logger.Write(s_tag, $"Scrub: Found that blackout {item.Id} is still pending but its end datetime is {item.ScheduledEndDateTime}. Marking blackout as skipped.", Logger.Severity.Info);
@@ -418,7 +451,7 @@ namespace Squelch.Library.Data
 
                 //
                 // Step 2 : Find and remove blackout data that is over 1 year old from its end datetime
-                foreach(BlackoutItem item in (await BlackoutDatabase.FindAllAsync()).Where(x => x.ScheduledEndDateTime < DateTime.Now.AddYears(-1)).ToList())
+                foreach (BlackoutItem item in (await BlackoutDatabase.FindAllAsync()).Where(x => x.ScheduledEndDateTime < DateTime.Now.AddYears(-1)).ToList())
                 {
                     // Remove it
                     Logger.Write(s_tag, $"Scrub: Found that blackout {item.Id} is from over a year ago. Removing blackout from database.", Logger.Severity.Info);
@@ -445,7 +478,10 @@ namespace Squelch.Library.Data
         /// Called when the blackout table changed
         /// </summary>
         internal static event Action BlackoutTableChanged;
-        private static void OnBlackoutTableChanged() => BlackoutTableChanged?.Invoke();
+        private static void OnBlackoutTableChanged()
+        {
+            BlackoutTableChanged?.Invoke();
+        }
         #endregion
     }
 }

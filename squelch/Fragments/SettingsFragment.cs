@@ -55,31 +55,31 @@ namespace Squelch.Fragments
 
             try
             {
-                _rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_root_layout);
+                this._rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_root_layout);
 
                 //
                 // Setting: User
-                _idLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_user_id_layout);
-                _idContentLabel = view.FindViewById<TextView>(Resource.Id.fragment_settings_user_id_content_label);
-                _idLayout.Click += async delegate
+                this._idLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_user_id_layout);
+                this._idContentLabel = view.FindViewById<TextView>(Resource.Id.fragment_settings_user_id_content_label);
+                this._idLayout.Click += async delegate
                 {
                     try
                     {
-                        SetIsWorking(true);
+                        this.SetIsWorking(true);
 
-                        await Clipboard.SetTextAsync(_versionContentLabel.Text);
+                        await Clipboard.SetTextAsync(this._versionContentLabel.Text);
                         DisplayUtils.ShowToast(this.Context, Resource.String.fragment_settings_toast_id_copied);
                     }
-                    finally { SetIsWorking(false); }
+                    finally { this.SetIsWorking(false); }
                 };
 
-                _firstNameLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_user_first_name_layout);
-                _firstNameContentLabel = view.FindViewById<TextView>(Resource.Id.fragment_settings_user_first_name_content_label);
-                _firstNameLayout.Click += delegate
+                this._firstNameLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_user_first_name_layout);
+                this._firstNameContentLabel = view.FindViewById<TextView>(Resource.Id.fragment_settings_user_first_name_content_label);
+                this._firstNameLayout.Click += delegate
                 {
                     try
                     {
-                        SetIsWorking(true);
+                        this.SetIsWorking(true);
                         DisplayUtils.ShowGenericSingleInputAlertDialog(
                             this.Context,
                             Resource.String.text_first_name,
@@ -90,26 +90,26 @@ namespace Squelch.Fragments
                             true,
                             true,
                             Resource.String.text_save,
-                            async delegate (string value) 
-                            { 
+                            async delegate (string value)
+                            {
                                 UserSettings.FirstName = value?.Trim();
-                                await RedrawView();
+                                await this.RedrawView();
                             },
                             Resource.String.text_cancel,
                             null
                         );
                     }
-                    finally { SetIsWorking(false); }
+                    finally { this.SetIsWorking(false); }
                 };
 
-                _lastNameLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_user_last_name_layout);
-                _lastNameContentLabel = view.FindViewById<TextView>(Resource.Id.fragment_settings_user_last_name_content_label);
-                _lastNameLayout.Click += delegate
+                this._lastNameLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_user_last_name_layout);
+                this._lastNameContentLabel = view.FindViewById<TextView>(Resource.Id.fragment_settings_user_last_name_content_label);
+                this._lastNameLayout.Click += delegate
                 {
                     try
                     {
-                        SetIsWorking(true);
-                        var dialog = DisplayUtils.ShowGenericSingleInputAlertDialog(
+                        this.SetIsWorking(true);
+                        Android.App.AlertDialog dialog = DisplayUtils.ShowGenericSingleInputAlertDialog(
                             this.Context,
                             Resource.String.text_last_name,
                             Resource.String.fragment_settings_prompt_last_name,
@@ -119,25 +119,26 @@ namespace Squelch.Fragments
                             true,
                             true,
                             Resource.String.text_save,
-                            async delegate (string value) { 
+                            async delegate (string value)
+                            {
                                 UserSettings.LastName = value?.Trim();
-                                await RedrawView();
+                                await this.RedrawView();
                             },
                             Resource.String.text_cancel,
                             null
                         );
                     }
-                    finally { SetIsWorking(false); }
+                    finally { this.SetIsWorking(false); }
                 };
 
-                _timeFormatLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_user_time_format_layout);
-                _timeFormatContentLabel = view.FindViewById<TextView>(Resource.Id.fragment_settings_user_time_format_content_label);
-                _timeFormatLayout.Click += delegate
+                this._timeFormatLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_user_time_format_layout);
+                this._timeFormatContentLabel = view.FindViewById<TextView>(Resource.Id.fragment_settings_user_time_format_content_label);
+                this._timeFormatLayout.Click += delegate
                 {
                     try
                     {
-                        SetIsWorking(true);
-                        var dialog = DisplayUtils.ShowGenericSingleComboAlertDialog(
+                        this.SetIsWorking(true);
+                        Android.App.AlertDialog dialog = DisplayUtils.ShowGenericSingleComboAlertDialog(
                             this.Context,
                             Resource.String.text_time_format,
                             Resource.String.fragment_settings_prompt_time_format,
@@ -147,85 +148,86 @@ namespace Squelch.Fragments
                             true,
                             true,
                             Resource.String.text_save,
-                            async delegate (string value) {
+                            async delegate (string value)
+                            {
                                 UserSettings.FormatTimeAsTwelveHour = value.Equals(this.GetString(Resource.String.fragment_settings_user_time_format_twelve_hour));
-                                await RedrawView();
+                                await this.RedrawView();
                             },
                             Resource.String.text_cancel,
                             null
                         );
                     }
-                    finally { SetIsWorking(false); }
+                    finally { this.SetIsWorking(false); }
                 };
 
                 //
                 // Setting: Permissions
-                _usageStatsLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_permissions_usage_stats_layout);
-                _usageStatsStateLabel = view.FindViewById<TextView>(Resource.Id.fragment_settings_permissions_usage_stats_state_label);
-                _usageStatsLayout.Click += delegate
+                this._usageStatsLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_permissions_usage_stats_layout);
+                this._usageStatsStateLabel = view.FindViewById<TextView>(Resource.Id.fragment_settings_permissions_usage_stats_state_label);
+                this._usageStatsLayout.Click += delegate
                 {
                     this.Context.StartActivity(new Intent(Android.Provider.Settings.ActionUsageAccessSettings));
                 };
 
-                _applicationOverlayLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_permissions_application_overlay_layout);
-                _applicationOverlayStateLabel = view.FindViewById<TextView>(Resource.Id.fragment_settings_permissions_application_overlay_state_label);
-                _applicationOverlayLayout.Click += delegate
+                this._applicationOverlayLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_permissions_application_overlay_layout);
+                this._applicationOverlayStateLabel = view.FindViewById<TextView>(Resource.Id.fragment_settings_permissions_application_overlay_state_label);
+                this._applicationOverlayLayout.Click += delegate
                 {
                     this.Context.StartActivity(new Intent(Android.Provider.Settings.ActionManageOverlayPermission));
                 };
 
                 //
                 // Setting: About
-                _versionLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_about_version_layout);
-                _versionContentLabel = view.FindViewById<TextView>(Resource.Id.fragment_settings_about_version_content_label);
-                _versionLayout.Click += async delegate
+                this._versionLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_about_version_layout);
+                this._versionContentLabel = view.FindViewById<TextView>(Resource.Id.fragment_settings_about_version_content_label);
+                this._versionLayout.Click += async delegate
                 {
                     try
                     {
-                        SetIsWorking(true);
+                        this.SetIsWorking(true);
 
-                        await Clipboard.SetTextAsync(_versionContentLabel.Text);
+                        await Clipboard.SetTextAsync(this._versionContentLabel.Text);
                         DisplayUtils.ShowToast(this.Context, Resource.String.fragment_settings_toast_version_copied);
                     }
-                    finally { SetIsWorking(false); }
+                    finally { this.SetIsWorking(false); }
                 };
 
-                _privacyPolicyLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_about_privacy_policy_layout);
-                _privacyPolicyLayout.Click += delegate
+                this._privacyPolicyLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_about_privacy_policy_layout);
+                this._privacyPolicyLayout.Click += delegate
                 {
                     try
                     {
-                        SetIsWorking(true);
+                        this.SetIsWorking(true);
 
                         Intent linkIntent = new Intent(Intent.ActionView);
                         linkIntent.SetData(Android.Net.Uri.Parse(this.Resources.GetString(Resource.String.link_squelch_privacy_policy)));
-                        StartActivity(linkIntent);
+                        this.StartActivity(linkIntent);
                     }
-                    finally { SetIsWorking(false); }
+                    finally { this.SetIsWorking(false); }
                 };
 
-                _eulaLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_about_eula_layout);
-                _eulaLayout.Click += delegate
+                this._eulaLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_about_eula_layout);
+                this._eulaLayout.Click += delegate
                 {
                     try
                     {
-                        SetIsWorking(true);
+                        this.SetIsWorking(true);
 
                         Intent linkIntent = new Intent(Intent.ActionView);
                         linkIntent.SetData(Android.Net.Uri.Parse(this.Resources.GetString(Resource.String.link_squelch_end_user_licensing_agreement)));
-                        StartActivity(linkIntent);
+                        this.StartActivity(linkIntent);
                     }
-                    finally { SetIsWorking(false); }
+                    finally { this.SetIsWorking(false); }
                 };
 
-                _openSourceLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_about_open_source_layout);
-                _openSourceLayout.Click += delegate
+                this._openSourceLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_settings_about_open_source_layout);
+                this._openSourceLayout.Click += delegate
                 {
                     try
                     {
                         this.ChildFragmentManager.ShowDialogFragment(typeof(OpenSourceDialogFragment));
                     }
-                    finally { SetIsWorking(false); }
+                    finally { this.SetIsWorking(false); }
                 };
 
                 //
@@ -250,7 +252,7 @@ namespace Squelch.Fragments
             {
                 //
                 // Redraw the view
-                await RedrawView();
+                await this.RedrawView();
 
                 //
                 // Set firebase screen
@@ -271,11 +273,13 @@ namespace Squelch.Fragments
         private void SetIsWorking(bool isWorking)
         {
             // Toggle views
-            ViewUtils.SetViewAndChildrenEnabled(_rootLayout, !isWorking);
+            ViewUtils.SetViewAndChildrenEnabled(this._rootLayout, !isWorking);
 
             // Report to parent
             if (this.Activity is IIndeterminateProgressReporter)
+            {
                 ((IIndeterminateProgressReporter)this.Activity).SetProgressBarState(isWorking);
+            }
         }
 
         /// <summary>
@@ -297,7 +301,7 @@ namespace Squelch.Fragments
 
             //
             // Start working animation
-            SetIsWorking(true);
+            this.SetIsWorking(true);
 
             try
             {
@@ -319,15 +323,15 @@ namespace Squelch.Fragments
 
                 //
                 // Assign view values
-                _idContentLabel.Text = (string.IsNullOrWhiteSpace(userId) ? this.GetString(Resource.String.text_undefined_input) : userId);
-                _firstNameContentLabel.Text = (string.IsNullOrWhiteSpace(userFirstName) ? this.GetString(Resource.String.text_undefined_input) : userFirstName);
-                _lastNameContentLabel.Text = (string.IsNullOrWhiteSpace(userLastName) ? this.GetString(Resource.String.text_undefined_input) : userLastName);
-                _timeFormatContentLabel.Text = (userFormatTimeAsMilitary) ? this.GetString(Resource.String.fragment_settings_user_time_format_twelve_hour) : this.GetString(Resource.String.fragment_settings_user_time_format_twenty_four_hour);
+                this._idContentLabel.Text = (string.IsNullOrWhiteSpace(userId) ? this.GetString(Resource.String.text_undefined_input) : userId);
+                this._firstNameContentLabel.Text = (string.IsNullOrWhiteSpace(userFirstName) ? this.GetString(Resource.String.text_undefined_input) : userFirstName);
+                this._lastNameContentLabel.Text = (string.IsNullOrWhiteSpace(userLastName) ? this.GetString(Resource.String.text_undefined_input) : userLastName);
+                this._timeFormatContentLabel.Text = (userFormatTimeAsMilitary) ? this.GetString(Resource.String.fragment_settings_user_time_format_twelve_hour) : this.GetString(Resource.String.fragment_settings_user_time_format_twenty_four_hour);
 
-                _usageStatsStateLabel.Text = (string.IsNullOrWhiteSpace(usageStatsState) ? this.GetString(Resource.String.text_undefined_input) : usageStatsState);
-                _applicationOverlayStateLabel.Text = (string.IsNullOrWhiteSpace(applicationOverlayState) ? this.GetString(Resource.String.text_undefined_input) : applicationOverlayState);
+                this._usageStatsStateLabel.Text = (string.IsNullOrWhiteSpace(usageStatsState) ? this.GetString(Resource.String.text_undefined_input) : usageStatsState);
+                this._applicationOverlayStateLabel.Text = (string.IsNullOrWhiteSpace(applicationOverlayState) ? this.GetString(Resource.String.text_undefined_input) : applicationOverlayState);
 
-                _versionContentLabel.Text = string.Format(this.GetString(Resource.String.fragment_settings_version_and_build), selfVersionName, selfVersionCode);
+                this._versionContentLabel.Text = string.Format(this.GetString(Resource.String.fragment_settings_version_and_build), selfVersionName, selfVersionCode);
             }
             catch (Exception ex)
             {
@@ -337,7 +341,7 @@ namespace Squelch.Fragments
             {
                 //
                 // End working animation
-                SetIsWorking(false);
+                this.SetIsWorking(false);
             }
         }
         #endregion

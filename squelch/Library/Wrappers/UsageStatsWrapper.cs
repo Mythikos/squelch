@@ -67,7 +67,9 @@ namespace Squelch.Library.Wrappers
             //
             // Load the application's info
             if (string.IsNullOrWhiteSpace(foregroundPackageName) == false)
+            {
                 this.ForegroundApplication = this._context.PackageManager.GetApplicationInfo(foregroundPackageName, PackageInfoFlags.MatchAll);
+            }
 
             //
             // Update last update time

@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
+﻿using Android.Content;
 using Android.Icu.Text;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+using System;
 using TextFormatter = Android.Text.Format;
 
 namespace Squelch.Library.Utilities
@@ -178,9 +169,13 @@ namespace Squelch.Library.Utilities
         internal static string FormatTime(Context context, DateTime inputTime, bool formatTimeAsTwelveHour)
         {
             if (formatTimeAsTwelveHour)
+            {
                 return TextFormatter.DateUtils.FormatDateTime(context, new DateTimeOffset(inputTime).ToUnixTimeMilliseconds(), TextFormatter.FormatStyleFlags.ShowTime | TextFormatter.FormatStyleFlags.TwelveHour | TextFormatter.FormatStyleFlags.CapAmpm);
+            }
             else
+            {
                 return TextFormatter.DateUtils.FormatDateTime(context, new DateTimeOffset(inputTime).ToUnixTimeMilliseconds(), TextFormatter.FormatStyleFlags.ShowTime | TextFormatter.FormatStyleFlags.TwentyFourHour);
+            }
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Android.Content.PM;
 using Android.Graphics;
-using Android.Opengl;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
@@ -62,8 +61,8 @@ namespace Squelch.Fragments
         // Instance variables
         private int _stepId;
         private BlackoutItem.BlackoutDifficultyCode _blackoutDifficulty;
-        UIApplicationListAdapter _applicationListAdapter;
-        List<UIApplicationItem> _applicationList;
+        private UIApplicationListAdapter _applicationListAdapter;
+        private List<UIApplicationItem> _applicationList;
 
         // Constants
         private const int STEP_DIFFICULTY = 1, STEP_BID = 2, STEP_DATE_RANGE = 3, STEP_APPLICATIONS = 4, STEP_REVIEW = 5;
@@ -73,8 +72,8 @@ namespace Squelch.Fragments
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            _blackoutDifficulty = BlackoutItem.BlackoutDifficultyCode.Veteran;
-            HasOptionsMenu = true;
+            this._blackoutDifficulty = BlackoutItem.BlackoutDifficultyCode.Veteran;
+            this.HasOptionsMenu = true;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -90,130 +89,130 @@ namespace Squelch.Fragments
             {
                 //
                 // Get view elements
-                _rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_blackout_setup_root_layout);
-                _titleLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_setup_title);
-                _problemLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_setup_problem_label);
+                this._rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_blackout_setup_root_layout);
+                this._titleLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_setup_title);
+                this._problemLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_setup_problem_label);
 
                 //
                 // Difficulty related
-                _difficultyLayout = view.FindViewById<ScrollView>(Resource.Id.fragment_blackout_setup_difficulty_layout);
-                _difficultyNoviceButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_difficulty_novice_button);
-                _difficultyVeteranButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_difficulty_veteran_button);
-                _difficultyMasterButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_difficulty_master_button);
+                this._difficultyLayout = view.FindViewById<ScrollView>(Resource.Id.fragment_blackout_setup_difficulty_layout);
+                this._difficultyNoviceButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_difficulty_novice_button);
+                this._difficultyVeteranButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_difficulty_veteran_button);
+                this._difficultyMasterButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_difficulty_master_button);
 
-                _difficultyNoviceButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
-                _difficultyVeteranButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
-                _difficultyMasterButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
+                this._difficultyNoviceButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
+                this._difficultyVeteranButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
+                this._difficultyMasterButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
 
-                _difficultyNoviceButton.Click += (s, e) =>
+                this._difficultyNoviceButton.Click += (s, e) =>
                 {
-                    _difficultyNoviceButton.Background.Mutate();
-                    _difficultyNoviceButton.Background.SetColorFilter(new Color(ContextCompat.GetColor(this.Context, Resource.Color.difficultyNovice)), PorterDuff.Mode.SrcAtop);
-                    _difficultyNoviceButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.difficultyNoviceForeground));
+                    this._difficultyNoviceButton.Background.Mutate();
+                    this._difficultyNoviceButton.Background.SetColorFilter(new Color(ContextCompat.GetColor(this.Context, Resource.Color.difficultyNovice)), PorterDuff.Mode.SrcAtop);
+                    this._difficultyNoviceButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.difficultyNoviceForeground));
 
-                    _difficultyVeteranButton.Background.Mutate();
-                    _difficultyVeteranButton.Background.ClearColorFilter();
-                    _difficultyVeteranButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
+                    this._difficultyVeteranButton.Background.Mutate();
+                    this._difficultyVeteranButton.Background.ClearColorFilter();
+                    this._difficultyVeteranButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
 
-                    _difficultyMasterButton.Background.Mutate();
-                    _difficultyMasterButton.Background.ClearColorFilter();
-                    _difficultyMasterButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
+                    this._difficultyMasterButton.Background.Mutate();
+                    this._difficultyMasterButton.Background.ClearColorFilter();
+                    this._difficultyMasterButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
 
-                    _blackoutDifficulty = BlackoutItem.BlackoutDifficultyCode.Novice;
+                    this._blackoutDifficulty = BlackoutItem.BlackoutDifficultyCode.Novice;
                 };
-                _difficultyVeteranButton.Click += (s, e) =>
+                this._difficultyVeteranButton.Click += (s, e) =>
                 {
-                    _difficultyNoviceButton.Background.Mutate();
-                    _difficultyNoviceButton.Background.ClearColorFilter();
-                    _difficultyNoviceButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
+                    this._difficultyNoviceButton.Background.Mutate();
+                    this._difficultyNoviceButton.Background.ClearColorFilter();
+                    this._difficultyNoviceButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
 
-                    _difficultyVeteranButton.Background.Mutate();
-                    _difficultyVeteranButton.Background.SetColorFilter(new Color(ContextCompat.GetColor(this.Context, Resource.Color.difficultyVeteran)), PorterDuff.Mode.SrcAtop);
-                    _difficultyVeteranButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.difficultyVeteranForeground));
+                    this._difficultyVeteranButton.Background.Mutate();
+                    this._difficultyVeteranButton.Background.SetColorFilter(new Color(ContextCompat.GetColor(this.Context, Resource.Color.difficultyVeteran)), PorterDuff.Mode.SrcAtop);
+                    this._difficultyVeteranButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.difficultyVeteranForeground));
 
-                    _difficultyMasterButton.Background.Mutate();
-                    _difficultyMasterButton.Background.ClearColorFilter();
-                    _difficultyMasterButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
+                    this._difficultyMasterButton.Background.Mutate();
+                    this._difficultyMasterButton.Background.ClearColorFilter();
+                    this._difficultyMasterButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
 
-                    _blackoutDifficulty = BlackoutItem.BlackoutDifficultyCode.Veteran;
+                    this._blackoutDifficulty = BlackoutItem.BlackoutDifficultyCode.Veteran;
                 };
-                _difficultyMasterButton.Click += (s, e) =>
+                this._difficultyMasterButton.Click += (s, e) =>
                 {
-                    _difficultyNoviceButton.Background.Mutate();
-                    _difficultyNoviceButton.Background.ClearColorFilter();
-                    _difficultyNoviceButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
+                    this._difficultyNoviceButton.Background.Mutate();
+                    this._difficultyNoviceButton.Background.ClearColorFilter();
+                    this._difficultyNoviceButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
 
-                    _difficultyVeteranButton.Background.Mutate();
-                    _difficultyVeteranButton.Background.ClearColorFilter();
-                    _difficultyVeteranButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
+                    this._difficultyVeteranButton.Background.Mutate();
+                    this._difficultyVeteranButton.Background.ClearColorFilter();
+                    this._difficultyVeteranButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimary));
 
-                    _difficultyMasterButton.Background.Mutate();
-                    _difficultyMasterButton.Background.SetColorFilter(new Color(ContextCompat.GetColor(this.Context, Resource.Color.difficultyMaster)), PorterDuff.Mode.SrcAtop);
-                    _difficultyMasterButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.difficultyMasterForeground));
+                    this._difficultyMasterButton.Background.Mutate();
+                    this._difficultyMasterButton.Background.SetColorFilter(new Color(ContextCompat.GetColor(this.Context, Resource.Color.difficultyMaster)), PorterDuff.Mode.SrcAtop);
+                    this._difficultyMasterButton.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.difficultyMasterForeground));
 
-                    _blackoutDifficulty = BlackoutItem.BlackoutDifficultyCode.Master;
+                    this._blackoutDifficulty = BlackoutItem.BlackoutDifficultyCode.Master;
                 };
-                _difficultyVeteranButton.CallOnClick(); // Default to novice difficulty
+                this._difficultyVeteranButton.CallOnClick(); // Default to novice difficulty
 
 
                 //
                 // Bid related
-                _bidLayout = view.FindViewById<NestedScrollView>(Resource.Id.fragment_blackout_setup_bid_layout);
-                _bidNumberPicker = view.FindViewById<NumberPicker>(Resource.Id.fragment_blackout_setup_bid_number_picker);
-                _bidValidValueRangeLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_setup_bid_valid_values_label);
+                this._bidLayout = view.FindViewById<NestedScrollView>(Resource.Id.fragment_blackout_setup_bid_layout);
+                this._bidNumberPicker = view.FindViewById<NumberPicker>(Resource.Id.fragment_blackout_setup_bid_number_picker);
+                this._bidValidValueRangeLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_setup_bid_valid_values_label);
 
                 //
                 // Date range related
-                _daterangeLayout = view.FindViewById<ScrollView>(Resource.Id.fragment_blackout_setup_date_range_layout);
-                _dateRangeStartDateButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_start_date_button);
-                _dateRangeStartTimeButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_start_time_button);
-                _dateRangeEndDateButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_end_date_button);
-                _dateRangeEndTimeButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_end_time_button);
-                _dateRangeStartNowButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_start_now_button);
-                _dateRangeStartPlus1Button = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_start_plus1_button);
-                _dateRangeStartPlus5Button = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_start_plus5_button);
-                _dateRangeStartPlus10Button = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_start_plus10_button);
-                _dateRangeStartPlus30Button = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_start_plus30_button);
-                _dateRangeEndPlus1Button = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_end_plus1_button);
-                _dateRangeEndPlus5Button = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_end_plus5_button);
-                _dateRangeEndPlus10Button = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_end_plus10_button);
-                _dateRangeEndPlus30Button = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_end_plus30_button);
+                this._daterangeLayout = view.FindViewById<ScrollView>(Resource.Id.fragment_blackout_setup_date_range_layout);
+                this._dateRangeStartDateButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_start_date_button);
+                this._dateRangeStartTimeButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_start_time_button);
+                this._dateRangeEndDateButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_end_date_button);
+                this._dateRangeEndTimeButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_end_time_button);
+                this._dateRangeStartNowButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_start_now_button);
+                this._dateRangeStartPlus1Button = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_start_plus1_button);
+                this._dateRangeStartPlus5Button = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_start_plus5_button);
+                this._dateRangeStartPlus10Button = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_start_plus10_button);
+                this._dateRangeStartPlus30Button = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_start_plus30_button);
+                this._dateRangeEndPlus1Button = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_end_plus1_button);
+                this._dateRangeEndPlus5Button = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_end_plus5_button);
+                this._dateRangeEndPlus10Button = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_end_plus10_button);
+                this._dateRangeEndPlus30Button = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_date_range_end_plus30_button);
 
 
-                _dateRangeStartDateButton.Click += delegate
+                this._dateRangeStartDateButton.Click += delegate
                 {
                     DatePickerDialogFragment datePickerFragment = DatePickerDialogFragment.NewInstance(delegate (DateTime dateTime)
                     {
-                        _dateRangeStartDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime);
+                        this._dateRangeStartDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime);
                     });
                     datePickerFragment.Show(this.FragmentManager, $"{this.GetType().Name}{typeof(DatePickerDialogFragment).Name}");
                 };
-                _dateRangeStartTimeButton.Click += delegate
+                this._dateRangeStartTimeButton.Click += delegate
                 {
                     TimePickerDialogFragment timePickerFragment = TimePickerDialogFragment.NewInstance(delegate (DateTime dateTime)
                     {
-                        _dateRangeStartTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime, UserSettings.FormatTimeAsTwelveHour);
+                        this._dateRangeStartTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime, UserSettings.FormatTimeAsTwelveHour);
                     });
                     timePickerFragment.Show(this.FragmentManager, $"{this.GetType().Name}{typeof(DatePickerDialogFragment).Name}");
                 };
-                _dateRangeEndDateButton.Click += delegate
+                this._dateRangeEndDateButton.Click += delegate
                 {
                     DatePickerDialogFragment datePickerFragment = DatePickerDialogFragment.NewInstance(delegate (DateTime dateTime)
                     {
-                        _dateRangeEndDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime);
+                        this._dateRangeEndDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime);
                     });
                     datePickerFragment.Show(this.FragmentManager, $"{this.GetType().Name}{typeof(DatePickerDialogFragment).Name}");
                 };
-                _dateRangeEndTimeButton.Click += delegate
+                this._dateRangeEndTimeButton.Click += delegate
                 {
                     TimePickerDialogFragment timePickerFragment = TimePickerDialogFragment.NewInstance(delegate (DateTime dateTime)
                     {
-                        _dateRangeEndTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime, UserSettings.FormatTimeAsTwelveHour);
+                        this._dateRangeEndTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime, UserSettings.FormatTimeAsTwelveHour);
                     });
                     timePickerFragment.Show(this.FragmentManager, $"{this.GetType().Name}{typeof(DatePickerDialogFragment).Name}");
                 };
 
-                _dateRangeStartNowButton.Click += delegate
+                this._dateRangeStartNowButton.Click += delegate
                 {
                     DateTime dateTime;
 
@@ -221,172 +220,212 @@ namespace Squelch.Fragments
                     dateTime = DateTime.Now;
 
                     // Set labels
-                    _dateRangeStartDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime);
-                    _dateRangeStartTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime, UserSettings.FormatTimeAsTwelveHour);
+                    this._dateRangeStartDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime);
+                    this._dateRangeStartTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime, UserSettings.FormatTimeAsTwelveHour);
                 };
 
-                _dateRangeStartPlus1Button.Click += delegate
+                this._dateRangeStartPlus1Button.Click += delegate
                 {
-                    DateTime dateTime;
 
                     // Both date and time are not valid
-                    if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
+                    if (DateTime.TryParse($"{this._dateRangeStartDateButton.Text} {this._dateRangeStartTimeButton.Text}", out DateTime dateTime) == false)
+                    {
                         // Time is not valid
-                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
+                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {this._dateRangeStartTimeButton.Text}", out dateTime) == false)
+                        {
                             // Date is not valid
-                            if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
+                            if (DateTime.TryParse($"{this._dateRangeStartDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
+                            {
                                 dateTime = DateTime.Now;
+                            }
+                        }
+                    }
 
                     // Set labels
-                    _dateRangeStartDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(1));
-                    _dateRangeStartTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(1), UserSettings.FormatTimeAsTwelveHour);
+                    this._dateRangeStartDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(1));
+                    this._dateRangeStartTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(1), UserSettings.FormatTimeAsTwelveHour);
                 };
-                _dateRangeStartPlus5Button.Click += delegate
+                this._dateRangeStartPlus5Button.Click += delegate
                 {
-                    DateTime dateTime;
 
                     // Both date and time are not valid
-                    if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
+                    if (DateTime.TryParse($"{this._dateRangeStartDateButton.Text} {this._dateRangeStartTimeButton.Text}", out DateTime dateTime) == false)
+                    {
                         // Time is not valid
-                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
+                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {this._dateRangeStartTimeButton.Text}", out dateTime) == false)
+                        {
                             // Date is not valid
-                            if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
+                            if (DateTime.TryParse($"{this._dateRangeStartDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
+                            {
                                 dateTime = DateTime.Now;
+                            }
+                        }
+                    }
 
                     // Set labels
-                    _dateRangeStartDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(5));
-                    _dateRangeStartTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(5), UserSettings.FormatTimeAsTwelveHour);
+                    this._dateRangeStartDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(5));
+                    this._dateRangeStartTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(5), UserSettings.FormatTimeAsTwelveHour);
                 };
-                _dateRangeStartPlus10Button.Click += delegate
+                this._dateRangeStartPlus10Button.Click += delegate
                 {
-                    DateTime dateTime;
 
                     // Both date and time are not valid
-                    if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
+                    if (DateTime.TryParse($"{this._dateRangeStartDateButton.Text} {this._dateRangeStartTimeButton.Text}", out DateTime dateTime) == false)
+                    {
                         // Time is not valid
-                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
+                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {this._dateRangeStartTimeButton.Text}", out dateTime) == false)
+                        {
                             // Date is not valid
-                            if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
+                            if (DateTime.TryParse($"{this._dateRangeStartDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
+                            {
                                 dateTime = DateTime.Now;
+                            }
+                        }
+                    }
 
                     // Set labels
-                    _dateRangeStartDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(10));
-                    _dateRangeStartTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(10), UserSettings.FormatTimeAsTwelveHour);
+                    this._dateRangeStartDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(10));
+                    this._dateRangeStartTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(10), UserSettings.FormatTimeAsTwelveHour);
                 };
-                _dateRangeStartPlus30Button.Click += delegate
+                this._dateRangeStartPlus30Button.Click += delegate
                 {
-                    DateTime dateTime;
 
                     // Both date and time are not valid
-                    if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
+                    if (DateTime.TryParse($"{this._dateRangeStartDateButton.Text} {this._dateRangeStartTimeButton.Text}", out DateTime dateTime) == false)
+                    {
                         // Time is not valid
-                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {_dateRangeStartTimeButton.Text}", out dateTime) == false)
+                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {this._dateRangeStartTimeButton.Text}", out dateTime) == false)
+                        {
                             // Date is not valid
-                            if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
+                            if (DateTime.TryParse($"{this._dateRangeStartDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
+                            {
                                 dateTime = DateTime.Now;
+                            }
+                        }
+                    }
 
                     // Set labels
-                    _dateRangeStartDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(30));
-                    _dateRangeStartTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(30), UserSettings.FormatTimeAsTwelveHour);
+                    this._dateRangeStartDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(30));
+                    this._dateRangeStartTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(30), UserSettings.FormatTimeAsTwelveHour);
                 };
 
-                _dateRangeEndPlus1Button.Click += delegate
+                this._dateRangeEndPlus1Button.Click += delegate
                 {
-                    DateTime dateTime;
 
                     // Both date and time are not valid
-                    if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
+                    if (DateTime.TryParse($"{this._dateRangeEndDateButton.Text} {this._dateRangeEndTimeButton.Text}", out DateTime dateTime) == false)
+                    {
                         // Time is not valid
-                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
+                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {this._dateRangeEndTimeButton.Text}", out dateTime) == false)
+                        {
                             // Date is not valid
-                            if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
+                            if (DateTime.TryParse($"{this._dateRangeEndDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
+                            {
                                 dateTime = DateTime.Now;
+                            }
+                        }
+                    }
 
                     // Set labels
-                    _dateRangeEndDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(1));
-                    _dateRangeEndTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(1), UserSettings.FormatTimeAsTwelveHour);
+                    this._dateRangeEndDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(1));
+                    this._dateRangeEndTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(1), UserSettings.FormatTimeAsTwelveHour);
                 };
-                _dateRangeEndPlus5Button.Click += delegate
+                this._dateRangeEndPlus5Button.Click += delegate
                 {
-                    DateTime dateTime;
 
                     // Both date and time are not valid
-                    if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
+                    if (DateTime.TryParse($"{this._dateRangeEndDateButton.Text} {this._dateRangeEndTimeButton.Text}", out DateTime dateTime) == false)
+                    {
                         // Time is not valid
-                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
+                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {this._dateRangeEndTimeButton.Text}", out dateTime) == false)
+                        {
                             // Date is not valid
-                            if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
+                            if (DateTime.TryParse($"{this._dateRangeEndDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
+                            {
                                 dateTime = DateTime.Now;
+                            }
+                        }
+                    }
 
                     // Set labels
-                    _dateRangeEndDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(5));
-                    _dateRangeEndTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(5), UserSettings.FormatTimeAsTwelveHour);
+                    this._dateRangeEndDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(5));
+                    this._dateRangeEndTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(5), UserSettings.FormatTimeAsTwelveHour);
                 };
-                _dateRangeEndPlus10Button.Click += delegate
+                this._dateRangeEndPlus10Button.Click += delegate
                 {
-                    DateTime dateTime;
 
                     // Both date and time are not valid
-                    if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
+                    if (DateTime.TryParse($"{this._dateRangeEndDateButton.Text} {this._dateRangeEndTimeButton.Text}", out DateTime dateTime) == false)
+                    {
                         // Time is not valid
-                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
+                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {this._dateRangeEndTimeButton.Text}", out dateTime) == false)
+                        {
                             // Date is not valid
-                            if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
+                            if (DateTime.TryParse($"{this._dateRangeEndDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
+                            {
                                 dateTime = DateTime.Now;
+                            }
+                        }
+                    }
 
                     // Set labels
-                    _dateRangeEndDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(10));
-                    _dateRangeEndTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(10), UserSettings.FormatTimeAsTwelveHour);
+                    this._dateRangeEndDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(10));
+                    this._dateRangeEndTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(10), UserSettings.FormatTimeAsTwelveHour);
                 };
-                _dateRangeEndPlus30Button.Click += delegate
+                this._dateRangeEndPlus30Button.Click += delegate
                 {
-                    DateTime dateTime;
 
                     // Both date and time are not valid
-                    if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
+                    if (DateTime.TryParse($"{this._dateRangeEndDateButton.Text} {this._dateRangeEndTimeButton.Text}", out DateTime dateTime) == false)
+                    {
                         // Time is not valid
-                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {_dateRangeEndTimeButton.Text}", out dateTime) == false)
+                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {this._dateRangeEndTimeButton.Text}", out dateTime) == false)
+                        {
                             // Date is not valid
-                            if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
+                            if (DateTime.TryParse($"{this._dateRangeEndDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
+                            {
                                 dateTime = DateTime.Now;
+                            }
+                        }
+                    }
 
                     // Set labels
-                    _dateRangeEndDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(30));
-                    _dateRangeEndTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(30), UserSettings.FormatTimeAsTwelveHour);
+                    this._dateRangeEndDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(30));
+                    this._dateRangeEndTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(30), UserSettings.FormatTimeAsTwelveHour);
                 };
 
                 //
                 // Application related
-                _applicationLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_blackout_setup_application_layout);
-                _applicationRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.fragment_blackout_setup_application_recycler_view);
+                this._applicationLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_blackout_setup_application_layout);
+                this._applicationRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.fragment_blackout_setup_application_recycler_view);
 
                 // Init the instance application list
-                ApplicationList_Initialize();
+                this.ApplicationList_Initialize();
 
                 // Init the application list adapter
-                _applicationListAdapter = new UIApplicationListAdapter(new List<UIApplicationItem>());
-                _applicationRecyclerView.AddItemDecoration(new DividerItemDecoration(this.Context, DividerItemDecoration.Vertical));
-                _applicationRecyclerView.SetLayoutManager(new LinearLayoutManager(this.Context));
-                _applicationRecyclerView.SetItemAnimator(new DefaultItemAnimator());
-                _applicationRecyclerView.SetAdapter(_applicationListAdapter);
-                _applicationListAdapter.OnApplicationSelected += ApplicationListAdapter_OnApplicationSelected;
+                this._applicationListAdapter = new UIApplicationListAdapter(new List<UIApplicationItem>());
+                this._applicationRecyclerView.AddItemDecoration(new DividerItemDecoration(this.Context, DividerItemDecoration.Vertical));
+                this._applicationRecyclerView.SetLayoutManager(new LinearLayoutManager(this.Context));
+                this._applicationRecyclerView.SetItemAnimator(new DefaultItemAnimator());
+                this._applicationRecyclerView.SetAdapter(this._applicationListAdapter);
+                this._applicationListAdapter.OnApplicationSelected += this.ApplicationListAdapter_OnApplicationSelected;
                 //ViewCompat.SetNestedScrollingEnabled(_applicationRecyclerView, false); // Normalize scrolling in nested scroll view
 
                 //
                 // Review related
-                _reviewLayout = view.FindViewById<ScrollView>(Resource.Id.fragment_blackout_setup_review_layout);
-                _reviewDifficultyLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_setup_review_difficulty_label);
-                _reviewBidLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_setup_review_bid_label);
-                _reviewStartDateTimeLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_setup_review_start_date_label);
-                _reviewEndDateTimeLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_setup_review_end_date_label);
-                _reviewBlacklistLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_setup_review_blacklist_label);
+                this._reviewLayout = view.FindViewById<ScrollView>(Resource.Id.fragment_blackout_setup_review_layout);
+                this._reviewDifficultyLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_setup_review_difficulty_label);
+                this._reviewBidLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_setup_review_bid_label);
+                this._reviewStartDateTimeLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_setup_review_start_date_label);
+                this._reviewEndDateTimeLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_setup_review_end_date_label);
+                this._reviewBlacklistLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_setup_review_blacklist_label);
 
                 //
                 // Working/Status related
-                _dialogPositiveButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_button_positive);
-                _dialogNegativeButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_button_negative);
-                _dialogPositiveButton.Click += PositiveButton_Click;
-                _dialogNegativeButton.Click += NegativeButton_Click;
+                this._dialogPositiveButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_button_positive);
+                this._dialogNegativeButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_setup_button_negative);
+                this._dialogPositiveButton.Click += this.PositiveButton_Click;
+                this._dialogNegativeButton.Click += this.NegativeButton_Click;
 
                 //
                 // Setup navbar
@@ -394,11 +433,11 @@ namespace Squelch.Fragments
 
                 //
                 // Set view stuff
-                _stepId = 0;
-                _problemLabel.Text = string.Empty;
-                _dialogPositiveButton.SetButtonText(GetString(Resource.String.text_next));
-                _dialogNegativeButton.SetButtonText(GetString(Resource.String.text_cancel));
-                PositiveButton_Click(this, null);
+                this._stepId = 0;
+                this._problemLabel.Text = string.Empty;
+                this._dialogPositiveButton.SetButtonText(this.GetString(Resource.String.text_next));
+                this._dialogNegativeButton.SetButtonText(this.GetString(Resource.String.text_cancel));
+                this.PositiveButton_Click(this, null);
             }
             catch (Exception ex)
             {
@@ -428,18 +467,18 @@ namespace Squelch.Fragments
         public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
         {
             // Create a new checkbox to add to the options menu
-            _applicationShowSystemAppsCheckbox = (CheckBox)this.LayoutInflater.Inflate(Resource.Drawable.check_box_right, null);
-            _applicationShowSystemAppsCheckbox.Checked = false;
-            _applicationShowSystemAppsCheckbox.Click += delegate { ApplicationList_Filter(); };
-            _applicationShowSystemAppsCheckbox.Text = GetString(Resource.String.text_show_system_applications);
-            _applicationShowSystemAppsCheckbox.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimaryForeground)); // This is the title bar which is colorPrimary
-            _applicationShowSystemAppsCheckbox.ButtonTintList = ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimaryForeground); // This is the title bar which is colorPrimary
+            this._applicationShowSystemAppsCheckbox = (CheckBox)this.LayoutInflater.Inflate(Resource.Drawable.check_box_right, null);
+            this._applicationShowSystemAppsCheckbox.Checked = false;
+            this._applicationShowSystemAppsCheckbox.Click += delegate { this.ApplicationList_Filter(); };
+            this._applicationShowSystemAppsCheckbox.Text = this.GetString(Resource.String.text_show_system_applications);
+            this._applicationShowSystemAppsCheckbox.SetTextColor(ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimaryForeground)); // This is the title bar which is colorPrimary
+            this._applicationShowSystemAppsCheckbox.ButtonTintList = ContextCompat.GetColorStateList(this.Context, Resource.Color.colorPrimaryForeground); // This is the title bar which is colorPrimary
 
             // Add new item to menu
-            _applicationShowSystemAppsMenuItem = menu.Add(GetString(Resource.String.text_show_system_applications));
-            _applicationShowSystemAppsMenuItem.SetActionView(_applicationShowSystemAppsCheckbox);
-            _applicationShowSystemAppsMenuItem.SetShowAsAction(ShowAsAction.Always);
-            _applicationShowSystemAppsMenuItem.SetVisible((_stepId == STEP_APPLICATIONS) ? true : false);
+            this._applicationShowSystemAppsMenuItem = menu.Add(this.GetString(Resource.String.text_show_system_applications));
+            this._applicationShowSystemAppsMenuItem.SetActionView(this._applicationShowSystemAppsCheckbox);
+            this._applicationShowSystemAppsMenuItem.SetShowAsAction(ShowAsAction.Always);
+            this._applicationShowSystemAppsMenuItem.SetVisible((this._stepId == STEP_APPLICATIONS) ? true : false);
         }
         #endregion
 
@@ -455,7 +494,7 @@ namespace Squelch.Fragments
 
             try
             {
-                uiApplicationItem = _applicationListAdapter.ApplicationList[index];
+                uiApplicationItem = this._applicationListAdapter.ApplicationList[index];
                 if (uiApplicationItem != null)
                 {
                     // If its locked, its being forced for one reason or another, dont allow a toggle
@@ -491,31 +530,31 @@ namespace Squelch.Fragments
         private async void PositiveButton_Click(object sender, EventArgs e)
         {
             // Set is working
-            SetIsWorking(true);
+            this.SetIsWorking(true);
 
 
             try
             {
                 // Disable next and back button
-                _dialogPositiveButton.Enabled = false;
-                _dialogNegativeButton.Enabled = false;
+                this._dialogPositiveButton.Enabled = false;
+                this._dialogNegativeButton.Enabled = false;
 
                 // Determine action
-                if (_dialogPositiveButton.Text.Equals(GetString(Resource.String.text_next))) // This is dumb but meh
+                if (this._dialogPositiveButton.Text.Equals(this.GetString(Resource.String.text_next))) // This is dumb but meh
                 {
-                    NextStep();
+                    this.NextStep();
                 }
-                else if (_dialogPositiveButton.Text.Equals(GetString(Resource.String.text_finish))) // This is dumb but meh
+                else if (this._dialogPositiveButton.Text.Equals(this.GetString(Resource.String.text_finish))) // This is dumb but meh
                 {
                     //
                     // Assign the values
                     BlackoutItem blackoutItem = new BlackoutItem
                     {
-                        ScheduledStartDateTime = DateTime.Parse($"{_dateRangeStartDateButton.Text} {_dateRangeStartTimeButton.Text}"),
-                        ScheduledEndDateTime = DateTime.Parse($"{_dateRangeEndDateButton.Text} {_dateRangeEndTimeButton.Text}"),
+                        ScheduledStartDateTime = DateTime.Parse($"{this._dateRangeStartDateButton.Text} {this._dateRangeStartTimeButton.Text}"),
+                        ScheduledEndDateTime = DateTime.Parse($"{this._dateRangeEndDateButton.Text} {this._dateRangeEndTimeButton.Text}"),
                         DifficultyCode = _blackoutDifficulty,
-                        Bid = _bidNumberPicker.Value,
-                        Blacklist = _applicationList.Where(x => x.IsSelected).Select(x => x.PackageName).ToList()
+                        Bid = this._bidNumberPicker.Value,
+                        Blacklist = this._applicationList.Where(x => x.IsSelected).Select(x => x.PackageName).ToList()
                     }.SetBlackoutPending();
                     await BlackoutDatabase.UpsertAsync(blackoutItem);
 
@@ -525,8 +564,8 @@ namespace Squelch.Fragments
                 }
 
                 // Enable next and back button
-                _dialogPositiveButton.Enabled = true;
-                _dialogNegativeButton.Enabled = true;
+                this._dialogPositiveButton.Enabled = true;
+                this._dialogNegativeButton.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -535,7 +574,7 @@ namespace Squelch.Fragments
             finally
             {
                 // Set no longer working
-                SetIsWorking(false);
+                this.SetIsWorking(false);
 
             }
         }
@@ -548,28 +587,28 @@ namespace Squelch.Fragments
         private void NegativeButton_Click(object sender, EventArgs e)
         {
             // Set is working
-            SetIsWorking(true);
+            this.SetIsWorking(true);
 
 
             try
             {
                 // Disable next and back button
-                _dialogPositiveButton.Enabled = false;
-                _dialogNegativeButton.Enabled = false;
+                this._dialogPositiveButton.Enabled = false;
+                this._dialogNegativeButton.Enabled = false;
 
                 // Determine action
-                if (_dialogNegativeButton.Text.Equals(GetString(Resource.String.text_back)))
+                if (this._dialogNegativeButton.Text.Equals(this.GetString(Resource.String.text_back)))
                 {
-                    PreviousStep();
+                    this.PreviousStep();
                 }
-                else if (_dialogNegativeButton.Text.Equals(GetString(Resource.String.text_cancel)))
+                else if (this._dialogNegativeButton.Text.Equals(this.GetString(Resource.String.text_cancel)))
                 {
-                    ConfirmClose();
+                    this.ConfirmClose();
                 }
 
                 // Enable next and back button
-                _dialogPositiveButton.Enabled = true;
-                _dialogNegativeButton.Enabled = true;
+                this._dialogPositiveButton.Enabled = true;
+                this._dialogNegativeButton.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -578,7 +617,7 @@ namespace Squelch.Fragments
             finally
             {
                 // Set no longer working
-                SetIsWorking(false);
+                this.SetIsWorking(false);
 
             }
         }
@@ -592,11 +631,13 @@ namespace Squelch.Fragments
         private void SetIsWorking(bool isWorking)
         {
             // Toggle views
-            ViewUtils.SetViewAndChildrenEnabled(_rootLayout, !isWorking);
+            ViewUtils.SetViewAndChildrenEnabled(this._rootLayout, !isWorking);
 
             // Report to parent
             if (this.Activity is IIndeterminateProgressReporter)
+            {
                 ((IIndeterminateProgressReporter)this.Activity).SetProgressBarState(isWorking);
+            }
         }
 
         /// <summary>
@@ -631,7 +672,7 @@ namespace Squelch.Fragments
             {
                 //
                 // Init
-                _applicationList = new List<UIApplicationItem>();
+                this._applicationList = new List<UIApplicationItem>();
 
                 //
                 // Sift through and setup items
@@ -644,18 +685,24 @@ namespace Squelch.Fragments
 
                     // Is this squelch?
                     if (applicationInfo.PackageName.Equals(this.Context.PackageName))
+                    {
                         continue;
+                    }
 
                     // Do we have categories?
                     if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
+                    {
                         category = ((applicationInfo.Category != ApplicationCategories.Undefined) ? applicationInfo.Category.ToString() : string.Empty);
+                    }
 
                     // Is this app in the recommended block list?
                     if (EnforcerUtils.ShouldBlockApplication(this.Context, applicationInfo.PackageName))
+                    {
                         isSelected = true;
+                    }
 
                     // Add it to the UI application list
-                    _applicationList.Add(new UIApplicationItem(this.Context, applicationInfo)
+                    this._applicationList.Add(new UIApplicationItem(this.Context, applicationInfo)
                     {
                         Category = category,
                         IsSelected = isSelected,
@@ -678,16 +725,16 @@ namespace Squelch.Fragments
             {
                 //
                 // Add / remove system apps
-                if (_applicationShowSystemAppsCheckbox.Checked)
+                if (this._applicationShowSystemAppsCheckbox.Checked)
                 {
-                    _applicationListAdapter.ApplicationList = _applicationList
+                    this._applicationListAdapter.ApplicationList = this._applicationList
                         .OrderBy(x => x.Name)
                         .ToList()
                         .Copy();
                 }
                 else
                 {
-                    _applicationListAdapter.ApplicationList = _applicationList
+                    this._applicationListAdapter.ApplicationList = this._applicationList
                         .Where(x => x.IsSystem == false)
                         .OrderBy(x => x.Name)
                         .ToList()
@@ -696,12 +743,12 @@ namespace Squelch.Fragments
 
                 //
                 // Apply difficulty settings
-                foreach (UIApplicationItem uiApplicationItem in _applicationListAdapter.ApplicationList)
+                foreach (UIApplicationItem uiApplicationItem in this._applicationListAdapter.ApplicationList)
                 {
                     uiApplicationItem.IsDifficultyLocked = false;
                     if (EnforcerUtils.ShouldBlockApplication(this.Context, uiApplicationItem.PackageName) || uiApplicationItem.IsSystem == false)
                     {
-                        switch (_blackoutDifficulty)
+                        switch (this._blackoutDifficulty)
                         {
                             case BlackoutItem.BlackoutDifficultyCode.Novice:
                             case BlackoutItem.BlackoutDifficultyCode.Veteran:
@@ -716,7 +763,7 @@ namespace Squelch.Fragments
 
                 //
                 // Notify change
-                _applicationListAdapter.NotifyDataSetChanged();
+                this._applicationListAdapter.NotifyDataSetChanged();
             }
             catch (Exception ex)
             {
@@ -733,8 +780,10 @@ namespace Squelch.Fragments
         {
             try
             {
-                if (await ValidateStep(_stepId))
-                    ProcessStep(++_stepId);
+                if (await this.ValidateStep(this._stepId))
+                {
+                    this.ProcessStep(++this._stepId);
+                }
             }
             catch (Exception ex)
             {
@@ -749,7 +798,7 @@ namespace Squelch.Fragments
         {
             try
             {
-                ProcessStep(--_stepId);
+                this.ProcessStep(--this._stepId);
             }
             catch (Exception ex)
             {
@@ -769,66 +818,66 @@ namespace Squelch.Fragments
                 switch (step)
                 {
                     case STEP_DIFFICULTY:
-                        _dialogPositiveButton.SetText(Resource.String.text_next);
-                        _dialogNegativeButton.SetText(Resource.String.text_cancel);
-                        _titleLabel.SetText(Resource.String.fragment_blackout_setup_difficulty_title);
-                        _difficultyLayout.Visibility = ViewStates.Visible;
-                        _bidLayout.Visibility = ViewStates.Gone;
-                        _daterangeLayout.Visibility = ViewStates.Gone;
-                        _applicationLayout.Visibility = _applicationShowSystemAppsCheckbox.Visibility = ViewStates.Gone;
-                        _reviewLayout.Visibility = ViewStates.Gone;
+                        this._dialogPositiveButton.SetText(Resource.String.text_next);
+                        this._dialogNegativeButton.SetText(Resource.String.text_cancel);
+                        this._titleLabel.SetText(Resource.String.fragment_blackout_setup_difficulty_title);
+                        this._difficultyLayout.Visibility = ViewStates.Visible;
+                        this._bidLayout.Visibility = ViewStates.Gone;
+                        this._daterangeLayout.Visibility = ViewStates.Gone;
+                        this._applicationLayout.Visibility = this._applicationShowSystemAppsCheckbox.Visibility = ViewStates.Gone;
+                        this._reviewLayout.Visibility = ViewStates.Gone;
                         break;
                     case STEP_BID:
-                        _dialogPositiveButton.SetText(Resource.String.text_next);
-                        _dialogNegativeButton.SetText(Resource.String.text_back);
-                        _titleLabel.SetText(Resource.String.fragment_blackout_setup_bid_title);
-                        _difficultyLayout.Visibility = ViewStates.Gone;
-                        _bidLayout.Visibility = ViewStates.Visible;
-                        _daterangeLayout.Visibility = ViewStates.Gone;
-                        _applicationLayout.Visibility = _applicationShowSystemAppsCheckbox.Visibility = ViewStates.Gone;
-                        _reviewLayout.Visibility = ViewStates.Gone;
-                        switch (_blackoutDifficulty)
+                        this._dialogPositiveButton.SetText(Resource.String.text_next);
+                        this._dialogNegativeButton.SetText(Resource.String.text_back);
+                        this._titleLabel.SetText(Resource.String.fragment_blackout_setup_bid_title);
+                        this._difficultyLayout.Visibility = ViewStates.Gone;
+                        this._bidLayout.Visibility = ViewStates.Visible;
+                        this._daterangeLayout.Visibility = ViewStates.Gone;
+                        this._applicationLayout.Visibility = this._applicationShowSystemAppsCheckbox.Visibility = ViewStates.Gone;
+                        this._reviewLayout.Visibility = ViewStates.Gone;
+                        switch (this._blackoutDifficulty)
                         {
                             case BlackoutItem.BlackoutDifficultyCode.Novice:
-                                _bidNumberPicker.MinValue = 0;
-                                _bidNumberPicker.MaxValue = 250;
+                                this._bidNumberPicker.MinValue = 0;
+                                this._bidNumberPicker.MaxValue = 250;
                                 break;
                             case BlackoutItem.BlackoutDifficultyCode.Veteran:
-                                _bidNumberPicker.MinValue = 1;
-                                _bidNumberPicker.MaxValue = 250;
+                                this._bidNumberPicker.MinValue = 1;
+                                this._bidNumberPicker.MaxValue = 250;
                                 break;
                             case BlackoutItem.BlackoutDifficultyCode.Master:
-                                _bidNumberPicker.MinValue = 1;
-                                _bidNumberPicker.MaxValue = 250;
+                                this._bidNumberPicker.MinValue = 1;
+                                this._bidNumberPicker.MaxValue = 250;
                                 break;
                         }
-                        _bidNumberPicker.Value = _bidNumberPicker.MinValue;
-                        _bidValidValueRangeLabel.Text = string.Format(GetString(Resource.String.fragment_blackout_setup_bid_range), _bidNumberPicker.MinValue, _bidNumberPicker.MaxValue);
+                        this._bidNumberPicker.Value = this._bidNumberPicker.MinValue;
+                        this._bidValidValueRangeLabel.Text = string.Format(this.GetString(Resource.String.fragment_blackout_setup_bid_range), this._bidNumberPicker.MinValue, this._bidNumberPicker.MaxValue);
                         break;
                     case STEP_DATE_RANGE:
-                        _dialogPositiveButton.SetText(Resource.String.text_next);
-                        _dialogNegativeButton.SetText(Resource.String.text_back);
-                        _titleLabel.SetText(Resource.String.fragment_blackout_setup_date_range_title);
-                        _difficultyLayout.Visibility = ViewStates.Gone;
-                        _bidLayout.Visibility = ViewStates.Gone;
-                        _daterangeLayout.Visibility = ViewStates.Visible;
-                        _applicationLayout.Visibility = _applicationShowSystemAppsCheckbox.Visibility = ViewStates.Gone;
-                        _reviewLayout.Visibility = ViewStates.Gone;
+                        this._dialogPositiveButton.SetText(Resource.String.text_next);
+                        this._dialogNegativeButton.SetText(Resource.String.text_back);
+                        this._titleLabel.SetText(Resource.String.fragment_blackout_setup_date_range_title);
+                        this._difficultyLayout.Visibility = ViewStates.Gone;
+                        this._bidLayout.Visibility = ViewStates.Gone;
+                        this._daterangeLayout.Visibility = ViewStates.Visible;
+                        this._applicationLayout.Visibility = this._applicationShowSystemAppsCheckbox.Visibility = ViewStates.Gone;
+                        this._reviewLayout.Visibility = ViewStates.Gone;
                         break;
                     case STEP_APPLICATIONS:
-                        _dialogPositiveButton.SetText(Resource.String.text_next);
-                        _dialogNegativeButton.SetText(Resource.String.text_back);
-                        _titleLabel.SetText(Resource.String.fragment_blackout_setup_application_selection_title);
-                        _difficultyLayout.Visibility = ViewStates.Gone;
-                        _bidLayout.Visibility = ViewStates.Gone;
-                        _daterangeLayout.Visibility = ViewStates.Gone;
-                        _applicationLayout.Visibility = _applicationShowSystemAppsCheckbox.Visibility = ViewStates.Visible;
-                        _reviewLayout.Visibility = ViewStates.Gone;
-                        ApplicationList_Filter();
+                        this._dialogPositiveButton.SetText(Resource.String.text_next);
+                        this._dialogNegativeButton.SetText(Resource.String.text_back);
+                        this._titleLabel.SetText(Resource.String.fragment_blackout_setup_application_selection_title);
+                        this._difficultyLayout.Visibility = ViewStates.Gone;
+                        this._bidLayout.Visibility = ViewStates.Gone;
+                        this._daterangeLayout.Visibility = ViewStates.Gone;
+                        this._applicationLayout.Visibility = this._applicationShowSystemAppsCheckbox.Visibility = ViewStates.Visible;
+                        this._reviewLayout.Visibility = ViewStates.Gone;
+                        this.ApplicationList_Filter();
                         break;
                     case STEP_REVIEW:
-                        var blackoutDifficultyTextResourceId = Resource.String.text_unknown;
-                        switch (_blackoutDifficulty)
+                        int blackoutDifficultyTextResourceId = Resource.String.text_unknown;
+                        switch (this._blackoutDifficulty)
                         {
                             case BlackoutItem.BlackoutDifficultyCode.Novice:
                                 blackoutDifficultyTextResourceId = Resource.String.text_novice;
@@ -844,31 +893,31 @@ namespace Squelch.Fragments
                                 break;
                         }
 
-                        _dialogPositiveButton.SetText(Resource.String.text_finish);
-                        _dialogNegativeButton.SetText(Resource.String.text_back);
-                        _titleLabel.SetText(Resource.String.fragment_blackout_setup_review_title);
-                        _difficultyLayout.Visibility = ViewStates.Gone;
-                        _bidLayout.Visibility = ViewStates.Gone;
-                        _daterangeLayout.Visibility = ViewStates.Gone;
-                        _applicationLayout.Visibility = _applicationShowSystemAppsCheckbox.Visibility = ViewStates.Gone;
-                        _reviewLayout.Visibility = ViewStates.Visible;
-                        _reviewDifficultyLabel.SetText(blackoutDifficultyTextResourceId);
-                        _reviewBidLabel.Text = $"${_bidNumberPicker.Value}";
-                        _reviewStartDateTimeLabel.Text = $"{_dateRangeStartDateButton.Text} @ {_dateRangeStartTimeButton.Text}";
-                        _reviewEndDateTimeLabel.Text = $"{_dateRangeEndDateButton.Text} @ {_dateRangeEndTimeButton.Text}";
-                        _reviewBlacklistLabel.Text = string.Join(", ", _applicationList.Where(x => x.IsSelected).Select(x => x.Name).ToList());
+                        this._dialogPositiveButton.SetText(Resource.String.text_finish);
+                        this._dialogNegativeButton.SetText(Resource.String.text_back);
+                        this._titleLabel.SetText(Resource.String.fragment_blackout_setup_review_title);
+                        this._difficultyLayout.Visibility = ViewStates.Gone;
+                        this._bidLayout.Visibility = ViewStates.Gone;
+                        this._daterangeLayout.Visibility = ViewStates.Gone;
+                        this._applicationLayout.Visibility = this._applicationShowSystemAppsCheckbox.Visibility = ViewStates.Gone;
+                        this._reviewLayout.Visibility = ViewStates.Visible;
+                        this._reviewDifficultyLabel.SetText(blackoutDifficultyTextResourceId);
+                        this._reviewBidLabel.Text = $"${this._bidNumberPicker.Value}";
+                        this._reviewStartDateTimeLabel.Text = $"{this._dateRangeStartDateButton.Text} @ {this._dateRangeStartTimeButton.Text}";
+                        this._reviewEndDateTimeLabel.Text = $"{this._dateRangeEndDateButton.Text} @ {this._dateRangeEndTimeButton.Text}";
+                        this._reviewBlacklistLabel.Text = string.Join(", ", this._applicationList.Where(x => x.IsSelected).Select(x => x.Name).ToList());
                         break;
                     default:
-                        _difficultyLayout.Visibility = ViewStates.Gone;
-                        _bidLayout.Visibility = ViewStates.Gone;
-                        _daterangeLayout.Visibility = ViewStates.Gone;
-                        _applicationLayout.Visibility = _applicationShowSystemAppsCheckbox.Visibility = ViewStates.Gone;
-                        _reviewLayout.Visibility = ViewStates.Gone;
+                        this._difficultyLayout.Visibility = ViewStates.Gone;
+                        this._bidLayout.Visibility = ViewStates.Gone;
+                        this._daterangeLayout.Visibility = ViewStates.Gone;
+                        this._applicationLayout.Visibility = this._applicationShowSystemAppsCheckbox.Visibility = ViewStates.Gone;
+                        this._reviewLayout.Visibility = ViewStates.Gone;
                         break;
                 }
 
                 // Set the menu state based on the result of the switch
-                _applicationShowSystemAppsMenuItem.SetVisible((_applicationLayout.Visibility == ViewStates.Visible) ? true : false);
+                this._applicationShowSystemAppsMenuItem.SetVisible((this._applicationLayout.Visibility == ViewStates.Visible) ? true : false);
             }
             catch (Exception ex)
             {
@@ -889,7 +938,7 @@ namespace Squelch.Fragments
             try
             {
                 // Reset
-                _problemLabel.Text = string.Empty;
+                this._problemLabel.Text = string.Empty;
 
                 // Which step are we validating
                 switch (step)
@@ -904,53 +953,53 @@ namespace Squelch.Fragments
                         break;
                     case STEP_DATE_RANGE:
                         // Date Ranges
-                        if (DateTime.TryParse($"{_dateRangeStartDateButton.Text} {_dateRangeStartTimeButton.Text}", out startDateTime) == false) // Start date is valid
+                        if (DateTime.TryParse($"{this._dateRangeStartDateButton.Text} {this._dateRangeStartTimeButton.Text}", out startDateTime) == false) // Start date is valid
                         {
-                            _problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_start_date_invalid) + " ";
+                            this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_start_date_invalid) + " ";
                             return false;
                         }
 
-                        if (DateTime.TryParse($"{_dateRangeEndDateButton.Text} {_dateRangeEndTimeButton.Text}", out endDateTime) == false) // End date is valid
+                        if (DateTime.TryParse($"{this._dateRangeEndDateButton.Text} {this._dateRangeEndTimeButton.Text}", out endDateTime) == false) // End date is valid
                         {
-                            _problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_end_date_invalid) + " ";
+                            this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_end_date_invalid) + " ";
                             return false;
                         }
 
                         if (endDateTime < DateTime.Now) // The end date is before the current time, whats the point?
                         {
-                            _problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_end_date_in_the_past) + " ";
+                            this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_end_date_in_the_past) + " ";
                             return false;
                         }
 
                         if (startDateTime > endDateTime) // Start date must be before the end date
                         {
-                            _problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_start_date_cannot_be_greater_than_end_date) + " ";
+                            this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_start_date_cannot_be_greater_than_end_date) + " ";
                             return false;
                         }
 
                         if ((endDateTime - startDateTime).TotalMinutes < 1) // Blackout must be more than 1 minute
                         {
-                            _problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_duration_of_blackout_must_be_greater_than_1_minute) + " ";
+                            this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_duration_of_blackout_must_be_greater_than_1_minute) + " ";
                             return false;
                         }
 
                         if (endDateTime.Subtract(DateTime.Now).TotalDays > 30) // Blackout must be less than 30 days
                         {
-                            _problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_duration_of_blackout_must_be_less_than_30_days) + " ";
+                            this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_duration_of_blackout_must_be_less_than_30_days) + " ";
                             return false;
                         }
 
                         if (await BlackoutDatabase.HasConflictInRangeAsync(startDateTime, endDateTime))
                         {
-                            _problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_blackout_overlaps) + " ";
+                            this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_blackout_overlaps) + " ";
                             return false;
                         }
                         break;
                     case STEP_APPLICATIONS:
                         // Applications
-                        if (_applicationList.Where(x => x.IsSelected).Select(x => x.PackageName).ToList().Count() <= 0)
+                        if (this._applicationList.Where(x => x.IsSelected).Select(x => x.PackageName).ToList().Count() <= 0)
                         {
-                            _problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_no_application_selected) + " ";
+                            this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_no_application_selected) + " ";
                             return false;
                         }
                         break;

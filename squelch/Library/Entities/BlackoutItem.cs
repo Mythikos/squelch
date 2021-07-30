@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using SQLite;
+﻿using SQLite;
 using SQLiteNetExtensions.Attributes;
+using System;
+using System.Collections.Generic;
 
 namespace Squelch.Library.Entities
 {
@@ -22,7 +22,7 @@ namespace Squelch.Library.Entities
         public BlackoutStatusCode StatusCode { get; set; } // Should be managed by the instance
         public BlackoutResultCode ResultCode { get; set; } // Should be managed by the instance
         public BlackoutDifficultyCode DifficultyCode { get; set; }
-        
+
         [TextBlob(nameof(BlacklistBlob))] public List<string> Blacklist { get; set; }
         public string BlacklistBlob { get; set; }
         #endregion
@@ -56,7 +56,7 @@ namespace Squelch.Library.Entities
             this.DifficultyCode = BlackoutDifficultyCode.Veteran;
         }
 
-        public BlackoutItem(DateTime scheduledStartDateTime, DateTime scheduledEndDateTime, DateTime actualStartDateTime, DateTime actualEndDateTime,  int bid, List<string> blockedApps, BlackoutStatusCode statusCode, BlackoutResultCode resultCode, BlackoutDifficultyCode difficultyCode)
+        public BlackoutItem(DateTime scheduledStartDateTime, DateTime scheduledEndDateTime, DateTime actualStartDateTime, DateTime actualEndDateTime, int bid, List<string> blockedApps, BlackoutStatusCode statusCode, BlackoutResultCode resultCode, BlackoutDifficultyCode difficultyCode)
         {
             this.Id = 0;
             this.ScheduledStartDateTime = scheduledStartDateTime;
@@ -131,17 +131,35 @@ namespace Squelch.Library.Entities
             return this;
         }
 
-        public bool IsBlackoutPending() => this.StatusCode == BlackoutStatusCode.Pending && this.ResultCode == BlackoutResultCode.Pending;
+        public bool IsBlackoutPending()
+        {
+            return this.StatusCode == BlackoutStatusCode.Pending && this.ResultCode == BlackoutResultCode.Pending;
+        }
 
-        public bool IsBlackoutActive() => this.StatusCode == BlackoutStatusCode.Active && this.ResultCode == BlackoutResultCode.Pending;
+        public bool IsBlackoutActive()
+        {
+            return this.StatusCode == BlackoutStatusCode.Active && this.ResultCode == BlackoutResultCode.Pending;
+        }
 
-        public bool IsBlackoutFailed() => this.StatusCode == BlackoutStatusCode.Finished && this.ResultCode == BlackoutResultCode.Failed;
+        public bool IsBlackoutFailed()
+        {
+            return this.StatusCode == BlackoutStatusCode.Finished && this.ResultCode == BlackoutResultCode.Failed;
+        }
 
-        public bool IsBlackoutSuccessful() => this.StatusCode == BlackoutStatusCode.Finished && this.ResultCode == BlackoutResultCode.Success;
+        public bool IsBlackoutSuccessful()
+        {
+            return this.StatusCode == BlackoutStatusCode.Finished && this.ResultCode == BlackoutResultCode.Success;
+        }
 
-        public bool IsBlackoutSkipped() => this.StatusCode == BlackoutStatusCode.Finished && this.ResultCode == BlackoutResultCode.Skipped;
+        public bool IsBlackoutSkipped()
+        {
+            return this.StatusCode == BlackoutStatusCode.Finished && this.ResultCode == BlackoutResultCode.Skipped;
+        }
 
-        public bool IsBlackoutCancelled() => this.StatusCode == BlackoutStatusCode.Finished && this.ResultCode == BlackoutResultCode.Cancelled;
+        public bool IsBlackoutCancelled()
+        {
+            return this.StatusCode == BlackoutStatusCode.Finished && this.ResultCode == BlackoutResultCode.Cancelled;
+        }
         #endregion
 
         #region Validation
@@ -151,10 +169,12 @@ namespace Squelch.Library.Entities
         /// <returns></returns>
         public Dictionary<string, bool> ValidateInstanceData()
         {
-            Dictionary<string, bool> objResults = new Dictionary<string, bool>();
-            objResults.Add("Start Date", IsStartDateValid());
-            objResults.Add("End Date", IsEndDateValid());
-            objResults.Add("Date range (Start Date > End Date)", IsDateRangeValid());
+            Dictionary<string, bool> objResults = new Dictionary<string, bool>
+            {
+                { "Start Date", this.IsStartDateValid() },
+                { "End Date", this.IsEndDateValid() },
+                { "Date range (Start Date > End Date)", this.IsDateRangeValid() }
+            };
 
             return objResults;
         }
@@ -166,13 +186,19 @@ namespace Squelch.Library.Entities
         {
             // Validate the data
             string sResults = string.Empty;
-            foreach (KeyValuePair<string, bool> objResult in ValidateInstanceData())
+            foreach (KeyValuePair<string, bool> objResult in this.ValidateInstanceData())
+            {
                 if (objResult.Value == false)
+                {
                     sResults += objResult.Key + " is not valid. ";
+                }
+            }
 
             // If validate errors occured, throw format exception
             if (!string.IsNullOrWhiteSpace(sResults))
+            {
                 throw new FormatException(sResults);
+            }
         }
 
         /// <summary>
@@ -186,7 +212,9 @@ namespace Squelch.Library.Entities
             try
             {
                 if (!this.ScheduledStartDateTime.Equals(DateTime.MinValue) && !this.ScheduledStartDateTime.Equals(DateTime.MaxValue))
+                {
                     bResult = true;
+                }
             }
             catch
             {
@@ -207,7 +235,9 @@ namespace Squelch.Library.Entities
             try
             {
                 if (!this.ScheduledEndDateTime.Equals(DateTime.MinValue) && !this.ScheduledEndDateTime.Equals(DateTime.MaxValue))
+                {
                     bResult = true;
+                }
             }
             catch
             {
@@ -228,8 +258,12 @@ namespace Squelch.Library.Entities
             try
             {
                 if (this.ScheduledStartDateTime < this.ScheduledEndDateTime)
+                {
                     if ((this.ScheduledEndDateTime - this.ScheduledStartDateTime).TotalMinutes >= 1)
+                    {
                         bResult = true;
+                    }
+                }
             }
             catch
             {
@@ -241,7 +275,10 @@ namespace Squelch.Library.Entities
         #endregion
 
         #region Comparable Methods
-        public int CompareTo(BlackoutItem otherBlackoutItem) => this.ScheduledStartDateTime.CompareTo(otherBlackoutItem.ScheduledStartDateTime);
+        public int CompareTo(BlackoutItem otherBlackoutItem)
+        {
+            return this.ScheduledStartDateTime.CompareTo(otherBlackoutItem.ScheduledStartDateTime);
+        }
         #endregion
     }
 }

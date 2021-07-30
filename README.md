@@ -10,10 +10,12 @@
 7. [Improvement] Add a job scheduler that checks to see if the EnforcerService is running, and if not, start it back up.
 8. [Improvement] Add Crashlytics
 
+## Existing Gotchas:
+* The BlackoutSetupFragment, FirstTimeSetupFragment, and the FeedbackFragment all use the text on their respective positive/negative buttons to indicate when it should complete its process. If the words "Next" and "Finish" ever translate to the same thing, this will cause a bug.
+
 ## Working:
 * Still need to update the statistics fragment to use localized strings.
 * Need to fix weird ordering on schedule fragment as a result of localization.
-* Need to fix the blackout fragment so that it doesn't rely on the text of the buttons to indicate if its done (might just ignore seeing Next/Finish wont be the same word... maybe?).
 
 ## Changelog:
 * Added time format user setting.

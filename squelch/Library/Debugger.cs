@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Android.App;
-using Android.App.Usage;
+﻿using Android.App.Usage;
 using Android.Content;
 using Android.Content.PM;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Squelch.Library.Data;
 using Squelch.Library.Entities;
 using Squelch.Receivers;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Threading.Tasks;
 
 namespace Squelch.Library
 {
@@ -74,7 +67,10 @@ namespace Squelch.Library
                 else
                 {
                     if (_timer != null)
+                    {
                         _timer.Dispose();
+                    }
+
                     _isRunning = false;
                 }
             }
@@ -103,8 +99,10 @@ namespace Squelch.Library
                 blacklist = getRandomPackages(context.PackageManager.GetInstalledPackages(PackageInfoFlags.MatchAll), false);
                 for (int i = testDataCount; i > 0; i--)
                 {
-                    if (i == 0) 
+                    if (i == 0)
+                    {
                         continue;
+                    }
 
                     blackouts.Add(new BlackoutItem()
                     {
@@ -137,31 +135,33 @@ namespace Squelch.Library
 
         public static async Task SqliteDatabaseTest(Context context)
         {
-            BlackoutItem item = new BlackoutItem();
-            item.Bid = 5;
-            item.ScheduledStartDateTime = DateTime.Now.AddDays(1);
-            item.ScheduledEndDateTime = DateTime.Now.AddDays(2);
+            BlackoutItem item = new BlackoutItem
+            {
+                Bid = 5,
+                ScheduledStartDateTime = DateTime.Now.AddDays(1),
+                ScheduledEndDateTime = DateTime.Now.AddDays(2)
+            };
             item.SetBlackoutPending();
             item.Blacklist = getRandomPackages(context.PackageManager.GetInstalledPackages(PackageInfoFlags.MatchAll), false);
 
             await BlackoutDatabase.UpsertAsync(item);
-            var testItem1 = await BlackoutDatabase.FindAllAsync();
-            var testItem2 = await BlackoutDatabase.FindAsync((int)item.Id);
-            var testItem3 = await BlackoutDatabase.FindAllAsync(BlackoutItem.BlackoutStatusCode.Pending);
-            var testItem31 = await BlackoutDatabase.GetFirstPendingBlackoutAsync();
+            List<BlackoutItem> testItem1 = await BlackoutDatabase.FindAllAsync();
+            BlackoutItem testItem2 = await BlackoutDatabase.FindAsync(item.Id);
+            List<BlackoutItem> testItem3 = await BlackoutDatabase.FindAllAsync(BlackoutItem.BlackoutStatusCode.Pending);
+            BlackoutItem testItem31 = await BlackoutDatabase.GetFirstPendingBlackoutAsync();
 
             // Update and test result
             item.Bid = 25;
             await BlackoutDatabase.UpsertAsync(item);
-            var testItem4 = await BlackoutDatabase.FindAllAsync();
-            var testItem5 = await BlackoutDatabase.FindAsync((int)item.Id);
-            var testItem6 = await BlackoutDatabase.FindAllAsync(BlackoutItem.BlackoutStatusCode.Pending);
+            List<BlackoutItem> testItem4 = await BlackoutDatabase.FindAllAsync();
+            BlackoutItem testItem5 = await BlackoutDatabase.FindAsync(item.Id);
+            List<BlackoutItem> testItem6 = await BlackoutDatabase.FindAllAsync(BlackoutItem.BlackoutStatusCode.Pending);
 
             // Remove and test
             await BlackoutDatabase.RemoveAsync(item);
-            var testItem7 = await BlackoutDatabase.FindAllAsync();
-            var testItem8 = await BlackoutDatabase.FindAsync((int)item.Id);
-            var testItem9 = await BlackoutDatabase.FindAllAsync(BlackoutItem.BlackoutStatusCode.Pending);
+            List<BlackoutItem> testItem7 = await BlackoutDatabase.FindAllAsync();
+            BlackoutItem testItem8 = await BlackoutDatabase.FindAsync(item.Id);
+            List<BlackoutItem> testItem9 = await BlackoutDatabase.FindAllAsync(BlackoutItem.BlackoutStatusCode.Pending);
         }
 
         private static List<string> getRandomPackages(IList<PackageInfo> packages, bool includeSystem = false)
@@ -181,7 +181,10 @@ namespace Squelch.Library
                 {
                     isSystem = (package.ApplicationInfo.Flags & ApplicationInfoFlags.System) == ApplicationInfoFlags.System;
                     if (isSystem && !includeSystem)
+                    {
                         continue;
+                    }
+
                     possiblePackages.Add(package.PackageName);
                 }
 
@@ -198,7 +201,9 @@ namespace Squelch.Library
 
                 // select n number of items from that shuffled list
                 for (int i = 0; i < random.Next(0, possiblePackages.Count + 1); i++)
+                {
                     result.Add(possiblePackages[i]);
+                }
             }
             catch { }
 

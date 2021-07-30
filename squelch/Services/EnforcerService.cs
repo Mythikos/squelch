@@ -1,7 +1,7 @@
 ﻿using Android.App;
-using Android.App.Usage;
 using Android.Content;
 using Android.Content.PM;
+using Android.Content.Res;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
@@ -40,10 +40,10 @@ namespace Squelch.Services
         // Overlay
         private IWindowManager _windowManager = null;
         private View _overlayView = null;
-        private WindowManagerLayoutParams _overlayLayoutParameters = null;
-        private TextView _overlayNoticeLabel = null;
-        private Button _overlayBackButton = null;
-        private Button _overlayUnlockButton = null;
+        private WindowManagerLayoutParams _overlayViewLayoutParameters = null;
+        private TextView _overlayViewNoticeLabel = null;
+        private Button _overlayViewBackButton = null;
+        private Button _overlayViewUnlockButton = null;
 
         // Constants
         internal const int FOREGROUND_ID = 3000;
@@ -51,7 +51,6 @@ namespace Squelch.Services
         internal const string BROADCAST_BLACKOUT_ENDED = "com.squelch.android.enforcerservice.broadcast.BLACKOUT_ENDED";
         internal const string ACTION_START = "com.squelch.android.enforcerservice.action.START";
         internal const string ACTION_STOP = "com.squelch.android.enforcerservice.action.STOP";
-        internal const string ACTION_RESTART = "com.squelch.android.enforcerservice.action.RESTART";
 
         private const long ENFORCEMENT_POLLING_TIMER_MILLIS = 5000;
         private const long ENFORCEMENT_REACT_TIMER_MILLIS = 500;
@@ -65,53 +64,7 @@ namespace Squelch.Services
 
             //
             // Call start foreground (required for android 9 +)
-            StartForeground(FOREGROUND_ID, NotificationUtils.CreateNotification(this, NOTIFICATION_CHANNEL_ID, this.GetString(Resource.String.service_enforcer_title), this.GetString(Resource.String.service_enforcer_waiting_message), true, NotificationImportance.Low));
-
-            //
-            // Initialize overlay and window manager
-            this._windowManager = GetSystemService(Context.WindowService).JavaCast<IWindowManager>();
-            var inflater = (LayoutInflater)GetSystemService(Context.LayoutInflaterService);
-            _overlayView = inflater.Inflate(Resource.Layout.overlay_blackout, null);
-            _overlayNoticeLabel = _overlayView.FindViewById<TextView>(Resource.Id.overlay_blackout_notice_label);
-            _overlayBackButton = _overlayView.FindViewById<Button>(Resource.Id.overlay_blackout_back_button);
-            _overlayUnlockButton = _overlayView.FindViewById<Button>(Resource.Id.overlay_blackout_squelch_button);
-
-            _overlayBackButton.Click += delegate
-            {
-                //
-                // Open the app launcher
-                GeneralUtils.OpenLauncherActivity(this);
-
-                //
-                // Remove overlay
-                this._nextEnforcementTime = DateTime.Now.AddSeconds(1);
-                if (this._overlayView.IsShown == true)
-                    this._windowManager.RemoveView(_overlayView);
-            };
-
-            _overlayUnlockButton.Click += delegate
-            {
-                //
-                // Open main activity
-                GeneralUtils.OpenSelfActivity(this);
-
-                //
-                // Remove overlay
-                this._nextEnforcementTime = DateTime.Now.AddSeconds(1);
-                if (this._overlayView.IsShown == true)
-                    this._windowManager.RemoveView(_overlayView);
-            };
-
-            _overlayLayoutParameters = new WindowManagerLayoutParams(
-                        WindowManagerLayoutParams.MatchParent,
-                        WindowManagerLayoutParams.MatchParent,
-                        (Build.VERSION.SdkInt >= BuildVersionCodes.O ? WindowManagerTypes.ApplicationOverlay : WindowManagerTypes.SystemAlert),
-                        WindowManagerFlags.NotFocusable | WindowManagerFlags.NotTouchModal,
-                        Format.Translucent);
-            _overlayLayoutParameters.Gravity = GravityFlags.Left | GravityFlags.Top;
-            _overlayLayoutParameters.X = 0;
-            _overlayLayoutParameters.Y = 0;
-            _overlayLayoutParameters.WindowAnimations = Android.Resource.Style.AnimationToast;
+            this.StartForeground(FOREGROUND_ID, NotificationUtils.CreateNotification(this, NOTIFICATION_CHANNEL_ID, this.GetString(Resource.String.service_enforcer_title), this.GetString(Resource.String.service_enforcer_waiting_message), true, NotificationImportance.Low));
         }
 
         public override void OnDestroy()
@@ -120,9 +73,7 @@ namespace Squelch.Services
 
             //
             // Remove the overlay
-            if (_overlayView != null)
-                if (_overlayView.IsShown == true)
-                    this._windowManager.RemoveView(_overlayView);
+            this.RemoveOverlay();
         }
 
         public override IBinder OnBind(Intent intent)
@@ -153,20 +104,25 @@ namespace Squelch.Services
                 {
                     case ACTION_START:
                         if (EnforcerService.IsRunning == false)
-                            InitializeService();
+                        {
+                            this.InitializeService();
+                        }
                         else
+                        {
                             Logger.Write(s_tag, $"StartCommandResult: {ACTION_START} action received but the service is already running", Logger.Severity.Warn);
+                        }
+
                         break;
                     case ACTION_STOP:
                         if (EnforcerService.IsRunning == true)
-                            DeinitializeService();
+                        {
+                            this.DeinitializeService();
+                        }
                         else
+                        {
                             Logger.Write(s_tag, $"StartCommandResult: {ACTION_STOP} action received but the service is already stopped", Logger.Severity.Warn);
-                        break;
-                    case ACTION_RESTART:
-                        if (EnforcerService.IsRunning == true)
-                            DeinitializeService();
-                        InitializeService();
+                        }
+
                         break;
                     default:
                         Logger.Write(s_tag, $"StartCommandResult: Action not supported by service", Logger.Severity.Error);
@@ -181,6 +137,19 @@ namespace Squelch.Services
             return StartCommandResult.Sticky;
             //return StartCommandResult.RedeliverIntent;
         }
+
+        public override void OnConfigurationChanged(Configuration newConfig)
+        {
+            base.OnConfigurationChanged(newConfig);
+
+            //
+            // Restart the enforcer service
+            if (EnforcerService.IsRunning == true)
+            {
+                this.DeinitializeService();
+            }
+            this.InitializeService();
+        }
         #endregion
 
         #region Helper Methods
@@ -192,20 +161,47 @@ namespace Squelch.Services
             try
             {
                 //
+                // Setup overlay view
+                LayoutInflater inflater = (LayoutInflater)this.GetSystemService(Context.LayoutInflaterService);
+                this._overlayView = inflater.Inflate(Resource.Layout.overlay_blackout, null);
+                this._overlayViewNoticeLabel = this._overlayView.FindViewById<TextView>(Resource.Id.overlay_blackout_notice_label);
+                this._overlayViewBackButton = this._overlayView.FindViewById<Button>(Resource.Id.overlay_blackout_back_button);
+                this._overlayViewUnlockButton = this._overlayView.FindViewById<Button>(Resource.Id.overlay_blackout_squelch_button);
+
+                this._overlayViewBackButton.Click += this.OverlayViewBackButton_Click;
+                this._overlayViewUnlockButton.Click += this.OverlayViewUnlockButton_Click;
+
+                this._overlayViewLayoutParameters = new WindowManagerLayoutParams(WindowManagerLayoutParams.MatchParent, WindowManagerLayoutParams.MatchParent, (Build.VERSION.SdkInt >= BuildVersionCodes.O ? WindowManagerTypes.ApplicationOverlay : WindowManagerTypes.SystemAlert), WindowManagerFlags.NotFocusable | WindowManagerFlags.NotTouchModal, Format.Translucent)
+                {
+                    Gravity = GravityFlags.Left | GravityFlags.Top,
+                    X = 0,
+                    Y = 0,
+                    WindowAnimations = Android.Resource.Style.AnimationToast
+                };
+
+                //
+                // Set notification to waiting (as polling/enforcer timers is not yet initialized)
+                if (this._notificationManager == null)
+                {
+                    this._notificationManager = (NotificationManager)this.GetSystemService(Context.NotificationService);
+                }
+                this._notificationManager.Notify(FOREGROUND_ID, NotificationUtils.CreateNotification(this, NOTIFICATION_CHANNEL_ID, this.GetString(Resource.String.service_enforcer_title), this.GetString(Resource.String.service_enforcer_waiting_message), true, NotificationImportance.Low));
+
+                //
                 // Set instance vars
                 this._usageStatsWrapper = new UsageStatsWrapper(this);
-                this._notificationManager = (NotificationManager)GetSystemService(Context.NotificationService);
+                this._notificationManager = (NotificationManager)this.GetSystemService(Context.NotificationService);
                 this._activeBlackoutId = null;
                 this._nextEnforcementTime = null;
 
                 //
                 // Create timers
                 this._tmrPollingForBlackout = new Timer() { Interval = ENFORCEMENT_POLLING_TIMER_MILLIS };
-                this._tmrPollingForBlackout.Elapsed += PollForBlackout;
+                this._tmrPollingForBlackout.Elapsed += this.PollForBlackout;
                 this._tmrPollingForBlackout.Start();
 
                 this._tmrEnforceBlackout = new Timer() { Interval = ENFORCEMENT_REACT_TIMER_MILLIS };
-                this._tmrEnforceBlackout.Elapsed += EnforceBlackout;
+                this._tmrEnforceBlackout.Elapsed += this.EnforceBlackout;
                 this._tmrEnforceBlackout.Stop();
 
                 //
@@ -248,6 +244,9 @@ namespace Squelch.Services
                     this._tmrPollingForBlackout = null;
                 }
 
+                // Remove the overlay if it is present
+                this.RemoveOverlay();
+
                 //
                 // Set IsRunning flag
                 EnforcerService.IsRunning = false;
@@ -272,10 +271,14 @@ namespace Squelch.Services
                 //
                 // Sanity
                 if (activeBlackoutItem == null)
+                {
                     throw new ArgumentNullException("activeBlackoutItem");
+                }
 
                 if (activeBlackoutItem.IsBlackoutPending() == false && activeBlackoutItem.IsBlackoutActive() == false)
+                {
                     throw new InvalidOperationException("Input blackout item is not in the correct state");
+                }
 
                 //
                 // Set the blackout item as active
@@ -294,7 +297,9 @@ namespace Squelch.Services
                 try
                 {
                     if (GeneralUtils.SelfIsInForeground(this) == false)
-                        React();
+                    {
+                        this.React();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -304,12 +309,15 @@ namespace Squelch.Services
                 //
                 // Update foreground notification
                 if (this._notificationManager == null)
-                    this._notificationManager = (NotificationManager)GetSystemService(Context.NotificationService);
+                {
+                    this._notificationManager = (NotificationManager)this.GetSystemService(Context.NotificationService);
+                }
+
                 this._notificationManager.Notify(FOREGROUND_ID, NotificationUtils.CreateNotification(this, NOTIFICATION_CHANNEL_ID, this.GetString(Resource.String.service_enforcer_title), this.GetString(Resource.String.service_enforcer_active_message), true, NotificationImportance.Low));
 
                 //
                 // Send a broadcast that the blackout has started
-                SendBroadcast(new Intent(BROADCAST_BLACKOUT_STARTED));
+                this.SendBroadcast(new Intent(BROADCAST_BLACKOUT_STARTED));
 
                 Logger.Write(s_tag, $"StartBlackout: Blackout has been started", Logger.Severity.Info);
             }
@@ -330,9 +338,9 @@ namespace Squelch.Services
 
             try
             {
-                if (_activeBlackoutId != null)
+                if (this._activeBlackoutId != null)
                 {
-                    blackoutItem = await BlackoutDatabase.FindAsync(_activeBlackoutId.GetValueOrDefault());
+                    blackoutItem = await BlackoutDatabase.FindAsync(this._activeBlackoutId.GetValueOrDefault());
                     if (blackoutItem != null)
                     {
                         //
@@ -346,11 +354,17 @@ namespace Squelch.Services
                         //
                         // Send blackout analytics
                         if (blackoutItem.IsBlackoutSuccessful())
+                        {
                             FirebaseAnalyticsUtils.SendBlackoutEvent(FirebaseAnalyticsUtils.EVENT_BLACKOUT_SUCCESSFUL, blackoutItem);
+                        }
                         else if (blackoutItem.IsBlackoutFailed())
+                        {
                             FirebaseAnalyticsUtils.SendBlackoutEvent(FirebaseAnalyticsUtils.EVENT_BLACKOUT_FAILED, blackoutItem);
+                        }
                         else if (blackoutItem.IsBlackoutCancelled())
+                        {
                             FirebaseAnalyticsUtils.SendBlackoutEvent(FirebaseAnalyticsUtils.EVENT_BLACKOUT_CANCELLED, blackoutItem);
+                        }
                     }
                 }
 
@@ -364,12 +378,15 @@ namespace Squelch.Services
                 //
                 // Update foreground notification
                 if (this._notificationManager == null)
-                    this._notificationManager = (NotificationManager)GetSystemService(Context.NotificationService);
+                {
+                    this._notificationManager = (NotificationManager)this.GetSystemService(Context.NotificationService);
+                }
+
                 this._notificationManager.Notify(FOREGROUND_ID, NotificationUtils.CreateNotification(this, NOTIFICATION_CHANNEL_ID, this.GetString(Resource.String.service_enforcer_title), this.GetString(Resource.String.service_enforcer_waiting_message), true, NotificationImportance.Low));
 
                 //
                 // Send a broadcast that the blackout has ended
-                SendBroadcast(new Intent(BROADCAST_BLACKOUT_ENDED));
+                this.SendBroadcast(new Intent(BROADCAST_BLACKOUT_ENDED));
 
                 Logger.Write(s_tag, $"EndBlackout: Blackout has been ended", Logger.Severity.Info);
             }
@@ -385,13 +402,14 @@ namespace Squelch.Services
         private void React(ApplicationInfo application = null)
         {
             string noticeLabel = string.Empty;
+            string overlayMessage = string.Empty;
             string applicationLabel = string.Empty;
 
             //
             // Close system dialogs as they will prevent squelch from opening
             try
             {
-                SendBroadcast(new Intent(Intent.ActionCloseSystemDialogs));
+                this.SendBroadcast(new Intent(Intent.ActionCloseSystemDialogs));
 
                 Logger.Write(s_tag, $"React: System dialogs have been requested to close", Logger.Severity.Info);
             }
@@ -405,24 +423,27 @@ namespace Squelch.Services
                 try
                 {
                     // Is it already being shown?
-                    if (_overlayView.IsShown == false)
+                    if (this._overlayView.IsShown == false)
                     {
                         Logger.Write(s_tag, "React: Showing overlay", Logger.Severity.Debug);
 
                         // Load application label
                         if (application != null)
+                        {
                             applicationLabel = application.LoadLabel(this.PackageManager);
+                        }
 
                         if (string.IsNullOrWhiteSpace(applicationLabel) == true)
-                            applicationLabel = this.GetString(Resource.String.service_enforcer_react_generic_application);
+                        {
+                            overlayMessage = this.GetString(Resource.String.service_enforcer_react_blacklist_generic);
+                        }
+                        else
+                        {
+                            overlayMessage = string.Format(this.GetString(Resource.String.service_enforcer_react_blacklist_specific), applicationLabel);
+                        }
 
                         // Display it
-                        MainThread.BeginInvokeOnMainThread(() =>
-                        {
-                            _overlayNoticeLabel.SetText(string.Format(this.GetString(Resource.String.service_enforcer_react_blacklist_message), applicationLabel), TextView.BufferType.Editable);
-                            if (this._overlayView.IsShown == false)
-                                this._windowManager.AddView(_overlayView, _overlayLayoutParameters);
-                        });
+                        MainThread.BeginInvokeOnMainThread(() => { this.ShowOverlay(overlayMessage); });
                         Logger.Write(s_tag, $"React: Overlay has been requested to start", Logger.Severity.Info);
                     }
                     else
@@ -489,6 +510,80 @@ namespace Squelch.Services
         }
         #endregion
 
+        #region Overlay Methods
+        /// <summary>
+        /// Handles the back button click event for the application overlay.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OverlayViewBackButton_Click(object sender, EventArgs e)
+        {
+            //
+            // Open the app launcher
+            GeneralUtils.OpenLauncherActivity(this);
+
+            //
+            // Remove overlay
+            this._nextEnforcementTime = DateTime.Now.AddSeconds(1);
+            this.RemoveOverlay();
+        }
+
+        /// <summary>
+        /// Handles the unlock button click event for the application overlay.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OverlayViewUnlockButton_Click(object sender, EventArgs e)
+        {
+            //
+            // Open main activity
+            GeneralUtils.OpenSelfActivity(this);
+
+            //
+            // Remove overlay
+            this._nextEnforcementTime = DateTime.Now.AddSeconds(1);
+            this.RemoveOverlay();
+        }
+
+        /// <summary>
+        /// Removes (hides) the application overlay if it is currently visible.
+        /// </summary>
+        private void RemoveOverlay()
+        {
+            if (this._overlayView != null)
+            {
+                if (this._overlayView.IsShown == true)
+                {
+                    if (this._windowManager == null)
+                    {
+                        this._windowManager = this.GetSystemService(Context.WindowService).JavaCast<IWindowManager>();
+                    }
+                    this._windowManager.RemoveView(this._overlayView);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Adds (shows) the application overlay with the provided message.
+        /// </summary>
+        /// <param name="message"></param>
+        private void ShowOverlay(string message)
+        {
+            if (this._overlayView != null && this._overlayViewNoticeLabel != null)
+            {
+                this._overlayViewNoticeLabel.SetText(message, TextView.BufferType.Editable);
+                if (this._overlayView.IsShown == false)
+                {
+                    if (this._windowManager == null)
+                    {
+                        this._windowManager = this.GetSystemService(Context.WindowService).JavaCast<IWindowManager>();
+                    }
+                    this._windowManager.AddView(this._overlayView, this._overlayViewLayoutParameters);
+                }
+            }
+        }
+        #endregion
+
         #region Timer Methods
         /// <summary>
         /// Checks for if a blackout is now active
@@ -508,14 +603,16 @@ namespace Squelch.Services
                 {
                     blackoutItem = await BlackoutDatabase.GetFirstActiveBlackoutAsync(); // Grab the first active blackout first
                     if (blackoutItem == null)
+                    {
                         blackoutItem = await BlackoutDatabase.GetFirstPendingBlackoutAsync(DateTime.Now);
+                    }
                     //blackoutItem = await BlackoutDatabase.GetFirstBlackoutAsync(DateTime.Now, BlackoutItem.BlackoutStatusCode.Pending); // Otherwise, grab the first pending blackout
 
                     // Did we find a blackout item?
                     if (blackoutItem != null)
                     {
                         Logger.Write(s_tag, "PollForBlackout: Found a blackout that is ready to begin", Logger.Severity.Info);
-                        await StartBlackout(blackoutItem); // Start the blackout
+                        await this.StartBlackout(blackoutItem); // Start the blackout
                     }
                 }
             }
@@ -550,7 +647,7 @@ namespace Squelch.Services
                     // We have a blackout item right?
                     if (this._activeBlackoutId != null)
                     {
-                        blackoutItem = await BlackoutDatabase.FindAsync(_activeBlackoutId.GetValueOrDefault());
+                        blackoutItem = await BlackoutDatabase.FindAsync(this._activeBlackoutId.GetValueOrDefault());
                         if (blackoutItem != null)
                         {
                             //
@@ -566,16 +663,19 @@ namespace Squelch.Services
                                         if (PermissionUtils.GetUsageDataPermission(this, false) == true)
                                         {
                                             if (this._usageStatsWrapper == null)
+                                            {
                                                 this._usageStatsWrapper = new UsageStatsWrapper(this);
+                                            }
+
                                             this._usageStatsWrapper.Update(); // Must be called each update
 
                                             // Should we react?
-                                            var shouldReact = ShouldReact(blackoutItem.Blacklist);
+                                            Tuple<bool, ApplicationInfo> shouldReact = this.ShouldReact(blackoutItem.Blacklist);
                                             if (shouldReact.Item1 == true)
                                             {
                                                 // Yep!
                                                 Logger.Write(s_tag, $"EnforceBlackout: Reacting to blocked usage", Logger.Severity.Info);
-                                                React(shouldReact.Item2);
+                                                this.React(shouldReact.Item2);
                                             }
 
                                         }
@@ -597,7 +697,7 @@ namespace Squelch.Services
                                 Logger.Write(s_tag, $"EnforceBlackout: Blackout is no longer valid", Logger.Severity.Info);
 
                                 // Blackout is no longer in a valid time range or a valid status, lets end
-                                await EndBlackout();
+                                await this.EndBlackout();
                             }
                         }
                         else
@@ -605,7 +705,7 @@ namespace Squelch.Services
                             Logger.Write(s_tag, $"EnforceBlackout: Unable to locate a blackout with the current active blackout id... ending blackout", Logger.Severity.Wtf);
 
                             // If the blackout cant be found anymore.... just exit?
-                            try { await EndBlackout(); } catch (Exception iex) { Log.Error(s_tag, $"EnforceBlackout: Last ditch effort to recover from null blackout failed: {iex.Message}"); } // Attempt to end the erroneous blackout
+                            try { await this.EndBlackout(); } catch (Exception iex) { Log.Error(s_tag, $"EnforceBlackout: Last ditch effort to recover from null blackout failed: {iex.Message}"); } // Attempt to end the erroneous blackout
                         }
                     }
                     else
@@ -613,7 +713,7 @@ namespace Squelch.Services
                         Logger.Write(s_tag, $"EnforceBlackout: Active blackout id is null... ending blackout", Logger.Severity.Wtf);
 
                         // If the blackout cant be found anymore.... just exit?
-                        try { await EndBlackout(); } catch (Exception iex) { Log.Error(s_tag, $"EnforceBlackout: Last ditch effort to recover from null blackout id failed: {iex.Message}"); } // Attempt to end the erroneous blackout
+                        try { await this.EndBlackout(); } catch (Exception iex) { Log.Error(s_tag, $"EnforceBlackout: Last ditch effort to recover from null blackout id failed: {iex.Message}"); } // Attempt to end the erroneous blackout
                     }
                 }
                 else
@@ -633,7 +733,7 @@ namespace Squelch.Services
             catch (Exception ex)
             {
                 Log.Error(s_tag, $"EnforceBlackout: Error occured when attempting to enforce active blackout: {ex.Message}");
-                try { React(); } catch (Exception iex) { Log.Error(s_tag, $"EnforceBlackout: Last ditch effort to recover from EnforceBlackout exception failed: {iex.Message}"); } // Attempt to open the main activity in the case of error
+                try { this.React(); } catch (Exception iex) { Log.Error(s_tag, $"EnforceBlackout: Last ditch effort to recover from EnforceBlackout exception failed: {iex.Message}"); } // Attempt to open the main activity in the case of error
             }
         }
         #endregion

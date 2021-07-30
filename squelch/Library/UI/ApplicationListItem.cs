@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Android.Content;
+﻿using Android.Content;
 using Android.Content.PM;
 using Android.Graphics.Drawables;
 using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Squelch.Library.UI
 {
@@ -45,7 +45,7 @@ namespace Squelch.Library.UI
 
                 // Call setup holder
                 // If the holder has already been set, this will update it, if not, itll do nothing
-                SetupHolder();
+                this.SetupHolder();
             });
         }
 
@@ -54,7 +54,9 @@ namespace Squelch.Library.UI
             //
             // Set this holder as the ui item's holder
             if (holder != null)
+            {
                 this._viewHolder = holder;
+            }
 
             //
             // If its not null, default view items
@@ -76,27 +78,40 @@ namespace Squelch.Library.UI
                 // Set instance values
                 this._viewHolder.NameText.Text = this.Name;
                 if (this.Icon != null)
+                {
                     this._viewHolder.IconImage.SetImageDrawable(this.Icon);
+                }
 
                 if (string.IsNullOrWhiteSpace(this.Category) == false)
+                {
                     this._viewHolder.CategoryText.Text = this.Category;
+                }
                 else
+                {
                     this._viewHolder.CategoryText.Visibility = ViewStates.Gone;
+                }
 
                 if (this.IsSelected)
+                {
                     this._viewHolder.ItemView.SetBackgroundResource(Resource.Color.recyclerColorBackgroundAlt);
+                }
                 else
+                {
                     this._viewHolder.ItemView.SetBackgroundResource(Resource.Color.recyclerColorBackground);
+                }
             }
         }
 
         public void SetSelected(bool isSelected)
         {
             this.IsSelected = isSelected;
-            SetupHolder();
+            this.SetupHolder();
         }
 
-        public void ToggleSelected() => SetSelected(!this.IsSelected);
+        public void ToggleSelected()
+        {
+            this.SetSelected(!this.IsSelected);
+        }
 
         public bool Equals(UIApplicationItem other)
         {
@@ -142,10 +157,7 @@ namespace Squelch.Library.UI
         public List<UIApplicationItem> ApplicationList;
         #endregion
 
-        public override int ItemCount
-        {
-            get { return this.ApplicationList.Count; }
-        }
+        public override int ItemCount => this.ApplicationList.Count;
 
         public UIApplicationListAdapter(List<UIApplicationItem> applicationList)
         {
@@ -159,7 +171,7 @@ namespace Squelch.Library.UI
             //
             // Create the holder
             View applicationRowTemplate = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.template_application_row, parent, false);
-            return new UIApplicationListHolder(applicationRowTemplate, OnSelect);
+            return new UIApplicationListHolder(applicationRowTemplate, this.OnSelect);
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
@@ -176,7 +188,9 @@ namespace Squelch.Library.UI
             //
             // Call event if subscribed
             if (OnApplicationSelected != null)
+            {
                 OnApplicationSelected(this, position);
+            }
         }
         #endregion
     }
@@ -204,9 +218,13 @@ namespace Squelch.Library.UI
         }
 
         public override bool AreContentsTheSame(int oldItemPosition, int newItemPosition)
-            => this.NewList[newItemPosition].Equals(this.OldList[oldItemPosition]);
+        {
+            return this.NewList[newItemPosition].Equals(this.OldList[oldItemPosition]);
+        }
 
         public override bool AreItemsTheSame(int oldItemPosition, int newItemPosition)
-            => this.NewList[newItemPosition].PackageName.Equals(this.OldList[oldItemPosition].PackageName);
+        {
+            return this.NewList[newItemPosition].PackageName.Equals(this.OldList[oldItemPosition].PackageName);
+        }
     }
 }

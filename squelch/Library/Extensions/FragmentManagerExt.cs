@@ -1,6 +1,4 @@
-﻿using Android.App;
-using System;
-using System.Runtime.CompilerServices;
+﻿using System;
 
 namespace Squelch.Library.Extensions
 {
@@ -20,9 +18,13 @@ namespace Squelch.Library.Extensions
             //
             // Get existing or create a new instance of a fragment
             if (useExisting == true && fragmentManager.FindFragmentByTag(fragmentType.Name) != null)
+            {
                 fragment = fragmentManager.FindFragmentByTag(fragmentType.Name);
+            }
             else
+            {
                 fragment = (AndroidX.Fragment.App.Fragment)Activator.CreateInstance(fragmentType);
+            }
 
             //
             // Set fragment
@@ -54,7 +56,10 @@ namespace Squelch.Library.Extensions
 
             //
             // Add the fragment to the back stack if defined
-            if (addToBackStack) transaction.AddToBackStack(null);
+            if (addToBackStack)
+            {
+                transaction.AddToBackStack(null);
+            }
 
             //
             // Commit the transaction

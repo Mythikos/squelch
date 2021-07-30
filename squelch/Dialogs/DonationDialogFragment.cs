@@ -1,20 +1,16 @@
 ﻿using Android.OS;
 using Android.Views;
 using Android.Widget;
+using AndroidX.Core.Content;
+using AndroidX.Core.Widget;
 using AndroidX.Fragment.App;
 using Google.Android.Material.Snackbar;
-using Squelch.Activities;
 using Squelch.Library;
 using Squelch.Library.Data;
+using Squelch.Library.Extensions;
 using Squelch.Library.Interfaces;
 using Squelch.Library.Utilities;
 using System;
-using System.Collections.Generic;
-using AndroidX.Core.Widget;
-using AndroidX.Core.Content.Resources;
-using Squelch.Library.Extensions;
-using System.Threading.Tasks;
-using AndroidX.Core.Content;
 
 namespace Squelch.Fragments
 {
@@ -48,36 +44,44 @@ namespace Squelch.Fragments
 
             try
             {
-                _rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_donation_root_layout);
-                _preset1RadioButton = view.FindViewById<RadioButton>(Resource.Id.fragment_donation_button_preset_1);
-                _preset2RadioButton = view.FindViewById<RadioButton>(Resource.Id.fragment_donation_button_preset_2);
-                _preset3RadioButton = view.FindViewById<RadioButton>(Resource.Id.fragment_donation_button_preset_3);
-                _otherRadioButton = view.FindViewById<RadioButton>(Resource.Id.fragment_donation_button_other);
-                _otherPickerView = view.FindViewById<NestedScrollView>(Resource.Id.fragment_donation_other_picker_view);
-                _otherNumberPicker = view.FindViewById<NumberPicker>(Resource.Id.fragment_donation_other_number_picker);
-                _positiveButton = view.FindViewById<Button>(Resource.Id.fragment_donation_positive_button);
-                _negativeButton = view.FindViewById<Button>(Resource.Id.fragment_donation_negative_button);
+                this._rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_donation_root_layout);
+                this._preset1RadioButton = view.FindViewById<RadioButton>(Resource.Id.fragment_donation_button_preset_1);
+                this._preset2RadioButton = view.FindViewById<RadioButton>(Resource.Id.fragment_donation_button_preset_2);
+                this._preset3RadioButton = view.FindViewById<RadioButton>(Resource.Id.fragment_donation_button_preset_3);
+                this._otherRadioButton = view.FindViewById<RadioButton>(Resource.Id.fragment_donation_button_other);
+                this._otherPickerView = view.FindViewById<NestedScrollView>(Resource.Id.fragment_donation_other_picker_view);
+                this._otherNumberPicker = view.FindViewById<NumberPicker>(Resource.Id.fragment_donation_other_number_picker);
+                this._positiveButton = view.FindViewById<Button>(Resource.Id.fragment_donation_positive_button);
+                this._negativeButton = view.FindViewById<Button>(Resource.Id.fragment_donation_negative_button);
 
                 //
                 // Setup events
-                _preset1RadioButton.Click += RadioButton_Click;
-                _preset2RadioButton.Click += RadioButton_Click;
-                _preset3RadioButton.Click += RadioButton_Click;
-                _otherRadioButton.Click += RadioButton_Click;
+                this._preset1RadioButton.Click += this.RadioButton_Click;
+                this._preset2RadioButton.Click += this.RadioButton_Click;
+                this._preset3RadioButton.Click += this.RadioButton_Click;
+                this._otherRadioButton.Click += this.RadioButton_Click;
 
-                _positiveButton.Click += async delegate
+                this._positiveButton.Click += async delegate
                 {
                     //
                     // Get donation amount
                     int amount = 0;
-                    if (_preset1RadioButton.Checked == true)
-                        amount = int.Parse(_preset1RadioButton.Text.Replace("$", string.Empty).Replace(" ", string.Empty));
-                    else if (_preset2RadioButton.Checked == true)
-                        amount = int.Parse(_preset2RadioButton.Text.Replace("$", string.Empty).Replace(" ", string.Empty));
-                    else if (_preset3RadioButton.Checked == true)
-                        amount = int.Parse(_preset3RadioButton.Text.Replace("$", string.Empty).Replace(" ", string.Empty));
-                    else if (_otherRadioButton.Checked == true)
-                        amount = _otherNumberPicker.Value;
+                    if (this._preset1RadioButton.Checked == true)
+                    {
+                        amount = int.Parse(this._preset1RadioButton.Text.Replace("$", string.Empty).Replace(" ", string.Empty));
+                    }
+                    else if (this._preset2RadioButton.Checked == true)
+                    {
+                        amount = int.Parse(this._preset2RadioButton.Text.Replace("$", string.Empty).Replace(" ", string.Empty));
+                    }
+                    else if (this._preset3RadioButton.Checked == true)
+                    {
+                        amount = int.Parse(this._preset3RadioButton.Text.Replace("$", string.Empty).Replace(" ", string.Empty));
+                    }
+                    else if (this._otherRadioButton.Checked == true)
+                    {
+                        amount = this._otherNumberPicker.Value;
+                    }
 
                     //
                     // Process donation
@@ -106,17 +110,17 @@ namespace Squelch.Fragments
                     }
                 };
 
-                _negativeButton.Click += delegate
+                this._negativeButton.Click += delegate
                 {
                     this.Dismiss();
                 };
 
                 //
                 // Setup view
-                _positiveButton.Visibility = ViewStates.Gone;
-                _otherNumberPicker.MinValue = 1;
-                _otherNumberPicker.MaxValue = 250;
-                _otherNumberPicker.Value = 5;
+                this._positiveButton.Visibility = ViewStates.Gone;
+                this._otherNumberPicker.MinValue = 1;
+                this._otherNumberPicker.MaxValue = 250;
+                this._otherNumberPicker.Value = 5;
             }
             catch (Exception ex)
             {
@@ -148,23 +152,23 @@ namespace Squelch.Fragments
         #region Control Events
         private void RadioButton_Click(object sender, EventArgs e)
         {
-            if (_preset1RadioButton.Checked == true || _preset2RadioButton.Checked == true || _preset3RadioButton.Checked == true)
+            if (this._preset1RadioButton.Checked == true || this._preset2RadioButton.Checked == true || this._preset3RadioButton.Checked == true)
             {
-                _positiveButton.Visibility = ViewStates.Visible;
-                _otherPickerView.Visibility = ViewStates.Gone;
-                _otherRadioButton.Background = ContextCompat.GetDrawable(this.Context, Resource.Drawable.rounded_corners_ripple);
+                this._positiveButton.Visibility = ViewStates.Visible;
+                this._otherPickerView.Visibility = ViewStates.Gone;
+                this._otherRadioButton.Background = ContextCompat.GetDrawable(this.Context, Resource.Drawable.rounded_corners_ripple);
             }
-            else if (_otherRadioButton.Checked == true)
+            else if (this._otherRadioButton.Checked == true)
             {
-                _positiveButton.Visibility = ViewStates.Visible;
-                _otherPickerView.Visibility = ViewStates.Visible;
-                _otherRadioButton.Background = ContextCompat.GetDrawable(this.Context, Resource.Drawable.rounded_corners_top);
+                this._positiveButton.Visibility = ViewStates.Visible;
+                this._otherPickerView.Visibility = ViewStates.Visible;
+                this._otherRadioButton.Background = ContextCompat.GetDrawable(this.Context, Resource.Drawable.rounded_corners_top);
             }
             else
             {
-                _positiveButton.Visibility = ViewStates.Gone;
-                _otherPickerView.Visibility = ViewStates.Gone;
-                _otherRadioButton.Background = ContextCompat.GetDrawable(this.Context, Resource.Drawable.rounded_corners_ripple);
+                this._positiveButton.Visibility = ViewStates.Gone;
+                this._otherPickerView.Visibility = ViewStates.Gone;
+                this._otherRadioButton.Background = ContextCompat.GetDrawable(this.Context, Resource.Drawable.rounded_corners_ripple);
             }
         }
         #endregion
@@ -177,11 +181,13 @@ namespace Squelch.Fragments
         private void SetIsWorking(bool isWorking)
         {
             // Toggle views
-            ViewUtils.SetViewAndChildrenEnabled(_rootLayout, !isWorking);
+            ViewUtils.SetViewAndChildrenEnabled(this._rootLayout, !isWorking);
 
             // Report to parent
             if (this.Activity is IIndeterminateProgressReporter)
+            {
                 ((IIndeterminateProgressReporter)this.Activity).SetProgressBarState(isWorking);
+            }
         }
         #endregion
     }

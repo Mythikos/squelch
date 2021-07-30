@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Android.App;
+﻿using Android.App;
 using Android.OS;
 using Firebase.Analytics;
-using Squelch.Library.Data;
 using Squelch.Library.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Squelch.Library.Utilities
 {
@@ -89,16 +88,18 @@ namespace Squelch.Library.Utilities
                 //
                 // Top 3 categories
                 // Initialize category list and count apps blocked by category
-                blockedApplicationCountByCategory = new Dictionary<string, int>();
-                blockedApplicationCountByCategory.Add("audio", 0); // ApplicationCategories.Audio
-                blockedApplicationCountByCategory.Add("game", 0); // ApplicationCategories.Game
-                blockedApplicationCountByCategory.Add("image", 0); // ApplicationCategories.Image
-                blockedApplicationCountByCategory.Add("maps", 0); // ApplicationCategories.Maps
-                blockedApplicationCountByCategory.Add("news", 0); // ApplicationCategories.News
-                blockedApplicationCountByCategory.Add("productivity", 0); // ApplicationCategories.Productivity
-                blockedApplicationCountByCategory.Add("social", 0); // ApplicationCategories.Social
-                blockedApplicationCountByCategory.Add("video", 0); // ApplicationCategories.Video
-                blockedApplicationCountByCategory.Add("undefined", 0); // ApplicationCategories.Undefined
+                blockedApplicationCountByCategory = new Dictionary<string, int>
+                {
+                    { "audio", 0 }, // ApplicationCategories.Audio
+                    { "game", 0 }, // ApplicationCategories.Game
+                    { "image", 0 }, // ApplicationCategories.Image
+                    { "maps", 0 }, // ApplicationCategories.Maps
+                    { "news", 0 }, // ApplicationCategories.News
+                    { "productivity", 0 }, // ApplicationCategories.Productivity
+                    { "social", 0 }, // ApplicationCategories.Social
+                    { "video", 0 }, // ApplicationCategories.Video
+                    { "undefined", 0 } // ApplicationCategories.Undefined
+                };
 
                 if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
                 {
@@ -106,14 +107,18 @@ namespace Squelch.Library.Utilities
                     {
                         if (string.IsNullOrWhiteSpace(packageName) == false)
                         {
-                            var applicationInfo = Application.Context.PackageManager.GetPackageInfo(packageName, Android.Content.PM.PackageInfoFlags.MatchAll)?.ApplicationInfo;
+                            Android.Content.PM.ApplicationInfo applicationInfo = Application.Context.PackageManager.GetPackageInfo(packageName, Android.Content.PM.PackageInfoFlags.MatchAll)?.ApplicationInfo;
                             if (applicationInfo != null)
                             {
-                                var category = applicationInfo.Category.ToString().ToLower();
+                                string category = applicationInfo.Category.ToString().ToLower();
                                 if (blockedApplicationCountByCategory.ContainsKey(category))
+                                {
                                     blockedApplicationCountByCategory[category] += 1;
+                                }
                                 else
+                                {
                                     blockedApplicationCountByCategory["undefined"] += 1;
+                                }
                             }
                         }
                     }
@@ -142,13 +147,19 @@ namespace Squelch.Library.Utilities
                 analyticBundle.PutString("blackout_enddatetime_day_of_week", blackout.ScheduledEndDateTime.DayOfWeek.ToString());
 
                 if (blockedApplicationCountByCategory[primaryCategoryBlocked] > 0)
+                {
                     analyticBundle.PutString("blackout_category_blocked_primary", primaryCategoryBlocked);
+                }
 
                 if (blockedApplicationCountByCategory[secondaryCategoryBlocked] > 0)
+                {
                     analyticBundle.PutString("blackout_category_blocked_secondary", secondaryCategoryBlocked);
+                }
 
                 if (blockedApplicationCountByCategory[tertiaryCategoryBlocked] > 0)
+                {
                     analyticBundle.PutString("blackout_category_blocked_tertiary", tertiaryCategoryBlocked);
+                }
 
                 // Log the event
                 FirebaseAnalyticsUtils.SendEvent(eventName, analyticBundle);

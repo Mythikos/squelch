@@ -7,7 +7,6 @@ using Squelch.Activities;
 using Squelch.Library;
 using Squelch.Library.Data;
 using Squelch.Library.Entities;
-using Squelch.Library.Extensions;
 using Squelch.Library.Interfaces;
 using Squelch.Library.Utilities;
 using System;
@@ -36,8 +35,8 @@ namespace Squelch.Fragments
 
             try
             {
-                _rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_schedule_root_layout);
-                _itemLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_schedule_schedule_items);
+                this._rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_schedule_root_layout);
+                this._itemLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_schedule_schedule_items);
 
                 //
                 // Setup navbar
@@ -53,7 +52,7 @@ namespace Squelch.Fragments
             return view;
         }
 
-        public async override void OnResume()
+        public override async void OnResume()
         {
             base.OnResume();
 
@@ -61,11 +60,11 @@ namespace Squelch.Fragments
             {
                 //
                 // Subscribe to event handlers
-                BlackoutDatabase.BlackoutTableChanged += UIDisplaySchedule;
+                BlackoutDatabase.BlackoutTableChanged += this.UIDisplaySchedule;
 
                 //
                 // Display the current schedule
-                UIDisplaySchedule();
+                this.UIDisplaySchedule();
 
                 //
                 // Set firebase screen
@@ -85,7 +84,7 @@ namespace Squelch.Fragments
             {
                 //
                 // Unsubscribe to event handlers
-                BlackoutDatabase.BlackoutTableChanged -= UIDisplaySchedule;
+                BlackoutDatabase.BlackoutTableChanged -= this.UIDisplaySchedule;
             }
             catch (Exception ex)
             {
@@ -101,11 +100,13 @@ namespace Squelch.Fragments
         private void SetIsWorking(bool isWorking)
         {
             // Toggle views
-            ViewUtils.SetViewAndChildrenEnabled(_rootLayout, !isWorking);
+            ViewUtils.SetViewAndChildrenEnabled(this._rootLayout, !isWorking);
 
             // Report to parent
             if (this.Activity is IIndeterminateProgressReporter)
+            {
                 ((IIndeterminateProgressReporter)this.Activity).SetProgressBarState(isWorking);
+            }
         }
 
         private async void UIDisplaySchedule()
@@ -113,7 +114,7 @@ namespace Squelch.Fragments
             List<BlackoutItem> pendingBlackouts;
 
             // Set working!
-            SetIsWorking(true);
+            this.SetIsWorking(true);
 
             try
             {
@@ -127,42 +128,46 @@ namespace Squelch.Fragments
                     // Build new ones
                     await Task.Factory.StartNew(() =>
                     {
-
-
                         // Group all blackouts into dates
-                        var temporalLabels = pendingBlackouts.OrderBy(x => x.ScheduledStartDateTime).Select(x => DateUtils.GetTemporalLabel(this.Context, x.ScheduledStartDateTime, DateTime.Today)).Distinct();
+                        IEnumerable<string> temporalLabels = pendingBlackouts.OrderBy(x => x.ScheduledStartDateTime).Select(x => DateUtils.GetTemporalLabel(this.Context, x.ScheduledStartDateTime, DateTime.Today)).Distinct();
                         foreach (string label in temporalLabels)
                         {
-                            var temporalLabel = new TextView(this.Context);
-                            temporalLabel.LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent);
-                            temporalLabel.Text = label;
+                            TextView temporalLabel = new TextView(this.Context)
+                            {
+                                LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent),
+                                Text = label
+                            };
                             temporalLabel.SetTextSize(Android.Util.ComplexUnitType.Dip, 20);
                             temporalLabel.SetTypeface(null, Android.Graphics.TypefaceStyle.Bold);
 
-                            var dateLabel = new TextView(this.Context);
-                            var dateFromTemporal = DateUtils.GetDateTimeFromTemporalLabel(this.Context, label, (DateTime)DateTime.Today);
+                            TextView dateLabel = new TextView(this.Context);
+                            DateTime? dateFromTemporal = DateUtils.GetDateTimeFromTemporalLabel(this.Context, label, DateTime.Today);
                             dateLabel.LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent);
                             dateLabel.Text = dateFromTemporal != null ? DateUtils.FormatDateCustom(this.Context, dateFromTemporal.Value, "MMMM yyyy") : string.Empty;
                             dateLabel.SetTextSize(Android.Util.ComplexUnitType.Dip, 10);
                             dateLabel.SetTypeface(null, Android.Graphics.TypefaceStyle.Bold);
 
-                            var itemParent = new LinearLayout(this.Context);
-                            itemParent.LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
-                            itemParent.Orientation = Orientation.Vertical;
+                            LinearLayout itemParent = new LinearLayout(this.Context)
+                            {
+                                LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent),
+                                Orientation = Orientation.Vertical
+                            };
 
-                            var groupedBlackouts = pendingBlackouts.Where(x => DateUtils.GetTemporalLabel(this.Context, x.ScheduledStartDateTime, DateTime.Today).Equals(label, StringComparison.OrdinalIgnoreCase)).OrderBy(x => x.ScheduledStartDateTime);
+                            IOrderedEnumerable<BlackoutItem> groupedBlackouts = pendingBlackouts.Where(x => DateUtils.GetTemporalLabel(this.Context, x.ScheduledStartDateTime, DateTime.Today).Equals(label, StringComparison.OrdinalIgnoreCase)).OrderBy(x => x.ScheduledStartDateTime);
                             foreach (BlackoutItem groupedBlackout in groupedBlackouts)
                             {
                                 // Get layout and components
-                                var itemView = this.LayoutInflater.Inflate(Resource.Layout.template_schedule_row, null);
-                                var itemHoursLabel = itemView.FindViewById<TextView>(Resource.Id.template_schedule_row_hours_label);
-                                var itemRangeLabel = itemView.FindViewById<TextView>(Resource.Id.template_schedule_row_range_label);
+                                View itemView = this.LayoutInflater.Inflate(Resource.Layout.template_schedule_row, null);
+                                TextView itemHoursLabel = itemView.FindViewById<TextView>(Resource.Id.template_schedule_row_hours_label);
+                                TextView itemRangeLabel = itemView.FindViewById<TextView>(Resource.Id.template_schedule_row_range_label);
 
                                 // Setup layout
-                                var layoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
-                                layoutParameters.LeftMargin = 15;
-                                layoutParameters.RightMargin = 15;
-                                layoutParameters.BottomMargin = 10;
+                                LinearLayout.LayoutParams layoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent)
+                                {
+                                    LeftMargin = 15,
+                                    RightMargin = 15,
+                                    BottomMargin = 10
+                                };
                                 itemView.LayoutParameters = layoutParameters;
                                 itemView.Click += delegate { DisplayUtils.ShowBlackoutDetailsAlertDialog(this.Context, groupedBlackout, true); };
                                 switch (groupedBlackout.DifficultyCode)
@@ -194,15 +199,20 @@ namespace Squelch.Fragments
                                 itemParent.AddView(itemView);
                             }
 
-                            var spacer = new View(this.Context);
-                            spacer.LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent, 20);
+                            View spacer = new View(this.Context)
+                            {
+                                LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent, 20)
+                            };
 
                             MainThread.BeginInvokeOnMainThread(() =>
                             {
                                 // Attach new items
                                 this._itemLayout.AddView(temporalLabel);
                                 if (!string.IsNullOrWhiteSpace(dateLabel.Text))
+                                {
                                     this._itemLayout.AddView(dateLabel);
+                                }
+
                                 this._itemLayout.AddView(itemParent);
                                 this._itemLayout.AddView(spacer);
                             });
@@ -211,10 +221,12 @@ namespace Squelch.Fragments
                 }
                 else
                 {
-                    var noItemsLabel = new TextView(this.Context);
-                    noItemsLabel.LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
-                    noItemsLabel.Text = GetString(Resource.String.fragment_schedule_notice_no_items);
-                    noItemsLabel.Gravity = GravityFlags.Center;
+                    TextView noItemsLabel = new TextView(this.Context)
+                    {
+                        LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent),
+                        Text = this.GetString(Resource.String.fragment_schedule_notice_no_items),
+                        Gravity = GravityFlags.Center
+                    };
                     noItemsLabel.SetTextSize(Android.Util.ComplexUnitType.Dip, 16);
                     noItemsLabel.SetTypeface(null, Android.Graphics.TypefaceStyle.Bold);
                     this._itemLayout.AddView(noItemsLabel);
@@ -222,7 +234,7 @@ namespace Squelch.Fragments
             }
             finally
             {
-                SetIsWorking(false);
+                this.SetIsWorking(false);
             }
         }
         #endregion

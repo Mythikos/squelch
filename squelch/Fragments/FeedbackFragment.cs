@@ -1,27 +1,18 @@
-﻿using Android.Animation;
-using Android.Content.PM;
-using Android.OS;
+﻿using Android.OS;
 using Android.Views;
-using Android.Views.Animations;
 using Android.Widget;
-using AndroidX.AppCompat.Widget;
-using AndroidX.Core.Widget;
 using AndroidX.Fragment.App;
-using Google.Android.Material.Snackbar;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Squelch.Activities;
 using Squelch.Library;
 using Squelch.Library.Data;
-using Squelch.Library.Entities;
-using Squelch.Library.Extensions;
 using Squelch.Library.Interfaces;
 using Squelch.Library.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Xamarin.Essentials;
 
 namespace Squelch.Fragments
 {
@@ -50,8 +41,8 @@ namespace Squelch.Fragments
         {
             base.OnCreate(savedInstanceState);
 
-            _highlightColor = Android.Graphics.Color.PaleGreen;
-            _questionTuples = new List<(LinearLayout, TextView, TextView, List<View>)>();
+            this._highlightColor = Android.Graphics.Color.PaleGreen;
+            this._questionTuples = new List<(LinearLayout, TextView, TextView, List<View>)>();
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -68,16 +59,16 @@ namespace Squelch.Fragments
             {
                 //
                 // Parent view items
-                _rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_feedback_root_layout);
-                _problemLabel = view.FindViewById<TextView>(Resource.Id.fragment_feedback_problem_label);
-                _dataConsentLabel = view.FindViewById<TextView>(Resource.Id.fragment_feedback_data_consent_label);
-                _dataConsentLabel.TextFormatted = Library.Utilities.ViewUtils.FormattedTextFromHTML(this.Resources.GetString(Resource.String.text_consent_statement));
-                _dataConsentLabel.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;
+                this._rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_feedback_root_layout);
+                this._problemLabel = view.FindViewById<TextView>(Resource.Id.fragment_feedback_problem_label);
+                this._dataConsentLabel = view.FindViewById<TextView>(Resource.Id.fragment_feedback_data_consent_label);
+                this._dataConsentLabel.TextFormatted = Library.Utilities.ViewUtils.FormattedTextFromHTML(this.Resources.GetString(Resource.String.text_consent_statement));
+                this._dataConsentLabel.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;
 
-                _dialogPositiveButton = view.FindViewById<Button>(Resource.Id.fragment_feedback_button_positive);
-                _dialogPositiveButton.Click += PositiveButton_Click;
-                _dialogNegativeButton = view.FindViewById<Button>(Resource.Id.fragment_feedback_button_negative);
-                _dialogNegativeButton.Click += NegativeButton_Click;
+                this._dialogPositiveButton = view.FindViewById<Button>(Resource.Id.fragment_feedback_button_positive);
+                this._dialogPositiveButton.Click += this.PositiveButton_Click;
+                this._dialogNegativeButton = view.FindViewById<Button>(Resource.Id.fragment_feedback_button_negative);
+                this._dialogNegativeButton.Click += this.NegativeButton_Click;
 
                 //
                 // Question layouts
@@ -108,31 +99,35 @@ namespace Squelch.Fragments
                     }
 
                     // Add layout and answer to list
-                    _questionTuples.Add((layout, question, answer, children));
+                    this._questionTuples.Add((layout, question, answer, children));
 
                     // Increment count
                     count++;
                 }
 
                 // Hookup events for controls that arent annoying
-                for (int i = 0; i < _questionTuples.Count; i++)
+                for (int i = 0; i < this._questionTuples.Count; i++)
                 {
-                    for (int c = 0; c < _questionTuples[i].Item4.Count; c++)
+                    for (int c = 0; c < this._questionTuples[i].Item4.Count; c++)
                     {
-                        View child = _questionTuples[i].Item4[c];
+                        View child = this._questionTuples[i].Item4[c];
                         if (child != null)
+                        {
                             if (child is Button)
-                                ((Button)child).Click += (s, e) => { ResponseFunnel(s); };
+                            {
+                                ((Button)child).Click += (s, e) => { this.ResponseFunnel(s); };
+                            }
+                        }
                     }
                 }
 
                 // Hookup events for controls that literally hate me (Events wont hook unless there is a reference to the control)
-                _question3Response0 = view.FindViewById<EditText>(Resource.Id.fragment_feedback_question_3_response_0);
-                _question4Response0 = view.FindViewById<EditText>(Resource.Id.fragment_feedback_question_4_response_0);
-                _question5Response0 = view.FindViewById<EditText>(Resource.Id.fragment_feedback_question_5_response_0);
-                _question3Response0.AfterTextChanged += (s, e) => { ResponseFunnel(s); };
-                _question4Response0.AfterTextChanged += (s, e) => { ResponseFunnel(s); };
-                _question5Response0.AfterTextChanged += (s, e) => { ResponseFunnel(s); };
+                this._question3Response0 = view.FindViewById<EditText>(Resource.Id.fragment_feedback_question_3_response_0);
+                this._question4Response0 = view.FindViewById<EditText>(Resource.Id.fragment_feedback_question_4_response_0);
+                this._question5Response0 = view.FindViewById<EditText>(Resource.Id.fragment_feedback_question_5_response_0);
+                this._question3Response0.AfterTextChanged += (s, e) => { this.ResponseFunnel(s); };
+                this._question4Response0.AfterTextChanged += (s, e) => { this.ResponseFunnel(s); };
+                this._question5Response0.AfterTextChanged += (s, e) => { this.ResponseFunnel(s); };
 
                 //
                 // Setup navbar
@@ -140,11 +135,11 @@ namespace Squelch.Fragments
 
                 //
                 // Init view
-                _questionId = -1;
-                _problemLabel.Text = string.Empty;
-                _dialogPositiveButton.SetText(Resource.String.text_next);
-                _dialogNegativeButton.SetText(Resource.String.text_cancel);
-                PositiveButton_Click(this, null);
+                this._questionId = -1;
+                this._problemLabel.Text = string.Empty;
+                this._dialogPositiveButton.SetText(Resource.String.text_next);
+                this._dialogNegativeButton.SetText(Resource.String.text_cancel);
+                this.PositiveButton_Click(this, null);
             }
             catch (Exception ex)
             {
@@ -168,7 +163,7 @@ namespace Squelch.Fragments
             {
                 //
                 // Make a dummy test request to make sure we have a connection to the wesbite
-                try { requestResponse = await GeneralUtils.SendWebRequestAsync(GetString(Resource.String.link_squelch_website), "GET", new Dictionary<string, string>()); } catch { }
+                try { requestResponse = await GeneralUtils.SendWebRequestAsync(this.GetString(Resource.String.link_squelch_website), "GET", new Dictionary<string, string>()); } catch { }
 
                 //
                 // Display error if we got a blank response
@@ -214,10 +209,14 @@ namespace Squelch.Fragments
                 GeneralUtils.HideSoftKeyboard(this.Activity, this.Context);
 
                 // Determine action
-                if (_dialogPositiveButton.Text == GetString(Resource.String.text_next))
-                    NextStep();
-                else if (_dialogPositiveButton.Text == GetString(Resource.String.text_submit))
-                    SubmitFeedback();
+                if (this._dialogPositiveButton.Text == this.GetString(Resource.String.text_next))
+                {
+                    this.NextStep();
+                }
+                else if (this._dialogPositiveButton.Text == this.GetString(Resource.String.text_submit))
+                {
+                    this.SubmitFeedback();
+                }
             }
             catch (Exception ex)
             {
@@ -238,10 +237,14 @@ namespace Squelch.Fragments
                 GeneralUtils.HideSoftKeyboard(this.Activity, this.Context);
 
                 // Determine action
-                if (_dialogNegativeButton.Text == GetString(Resource.String.text_back))
-                    PreviousStep();
-                else if (_dialogNegativeButton.Text == GetString(Resource.String.text_cancel))
-                    ConfirmClose();
+                if (this._dialogNegativeButton.Text == this.GetString(Resource.String.text_back))
+                {
+                    this.PreviousStep();
+                }
+                else if (this._dialogNegativeButton.Text == this.GetString(Resource.String.text_cancel))
+                {
+                    this.ConfirmClose();
+                }
             }
             catch (Exception ex)
             {
@@ -273,13 +276,13 @@ namespace Squelch.Fragments
                             answer = ((Button)sender).Text;
 
                             // Process highlighting
-                            foreach (View child in _questionTuples[questionId].Item4)
+                            foreach (View child in this._questionTuples[questionId].Item4)
                             {
                                 child.Background.Mutate();
                                 child.Background.ClearColorFilter();
                             }
                             ((Button)sender).Background.Mutate();
-                            ((Button)sender).Background.SetColorFilter(_highlightColor, Android.Graphics.PorterDuff.Mode.SrcAtop);
+                            ((Button)sender).Background.SetColorFilter(this._highlightColor, Android.Graphics.PorterDuff.Mode.SrcAtop);
                         }
                         else if (sender is EditText)
                         {
@@ -287,7 +290,7 @@ namespace Squelch.Fragments
                         }
 
                         // Set the answer
-                        _questionTuples[questionId].Item3.Text = answer;
+                        this._questionTuples[questionId].Item3.Text = answer;
                     }
                 }
             }
@@ -306,8 +309,10 @@ namespace Squelch.Fragments
         {
             try
             {
-                if (ValidateStep(_questionId))
-                    ProcessStep(++_questionId);
+                if (this.ValidateStep(this._questionId))
+                {
+                    this.ProcessStep(++this._questionId);
+                }
             }
             catch (Exception ex)
             {
@@ -322,7 +327,7 @@ namespace Squelch.Fragments
         {
             try
             {
-                ProcessStep(--_questionId);
+                this.ProcessStep(--this._questionId);
             }
             catch (Exception ex)
             {
@@ -339,31 +344,35 @@ namespace Squelch.Fragments
             try
             {
                 // Hide all questions
-                foreach ((LinearLayout, TextView, TextView, List<View>) questionView in _questionTuples)
+                foreach ((LinearLayout, TextView, TextView, List<View>) questionView in this._questionTuples)
+                {
                     questionView.Item1.Visibility = ViewStates.Gone;
+                }
 
                 // Show the current question
-                if (step <= _questionTuples.Count)
-                    _questionTuples[step].Item1.Visibility = ViewStates.Visible;
+                if (step <= this._questionTuples.Count)
+                {
+                    this._questionTuples[step].Item1.Visibility = ViewStates.Visible;
+                }
 
                 // Handle buttons
                 if (step <= 0)
                 {
-                    _dialogNegativeButton.SetText(Resource.String.text_cancel);
-                    _dialogPositiveButton.SetText(Resource.String.text_next);
-                    _dataConsentLabel.Visibility = ViewStates.Gone;
+                    this._dialogNegativeButton.SetText(Resource.String.text_cancel);
+                    this._dialogPositiveButton.SetText(Resource.String.text_next);
+                    this._dataConsentLabel.Visibility = ViewStates.Gone;
                 }
-                else if (step >= _questionTuples.Count - 1)
+                else if (step >= this._questionTuples.Count - 1)
                 {
-                    _dialogNegativeButton.SetText(Resource.String.text_back);
-                    _dialogPositiveButton.SetText(Resource.String.text_submit);
-                    _dataConsentLabel.Visibility = ViewStates.Visible;
+                    this._dialogNegativeButton.SetText(Resource.String.text_back);
+                    this._dialogPositiveButton.SetText(Resource.String.text_submit);
+                    this._dataConsentLabel.Visibility = ViewStates.Visible;
                 }
                 else
                 {
-                    _dialogNegativeButton.SetText(Resource.String.text_back);
-                    _dialogPositiveButton.SetText(Resource.String.text_next);
-                    _dataConsentLabel.Visibility = ViewStates.Gone;
+                    this._dialogNegativeButton.SetText(Resource.String.text_back);
+                    this._dialogPositiveButton.SetText(Resource.String.text_next);
+                    this._dataConsentLabel.Visibility = ViewStates.Gone;
                 }
             }
             catch (Exception ex)
@@ -380,7 +389,7 @@ namespace Squelch.Fragments
         private bool ValidateStep(int step)
         {
             // Reset
-            _problemLabel.Text = string.Empty;
+            this._problemLabel.Text = string.Empty;
 
             try
             {
@@ -389,9 +398,9 @@ namespace Squelch.Fragments
                     case 0:
                     case 1:
                     case 2:
-                        if (string.IsNullOrWhiteSpace(_questionTuples[step].Item3.Text))
+                        if (string.IsNullOrWhiteSpace(this._questionTuples[step].Item3.Text))
                         {
-                            _problemLabel.SetText(Resource.String.fragment_feedback_submission_error_no_option_selected);
+                            this._problemLabel.SetText(Resource.String.fragment_feedback_submission_error_no_option_selected);
                             return false;
                         }
                         break;
@@ -417,11 +426,13 @@ namespace Squelch.Fragments
         private void SetIsWorking(bool isWorking)
         {
             // Toggle views
-            Library.Utilities.ViewUtils.SetViewAndChildrenEnabled(_rootLayout, !isWorking);
+            Library.Utilities.ViewUtils.SetViewAndChildrenEnabled(this._rootLayout, !isWorking);
 
             // Report to parent
             if (this.Activity is IIndeterminateProgressReporter)
+            {
                 ((IIndeterminateProgressReporter)this.Activity).SetProgressBarState(isWorking);
+            }
         }
 
         /// <summary>
@@ -433,22 +444,21 @@ namespace Squelch.Fragments
             // Vars
             string response;
             JObject parsedResponse;
-            JToken resultCode;
 
             //
             // Start working animation, let the workflow stop it
-            SetIsWorking(true);
+            this.SetIsWorking(true);
 
             // Reset
-            _problemLabel.Text = string.Empty;
+            this._problemLabel.Text = string.Empty;
 
             try
             {
                 // 
                 // Start web request
-                response = await GeneralUtils.SendWebRequestAsync(GetString(Resource.String.link_squelch_website) + "/feedback/webservices/0.0.1/android.php", "POST", await BuildSubmitParameters());
+                response = await GeneralUtils.SendWebRequestAsync(this.GetString(Resource.String.link_squelch_website) + "/feedback/webservices/0.0.1/android.php", "POST", await this.BuildSubmitParameters());
                 parsedResponse = JObject.Parse(response);
-                if (parsedResponse.TryGetValue("result_code", out resultCode))
+                if (parsedResponse.TryGetValue("result_code", out JToken resultCode))
                 {
                     if (resultCode.Value<string>() == "0") // Success
                     {
@@ -544,8 +554,11 @@ namespace Squelch.Fragments
 
                 //
                 // User feedback
-                foreach ((LinearLayout, TextView, TextView, List<View>) questionTuple in _questionTuples)
+                foreach ((LinearLayout, TextView, TextView, List<View>) questionTuple in this._questionTuples)
+                {
                     questionResponses.Add(new { Question = questionTuple.Item2.Text, Response = questionTuple.Item3.Text });
+                }
+
                 parameters.Add("user_feedback", JsonConvert.SerializeObject(questionResponses));
             }
             catch (Exception ex)

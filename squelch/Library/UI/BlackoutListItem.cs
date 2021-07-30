@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Android.Content;
+﻿using Android.Content;
 using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using Squelch.Library.Entities;
+using System;
+using System.Collections.Generic;
 
 namespace Squelch.Library.UI
 {
@@ -46,19 +46,29 @@ namespace Squelch.Library.UI
                 this.Holder.BidText.Visibility = ViewStates.Visible;
 
                 if (this.BlackoutItem.ResultCode == BlackoutItem.BlackoutResultCode.Success)
+                {
                     this.Holder.IconImage.SetImageResource(Resource.Drawable.ic_mood_good);
+                }
                 else if (this.BlackoutItem.ResultCode == BlackoutItem.BlackoutResultCode.Failed)
+                {
                     this.Holder.IconImage.SetImageResource(Resource.Drawable.ic_mood_bad);
+                }
                 else
+                {
                     this.Holder.IconImage.SetImageResource(Resource.Drawable.ic_mood_neutral);
+                }
 
                 this.Holder.OutcomeText.Text = this.BlackoutItem.ResultCode.ToString();
                 this.Holder.BidText.Text = $"${this.BlackoutItem.Bid}";
 
                 if (this.IsSelected)
+                {
                     this.Holder.ItemView.SetBackgroundResource(Resource.Color.recyclerColorBackgroundAlt);
+                }
                 else
+                {
                     this.Holder.ItemView.SetBackgroundResource(Resource.Color.recyclerColorBackground);
+                }
             }
         }
     }
@@ -98,10 +108,7 @@ namespace Squelch.Library.UI
         public List<UIBlackoutItem> BlackoutList;
         #endregion
 
-        public override int ItemCount
-        {
-            get { return this.BlackoutList.Count; }
-        }
+        public override int ItemCount => this.BlackoutList.Count;
 
         public UIBlackoutListAdapter(List<UIBlackoutItem> historyList)
         {
@@ -115,7 +122,7 @@ namespace Squelch.Library.UI
             //
             // Create the holder
             View historyRowTemplate = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.template_history_row, parent, false);
-            return new UIBlackoutListHolder(historyRowTemplate, OnSelect);
+            return new UIBlackoutListHolder(historyRowTemplate, this.OnSelect);
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
@@ -132,7 +139,9 @@ namespace Squelch.Library.UI
             //
             // Call event if subscribed
             if (OnBlackoutItemSelected != null)
+            {
                 OnBlackoutItemSelected(this, position);
+            }
         }
         #endregion
     }

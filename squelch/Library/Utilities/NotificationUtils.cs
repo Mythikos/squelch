@@ -3,8 +3,8 @@ using Android.Content;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
-using Squelch.Activities;
 using AndroidX.Core.App;
+using Squelch.Activities;
 
 namespace Squelch.Library.Utilities
 {

@@ -8,7 +8,7 @@ namespace Squelch.Receivers
     {
         #region Instance Variables
         private static readonly string s_tag = typeof(GenericBroadcastReceiver).FullName;
-        Action<Context, Intent> _broadcastReceived = null;
+        private Action<Context, Intent> _broadcastReceived = null;
         #endregion
 
         public GenericBroadcastReceiver(Action<Context, Intent> onBroadcastReceived)
@@ -16,7 +16,9 @@ namespace Squelch.Receivers
             try
             {
                 if (onBroadcastReceived != null)
-                    _broadcastReceived = onBroadcastReceived;
+                {
+                    this._broadcastReceived = onBroadcastReceived;
+                }
             }
             catch (Exception ex)
             {
@@ -28,8 +30,10 @@ namespace Squelch.Receivers
         {
             try
             {
-                if (_broadcastReceived != null)
-                    _broadcastReceived(context, intent);
+                if (this._broadcastReceived != null)
+                {
+                    this._broadcastReceived(context, intent);
+                }
             }
             catch (Exception ex)
             {

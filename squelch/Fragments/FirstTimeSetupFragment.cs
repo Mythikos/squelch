@@ -1,6 +1,4 @@
-﻿using Android.Opengl;
-using Android.OS;
-using Android.Text;
+﻿using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.Core.Content;
@@ -56,57 +54,57 @@ namespace Squelch.Fragments
             {
                 //
                 // Get view elements
-                _rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_first_time_setup_root_layout);
-                _problemLabel = view.FindViewById<TextView>(Resource.Id.fragment_first_time_setup_problem_label);
-                _dataConsentLabel = view.FindViewById<TextView>(Resource.Id.fragment_first_time_setup_data_consent_label);
-                _dataConsentLabel.TextFormatted = ViewUtils.FormattedTextFromHTML(GetString(Resource.String.text_consent_statement));
-                _dataConsentLabel.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;
+                this._rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_first_time_setup_root_layout);
+                this._problemLabel = view.FindViewById<TextView>(Resource.Id.fragment_first_time_setup_problem_label);
+                this._dataConsentLabel = view.FindViewById<TextView>(Resource.Id.fragment_first_time_setup_data_consent_label);
+                this._dataConsentLabel.TextFormatted = ViewUtils.FormattedTextFromHTML(this.GetString(Resource.String.text_consent_statement));
+                this._dataConsentLabel.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;
 
                 //
                 // Welcome layout
-                _welcomeLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_first_time_setup_welcome_layout);
+                this._welcomeLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_first_time_setup_welcome_layout);
 
                 //
                 // Usage data layout
-                _specialPermissionsLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_first_time_setup_special_permission_layout);
-                _specialPermissionsUsageStatsSettingsLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_first_time_setup_special_permission_usage_data_layout);
-                _specialPermissionsApplicationOverlaySettingsLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_first_time_setup_special_permission_application_overlay_layout);
-                _specialPermissionsUsageStatsSettingsStatusImage = view.FindViewById<ImageView>(Resource.Id.fragment_first_time_setup_special_permission_usage_data_status_image);
-                _specialPermissionsApplicationOverlaySettingsStatusImage = view.FindViewById<ImageView>(Resource.Id.fragment_first_time_setup_special_permission_application_overlay_status_image);
-                _specialPermissionsUsageStatsSettingsLayout.Click += delegate { PermissionUtils.GetUsageDataPermission(this.Context, true); UIHandleSpecialPermissions(); };
-                _specialPermissionsApplicationOverlaySettingsLayout.Click += delegate { PermissionUtils.GetApplicationOverlayPermission(this.Context, true); UIHandleSpecialPermissions(); };
+                this._specialPermissionsLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_first_time_setup_special_permission_layout);
+                this._specialPermissionsUsageStatsSettingsLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_first_time_setup_special_permission_usage_data_layout);
+                this._specialPermissionsApplicationOverlaySettingsLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_first_time_setup_special_permission_application_overlay_layout);
+                this._specialPermissionsUsageStatsSettingsStatusImage = view.FindViewById<ImageView>(Resource.Id.fragment_first_time_setup_special_permission_usage_data_status_image);
+                this._specialPermissionsApplicationOverlaySettingsStatusImage = view.FindViewById<ImageView>(Resource.Id.fragment_first_time_setup_special_permission_application_overlay_status_image);
+                this._specialPermissionsUsageStatsSettingsLayout.Click += delegate { PermissionUtils.GetUsageDataPermission(this.Context, true); this.UIHandleSpecialPermissions(); };
+                this._specialPermissionsApplicationOverlaySettingsLayout.Click += delegate { PermissionUtils.GetApplicationOverlayPermission(this.Context, true); this.UIHandleSpecialPermissions(); };
 
                 //
                 // User name layout
-                _userNameLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_first_time_setup_personalize_layout);
-                _firstNameInput = view.FindViewById<EditText>(Resource.Id.fragment_first_time_setup_personalize_first_name_input);
-                _lastNameInput = view.FindViewById<EditText>(Resource.Id.fragment_first_time_setup_personalize_last_name_input);
+                this._userNameLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_first_time_setup_personalize_layout);
+                this._firstNameInput = view.FindViewById<EditText>(Resource.Id.fragment_first_time_setup_personalize_first_name_input);
+                this._lastNameInput = view.FindViewById<EditText>(Resource.Id.fragment_first_time_setup_personalize_last_name_input);
 
-                _lastNameInput.EditorAction += (s, e) =>
+                this._lastNameInput.EditorAction += (s, e) =>
                 {
                     e.Handled = false;
                     if (e.ActionId == Android.Views.InputMethods.ImeAction.Done)
                     {
-                        _dialogPositiveButton.CallOnClick();
+                        this._dialogPositiveButton.CallOnClick();
                         e.Handled = true;
                     }
                 };
 
                 //
                 // Working/Status related
-                _dialogPositiveButton = view.FindViewById<Button>(Resource.Id.fragment_first_time_setup_button_positive);
-                _dialogPositiveButton.Click += PositiveButton_Click;
+                this._dialogPositiveButton = view.FindViewById<Button>(Resource.Id.fragment_first_time_setup_button_positive);
+                this._dialogPositiveButton.Click += this.PositiveButton_Click;
 
                 //
                 // Make the soft keyboard close when content other than edit text is clicked
-                _rootLayout.Touch += (s, e) => { GeneralUtils.HideSoftKeyboard(this.Activity, this.Context); };
+                this._rootLayout.Touch += (s, e) => { GeneralUtils.HideSoftKeyboard(this.Activity, this.Context); };
 
                 //
                 // Set view stuff
-                _stepId = 0;
-                _problemLabel.Text = string.Empty;
-                _dialogPositiveButton.SetText(Resource.String.text_get_started);
-                PositiveButton_Click(this, null);
+                this._stepId = 0;
+                this._problemLabel.Text = string.Empty;
+                this._dialogPositiveButton.SetText(Resource.String.text_get_started);
+                this.PositiveButton_Click(this, null);
 
                 //
                 // Setup toolbar
@@ -128,8 +126,10 @@ namespace Squelch.Fragments
 
             try
             {
-                if (_stepId == STEP_SPECIAL_PERMISSIONS)
-                    UIHandleSpecialPermissions();
+                if (this._stepId == STEP_SPECIAL_PERMISSIONS)
+                {
+                    this.UIHandleSpecialPermissions();
+                }
 
                 //
                 // Set firebase screen
@@ -150,19 +150,19 @@ namespace Squelch.Fragments
         private void PositiveButton_Click(object sender, EventArgs e)
         {
             // Set is working
-            SetIsWorking(true);
+            this.SetIsWorking(true);
 
             try
             {
                 // Determine action
-                if (_dialogPositiveButton.Text.Equals(GetString(Resource.String.text_finish), StringComparison.OrdinalIgnoreCase))
+                if (this._dialogPositiveButton.Text.Equals(this.GetString(Resource.String.text_finish), StringComparison.OrdinalIgnoreCase))
                 {
                     UserSettings.Id = UserItem.CreateNewId();
 
-                    if (!string.IsNullOrWhiteSpace(_firstNameInput.Text) || !string.IsNullOrWhiteSpace(_lastNameInput.Text))
+                    if (!string.IsNullOrWhiteSpace(this._firstNameInput.Text) || !string.IsNullOrWhiteSpace(this._lastNameInput.Text))
                     {
-                        UserSettings.FirstName = _firstNameInput.Text.Trim();
-                        UserSettings.LastName = _lastNameInput.Text.Trim();
+                        UserSettings.FirstName = this._firstNameInput.Text.Trim();
+                        UserSettings.LastName = this._lastNameInput.Text.Trim();
                     }
 
                     UserSettings.SetFlagValue(UserSettings.FlagKeys.FirstTimeSetup_IsCompleted, true.ToString());
@@ -176,7 +176,7 @@ namespace Squelch.Fragments
                 }
                 else
                 {
-                    NextStep();
+                    this.NextStep();
                 }
             }
             catch (Exception ex)
@@ -186,7 +186,7 @@ namespace Squelch.Fragments
             finally
             {
                 // Set no longer working
-                SetIsWorking(false);
+                this.SetIsWorking(false);
             }
         }
         #endregion
@@ -200,7 +200,9 @@ namespace Squelch.Fragments
         {
             // Report to parent
             if (this.Activity is IIndeterminateProgressReporter)
+            {
                 ((IIndeterminateProgressReporter)this.Activity).SetProgressBarState(isWorking);
+            }
         }
 
         /// <summary>
@@ -216,7 +218,7 @@ namespace Squelch.Fragments
 
             try
             {
-                if (_stepId == STEP_SPECIAL_PERMISSIONS)
+                if (this._stepId == STEP_SPECIAL_PERMISSIONS)
                 {
                     usageDataEnabled = PermissionUtils.GetUsageDataPermission(this.Context, false);
                     applicationOverlayEnabled = PermissionUtils.GetApplicationOverlayPermission(this.Context, false);
@@ -227,13 +229,13 @@ namespace Squelch.Fragments
                     imageViewBad = ContextCompat.GetDrawable(this.Context, Resource.Drawable.ic_close);
                     imageViewBad.SetColorFilter(new Android.Graphics.Color(ContextCompat.GetColor(this.Context, Resource.Color.DarkRed)), Android.Graphics.PorterDuff.Mode.SrcAtop);
 
-                    _specialPermissionsUsageStatsSettingsLayout.Clickable = !usageDataEnabled;
-                    _specialPermissionsUsageStatsSettingsStatusImage.SetImageDrawable((usageDataEnabled == true ? imageViewGood : imageViewBad));
+                    this._specialPermissionsUsageStatsSettingsLayout.Clickable = !usageDataEnabled;
+                    this._specialPermissionsUsageStatsSettingsStatusImage.SetImageDrawable((usageDataEnabled == true ? imageViewGood : imageViewBad));
 
-                    _specialPermissionsApplicationOverlaySettingsLayout.Clickable = !applicationOverlayEnabled;
-                    _specialPermissionsApplicationOverlaySettingsStatusImage.SetImageDrawable((applicationOverlayEnabled == true ? imageViewGood : imageViewBad));
+                    this._specialPermissionsApplicationOverlaySettingsLayout.Clickable = !applicationOverlayEnabled;
+                    this._specialPermissionsApplicationOverlaySettingsStatusImage.SetImageDrawable((applicationOverlayEnabled == true ? imageViewGood : imageViewBad));
 
-                    _dialogPositiveButton.Visibility = (usageDataEnabled && applicationOverlayEnabled) ? ViewStates.Visible : ViewStates.Gone;
+                    this._dialogPositiveButton.Visibility = (usageDataEnabled && applicationOverlayEnabled) ? ViewStates.Visible : ViewStates.Gone;
                 }
             }
             catch (Exception ex)
@@ -251,8 +253,10 @@ namespace Squelch.Fragments
         {
             try
             {
-                if (ValidateStep(_stepId))
-                    ProcessStep(++_stepId);
+                if (this.ValidateStep(this._stepId))
+                {
+                    this.ProcessStep(++this._stepId);
+                }
             }
             catch (Exception ex)
             {
@@ -272,40 +276,45 @@ namespace Squelch.Fragments
                 switch (step)
                 {
                     case STEP_WELCOME:
-                        _dialogPositiveButton.SetText(Resource.String.text_get_started);
-                        _welcomeLayout.Visibility = ViewStates.Visible;
-                        _specialPermissionsLayout.Visibility = ViewStates.Gone;
-                        _userNameLayout.Visibility = ViewStates.Gone;
-                        _dataConsentLabel.Visibility = ViewStates.Gone;
-                        _dialogPositiveButton.Visibility = ViewStates.Visible;
+                        this._dialogPositiveButton.SetText(Resource.String.text_get_started);
+                        this._welcomeLayout.Visibility = ViewStates.Visible;
+                        this._specialPermissionsLayout.Visibility = ViewStates.Gone;
+                        this._userNameLayout.Visibility = ViewStates.Gone;
+                        this._dataConsentLabel.Visibility = ViewStates.Gone;
+                        this._dialogPositiveButton.Visibility = ViewStates.Visible;
                         break;
                     case STEP_SPECIAL_PERMISSIONS:
-                        _dialogPositiveButton.SetText(Resource.String.text_next);
-                        _welcomeLayout.Visibility = ViewStates.Gone;
-                        _specialPermissionsLayout.Visibility = ViewStates.Visible;
-                        _userNameLayout.Visibility = ViewStates.Gone;
-                        _dataConsentLabel.Visibility = ViewStates.Gone;
-                        _dialogPositiveButton.Visibility = ViewStates.Gone;
+                        this._dialogPositiveButton.SetText(Resource.String.text_next);
+                        this._welcomeLayout.Visibility = ViewStates.Gone;
+                        this._specialPermissionsLayout.Visibility = ViewStates.Visible;
+                        this._userNameLayout.Visibility = ViewStates.Gone;
+                        this._dataConsentLabel.Visibility = ViewStates.Gone;
+                        this._dialogPositiveButton.Visibility = ViewStates.Gone;
                         if (PermissionUtils.GetUsageDataPermission(this.Context, false) == true
                             && PermissionUtils.GetApplicationOverlayPermission(this.Context, false) == true)
-                            PositiveButton_Click(this, null);
+                        {
+                            this.PositiveButton_Click(this, null);
+                        }
                         else
-                            UIHandleSpecialPermissions();
+                        {
+                            this.UIHandleSpecialPermissions();
+                        }
+
                         break;
                     case STEP_PERSONALIZE:
-                        _dialogPositiveButton.SetText(Resource.String.text_finish);
-                        _welcomeLayout.Visibility = ViewStates.Gone;
-                        _specialPermissionsLayout.Visibility = ViewStates.Gone;
-                        _userNameLayout.Visibility = ViewStates.Visible;
-                        _dataConsentLabel.Visibility = ViewStates.Visible;
-                        _dialogPositiveButton.Visibility = ViewStates.Visible;
+                        this._dialogPositiveButton.SetText(Resource.String.text_finish);
+                        this._welcomeLayout.Visibility = ViewStates.Gone;
+                        this._specialPermissionsLayout.Visibility = ViewStates.Gone;
+                        this._userNameLayout.Visibility = ViewStates.Visible;
+                        this._dataConsentLabel.Visibility = ViewStates.Visible;
+                        this._dialogPositiveButton.Visibility = ViewStates.Visible;
                         break;
                     default:
-                        _welcomeLayout.Visibility = ViewStates.Gone;
-                        _specialPermissionsLayout.Visibility = ViewStates.Gone;
-                        _userNameLayout.Visibility = ViewStates.Gone;
-                        _dataConsentLabel.Visibility = ViewStates.Gone;
-                        _dialogPositiveButton.Visibility = ViewStates.Visible;
+                        this._welcomeLayout.Visibility = ViewStates.Gone;
+                        this._specialPermissionsLayout.Visibility = ViewStates.Gone;
+                        this._userNameLayout.Visibility = ViewStates.Gone;
+                        this._dataConsentLabel.Visibility = ViewStates.Gone;
+                        this._dialogPositiveButton.Visibility = ViewStates.Visible;
                         break;
                 }
             }
@@ -325,7 +334,7 @@ namespace Squelch.Fragments
             try
             {
                 // Reset
-                _problemLabel.Text = string.Empty;
+                this._problemLabel.Text = string.Empty;
 
                 // Which step are we validating
                 switch (step)

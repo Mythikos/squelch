@@ -53,18 +53,18 @@ namespace Squelch.Fragments
             {
                 //
                 // Set view items
-                _rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_blackout_root_layout);
-                _informationLayout = view.FindViewById<TableLayout>(Resource.Id.fragment_blackout_information_layout);
-                _blacklistLayout = view.FindViewById<TableLayout>(Resource.Id.fragment_blackout_blacklist_layout);
-                _progressIndicator = view.FindViewById<ProgressBar>(Resource.Id.fragment_blackout_progress_indicator);
-                _timeRemainingLabel = view.FindViewById<AppCompatTextView>(Resource.Id.fragment_blackout_time_remaining);
-                _difficultyLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_information_difficulty_label);
-                _bidLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_information_bid_label);
-                _unlockButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_button_unlock);
+                this._rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_blackout_root_layout);
+                this._informationLayout = view.FindViewById<TableLayout>(Resource.Id.fragment_blackout_information_layout);
+                this._blacklistLayout = view.FindViewById<TableLayout>(Resource.Id.fragment_blackout_blacklist_layout);
+                this._progressIndicator = view.FindViewById<ProgressBar>(Resource.Id.fragment_blackout_progress_indicator);
+                this._timeRemainingLabel = view.FindViewById<AppCompatTextView>(Resource.Id.fragment_blackout_time_remaining);
+                this._difficultyLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_information_difficulty_label);
+                this._bidLabel = view.FindViewById<TextView>(Resource.Id.fragment_blackout_information_bid_label);
+                this._unlockButton = view.FindViewById<Button>(Resource.Id.fragment_blackout_button_unlock);
 
                 //
                 // Hookup event
-                _unlockButton.Click += UnlockButton_Click;
+                this._unlockButton.Click += this.UnlockButton_Click;
 
                 //
                 // Setup navbar
@@ -72,12 +72,12 @@ namespace Squelch.Fragments
 
                 //
                 // Prepare view
-                TextViewCompat.SetAutoSizeTextTypeWithDefaults(_timeRemainingLabel, TextViewCompat.AutoSizeTextTypeUniform);
+                TextViewCompat.SetAutoSizeTextTypeWithDefaults(this._timeRemainingLabel, TextViewCompat.AutoSizeTextTypeUniform);
 
-                _progressIndicator.Max = INDICATOR_MAX_VALUE;
-                _progressIndicator.Progress = INDICATOR_MAX_VALUE;
-                _progressIndicator.SecondaryProgress = INDICATOR_MAX_VALUE;
-                _timeRemainingLabel.Text = "00:00:00";
+                this._progressIndicator.Max = INDICATOR_MAX_VALUE;
+                this._progressIndicator.Progress = INDICATOR_MAX_VALUE;
+                this._progressIndicator.SecondaryProgress = INDICATOR_MAX_VALUE;
+                this._timeRemainingLabel.Text = "00:00:00";
             }
             catch (Exception ex)
             {
@@ -97,14 +97,16 @@ namespace Squelch.Fragments
             {
                 //
                 // Start timer
-                if (_refreshTimer == null)
+                if (this._refreshTimer == null)
                 {
-                    _refreshTimer = new System.Timers.Timer();
-                    _refreshTimer.Interval = 1000;
-                    _refreshTimer.Elapsed += RefreshTimer_Elapsed;
+                    this._refreshTimer = new System.Timers.Timer
+                    {
+                        Interval = 1000
+                    };
+                    this._refreshTimer.Elapsed += this.RefreshTimer_Elapsed;
                     Logger.Write(_tag, "OnStart: Timer created", Logger.Severity.Info);
                 }
-                _refreshTimer.Start();
+                this._refreshTimer.Start();
             }
             catch (Exception ex)
             {
@@ -120,17 +122,19 @@ namespace Squelch.Fragments
             {
                 //
                 // Stop timer
-                if (_refreshTimer != null)
+                if (this._refreshTimer != null)
                 {
-                    _refreshTimer.Stop();
-                    _refreshTimer.Dispose();
-                    _refreshTimer = null;
+                    this._refreshTimer.Stop();
+                    this._refreshTimer.Dispose();
+                    this._refreshTimer = null;
                 }
 
                 //
                 // Close usage stats dialog
-                if (_permissionDialog != null)
-                    _permissionDialog.Dismiss();
+                if (this._permissionDialog != null)
+                {
+                    this._permissionDialog.Dismiss();
+                }
             }
             catch (Exception ex)
             {
@@ -138,7 +142,7 @@ namespace Squelch.Fragments
             }
         }
 
-        public async override void OnResume()
+        public override async void OnResume()
         {
             base.OnResume();
 
@@ -146,9 +150,9 @@ namespace Squelch.Fragments
             {
                 //
                 // Get the active blackout
-                _activeBlackout = await BlackoutDatabase.GetFirstActiveBlackoutAsync();
-                UIDisplayInformation();
-                UIDisplayBlacklist();
+                this._activeBlackout = await BlackoutDatabase.GetFirstActiveBlackoutAsync();
+                this.UIDisplayInformation();
+                this.UIDisplayBlacklist();
 
                 //
                 // Set firebase screen
@@ -157,24 +161,24 @@ namespace Squelch.Fragments
                 //
                 // Check permissions and ask for it if we need it
                 // NOTE: THIS MIGHT CAUSE ISSUES IF USAGE STATS SETTINGS SECTION IS BEING BLOCKED...
-                if (_permissionDialog == null && PermissionUtils.GetUsageDataPermission(this.Context) == false)
+                if (this._permissionDialog == null && PermissionUtils.GetUsageDataPermission(this.Context) == false)
                 {
                     PermissionUtils.GetUsageDataPermission(this.Context, true, (Android.App.AlertDialog dialog) =>
                     {
                         // Get the dialog
-                        _permissionDialog = dialog;
-                        _permissionDialog.DismissEvent += delegate { _permissionDialog = null; };
+                        this._permissionDialog = dialog;
+                        this._permissionDialog.DismissEvent += delegate { this._permissionDialog = null; };
                     });
                 }
 
                 // NOTE: THIS MIGHT CAUSE ISSUES IF OVERLAY SETTINGS SECTION IS BEING BLOCKED...
-                if (_permissionDialog == null && PermissionUtils.GetApplicationOverlayPermission(this.Context) == false)
+                if (this._permissionDialog == null && PermissionUtils.GetApplicationOverlayPermission(this.Context) == false)
                 {
                     PermissionUtils.GetApplicationOverlayPermission(this.Context, true, (Android.App.AlertDialog dialog) =>
                     {
                         // Get the dialog
-                        _permissionDialog = dialog;
-                        _permissionDialog.DismissEvent += delegate { _permissionDialog = null; };
+                        this._permissionDialog = dialog;
+                        this._permissionDialog.DismissEvent += delegate { this._permissionDialog = null; };
                     });
                 }
             }
@@ -196,13 +200,13 @@ namespace Squelch.Fragments
             try
             {
                 // Make sure blackout is present
-                if (_activeBlackout == null)
+                if (this._activeBlackout == null)
                 {
                     DisplayUtils.ShowSnackbar(this.View, Resource.String.error_unable_to_determine_blackout, Snackbar.LengthIndefinite);
                     return;
                 }
 
-                DisplayUtils.ShowGenericAlertDialog(this.Context, Resource.String.text_confirm, Resource.String.fragment_blackout_confirmation_message, true, Resource.String.text_yes, delegate { ProcessUnlock(_activeBlackout.Bid); }, Resource.String.text_no, delegate { });
+                DisplayUtils.ShowGenericAlertDialog(this.Context, Resource.String.text_confirm, Resource.String.fragment_blackout_confirmation_message, true, Resource.String.text_yes, delegate { this.ProcessUnlock(this._activeBlackout.Bid); }, Resource.String.text_no, delegate { });
             }
             catch (Exception ex)
             {
@@ -219,8 +223,8 @@ namespace Squelch.Fragments
         {
             try
             {
-                UIDisplayProgress();
-                UIDisplayTimeRemaining();
+                this.UIDisplayProgress();
+                this.UIDisplayTimeRemaining();
             }
             catch (Exception ex)
             {
@@ -244,22 +248,26 @@ namespace Squelch.Fragments
             {
                 //
                 // Sanity
-                if (_activeBlackout == null)
+                if (this._activeBlackout == null)
+                {
                     return;
+                }
 
                 //
                 // Calculate progress
-                totalSeconds = Math.Max((_activeBlackout.ScheduledEndDateTime - _activeBlackout.ScheduledStartDateTime).TotalSeconds, 0);
-                elapsedSeconds = Math.Max((_activeBlackout.ScheduledEndDateTime - DateTime.Now).TotalSeconds, 0);
+                totalSeconds = Math.Max((this._activeBlackout.ScheduledEndDateTime - this._activeBlackout.ScheduledStartDateTime).TotalSeconds, 0);
+                elapsedSeconds = Math.Max((this._activeBlackout.ScheduledEndDateTime - DateTime.Now).TotalSeconds, 0);
                 percentageComplete = (int)Math.Floor((INDICATOR_MAX_VALUE / totalSeconds) * elapsedSeconds);
                 if (percentageComplete < 1)
+                {
                     percentageComplete = 1;
+                }
 
                 //
                 // Display
                 MainThread.BeginInvokeOnMainThread(() =>
                 {
-                    animator = ObjectAnimator.OfInt(_progressIndicator, "progress", _progressIndicator.Progress, percentageComplete);
+                    animator = ObjectAnimator.OfInt(this._progressIndicator, "progress", this._progressIndicator.Progress, percentageComplete);
                     animator.SetDuration(1000);
                     animator.SetInterpolator(new LinearInterpolator());
                     animator.Start();
@@ -285,12 +293,14 @@ namespace Squelch.Fragments
             {
                 //
                 // Sanity
-                if (_activeBlackout == null)
+                if (this._activeBlackout == null)
+                {
                     return;
+                }
 
                 //
                 // Calculate time remaining
-                timeRemaining = _activeBlackout.ScheduledEndDateTime.Subtract(DateTime.Now);
+                timeRemaining = this._activeBlackout.ScheduledEndDateTime.Subtract(DateTime.Now);
                 totalHours = Math.Max((timeRemaining.Days * 24) + timeRemaining.Hours, 0);
                 totalMinutes = Math.Max(timeRemaining.Minutes, 0);
                 totalSeconds = Math.Max(timeRemaining.Seconds, 0);
@@ -299,9 +309,11 @@ namespace Squelch.Fragments
                 // Display and make visible
                 MainThread.BeginInvokeOnMainThread(() =>
                 {
-                    _timeRemainingLabel.Text = $"{totalHours.ToString("00")}:{totalMinutes.ToString("00")}:{totalSeconds.ToString("00")}";
-                    if (_timeRemainingLabel.Visibility != ViewStates.Visible)
-                        _timeRemainingLabel.Visibility = ViewStates.Visible;
+                    this._timeRemainingLabel.Text = $"{totalHours.ToString("00")}:{totalMinutes.ToString("00")}:{totalSeconds.ToString("00")}";
+                    if (this._timeRemainingLabel.Visibility != ViewStates.Visible)
+                    {
+                        this._timeRemainingLabel.Visibility = ViewStates.Visible;
+                    }
                 });
             }
             catch (Exception ex)
@@ -319,19 +331,21 @@ namespace Squelch.Fragments
             {
                 //
                 // Sanity
-                if (_activeBlackout == null)
+                if (this._activeBlackout == null)
+                {
                     return;
+                }
 
                 //
                 // Display and make visible
                 MainThread.BeginInvokeOnMainThread(() =>
                 {
-                    if (_informationLayout.Visibility != ViewStates.Visible)
+                    if (this._informationLayout.Visibility != ViewStates.Visible)
                     {
-                        var difficultyText = this.GetString(Resource.String.text_unknown);
-                        if (_activeBlackout != null)
+                        string difficultyText = this.GetString(Resource.String.text_unknown);
+                        if (this._activeBlackout != null)
                         {
-                            switch (_activeBlackout.DifficultyCode)
+                            switch (this._activeBlackout.DifficultyCode)
                             {
                                 case BlackoutItem.BlackoutDifficultyCode.Novice:
                                     difficultyText = this.GetString(Resource.String.text_novice);
@@ -351,9 +365,9 @@ namespace Squelch.Fragments
                             }
                         }
 
-                        _difficultyLabel.Text = difficultyText;
-                        _bidLabel.Text = _activeBlackout != null ? $"${_activeBlackout.Bid}" : this.GetString(Resource.String.text_unknown);
-                        _informationLayout.Visibility = ViewStates.Visible;
+                        this._difficultyLabel.Text = difficultyText;
+                        this._bidLabel.Text = this._activeBlackout != null ? $"${this._activeBlackout.Bid}" : this.GetString(Resource.String.text_unknown);
+                        this._informationLayout.Visibility = ViewStates.Visible;
                     }
                 });
             }
@@ -379,8 +393,10 @@ namespace Squelch.Fragments
             {
                 //
                 // Sanity
-                if (_activeBlackout == null)
+                if (this._activeBlackout == null)
+                {
                     return;
+                }
 
                 //
                 // Init
@@ -389,7 +405,7 @@ namespace Squelch.Fragments
 
                 //
                 // Build the rows!
-                foreach (string packageName in _activeBlackout.Blacklist)
+                foreach (string packageName in this._activeBlackout.Blacklist)
                 {
                     applicationName = packageManager.GetApplicationInfo(packageName, PackageInfoFlags.MatchAll).LoadLabel(packageManager);
                     if (string.IsNullOrWhiteSpace(applicationName) == false)
@@ -421,12 +437,14 @@ namespace Squelch.Fragments
 
                 MainThread.BeginInvokeOnMainThread(() =>
                 {
-                    if (_blacklistLayout.Visibility != ViewStates.Visible)
+                    if (this._blacklistLayout.Visibility != ViewStates.Visible)
                     {
                         foreach (TableRow row in rows)
-                            _blacklistLayout.AddView(row);
+                        {
+                            this._blacklistLayout.AddView(row);
+                        }
 
-                        _blacklistLayout.Visibility = ViewStates.Visible;
+                        this._blacklistLayout.Visibility = ViewStates.Visible;
                     }
                 });
             }
@@ -452,20 +470,22 @@ namespace Squelch.Fragments
                     InAppPurchaseUtils.PurchaseResult result = await InAppPurchaseUtils.PurchaseAsync($"device_unlock_{bid.ToString().PadLeft(3, '0')}", true);
                     if (result.Successful == true)
                     {
-                        _activeBlackout.SetBlackoutFinished(BlackoutItem.BlackoutResultCode.Failed);
-                        await BlackoutDatabase.UpsertAsync(_activeBlackout);
+                        this._activeBlackout.SetBlackoutFinished(BlackoutItem.BlackoutResultCode.Failed);
+                        await BlackoutDatabase.UpsertAsync(this._activeBlackout);
                         DisplayUtils.ShowSnackbar(this.View, Resource.String.fragment_blackout_unlocked, Snackbar.LengthLong);
                     }
                     else
                     {
                         if (string.IsNullOrWhiteSpace(this.GetString(result.MessageResourceId)) == false)
+                        {
                             DisplayUtils.ShowSnackbar(this.View, result.MessageResourceId, Snackbar.LengthLong);
+                        }
                     }
                 }
                 else
                 {
-                    _activeBlackout.SetBlackoutFinished(BlackoutItem.BlackoutResultCode.Failed);
-                    await BlackoutDatabase.UpsertAsync(_activeBlackout);
+                    this._activeBlackout.SetBlackoutFinished(BlackoutItem.BlackoutResultCode.Failed);
+                    await BlackoutDatabase.UpsertAsync(this._activeBlackout);
                     DisplayUtils.ShowSnackbar(this.View, Resource.String.fragment_blackout_unlocked, Snackbar.LengthLong);
                 }
             }

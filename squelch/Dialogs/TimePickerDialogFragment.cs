@@ -1,9 +1,9 @@
 ﻿using Android.App;
 using Android.OS;
-using Squelch.Library;
-using System;
 using Android.Text.Format;
 using Android.Widget;
+using Squelch.Library;
+using System;
 
 namespace Squelch.Dialogs
 {
@@ -11,7 +11,7 @@ namespace Squelch.Dialogs
     {
         #region Instance Variables
         private static readonly string _tag = typeof(TimePickerDialogFragment).FullName;
-        Action<DateTime> _timeSelectedHandler = delegate { };
+        private Action<DateTime> _timeSelectedHandler = delegate { };
         #endregion
 
         public static TimePickerDialogFragment NewInstance(Action<DateTime> onTimeSelected)
@@ -20,8 +20,10 @@ namespace Squelch.Dialogs
 
             try
             {
-                pickerFragment = new TimePickerDialogFragment();
-                pickerFragment._timeSelectedHandler = (onTimeSelected != null) ? onTimeSelected : null;
+                pickerFragment = new TimePickerDialogFragment
+                {
+                    _timeSelectedHandler = (onTimeSelected != null) ? onTimeSelected : null
+                };
             }
             catch (Exception ex)
             {
@@ -40,8 +42,8 @@ namespace Squelch.Dialogs
             try
             {
                 currentTime = DateTime.Now;
-                is24HourFormat = DateFormat.Is24HourFormat(Activity);
-                pickerDialog = new TimePickerDialog(Activity, this, currentTime.Hour, currentTime.Minute, is24HourFormat);
+                is24HourFormat = DateFormat.Is24HourFormat(this.Activity);
+                pickerDialog = new TimePickerDialog(this.Activity, this, currentTime.Hour, currentTime.Minute, is24HourFormat);
             }
             catch (Exception ex)
             {
@@ -60,7 +62,7 @@ namespace Squelch.Dialogs
             {
                 currentTime = DateTime.Now;
                 selectedTime = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day, hourOfDay, minute, 0);
-                _timeSelectedHandler(selectedTime);
+                this._timeSelectedHandler(selectedTime);
             }
             catch (Exception ex)
             {

@@ -1,20 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO.Compression;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
+﻿using Android.Content;
 using Android.Graphics;
-using Android.OS;
-using Android.Runtime;
 using Android.Util;
-using Android.Views;
-using Android.Widget;
 using AndroidX.Core.Content;
 using Google.Android.Material.BottomNavigation;
-using Org.W3c.Dom;
 
 namespace Squelch.Views.Navigation
 {
@@ -40,13 +28,19 @@ namespace Squelch.Views.Navigation
 
 
         public CurvedBottomNavigationView(Context context) : base(context)
-            => this.Initialize(context);
+        {
+            this.Initialize(context);
+        }
 
         public CurvedBottomNavigationView(Context context, IAttributeSet attrs) : base(context, attrs)
-            => this.Initialize(context);
+        {
+            this.Initialize(context);
+        }
 
         public CurvedBottomNavigationView(Context context, IAttributeSet attrs, int defStyleAttr) : base(context, attrs, defStyleAttr)
-            => this.Initialize(context);
+        {
+            this.Initialize(context);
+        }
 
         private void Initialize(Context context)
         {

@@ -5,8 +5,8 @@
   <string name="service_enforcer_title">Enforcer</string>
   <string name="service_enforcer_waiting_message">Waiting for blackout</string>
   <string name="service_enforcer_active_message">Blackout is active</string>
-  <string name="service_enforcer_react_generic_application">That application</string>
-  <string name="service_enforcer_react_blacklist_message">{0} is on your blacklist!</string>
+  <string name="service_enforcer_react_blacklist_generic">That application is on your blacklist!</string>
+  <string name="service_enforcer_react_blacklist_specific">{0} is on your blacklist!</string>
 
   <string name="fragment_first_time_setup_welcome_message">Welcome to Squelch, the app that helps you conquer your digital addiction and live with less distraction.</string>
   <string name="fragment_first_time_setup_special_permissions_message">In order for Squelch to work for you, it needs your permission to do the following:</string>

@@ -1,10 +1,8 @@
 ﻿using Android.Content;
-using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.Fragment.App;
-using Squelch.Activities;
 using Squelch.Library;
 using Squelch.Library.Interfaces;
 using Squelch.Library.Utilities;
@@ -43,20 +41,20 @@ namespace Squelch.Fragments
             {
                 //
                 // Get Controls
-                _rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_open_source_root_layout);
-                _attributionLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_open_source_attribution_layout);
-                _negativeButton = view.FindViewById<Button>(Resource.Id.fragment_open_source_negative_button);
+                this._rootLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_open_source_root_layout);
+                this._attributionLayout = view.FindViewById<LinearLayout>(Resource.Id.fragment_open_source_attribution_layout);
+                this._negativeButton = view.FindViewById<Button>(Resource.Id.fragment_open_source_negative_button);
 
                 //
                 // Hook events
-                _negativeButton.Click += delegate
+                this._negativeButton.Click += delegate
                 {
                     this.Dismiss();
                 };
 
                 //
                 // Call ui methods
-                BuildAttributionList();
+                this.BuildAttributionList();
             }
             catch (Exception ex)
             {
@@ -93,11 +91,13 @@ namespace Squelch.Fragments
         private void SetIsWorking(bool isWorking)
         {
             // Toggle views
-            ViewUtils.SetViewAndChildrenEnabled(_rootLayout, !isWorking);
+            ViewUtils.SetViewAndChildrenEnabled(this._rootLayout, !isWorking);
 
             // Report to parent
             if (this.Activity is IIndeterminateProgressReporter)
+            {
                 ((IIndeterminateProgressReporter)this.Activity).SetProgressBarState(isWorking);
+            }
         }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace Squelch.Fragments
 
             try
             {
-                SetIsWorking(true);
+                this.SetIsWorking(true);
 
                 //
                 // Add various software attributions
@@ -139,7 +139,7 @@ namespace Squelch.Fragments
                 {
                     //
                     // Create attribution title
-                    var titleLabel = new TextView(this.Context)
+                    TextView titleLabel = new TextView(this.Context)
                     {
                         LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent),
                         Text = developer
@@ -148,7 +148,7 @@ namespace Squelch.Fragments
                     titleLabel.SetPadding(15, 10, 10, 10);
                     titleLabel.SetTextColor(Android.Graphics.Color.ParseColor(this.Resources.GetString(Resource.Color.White)));
                     titleLabel.SetBackgroundColor(Android.Graphics.Color.ParseColor(this.Resources.GetString(Resource.Color.colorAccent)));
-                    _attributionLayout.AddView(titleLabel);
+                    this._attributionLayout.AddView(titleLabel);
 
                     //
                     // Iterate over each project
@@ -156,7 +156,7 @@ namespace Squelch.Fragments
                     {
                         //
                         // Create attribution row
-                        var projectRow = new LinearLayout(this.Context)
+                        LinearLayout projectRow = new LinearLayout(this.Context)
                         {
                             LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent),
                             Orientation = Orientation.Horizontal,
@@ -170,16 +170,16 @@ namespace Squelch.Fragments
                         {
                             try
                             {
-                                SetIsWorking(true);
+                                this.SetIsWorking(true);
 
                                 Intent linkIntent = new Intent(Intent.ActionView);
                                 linkIntent.SetData(Android.Net.Uri.Parse(attribution.Item4));
-                                StartActivity(linkIntent);
+                                this.StartActivity(linkIntent);
                             }
-                            finally { SetIsWorking(false); }
+                            finally { this.SetIsWorking(false); }
                         };
 
-                        var projectName = new TextView(this.Context)
+                        TextView projectName = new TextView(this.Context)
                         {
                             LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent, 1),
                             TextSize = 20,
@@ -190,7 +190,7 @@ namespace Squelch.Fragments
                         projectName.SetPadding(20, 10, 10, 10);
                         projectRow.AddView(projectName);
 
-                        var projectLicense = new TextView(this.Context)
+                        TextView projectLicense = new TextView(this.Context)
                         {
                             LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent, 1),
                             TextSize = 20,
@@ -201,12 +201,12 @@ namespace Squelch.Fragments
                         projectRow.AddView(projectLicense);
 
                         // Add to parents
-                        _attributionLayout.AddView(projectRow);
+                        this._attributionLayout.AddView(projectRow);
                     }
 
                     //
                     // Add spacer
-                    _attributionLayout.AddView(new View(this.Context)
+                    this._attributionLayout.AddView(new View(this.Context)
                     {
                         LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, 20)
                     });
@@ -218,7 +218,7 @@ namespace Squelch.Fragments
             }
             finally
             {
-                SetIsWorking(false);
+                this.SetIsWorking(false);
             }
         }
         #endregion
