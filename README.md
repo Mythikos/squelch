@@ -18,3 +18,5 @@
 * Added DateUtils class for formatting datetimes using Android's built in DateUtil and SimpleDateFormatter.
 * Updated all text sources to use localized strings instead of hardcoded strings.
 * Updated in app billing plugin to v4.
+* Added translations for Hindi
+* Modified how the BlackoutSetupFragment handles the start date and end date assignments.
