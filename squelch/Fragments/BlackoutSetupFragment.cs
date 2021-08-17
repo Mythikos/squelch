@@ -214,16 +214,16 @@ namespace Squelch.Fragments
                     timePickerFragment.Show(this.FragmentManager, $"{this.GetType().Name}{typeof(DatePickerDialogFragment).Name}");
                 };
 
-                this._dateRangeStartNowButton.Click += delegate { PlusNButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, -1); };
-                this._dateRangeStartPlus1Button.Click += delegate { PlusNButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 1); };
-                this._dateRangeStartPlus5Button.Click += delegate { PlusNButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 5); };
-                this._dateRangeStartPlus10Button.Click += delegate { PlusNButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 10); };
-                this._dateRangeStartPlus30Button.Click += delegate { PlusNButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 30); };
+                this._dateRangeStartNowButton.Click += delegate { PlusNMinutesButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, -1); };
+                this._dateRangeStartPlus1Button.Click += delegate { PlusNMinutesButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 1); };
+                this._dateRangeStartPlus5Button.Click += delegate { PlusNMinutesButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 5); };
+                this._dateRangeStartPlus10Button.Click += delegate { PlusNMinutesButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 10); };
+                this._dateRangeStartPlus30Button.Click += delegate { PlusNMinutesButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 30); };
 
-                this._dateRangeEndPlus1Button.Click += delegate { PlusNButton_Click(ref _blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 1); };
-                this._dateRangeEndPlus5Button.Click += delegate { PlusNButton_Click(ref _blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 5); };
-                this._dateRangeEndPlus10Button.Click += delegate { PlusNButton_Click(ref _blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 10); };
-                this._dateRangeEndPlus30Button.Click += delegate { PlusNButton_Click(ref _blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 30); };
+                this._dateRangeEndPlus1Button.Click += delegate { PlusNMinutesButton_Click(ref _blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 1); };
+                this._dateRangeEndPlus5Button.Click += delegate { PlusNMinutesButton_Click(ref _blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 5); };
+                this._dateRangeEndPlus10Button.Click += delegate { PlusNMinutesButton_Click(ref _blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 10); };
+                this._dateRangeEndPlus30Button.Click += delegate { PlusNMinutesButton_Click(ref _blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 30); };
 
                 //
                 // Application related
@@ -453,13 +453,13 @@ namespace Squelch.Fragments
             }
         }
 
-        public void PlusNButton_Click(ref DateTime datetime, ref Button dateButton, ref Button timeButton, int seconds)
+        public void PlusNMinutesButton_Click(ref DateTime datetime, ref Button dateButton, ref Button timeButton, int minutes)
         {
             // Increment
-            if (seconds == -1)
+            if (minutes == -1)
                 datetime = DateTime.Now;
             else
-                datetime = datetime.AddSeconds(seconds);
+                datetime = datetime.AddMinutes(minutes);
 
             // Set labels
             dateButton.Text = DateUtils.FormatDateLong(this.Context, datetime);
