@@ -74,6 +74,8 @@ namespace Squelch.Fragments
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            this._blackoutStartDateTime = DateTime.Now;
+            this._blackoutEndDateTime = DateTime.Now;
             this._blackoutDifficulty = BlackoutItem.BlackoutDifficultyCode.Veteran;
             this.HasOptionsMenu = true;
         }
