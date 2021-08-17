@@ -60,6 +60,8 @@ namespace Squelch.Fragments
 
         // Instance variables
         private int _stepId;
+        private DateTime _blackoutStartDateTime;
+        private DateTime _blackoutEndDateTime;
         private BlackoutItem.BlackoutDifficultyCode _blackoutDifficulty;
         private UIApplicationListAdapter _applicationListAdapter;
         private List<UIApplicationItem> _applicationList;
@@ -212,187 +214,16 @@ namespace Squelch.Fragments
                     timePickerFragment.Show(this.FragmentManager, $"{this.GetType().Name}{typeof(DatePickerDialogFragment).Name}");
                 };
 
-                this._dateRangeStartNowButton.Click += delegate
-                {
-                    DateTime dateTime;
+                this._dateRangeStartNowButton.Click += delegate { PlusNButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, -1); };
+                this._dateRangeStartPlus1Button.Click += delegate { PlusNButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 1); };
+                this._dateRangeStartPlus5Button.Click += delegate { PlusNButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 5); };
+                this._dateRangeStartPlus10Button.Click += delegate { PlusNButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 10); };
+                this._dateRangeStartPlus30Button.Click += delegate { PlusNButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 30); };
 
-                    // Just get the time as of right now
-                    dateTime = DateTime.Now;
-
-                    // Set labels
-                    this._dateRangeStartDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime);
-                    this._dateRangeStartTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime, UserSettings.FormatTimeAsTwelveHour);
-                };
-
-                this._dateRangeStartPlus1Button.Click += delegate
-                {
-
-                    // Both date and time are not valid
-                    if (DateTime.TryParse($"{this._dateRangeStartDateButton.Text} {this._dateRangeStartTimeButton.Text}", out DateTime dateTime) == false)
-                    {
-                        // Time is not valid
-                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {this._dateRangeStartTimeButton.Text}", out dateTime) == false)
-                        {
-                            // Date is not valid
-                            if (DateTime.TryParse($"{this._dateRangeStartDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
-                            {
-                                dateTime = DateTime.Now;
-                            }
-                        }
-                    }
-
-                    // Set labels
-                    this._dateRangeStartDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(1));
-                    this._dateRangeStartTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(1), UserSettings.FormatTimeAsTwelveHour);
-                };
-                this._dateRangeStartPlus5Button.Click += delegate
-                {
-
-                    // Both date and time are not valid
-                    if (DateTime.TryParse($"{this._dateRangeStartDateButton.Text} {this._dateRangeStartTimeButton.Text}", out DateTime dateTime) == false)
-                    {
-                        // Time is not valid
-                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {this._dateRangeStartTimeButton.Text}", out dateTime) == false)
-                        {
-                            // Date is not valid
-                            if (DateTime.TryParse($"{this._dateRangeStartDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
-                            {
-                                dateTime = DateTime.Now;
-                            }
-                        }
-                    }
-
-                    // Set labels
-                    this._dateRangeStartDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(5));
-                    this._dateRangeStartTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(5), UserSettings.FormatTimeAsTwelveHour);
-                };
-                this._dateRangeStartPlus10Button.Click += delegate
-                {
-
-                    // Both date and time are not valid
-                    if (DateTime.TryParse($"{this._dateRangeStartDateButton.Text} {this._dateRangeStartTimeButton.Text}", out DateTime dateTime) == false)
-                    {
-                        // Time is not valid
-                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {this._dateRangeStartTimeButton.Text}", out dateTime) == false)
-                        {
-                            // Date is not valid
-                            if (DateTime.TryParse($"{this._dateRangeStartDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
-                            {
-                                dateTime = DateTime.Now;
-                            }
-                        }
-                    }
-
-                    // Set labels
-                    this._dateRangeStartDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(10));
-                    this._dateRangeStartTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(10), UserSettings.FormatTimeAsTwelveHour);
-                };
-                this._dateRangeStartPlus30Button.Click += delegate
-                {
-
-                    // Both date and time are not valid
-                    if (DateTime.TryParse($"{this._dateRangeStartDateButton.Text} {this._dateRangeStartTimeButton.Text}", out DateTime dateTime) == false)
-                    {
-                        // Time is not valid
-                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {this._dateRangeStartTimeButton.Text}", out dateTime) == false)
-                        {
-                            // Date is not valid
-                            if (DateTime.TryParse($"{this._dateRangeStartDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
-                            {
-                                dateTime = DateTime.Now;
-                            }
-                        }
-                    }
-
-                    // Set labels
-                    this._dateRangeStartDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(30));
-                    this._dateRangeStartTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(30), UserSettings.FormatTimeAsTwelveHour);
-                };
-
-                this._dateRangeEndPlus1Button.Click += delegate
-                {
-
-                    // Both date and time are not valid
-                    if (DateTime.TryParse($"{this._dateRangeEndDateButton.Text} {this._dateRangeEndTimeButton.Text}", out DateTime dateTime) == false)
-                    {
-                        // Time is not valid
-                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {this._dateRangeEndTimeButton.Text}", out dateTime) == false)
-                        {
-                            // Date is not valid
-                            if (DateTime.TryParse($"{this._dateRangeEndDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
-                            {
-                                dateTime = DateTime.Now;
-                            }
-                        }
-                    }
-
-                    // Set labels
-                    this._dateRangeEndDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(1));
-                    this._dateRangeEndTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(1), UserSettings.FormatTimeAsTwelveHour);
-                };
-                this._dateRangeEndPlus5Button.Click += delegate
-                {
-
-                    // Both date and time are not valid
-                    if (DateTime.TryParse($"{this._dateRangeEndDateButton.Text} {this._dateRangeEndTimeButton.Text}", out DateTime dateTime) == false)
-                    {
-                        // Time is not valid
-                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {this._dateRangeEndTimeButton.Text}", out dateTime) == false)
-                        {
-                            // Date is not valid
-                            if (DateTime.TryParse($"{this._dateRangeEndDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
-                            {
-                                dateTime = DateTime.Now;
-                            }
-                        }
-                    }
-
-                    // Set labels
-                    this._dateRangeEndDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(5));
-                    this._dateRangeEndTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(5), UserSettings.FormatTimeAsTwelveHour);
-                };
-                this._dateRangeEndPlus10Button.Click += delegate
-                {
-
-                    // Both date and time are not valid
-                    if (DateTime.TryParse($"{this._dateRangeEndDateButton.Text} {this._dateRangeEndTimeButton.Text}", out DateTime dateTime) == false)
-                    {
-                        // Time is not valid
-                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {this._dateRangeEndTimeButton.Text}", out dateTime) == false)
-                        {
-                            // Date is not valid
-                            if (DateTime.TryParse($"{this._dateRangeEndDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
-                            {
-                                dateTime = DateTime.Now;
-                            }
-                        }
-                    }
-
-                    // Set labels
-                    this._dateRangeEndDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(10));
-                    this._dateRangeEndTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(10), UserSettings.FormatTimeAsTwelveHour);
-                };
-                this._dateRangeEndPlus30Button.Click += delegate
-                {
-
-                    // Both date and time are not valid
-                    if (DateTime.TryParse($"{this._dateRangeEndDateButton.Text} {this._dateRangeEndTimeButton.Text}", out DateTime dateTime) == false)
-                    {
-                        // Time is not valid
-                        if (DateTime.TryParse($"{DateUtils.FormatDateLong(this.Context, DateTime.Now)} {this._dateRangeEndTimeButton.Text}", out dateTime) == false)
-                        {
-                            // Date is not valid
-                            if (DateTime.TryParse($"{this._dateRangeEndDateButton.Text} {DateUtils.FormatTime(this.Context, DateTime.Now, UserSettings.FormatTimeAsTwelveHour)}", out dateTime) == false)
-                            {
-                                dateTime = DateTime.Now;
-                            }
-                        }
-                    }
-
-                    // Set labels
-                    this._dateRangeEndDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime.AddMinutes(30));
-                    this._dateRangeEndTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime.AddMinutes(30), UserSettings.FormatTimeAsTwelveHour);
-                };
+                this._dateRangeEndPlus1Button.Click += delegate { PlusNButton_Click(ref _blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 1); };
+                this._dateRangeEndPlus5Button.Click += delegate { PlusNButton_Click(ref _blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 5); };
+                this._dateRangeEndPlus10Button.Click += delegate { PlusNButton_Click(ref _blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 10); };
+                this._dateRangeEndPlus30Button.Click += delegate { PlusNButton_Click(ref _blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 30); };
 
                 //
                 // Application related
@@ -550,8 +381,8 @@ namespace Squelch.Fragments
                     // Assign the values
                     BlackoutItem blackoutItem = new BlackoutItem
                     {
-                        ScheduledStartDateTime = DateTime.Parse($"{this._dateRangeStartDateButton.Text} {this._dateRangeStartTimeButton.Text}"),
-                        ScheduledEndDateTime = DateTime.Parse($"{this._dateRangeEndDateButton.Text} {this._dateRangeEndTimeButton.Text}"),
+                        ScheduledStartDateTime = _blackoutStartDateTime,
+                        ScheduledEndDateTime = _blackoutEndDateTime,
                         DifficultyCode = _blackoutDifficulty,
                         Bid = this._bidNumberPicker.Value,
                         Blacklist = this._applicationList.Where(x => x.IsSelected).Select(x => x.PackageName).ToList()
@@ -620,6 +451,19 @@ namespace Squelch.Fragments
                 this.SetIsWorking(false);
 
             }
+        }
+
+        public void PlusNButton_Click(ref DateTime datetime, ref Button dateButton, ref Button timeButton, int seconds)
+        {
+            // Increment
+            if (seconds == -1)
+                datetime = DateTime.Now;
+            else
+                datetime = datetime.AddSeconds(seconds);
+
+            // Set labels
+            dateButton.Text = DateUtils.FormatDateLong(this.Context, datetime);
+            timeButton.Text = DateUtils.FormatTime(this.Context, datetime, UserSettings.FormatTimeAsTwelveHour);
         }
         #endregion
 
@@ -903,8 +747,8 @@ namespace Squelch.Fragments
                         this._reviewLayout.Visibility = ViewStates.Visible;
                         this._reviewDifficultyLabel.SetText(blackoutDifficultyTextResourceId);
                         this._reviewBidLabel.Text = $"${this._bidNumberPicker.Value}";
-                        this._reviewStartDateTimeLabel.Text = $"{this._dateRangeStartDateButton.Text} @ {this._dateRangeStartTimeButton.Text}";
-                        this._reviewEndDateTimeLabel.Text = $"{this._dateRangeEndDateButton.Text} @ {this._dateRangeEndTimeButton.Text}";
+                        this._reviewStartDateTimeLabel.Text = $"{DateUtils.FormatDateLong(this.Context, _blackoutStartDateTime)} @ {DateUtils.FormatTime(this.Context, _blackoutStartDateTime, UserSettings.FormatTimeAsTwelveHour)}";
+                        this._reviewEndDateTimeLabel.Text = $"{DateUtils.FormatDateLong(this.Context, _blackoutEndDateTime)} @ {DateUtils.FormatTime(this.Context, _blackoutEndDateTime, UserSettings.FormatTimeAsTwelveHour)}";
                         this._reviewBlacklistLabel.Text = string.Join(", ", this._applicationList.Where(x => x.IsSelected).Select(x => x.Name).ToList());
                         break;
                     default:
@@ -932,9 +776,6 @@ namespace Squelch.Fragments
         /// <returns></returns>
         private async Task<bool> ValidateStep(int step)
         {
-            DateTime startDateTime;
-            DateTime endDateTime;
-
             try
             {
                 // Reset
@@ -952,44 +793,31 @@ namespace Squelch.Fragments
                         // Nothing needs to be checked
                         break;
                     case STEP_DATE_RANGE:
-                        // Date Ranges
-                        if (DateTime.TryParse($"{this._dateRangeStartDateButton.Text} {this._dateRangeStartTimeButton.Text}", out startDateTime) == false) // Start date is valid
-                        {
-                            this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_start_date_invalid) + " ";
-                            return false;
-                        }
-
-                        if (DateTime.TryParse($"{this._dateRangeEndDateButton.Text} {this._dateRangeEndTimeButton.Text}", out endDateTime) == false) // End date is valid
-                        {
-                            this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_end_date_invalid) + " ";
-                            return false;
-                        }
-
-                        if (endDateTime < DateTime.Now) // The end date is before the current time, whats the point?
+                        if (_blackoutEndDateTime < DateTime.Now) // The end date is before the current time, whats the point?
                         {
                             this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_end_date_in_the_past) + " ";
                             return false;
                         }
 
-                        if (startDateTime > endDateTime) // Start date must be before the end date
+                        if (_blackoutStartDateTime > _blackoutEndDateTime) // Start date must be before the end date
                         {
                             this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_start_date_cannot_be_greater_than_end_date) + " ";
                             return false;
                         }
 
-                        if ((endDateTime - startDateTime).TotalMinutes < 1) // Blackout must be more than 1 minute
+                        if ((_blackoutEndDateTime - _blackoutStartDateTime).TotalMinutes < 1) // Blackout must be more than 1 minute
                         {
                             this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_duration_of_blackout_must_be_greater_than_1_minute) + " ";
                             return false;
                         }
 
-                        if (endDateTime.Subtract(DateTime.Now).TotalDays > 30) // Blackout must be less than 30 days
+                        if (_blackoutEndDateTime.Subtract(DateTime.Now).TotalDays > 30) // Blackout must be less than 30 days
                         {
                             this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_duration_of_blackout_must_be_less_than_30_days) + " ";
                             return false;
                         }
 
-                        if (await BlackoutDatabase.HasConflictInRangeAsync(startDateTime, endDateTime))
+                        if (await BlackoutDatabase.HasConflictInRangeAsync(_blackoutStartDateTime, _blackoutEndDateTime))
                         {
                             this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_blackout_overlaps) + " ";
                             return false;

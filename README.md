@@ -13,10 +13,6 @@
 ## Existing Gotchas:
 * The BlackoutSetupFragment, FirstTimeSetupFragment, and the FeedbackFragment all use the text on their respective positive/negative buttons to indicate when it should complete its process. If the words "Next" and "Finish" ever translate to the same thing, this will cause a bug.
 
-## Working:
-* Still need to update the statistics fragment to use localized strings.
-* Need to fix weird ordering on schedule fragment as a result of localization.
-
 ## Changelog:
 * Added time format user setting.
 * Added DateUtils class for formatting datetimes using Android's built in DateUtil and SimpleDateFormatter.
