@@ -264,6 +264,14 @@ namespace Squelch.Activities
                 else if (await BlackoutDatabase.HasActiveBackoutAsync())
                 {
                     this.SupportFragmentManager.SetFragment(typeof(BlackoutFragment), false, true);
+
+                    //
+                    // Try to start the enforcer service
+                    if (EnforcerService.IsRunning == false)
+                    {
+                        Logger.Write(s_tag, $"OnPostResume: EnforcerService is not running, starting it", Logger.Severity.Info);
+                        ContextCompat.StartForegroundService(this, new Intent(this, typeof(EnforcerService)).SetAction(EnforcerService.ACTION_START));
+                    }
                 }
                 else
                 {
@@ -276,14 +284,14 @@ namespace Squelch.Activities
                     {
                         this.SupportFragmentManager.SetFragment(typeof(HomeFragment), true, true);
                     }
-                }
 
-                //
-                // Try to start the enforcer service
-                if (EnforcerService.IsRunning == false)
-                {
-                    Logger.Write(s_tag, $"OnPostResume: EnforcerService is not running, starting it", Logger.Severity.Info);
-                    ContextCompat.StartForegroundService(this, new Intent(this, typeof(EnforcerService)).SetAction(EnforcerService.ACTION_START));
+                    //
+                    // Try to start the enforcer service
+                    if (EnforcerService.IsRunning == false)
+                    {
+                        Logger.Write(s_tag, $"OnPostResume: EnforcerService is not running, starting it", Logger.Severity.Info);
+                        ContextCompat.StartForegroundService(this, new Intent(this, typeof(EnforcerService)).SetAction(EnforcerService.ACTION_START));
+                    }
                 }
             }
             catch (Exception ex)
