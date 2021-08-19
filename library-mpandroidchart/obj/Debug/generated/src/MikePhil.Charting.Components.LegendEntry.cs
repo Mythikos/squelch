@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Components {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/components/LegendEntry", DoNotGenerateAcw=true)]
 	public partial class LegendEntry : global::Java.Lang.Object {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.components']/class[@name='LegendEntry']/field[@name='form']"
 		[Register ("form")]
 		public global::MikePhil.Charting.Components.Legend.LegendForm Form {
@@ -135,31 +133,38 @@ namespace MikePhil.Charting.Components {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/components/LegendEntry", typeof (LegendEntry));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/components/LegendEntry", typeof (LegendEntry));
+
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected LegendEntry (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected LegendEntry (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.components']/class[@name='LegendEntry']/constructor[@name='LegendEntry' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe LegendEntry ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe LegendEntry () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 
@@ -176,8 +181,7 @@ namespace MikePhil.Charting.Components {
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.components']/class[@name='LegendEntry']/constructor[@name='LegendEntry' and count(parameter)=6 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.github.mikephil.charting.components.Legend.LegendForm'] and parameter[3][@type='float'] and parameter[4][@type='float'] and parameter[5][@type='android.graphics.DashPathEffect'] and parameter[6][@type='int']]"
 		[Register (".ctor", "(Ljava/lang/String;Lcom/github/mikephil/charting/components/Legend$LegendForm;FFLandroid/graphics/DashPathEffect;I)V", "")]
-		public unsafe LegendEntry (string label, global::MikePhil.Charting.Components.Legend.LegendForm form, float formSize, float formLineWidth, global::Android.Graphics.DashPathEffect formLineDashEffect, int formColor)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe LegendEntry (string label, global::MikePhil.Charting.Components.Legend.LegendForm form, float formSize, float formLineWidth, global::Android.Graphics.DashPathEffect formLineDashEffect, int formColor) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Ljava/lang/String;Lcom/github/mikephil/charting/components/Legend$LegendForm;FFLandroid/graphics/DashPathEffect;I)V";
 
@@ -198,6 +202,8 @@ namespace MikePhil.Charting.Components {
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
 				JNIEnv.DeleteLocalRef (native_label);
+				global::System.GC.KeepAlive (form);
+				global::System.GC.KeepAlive (formLineDashEffect);
 			}
 		}
 

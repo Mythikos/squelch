@@ -2,6 +2,8 @@
   <!-- ///////////////////// -->
   <!--   Resource Specific   -->
   <!-- ///////////////////// -->
+  <string name="com.google.firebase.crashlytics.mapping_file_id">none</string>
+  
   <string name="service_enforcer_title">Enforcer</string>
   <string name="service_enforcer_waiting_message">Waiting for blackout</string>
   <string name="service_enforcer_active_message">Blackout is active</string>

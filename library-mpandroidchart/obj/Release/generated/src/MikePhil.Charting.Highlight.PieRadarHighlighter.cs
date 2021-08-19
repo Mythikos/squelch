@@ -10,8 +10,6 @@ namespace MikePhil.Charting.Highlight {
 	[global::Java.Interop.JavaTypeParameters (new string [] {"T extends com.github.mikephil.charting.charts.PieRadarChartBase"})]
 	public abstract partial class PieRadarHighlighter : global::Java.Lang.Object, global::MikePhil.Charting.Highlight.IHighlighter {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.highlight']/class[@name='PieRadarHighlighter']/field[@name='mChart']"
 		[Register ("mChart")]
 		protected global::MikePhil.Charting.Charts.PieRadarChartBase MChart {
@@ -54,31 +52,38 @@ namespace MikePhil.Charting.Highlight {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/highlight/PieRadarHighlighter", typeof (PieRadarHighlighter));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/highlight/PieRadarHighlighter", typeof (PieRadarHighlighter));
+
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected PieRadarHighlighter (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected PieRadarHighlighter (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.highlight']/class[@name='PieRadarHighlighter']/constructor[@name='PieRadarHighlighter' and count(parameter)=1 and parameter[1][@type='T']]"
 		[Register (".ctor", "(Lcom/github/mikephil/charting/charts/PieRadarChartBase;)V", "")]
-		public unsafe PieRadarHighlighter (global::Java.Lang.Object chart)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe PieRadarHighlighter (global::Java.Lang.Object chart) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Lcom/github/mikephil/charting/charts/PieRadarChartBase;)V";
 
@@ -94,6 +99,7 @@ namespace MikePhil.Charting.Highlight {
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
 				JNIEnv.DeleteLocalRef (native_chart);
+				global::System.GC.KeepAlive (chart);
 			}
 		}
 
@@ -102,13 +108,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetClosestHighlight_IFFHandler ()
 		{
 			if (cb_getClosestHighlight_IFF == null)
-				cb_getClosestHighlight_IFF = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int, float, float, IntPtr>) n_GetClosestHighlight_IFF);
+				cb_getClosestHighlight_IFF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPIFF_L) n_GetClosestHighlight_IFF);
 			return cb_getClosestHighlight_IFF;
 		}
 
 		static IntPtr n_GetClosestHighlight_IFF (IntPtr jnienv, IntPtr native__this, int p0, float p1, float p2)
 		{
-			global::MikePhil.Charting.Highlight.PieRadarHighlighter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.PieRadarHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.PieRadarHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.GetClosestHighlight (p0, p1, p2));
 		}
 #pragma warning restore 0169
@@ -122,13 +128,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetHighlight_FFHandler ()
 		{
 			if (cb_getHighlight_FF == null)
-				cb_getHighlight_FF = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float, float, IntPtr>) n_GetHighlight_FF);
+				cb_getHighlight_FF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFF_L) n_GetHighlight_FF);
 			return cb_getHighlight_FF;
 		}
 
 		static IntPtr n_GetHighlight_FF (IntPtr jnienv, IntPtr native__this, float x, float y)
 		{
-			global::MikePhil.Charting.Highlight.PieRadarHighlighter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.PieRadarHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.PieRadarHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.GetHighlight (x, y));
 		}
 #pragma warning restore 0169
@@ -152,15 +158,20 @@ namespace MikePhil.Charting.Highlight {
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/highlight/PieRadarHighlighter", DoNotGenerateAcw=true)]
 	internal partial class PieRadarHighlighterInvoker : PieRadarHighlighter {
+		public PieRadarHighlighterInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer)
+		{
+		}
 
-		public PieRadarHighlighterInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/highlight/PieRadarHighlighter", typeof (PieRadarHighlighterInvoker));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/highlight/PieRadarHighlighter", typeof (PieRadarHighlighterInvoker));
-
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
@@ -182,5 +193,4 @@ namespace MikePhil.Charting.Highlight {
 		}
 
 	}
-
 }

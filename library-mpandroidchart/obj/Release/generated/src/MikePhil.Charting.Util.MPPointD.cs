@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Util {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/utils/MPPointD", DoNotGenerateAcw=true)]
 	public partial class MPPointD : global::MikePhil.Charting.Util.ObjectPool.Poolable {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='MPPointD']/field[@name='x']"
 		[Register ("x")]
 		public double X {
@@ -49,26 +47,34 @@ namespace MikePhil.Charting.Util {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/utils/MPPointD", typeof (MPPointD));
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/MPPointD", typeof (MPPointD));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected MPPointD (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected MPPointD (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='MPPointD']/method[@name='getInstance' and count(parameter)=2 and parameter[1][@type='double'] and parameter[2][@type='double']]"
 		[Register ("getInstance", "(DD)Lcom/github/mikephil/charting/utils/MPPointD;", "")]
@@ -90,13 +96,13 @@ namespace MikePhil.Charting.Util {
 		static Delegate GetInstantiateHandler ()
 		{
 			if (cb_instantiate == null)
-				cb_instantiate = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_Instantiate);
+				cb_instantiate = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_Instantiate);
 			return cb_instantiate;
 		}
 
 		static IntPtr n_Instantiate (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Util.MPPointD __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.MPPointD> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.MPPointD> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Instantiate ());
 		}
 #pragma warning restore 0169
@@ -123,6 +129,7 @@ namespace MikePhil.Charting.Util {
 				__args [0] = new JniArgumentValue ((instance == null) ? IntPtr.Zero : ((global::Java.Lang.Object) instance).Handle);
 				_members.StaticMethods.InvokeVoidMethod (__id, __args);
 			} finally {
+				global::System.GC.KeepAlive (instance);
 			}
 		}
 
@@ -138,6 +145,7 @@ namespace MikePhil.Charting.Util {
 				_members.StaticMethods.InvokeVoidMethod (__id, __args);
 			} finally {
 				JNIEnv.DeleteLocalRef (native_instances);
+				global::System.GC.KeepAlive (instances);
 			}
 		}
 

@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Charts {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.charts']/class[@name='LineChart']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/charts/LineChart", DoNotGenerateAcw=true)]
 	public partial class LineChart : global::MikePhil.Charting.Charts.BarLineChartBase, global::MikePhil.Charting.Interfaces.Dataprovider.ILineDataProvider {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/charts/LineChart", typeof (LineChart));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/charts/LineChart", typeof (LineChart));
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected LineChart (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected LineChart (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.charts']/class[@name='LineChart']/constructor[@name='LineChart' and count(parameter)=1 and parameter[1][@type='android.content.Context']]"
 		[Register (".ctor", "(Landroid/content/Context;)V", "")]
-		public unsafe LineChart (global::Android.Content.Context context)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe LineChart (global::Android.Content.Context context) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Landroid/content/Context;)V";
 
@@ -47,13 +52,13 @@ namespace MikePhil.Charting.Charts {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (context);
 			}
 		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.charts']/class[@name='LineChart']/constructor[@name='LineChart' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet']]"
 		[Register (".ctor", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "")]
-		public unsafe LineChart (global::Android.Content.Context context, global::Android.Util.IAttributeSet attrs)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe LineChart (global::Android.Content.Context context, global::Android.Util.IAttributeSet attrs) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 
@@ -68,13 +73,14 @@ namespace MikePhil.Charting.Charts {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (context);
+				global::System.GC.KeepAlive (attrs);
 			}
 		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.charts']/class[@name='LineChart']/constructor[@name='LineChart' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet'] and parameter[3][@type='int']]"
 		[Register (".ctor", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "")]
-		public unsafe LineChart (global::Android.Content.Context context, global::Android.Util.IAttributeSet attrs, int defStyle)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe LineChart (global::Android.Content.Context context, global::Android.Util.IAttributeSet attrs, int defStyle) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 
@@ -90,6 +96,8 @@ namespace MikePhil.Charting.Charts {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (context);
+				global::System.GC.KeepAlive (attrs);
 			}
 		}
 
@@ -98,13 +106,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetLineDataHandler ()
 		{
 			if (cb_getLineData == null)
-				cb_getLineData = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetLineData);
+				cb_getLineData = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetLineData);
 			return cb_getLineData;
 		}
 
 		static IntPtr n_GetLineData (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.LineChart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.LineChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.LineChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.LineData);
 		}
 #pragma warning restore 0169

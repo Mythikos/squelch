@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Util {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='HorizontalViewPortHandler']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/utils/HorizontalViewPortHandler", DoNotGenerateAcw=true)]
 	public partial class HorizontalViewPortHandler : global::MikePhil.Charting.Util.ViewPortHandler {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/HorizontalViewPortHandler", typeof (HorizontalViewPortHandler));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/utils/HorizontalViewPortHandler", typeof (HorizontalViewPortHandler));
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected HorizontalViewPortHandler (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected HorizontalViewPortHandler (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='HorizontalViewPortHandler']/constructor[@name='HorizontalViewPortHandler' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe HorizontalViewPortHandler ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe HorizontalViewPortHandler () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 

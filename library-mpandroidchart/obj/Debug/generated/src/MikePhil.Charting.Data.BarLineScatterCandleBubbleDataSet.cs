@@ -10,8 +10,6 @@ namespace MikePhil.Charting.Data {
 	[global::Java.Interop.JavaTypeParameters (new string [] {"T extends com.github.mikephil.charting.data.Entry"})]
 	public abstract partial class BarLineScatterCandleBubbleDataSet : global::MikePhil.Charting.Data.DataSet, global::MikePhil.Charting.Interfaces.Datasets.IBarLineScatterCandleBubbleDataSet {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='BarLineScatterCandleBubbleDataSet']/field[@name='mHighLightColor']"
 		[Register ("mHighLightColor")]
 		protected int MHighLightColor {
@@ -30,31 +28,38 @@ namespace MikePhil.Charting.Data {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/BarLineScatterCandleBubbleDataSet", typeof (BarLineScatterCandleBubbleDataSet));
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/BarLineScatterCandleBubbleDataSet", typeof (BarLineScatterCandleBubbleDataSet));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected BarLineScatterCandleBubbleDataSet (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected BarLineScatterCandleBubbleDataSet (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='BarLineScatterCandleBubbleDataSet']/constructor[@name='BarLineScatterCandleBubbleDataSet' and count(parameter)=2 and parameter[1][@type='java.util.List&lt;T&gt;'] and parameter[2][@type='java.lang.String']]"
 		[Register (".ctor", "(Ljava/util/List;Ljava/lang/String;)V", "")]
-		public unsafe BarLineScatterCandleBubbleDataSet (global::System.Collections.IList yVals, string label)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe BarLineScatterCandleBubbleDataSet (global::System.Collections.IList yVals, string label) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Ljava/util/List;Ljava/lang/String;)V";
 
@@ -73,6 +78,7 @@ namespace MikePhil.Charting.Data {
 			} finally {
 				JNIEnv.DeleteLocalRef (native_yVals);
 				JNIEnv.DeleteLocalRef (native_label);
+				global::System.GC.KeepAlive (yVals);
 			}
 		}
 
@@ -81,13 +87,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetHighLightColorHandler ()
 		{
 			if (cb_getHighLightColor == null)
-				cb_getHighLightColor = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetHighLightColor);
+				cb_getHighLightColor = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetHighLightColor);
 			return cb_getHighLightColor;
 		}
 
 		static int n_GetHighLightColor (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.BarLineScatterCandleBubbleDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BarLineScatterCandleBubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BarLineScatterCandleBubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.HighLightColor;
 		}
 #pragma warning restore 0169
@@ -97,13 +103,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetHighLightColor_IHandler ()
 		{
 			if (cb_setHighLightColor_I == null)
-				cb_setHighLightColor_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int>) n_SetHighLightColor_I);
+				cb_setHighLightColor_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_V) n_SetHighLightColor_I);
 			return cb_setHighLightColor_I;
 		}
 
 		static void n_SetHighLightColor_I (IntPtr jnienv, IntPtr native__this, int color)
 		{
-			global::MikePhil.Charting.Data.BarLineScatterCandleBubbleDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BarLineScatterCandleBubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BarLineScatterCandleBubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.HighLightColor = color;
 		}
 #pragma warning restore 0169
@@ -137,14 +143,14 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetCopy_Lcom_github_mikephil_charting_data_BarLineScatterCandleBubbleDataSet_Handler ()
 		{
 			if (cb_copy_Lcom_github_mikephil_charting_data_BarLineScatterCandleBubbleDataSet_ == null)
-				cb_copy_Lcom_github_mikephil_charting_data_BarLineScatterCandleBubbleDataSet_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_Copy_Lcom_github_mikephil_charting_data_BarLineScatterCandleBubbleDataSet_);
+				cb_copy_Lcom_github_mikephil_charting_data_BarLineScatterCandleBubbleDataSet_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_Copy_Lcom_github_mikephil_charting_data_BarLineScatterCandleBubbleDataSet_);
 			return cb_copy_Lcom_github_mikephil_charting_data_BarLineScatterCandleBubbleDataSet_;
 		}
 
 		static void n_Copy_Lcom_github_mikephil_charting_data_BarLineScatterCandleBubbleDataSet_ (IntPtr jnienv, IntPtr native__this, IntPtr native_barLineScatterCandleBubbleDataSet)
 		{
-			global::MikePhil.Charting.Data.BarLineScatterCandleBubbleDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BarLineScatterCandleBubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Data.BarLineScatterCandleBubbleDataSet barLineScatterCandleBubbleDataSet = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BarLineScatterCandleBubbleDataSet> (native_barLineScatterCandleBubbleDataSet, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BarLineScatterCandleBubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var barLineScatterCandleBubbleDataSet = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BarLineScatterCandleBubbleDataSet> (native_barLineScatterCandleBubbleDataSet, JniHandleOwnership.DoNotTransfer);
 			__this.Copy (barLineScatterCandleBubbleDataSet);
 		}
 #pragma warning restore 0169
@@ -159,6 +165,7 @@ namespace MikePhil.Charting.Data {
 				__args [0] = new JniArgumentValue ((barLineScatterCandleBubbleDataSet == null) ? IntPtr.Zero : ((global::Java.Lang.Object) barLineScatterCandleBubbleDataSet).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (barLineScatterCandleBubbleDataSet);
 			}
 		}
 
@@ -166,15 +173,20 @@ namespace MikePhil.Charting.Data {
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/data/BarLineScatterCandleBubbleDataSet", DoNotGenerateAcw=true)]
 	internal partial class BarLineScatterCandleBubbleDataSetInvoker : BarLineScatterCandleBubbleDataSet, global::MikePhil.Charting.Interfaces.Datasets.IBarLineScatterCandleBubbleDataSet, global::MikePhil.Charting.Interfaces.Datasets.IDataSet {
+		public BarLineScatterCandleBubbleDataSetInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer)
+		{
+		}
 
-		public BarLineScatterCandleBubbleDataSetInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/BarLineScatterCandleBubbleDataSet", typeof (BarLineScatterCandleBubbleDataSetInvoker));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/data/BarLineScatterCandleBubbleDataSet", typeof (BarLineScatterCandleBubbleDataSetInvoker));
-
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
@@ -192,5 +204,4 @@ namespace MikePhil.Charting.Data {
 		}
 
 	}
-
 }

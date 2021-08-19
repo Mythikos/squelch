@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Util {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/utils/FSize", DoNotGenerateAcw=true)]
 	public sealed partial class FSize : global::MikePhil.Charting.Util.ObjectPool.Poolable {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='FSize']/field[@name='height']"
 		[Register ("height")]
 		public float Height {
@@ -49,31 +47,38 @@ namespace MikePhil.Charting.Util {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/utils/FSize", typeof (FSize));
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/FSize", typeof (FSize));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		internal FSize (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		internal FSize (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='FSize']/constructor[@name='FSize' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe FSize ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe FSize () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 
@@ -90,8 +95,7 @@ namespace MikePhil.Charting.Util {
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='FSize']/constructor[@name='FSize' and count(parameter)=2 and parameter[1][@type='float'] and parameter[2][@type='float']]"
 		[Register (".ctor", "(FF)V", "")]
-		public unsafe FSize (float width, float height)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe FSize (float width, float height) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(FF)V";
 
@@ -146,6 +150,7 @@ namespace MikePhil.Charting.Util {
 				__args [0] = new JniArgumentValue ((instance == null) ? IntPtr.Zero : ((global::Java.Lang.Object) instance).Handle);
 				_members.StaticMethods.InvokeVoidMethod (__id, __args);
 			} finally {
+				global::System.GC.KeepAlive (instance);
 			}
 		}
 
@@ -161,6 +166,7 @@ namespace MikePhil.Charting.Util {
 				_members.StaticMethods.InvokeVoidMethod (__id, __args);
 			} finally {
 				JNIEnv.DeleteLocalRef (native_instances);
+				global::System.GC.KeepAlive (instances);
 			}
 		}
 

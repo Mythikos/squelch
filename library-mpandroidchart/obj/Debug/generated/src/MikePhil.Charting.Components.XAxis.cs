@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Components {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/components/XAxis", DoNotGenerateAcw=true)]
 	public partial class XAxis : global::MikePhil.Charting.Components.AxisBase {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.components']/class[@name='XAxis']/field[@name='mLabelHeight']"
 		[Register ("mLabelHeight")]
 		public int MLabelHeight {
@@ -109,11 +107,10 @@ namespace MikePhil.Charting.Components {
 				}
 			}
 		}
+
 		// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.components']/class[@name='XAxis.XAxisPosition']"
 		[global::Android.Runtime.Register ("com/github/mikephil/charting/components/XAxis$XAxisPosition", DoNotGenerateAcw=true)]
 		public sealed partial class XAxisPosition : global::Java.Lang.Enum {
-
-
 
 			// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.components']/class[@name='XAxis.XAxisPosition']/field[@name='BOTH_SIDED']"
 			[Register ("BOTH_SIDED")]
@@ -173,26 +170,34 @@ namespace MikePhil.Charting.Components {
 					return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.XAxis.XAxisPosition> (__v.Handle, JniHandleOwnership.TransferLocalRef);
 				}
 			}
-			internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/components/XAxis$XAxisPosition", typeof (XAxisPosition));
-			internal static new IntPtr class_ref {
-				get {
-					return _members.JniPeerType.PeerReference.Handle;
-				}
+
+			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/components/XAxis$XAxisPosition", typeof (XAxisPosition));
+
+			internal static IntPtr class_ref {
+				get { return _members.JniPeerType.PeerReference.Handle; }
 			}
 
+			[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+			[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 			public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 				get { return _members; }
 			}
 
+			[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+			[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 			protected override IntPtr ThresholdClass {
 				get { return _members.JniPeerType.PeerReference.Handle; }
 			}
 
+			[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+			[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 			protected override global::System.Type ThresholdType {
 				get { return _members.ManagedPeerType; }
 			}
 
-			internal XAxisPosition (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+			internal XAxisPosition (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+			{
+			}
 
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.components']/class[@name='XAxis.XAxisPosition']/method[@name='valueOf' and count(parameter)=1 and parameter[1][@type='java.lang.String']]"
 			[Register ("valueOf", "(Ljava/lang/String;)Lcom/github/mikephil/charting/components/XAxis$XAxisPosition;", "")]
@@ -224,31 +229,37 @@ namespace MikePhil.Charting.Components {
 
 		}
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/components/XAxis", typeof (XAxis));
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/components/XAxis", typeof (XAxis));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected XAxis (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected XAxis (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.components']/class[@name='XAxis']/constructor[@name='XAxis' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe XAxis ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe XAxis () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 
@@ -268,13 +279,13 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetIsAvoidFirstLastClippingEnabledHandler ()
 		{
 			if (cb_isAvoidFirstLastClippingEnabled == null)
-				cb_isAvoidFirstLastClippingEnabled = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsAvoidFirstLastClippingEnabled);
+				cb_isAvoidFirstLastClippingEnabled = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsAvoidFirstLastClippingEnabled);
 			return cb_isAvoidFirstLastClippingEnabled;
 		}
 
 		static bool n_IsAvoidFirstLastClippingEnabled (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Components.XAxis __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.XAxis> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.XAxis> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.IsAvoidFirstLastClippingEnabled;
 		}
 #pragma warning restore 0169
@@ -297,13 +308,13 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetGetLabelRotationAngleHandler ()
 		{
 			if (cb_getLabelRotationAngle == null)
-				cb_getLabelRotationAngle = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetLabelRotationAngle);
+				cb_getLabelRotationAngle = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetLabelRotationAngle);
 			return cb_getLabelRotationAngle;
 		}
 
 		static float n_GetLabelRotationAngle (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Components.XAxis __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.XAxis> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.XAxis> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.LabelRotationAngle;
 		}
 #pragma warning restore 0169
@@ -313,13 +324,13 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetSetLabelRotationAngle_FHandler ()
 		{
 			if (cb_setLabelRotationAngle_F == null)
-				cb_setLabelRotationAngle_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetLabelRotationAngle_F);
+				cb_setLabelRotationAngle_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetLabelRotationAngle_F);
 			return cb_setLabelRotationAngle_F;
 		}
 
 		static void n_SetLabelRotationAngle_F (IntPtr jnienv, IntPtr native__this, float angle)
 		{
-			global::MikePhil.Charting.Components.XAxis __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.XAxis> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.XAxis> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.LabelRotationAngle = angle;
 		}
 #pragma warning restore 0169
@@ -353,13 +364,13 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetGetPositionHandler ()
 		{
 			if (cb_getPosition == null)
-				cb_getPosition = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetPosition);
+				cb_getPosition = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetPosition);
 			return cb_getPosition;
 		}
 
 		static IntPtr n_GetPosition (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Components.XAxis __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.XAxis> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.XAxis> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Position);
 		}
 #pragma warning restore 0169
@@ -369,14 +380,14 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetSetPosition_Lcom_github_mikephil_charting_components_XAxis_XAxisPosition_Handler ()
 		{
 			if (cb_setPosition_Lcom_github_mikephil_charting_components_XAxis_XAxisPosition_ == null)
-				cb_setPosition_Lcom_github_mikephil_charting_components_XAxis_XAxisPosition_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetPosition_Lcom_github_mikephil_charting_components_XAxis_XAxisPosition_);
+				cb_setPosition_Lcom_github_mikephil_charting_components_XAxis_XAxisPosition_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetPosition_Lcom_github_mikephil_charting_components_XAxis_XAxisPosition_);
 			return cb_setPosition_Lcom_github_mikephil_charting_components_XAxis_XAxisPosition_;
 		}
 
 		static void n_SetPosition_Lcom_github_mikephil_charting_components_XAxis_XAxisPosition_ (IntPtr jnienv, IntPtr native__this, IntPtr native_pos)
 		{
-			global::MikePhil.Charting.Components.XAxis __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.XAxis> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Components.XAxis.XAxisPosition pos = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.XAxis.XAxisPosition> (native_pos, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.XAxis> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var pos = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.XAxis.XAxisPosition> (native_pos, JniHandleOwnership.DoNotTransfer);
 			__this.Position = pos;
 		}
 #pragma warning restore 0169
@@ -401,6 +412,7 @@ namespace MikePhil.Charting.Components {
 					__args [0] = new JniArgumentValue ((value == null) ? IntPtr.Zero : ((global::Java.Lang.Object) value).Handle);
 					_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 				} finally {
+					global::System.GC.KeepAlive (value);
 				}
 			}
 		}
@@ -410,13 +422,13 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetSetAvoidFirstLastClipping_ZHandler ()
 		{
 			if (cb_setAvoidFirstLastClipping_Z == null)
-				cb_setAvoidFirstLastClipping_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetAvoidFirstLastClipping_Z);
+				cb_setAvoidFirstLastClipping_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetAvoidFirstLastClipping_Z);
 			return cb_setAvoidFirstLastClipping_Z;
 		}
 
 		static void n_SetAvoidFirstLastClipping_Z (IntPtr jnienv, IntPtr native__this, bool enabled)
 		{
-			global::MikePhil.Charting.Components.XAxis __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.XAxis> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.XAxis> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetAvoidFirstLastClipping (enabled);
 		}
 #pragma warning restore 0169

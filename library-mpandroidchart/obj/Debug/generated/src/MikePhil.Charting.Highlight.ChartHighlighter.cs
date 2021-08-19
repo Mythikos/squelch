@@ -10,8 +10,6 @@ namespace MikePhil.Charting.Highlight {
 	[global::Java.Interop.JavaTypeParameters (new string [] {"T extends com.github.mikephil.charting.interfaces.dataprovider.BarLineScatterCandleBubbleDataProvider"})]
 	public partial class ChartHighlighter : global::Java.Lang.Object, global::MikePhil.Charting.Highlight.IHighlighter {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.highlight']/class[@name='ChartHighlighter']/field[@name='mChart']"
 		[Register ("mChart")]
 		protected global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider MChart {
@@ -54,31 +52,38 @@ namespace MikePhil.Charting.Highlight {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/highlight/ChartHighlighter", typeof (ChartHighlighter));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/highlight/ChartHighlighter", typeof (ChartHighlighter));
+
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected ChartHighlighter (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected ChartHighlighter (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.highlight']/class[@name='ChartHighlighter']/constructor[@name='ChartHighlighter' and count(parameter)=1 and parameter[1][@type='T']]"
 		[Register (".ctor", "(Lcom/github/mikephil/charting/interfaces/dataprovider/BarLineScatterCandleBubbleDataProvider;)V", "")]
-		public unsafe ChartHighlighter (global::Java.Lang.Object chart)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe ChartHighlighter (global::Java.Lang.Object chart) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Lcom/github/mikephil/charting/interfaces/dataprovider/BarLineScatterCandleBubbleDataProvider;)V";
 
@@ -94,6 +99,7 @@ namespace MikePhil.Charting.Highlight {
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
 				JNIEnv.DeleteLocalRef (native_chart);
+				global::System.GC.KeepAlive (chart);
 			}
 		}
 
@@ -102,13 +108,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetDataHandler ()
 		{
 			if (cb_getData == null)
-				cb_getData = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetData);
+				cb_getData = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetData);
 			return cb_getData;
 		}
 
 		static IntPtr n_GetData (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Highlight.ChartHighlighter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Data);
 		}
 #pragma warning restore 0169
@@ -131,15 +137,15 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetBuildHighlights_Lcom_github_mikephil_charting_interfaces_datasets_IDataSet_IFLcom_github_mikephil_charting_data_DataSet_Rounding_Handler ()
 		{
 			if (cb_buildHighlights_Lcom_github_mikephil_charting_interfaces_datasets_IDataSet_IFLcom_github_mikephil_charting_data_DataSet_Rounding_ == null)
-				cb_buildHighlights_Lcom_github_mikephil_charting_interfaces_datasets_IDataSet_IFLcom_github_mikephil_charting_data_DataSet_Rounding_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, int, float, IntPtr, IntPtr>) n_BuildHighlights_Lcom_github_mikephil_charting_interfaces_datasets_IDataSet_IFLcom_github_mikephil_charting_data_DataSet_Rounding_);
+				cb_buildHighlights_Lcom_github_mikephil_charting_interfaces_datasets_IDataSet_IFLcom_github_mikephil_charting_data_DataSet_Rounding_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLIFL_L) n_BuildHighlights_Lcom_github_mikephil_charting_interfaces_datasets_IDataSet_IFLcom_github_mikephil_charting_data_DataSet_Rounding_);
 			return cb_buildHighlights_Lcom_github_mikephil_charting_interfaces_datasets_IDataSet_IFLcom_github_mikephil_charting_data_DataSet_Rounding_;
 		}
 
 		static IntPtr n_BuildHighlights_Lcom_github_mikephil_charting_interfaces_datasets_IDataSet_IFLcom_github_mikephil_charting_data_DataSet_Rounding_ (IntPtr jnienv, IntPtr native__this, IntPtr native_set, int dataSetIndex, float xVal, IntPtr native_rounding)
 		{
-			global::MikePhil.Charting.Highlight.ChartHighlighter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Interfaces.Datasets.IDataSet set = (global::MikePhil.Charting.Interfaces.Datasets.IDataSet)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IDataSet> (native_set, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Data.DataSet.Rounding rounding = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.DataSet.Rounding> (native_rounding, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var set = (global::MikePhil.Charting.Interfaces.Datasets.IDataSet)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IDataSet> (native_set, JniHandleOwnership.DoNotTransfer);
+			var rounding = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.DataSet.Rounding> (native_rounding, JniHandleOwnership.DoNotTransfer);
 			IntPtr __ret = global::Android.Runtime.JavaList<global::MikePhil.Charting.Highlight.Highlight>.ToLocalJniHandle (__this.BuildHighlights (set, dataSetIndex, xVal, rounding));
 			return __ret;
 		}
@@ -159,6 +165,8 @@ namespace MikePhil.Charting.Highlight {
 				var __rm = _members.InstanceMethods.InvokeVirtualObjectMethod (__id, this, __args);
 				return global::Android.Runtime.JavaList<global::MikePhil.Charting.Highlight.Highlight>.FromJniHandle (__rm.Handle, JniHandleOwnership.TransferLocalRef);
 			} finally {
+				global::System.GC.KeepAlive (set);
+				global::System.GC.KeepAlive (rounding);
 			}
 		}
 
@@ -167,15 +175,15 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetClosestHighlightByPixel_Ljava_util_List_FFLcom_github_mikephil_charting_components_YAxis_AxisDependency_FHandler ()
 		{
 			if (cb_getClosestHighlightByPixel_Ljava_util_List_FFLcom_github_mikephil_charting_components_YAxis_AxisDependency_F == null)
-				cb_getClosestHighlightByPixel_Ljava_util_List_FFLcom_github_mikephil_charting_components_YAxis_AxisDependency_F = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, float, float, IntPtr, float, IntPtr>) n_GetClosestHighlightByPixel_Ljava_util_List_FFLcom_github_mikephil_charting_components_YAxis_AxisDependency_F);
+				cb_getClosestHighlightByPixel_Ljava_util_List_FFLcom_github_mikephil_charting_components_YAxis_AxisDependency_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLFFLF_L) n_GetClosestHighlightByPixel_Ljava_util_List_FFLcom_github_mikephil_charting_components_YAxis_AxisDependency_F);
 			return cb_getClosestHighlightByPixel_Ljava_util_List_FFLcom_github_mikephil_charting_components_YAxis_AxisDependency_F;
 		}
 
 		static IntPtr n_GetClosestHighlightByPixel_Ljava_util_List_FFLcom_github_mikephil_charting_components_YAxis_AxisDependency_F (IntPtr jnienv, IntPtr native__this, IntPtr native_closestValues, float x, float y, IntPtr native_axis, float minSelectionDistance)
 		{
-			global::MikePhil.Charting.Highlight.ChartHighlighter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			var closestValues = global::Android.Runtime.JavaList<global::MikePhil.Charting.Highlight.Highlight>.FromJniHandle (native_closestValues, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Components.YAxis.AxisDependency axis = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.YAxis.AxisDependency> (native_axis, JniHandleOwnership.DoNotTransfer);
+			var axis = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.YAxis.AxisDependency> (native_axis, JniHandleOwnership.DoNotTransfer);
 			IntPtr __ret = JNIEnv.ToLocalJniHandle (__this.GetClosestHighlightByPixel (closestValues, x, y, axis, minSelectionDistance));
 			return __ret;
 		}
@@ -198,6 +206,8 @@ namespace MikePhil.Charting.Highlight {
 				return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (__rm.Handle, JniHandleOwnership.TransferLocalRef);
 			} finally {
 				JNIEnv.DeleteLocalRef (native_closestValues);
+				global::System.GC.KeepAlive (closestValues);
+				global::System.GC.KeepAlive (axis);
 			}
 		}
 
@@ -206,13 +216,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetDistance_FFFFHandler ()
 		{
 			if (cb_getDistance_FFFF == null)
-				cb_getDistance_FFFF = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float, float, float, float, float>) n_GetDistance_FFFF);
+				cb_getDistance_FFFF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFFFF_F) n_GetDistance_FFFF);
 			return cb_getDistance_FFFF;
 		}
 
 		static float n_GetDistance_FFFF (IntPtr jnienv, IntPtr native__this, float x1, float y1, float x2, float y2)
 		{
-			global::MikePhil.Charting.Highlight.ChartHighlighter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.GetDistance (x1, y1, x2, y2);
 		}
 #pragma warning restore 0169
@@ -239,13 +249,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetHighlight_FFHandler ()
 		{
 			if (cb_getHighlight_FF == null)
-				cb_getHighlight_FF = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float, float, IntPtr>) n_GetHighlight_FF);
+				cb_getHighlight_FF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFF_L) n_GetHighlight_FF);
 			return cb_getHighlight_FF;
 		}
 
 		static IntPtr n_GetHighlight_FF (IntPtr jnienv, IntPtr native__this, float x, float y)
 		{
-			global::MikePhil.Charting.Highlight.ChartHighlighter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.GetHighlight (x, y));
 		}
 #pragma warning restore 0169
@@ -270,13 +280,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetHighlightForX_FFFHandler ()
 		{
 			if (cb_getHighlightForX_FFF == null)
-				cb_getHighlightForX_FFF = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float, float, float, IntPtr>) n_GetHighlightForX_FFF);
+				cb_getHighlightForX_FFF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFFF_L) n_GetHighlightForX_FFF);
 			return cb_getHighlightForX_FFF;
 		}
 
 		static IntPtr n_GetHighlightForX_FFF (IntPtr jnienv, IntPtr native__this, float xVal, float x, float y)
 		{
-			global::MikePhil.Charting.Highlight.ChartHighlighter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.GetHighlightForX (xVal, x, y));
 		}
 #pragma warning restore 0169
@@ -302,14 +312,14 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetHighlightPos_Lcom_github_mikephil_charting_highlight_Highlight_Handler ()
 		{
 			if (cb_getHighlightPos_Lcom_github_mikephil_charting_highlight_Highlight_ == null)
-				cb_getHighlightPos_Lcom_github_mikephil_charting_highlight_Highlight_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, float>) n_GetHighlightPos_Lcom_github_mikephil_charting_highlight_Highlight_);
+				cb_getHighlightPos_Lcom_github_mikephil_charting_highlight_Highlight_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_F) n_GetHighlightPos_Lcom_github_mikephil_charting_highlight_Highlight_);
 			return cb_getHighlightPos_Lcom_github_mikephil_charting_highlight_Highlight_;
 		}
 
 		static float n_GetHighlightPos_Lcom_github_mikephil_charting_highlight_Highlight_ (IntPtr jnienv, IntPtr native__this, IntPtr native_h)
 		{
-			global::MikePhil.Charting.Highlight.ChartHighlighter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Highlight.Highlight h = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (native_h, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var h = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (native_h, JniHandleOwnership.DoNotTransfer);
 			float __ret = __this.GetHighlightPos (h);
 			return __ret;
 		}
@@ -326,6 +336,7 @@ namespace MikePhil.Charting.Highlight {
 				var __rm = _members.InstanceMethods.InvokeVirtualSingleMethod (__id, this, __args);
 				return __rm;
 			} finally {
+				global::System.GC.KeepAlive (h);
 			}
 		}
 
@@ -334,13 +345,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetHighlightsAtXValue_FFFHandler ()
 		{
 			if (cb_getHighlightsAtXValue_FFF == null)
-				cb_getHighlightsAtXValue_FFF = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float, float, float, IntPtr>) n_GetHighlightsAtXValue_FFF);
+				cb_getHighlightsAtXValue_FFF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFFF_L) n_GetHighlightsAtXValue_FFF);
 			return cb_getHighlightsAtXValue_FFF;
 		}
 
 		static IntPtr n_GetHighlightsAtXValue_FFF (IntPtr jnienv, IntPtr native__this, float xVal, float x, float y)
 		{
-			global::MikePhil.Charting.Highlight.ChartHighlighter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return global::Android.Runtime.JavaList<global::MikePhil.Charting.Highlight.Highlight>.ToLocalJniHandle (__this.GetHighlightsAtXValue (xVal, x, y));
 		}
 #pragma warning restore 0169
@@ -366,15 +377,15 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetMinimumDistance_Ljava_util_List_FLcom_github_mikephil_charting_components_YAxis_AxisDependency_Handler ()
 		{
 			if (cb_getMinimumDistance_Ljava_util_List_FLcom_github_mikephil_charting_components_YAxis_AxisDependency_ == null)
-				cb_getMinimumDistance_Ljava_util_List_FLcom_github_mikephil_charting_components_YAxis_AxisDependency_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, float, IntPtr, float>) n_GetMinimumDistance_Ljava_util_List_FLcom_github_mikephil_charting_components_YAxis_AxisDependency_);
+				cb_getMinimumDistance_Ljava_util_List_FLcom_github_mikephil_charting_components_YAxis_AxisDependency_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLFL_F) n_GetMinimumDistance_Ljava_util_List_FLcom_github_mikephil_charting_components_YAxis_AxisDependency_);
 			return cb_getMinimumDistance_Ljava_util_List_FLcom_github_mikephil_charting_components_YAxis_AxisDependency_;
 		}
 
 		static float n_GetMinimumDistance_Ljava_util_List_FLcom_github_mikephil_charting_components_YAxis_AxisDependency_ (IntPtr jnienv, IntPtr native__this, IntPtr native_closestValues, float pos, IntPtr native_axis)
 		{
-			global::MikePhil.Charting.Highlight.ChartHighlighter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			var closestValues = global::Android.Runtime.JavaList<global::MikePhil.Charting.Highlight.Highlight>.FromJniHandle (native_closestValues, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Components.YAxis.AxisDependency axis = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.YAxis.AxisDependency> (native_axis, JniHandleOwnership.DoNotTransfer);
+			var axis = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.YAxis.AxisDependency> (native_axis, JniHandleOwnership.DoNotTransfer);
 			float __ret = __this.GetMinimumDistance (closestValues, pos, axis);
 			return __ret;
 		}
@@ -395,6 +406,8 @@ namespace MikePhil.Charting.Highlight {
 				return __rm;
 			} finally {
 				JNIEnv.DeleteLocalRef (native_closestValues);
+				global::System.GC.KeepAlive (closestValues);
+				global::System.GC.KeepAlive (axis);
 			}
 		}
 
@@ -403,13 +416,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetValsForTouch_FFHandler ()
 		{
 			if (cb_getValsForTouch_FF == null)
-				cb_getValsForTouch_FF = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float, float, IntPtr>) n_GetValsForTouch_FF);
+				cb_getValsForTouch_FF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFF_L) n_GetValsForTouch_FF);
 			return cb_getValsForTouch_FF;
 		}
 
 		static IntPtr n_GetValsForTouch_FF (IntPtr jnienv, IntPtr native__this, float x, float y)
 		{
-			global::MikePhil.Charting.Highlight.ChartHighlighter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.GetValsForTouch (x, y));
 		}
 #pragma warning restore 0169

@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Renderer {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.renderer']/class[@name='LineScatterCandleRadarRenderer']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/renderer/LineScatterCandleRadarRenderer", DoNotGenerateAcw=true)]
 	public abstract partial class LineScatterCandleRadarRenderer : global::MikePhil.Charting.Renderer.BarLineScatterCandleBubbleRenderer {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/LineScatterCandleRadarRenderer", typeof (LineScatterCandleRadarRenderer));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/renderer/LineScatterCandleRadarRenderer", typeof (LineScatterCandleRadarRenderer));
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected LineScatterCandleRadarRenderer (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected LineScatterCandleRadarRenderer (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.renderer']/class[@name='LineScatterCandleRadarRenderer']/constructor[@name='LineScatterCandleRadarRenderer' and count(parameter)=2 and parameter[1][@type='com.github.mikephil.charting.animation.ChartAnimator'] and parameter[2][@type='com.github.mikephil.charting.utils.ViewPortHandler']]"
 		[Register (".ctor", "(Lcom/github/mikephil/charting/animation/ChartAnimator;Lcom/github/mikephil/charting/utils/ViewPortHandler;)V", "")]
-		public unsafe LineScatterCandleRadarRenderer (global::MikePhil.Charting.Animation.ChartAnimator animator, global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe LineScatterCandleRadarRenderer (global::MikePhil.Charting.Animation.ChartAnimator animator, global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Lcom/github/mikephil/charting/animation/ChartAnimator;Lcom/github/mikephil/charting/utils/ViewPortHandler;)V";
 
@@ -48,6 +53,8 @@ namespace MikePhil.Charting.Renderer {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (animator);
+				global::System.GC.KeepAlive (viewPortHandler);
 			}
 		}
 
@@ -56,15 +63,15 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetDrawHighlightLines_Landroid_graphics_Canvas_FFLcom_github_mikephil_charting_interfaces_datasets_ILineScatterCandleRadarDataSet_Handler ()
 		{
 			if (cb_drawHighlightLines_Landroid_graphics_Canvas_FFLcom_github_mikephil_charting_interfaces_datasets_ILineScatterCandleRadarDataSet_ == null)
-				cb_drawHighlightLines_Landroid_graphics_Canvas_FFLcom_github_mikephil_charting_interfaces_datasets_ILineScatterCandleRadarDataSet_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, float, float, IntPtr>) n_DrawHighlightLines_Landroid_graphics_Canvas_FFLcom_github_mikephil_charting_interfaces_datasets_ILineScatterCandleRadarDataSet_);
+				cb_drawHighlightLines_Landroid_graphics_Canvas_FFLcom_github_mikephil_charting_interfaces_datasets_ILineScatterCandleRadarDataSet_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLFFL_V) n_DrawHighlightLines_Landroid_graphics_Canvas_FFLcom_github_mikephil_charting_interfaces_datasets_ILineScatterCandleRadarDataSet_);
 			return cb_drawHighlightLines_Landroid_graphics_Canvas_FFLcom_github_mikephil_charting_interfaces_datasets_ILineScatterCandleRadarDataSet_;
 		}
 
 		static void n_DrawHighlightLines_Landroid_graphics_Canvas_FFLcom_github_mikephil_charting_interfaces_datasets_ILineScatterCandleRadarDataSet_ (IntPtr jnienv, IntPtr native__this, IntPtr native_c, float x, float y, IntPtr native_set)
 		{
-			global::MikePhil.Charting.Renderer.LineScatterCandleRadarRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.LineScatterCandleRadarRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Interfaces.Datasets.ILineScatterCandleRadarDataSet set = (global::MikePhil.Charting.Interfaces.Datasets.ILineScatterCandleRadarDataSet)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.ILineScatterCandleRadarDataSet> (native_set, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.LineScatterCandleRadarRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
+			var set = (global::MikePhil.Charting.Interfaces.Datasets.ILineScatterCandleRadarDataSet)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.ILineScatterCandleRadarDataSet> (native_set, JniHandleOwnership.DoNotTransfer);
 			__this.DrawHighlightLines (c, x, y, set);
 		}
 #pragma warning restore 0169
@@ -82,6 +89,8 @@ namespace MikePhil.Charting.Renderer {
 				__args [3] = new JniArgumentValue ((set == null) ? IntPtr.Zero : ((global::Java.Lang.Object) set).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (c);
+				global::System.GC.KeepAlive (set);
 			}
 		}
 
@@ -89,15 +98,20 @@ namespace MikePhil.Charting.Renderer {
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/renderer/LineScatterCandleRadarRenderer", DoNotGenerateAcw=true)]
 	internal partial class LineScatterCandleRadarRendererInvoker : LineScatterCandleRadarRenderer {
+		public LineScatterCandleRadarRendererInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer)
+		{
+		}
 
-		public LineScatterCandleRadarRendererInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/LineScatterCandleRadarRenderer", typeof (LineScatterCandleRadarRendererInvoker));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/renderer/LineScatterCandleRadarRenderer", typeof (LineScatterCandleRadarRendererInvoker));
-
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
@@ -112,6 +126,7 @@ namespace MikePhil.Charting.Renderer {
 				__args [0] = new JniArgumentValue ((p0 == null) ? IntPtr.Zero : ((global::Java.Lang.Object) p0).Handle);
 				_members.InstanceMethods.InvokeAbstractVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (p0);
 			}
 		}
 
@@ -125,6 +140,7 @@ namespace MikePhil.Charting.Renderer {
 				__args [0] = new JniArgumentValue ((p0 == null) ? IntPtr.Zero : ((global::Java.Lang.Object) p0).Handle);
 				_members.InstanceMethods.InvokeAbstractVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (p0);
 			}
 		}
 
@@ -144,6 +160,8 @@ namespace MikePhil.Charting.Renderer {
 					JNIEnv.CopyArray (native_p1, p1);
 					JNIEnv.DeleteLocalRef (native_p1);
 				}
+				global::System.GC.KeepAlive (p0);
+				global::System.GC.KeepAlive (p1);
 			}
 		}
 
@@ -157,6 +175,7 @@ namespace MikePhil.Charting.Renderer {
 				__args [0] = new JniArgumentValue ((p0 == null) ? IntPtr.Zero : ((global::Java.Lang.Object) p0).Handle);
 				_members.InstanceMethods.InvokeAbstractVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (p0);
 			}
 		}
 
@@ -172,5 +191,4 @@ namespace MikePhil.Charting.Renderer {
 		}
 
 	}
-
 }

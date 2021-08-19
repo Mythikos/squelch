@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Data {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/data/ScatterDataSet", DoNotGenerateAcw=true)]
 	public partial class ScatterDataSet : global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet, global::MikePhil.Charting.Interfaces.Datasets.IScatterDataSet {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='ScatterDataSet']/field[@name='mShapeRenderer']"
 		[Register ("mShapeRenderer")]
 		protected global::MikePhil.Charting.Renderer.Scatter.IShapeRenderer MShapeRenderer {
@@ -31,31 +29,38 @@ namespace MikePhil.Charting.Data {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/ScatterDataSet", typeof (ScatterDataSet));
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/ScatterDataSet", typeof (ScatterDataSet));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected ScatterDataSet (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected ScatterDataSet (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='ScatterDataSet']/constructor[@name='ScatterDataSet' and count(parameter)=2 and parameter[1][@type='java.util.List&lt;com.github.mikephil.charting.data.Entry&gt;'] and parameter[2][@type='java.lang.String']]"
 		[Register (".ctor", "(Ljava/util/List;Ljava/lang/String;)V", "")]
-		public unsafe ScatterDataSet (global::System.Collections.Generic.IList<global::MikePhil.Charting.Data.Entry> yVals, string label)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe ScatterDataSet (global::System.Collections.Generic.IList<global::MikePhil.Charting.Data.Entry> yVals, string label) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Ljava/util/List;Ljava/lang/String;)V";
 
@@ -74,6 +79,7 @@ namespace MikePhil.Charting.Data {
 			} finally {
 				JNIEnv.DeleteLocalRef (native_yVals);
 				JNIEnv.DeleteLocalRef (native_label);
+				global::System.GC.KeepAlive (yVals);
 			}
 		}
 
@@ -82,13 +88,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetScatterShapeHoleColorHandler ()
 		{
 			if (cb_getScatterShapeHoleColor == null)
-				cb_getScatterShapeHoleColor = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetScatterShapeHoleColor);
+				cb_getScatterShapeHoleColor = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetScatterShapeHoleColor);
 			return cb_getScatterShapeHoleColor;
 		}
 
 		static int n_GetScatterShapeHoleColor (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.ScatterDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.ScatterShapeHoleColor;
 		}
 #pragma warning restore 0169
@@ -98,13 +104,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetScatterShapeHoleColor_IHandler ()
 		{
 			if (cb_setScatterShapeHoleColor_I == null)
-				cb_setScatterShapeHoleColor_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int>) n_SetScatterShapeHoleColor_I);
+				cb_setScatterShapeHoleColor_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_V) n_SetScatterShapeHoleColor_I);
 			return cb_setScatterShapeHoleColor_I;
 		}
 
 		static void n_SetScatterShapeHoleColor_I (IntPtr jnienv, IntPtr native__this, int holeColor)
 		{
-			global::MikePhil.Charting.Data.ScatterDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.ScatterShapeHoleColor = holeColor;
 		}
 #pragma warning restore 0169
@@ -138,13 +144,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetScatterShapeHoleRadiusHandler ()
 		{
 			if (cb_getScatterShapeHoleRadius == null)
-				cb_getScatterShapeHoleRadius = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetScatterShapeHoleRadius);
+				cb_getScatterShapeHoleRadius = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetScatterShapeHoleRadius);
 			return cb_getScatterShapeHoleRadius;
 		}
 
 		static float n_GetScatterShapeHoleRadius (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.ScatterDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.ScatterShapeHoleRadius;
 		}
 #pragma warning restore 0169
@@ -154,13 +160,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetScatterShapeHoleRadius_FHandler ()
 		{
 			if (cb_setScatterShapeHoleRadius_F == null)
-				cb_setScatterShapeHoleRadius_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetScatterShapeHoleRadius_F);
+				cb_setScatterShapeHoleRadius_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetScatterShapeHoleRadius_F);
 			return cb_setScatterShapeHoleRadius_F;
 		}
 
 		static void n_SetScatterShapeHoleRadius_F (IntPtr jnienv, IntPtr native__this, float holeRadius)
 		{
-			global::MikePhil.Charting.Data.ScatterDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.ScatterShapeHoleRadius = holeRadius;
 		}
 #pragma warning restore 0169
@@ -194,13 +200,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetScatterShapeSizeHandler ()
 		{
 			if (cb_getScatterShapeSize == null)
-				cb_getScatterShapeSize = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetScatterShapeSize);
+				cb_getScatterShapeSize = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetScatterShapeSize);
 			return cb_getScatterShapeSize;
 		}
 
 		static float n_GetScatterShapeSize (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.ScatterDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.ScatterShapeSize;
 		}
 #pragma warning restore 0169
@@ -210,13 +216,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetScatterShapeSize_FHandler ()
 		{
 			if (cb_setScatterShapeSize_F == null)
-				cb_setScatterShapeSize_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetScatterShapeSize_F);
+				cb_setScatterShapeSize_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetScatterShapeSize_F);
 			return cb_setScatterShapeSize_F;
 		}
 
 		static void n_SetScatterShapeSize_F (IntPtr jnienv, IntPtr native__this, float size)
 		{
-			global::MikePhil.Charting.Data.ScatterDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.ScatterShapeSize = size;
 		}
 #pragma warning restore 0169
@@ -250,13 +256,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetShapeRendererHandler ()
 		{
 			if (cb_getShapeRenderer == null)
-				cb_getShapeRenderer = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetShapeRenderer);
+				cb_getShapeRenderer = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetShapeRenderer);
 			return cb_getShapeRenderer;
 		}
 
 		static IntPtr n_GetShapeRenderer (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.ScatterDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.ShapeRenderer);
 		}
 #pragma warning restore 0169
@@ -266,14 +272,14 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetShapeRenderer_Lcom_github_mikephil_charting_renderer_scatter_IShapeRenderer_Handler ()
 		{
 			if (cb_setShapeRenderer_Lcom_github_mikephil_charting_renderer_scatter_IShapeRenderer_ == null)
-				cb_setShapeRenderer_Lcom_github_mikephil_charting_renderer_scatter_IShapeRenderer_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetShapeRenderer_Lcom_github_mikephil_charting_renderer_scatter_IShapeRenderer_);
+				cb_setShapeRenderer_Lcom_github_mikephil_charting_renderer_scatter_IShapeRenderer_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetShapeRenderer_Lcom_github_mikephil_charting_renderer_scatter_IShapeRenderer_);
 			return cb_setShapeRenderer_Lcom_github_mikephil_charting_renderer_scatter_IShapeRenderer_;
 		}
 
 		static void n_SetShapeRenderer_Lcom_github_mikephil_charting_renderer_scatter_IShapeRenderer_ (IntPtr jnienv, IntPtr native__this, IntPtr native_shapeRenderer)
 		{
-			global::MikePhil.Charting.Data.ScatterDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Renderer.Scatter.IShapeRenderer shapeRenderer = (global::MikePhil.Charting.Renderer.Scatter.IShapeRenderer)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.Scatter.IShapeRenderer> (native_shapeRenderer, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var shapeRenderer = (global::MikePhil.Charting.Renderer.Scatter.IShapeRenderer)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.Scatter.IShapeRenderer> (native_shapeRenderer, JniHandleOwnership.DoNotTransfer);
 			__this.ShapeRenderer = shapeRenderer;
 		}
 #pragma warning restore 0169
@@ -298,6 +304,7 @@ namespace MikePhil.Charting.Data {
 					__args [0] = new JniArgumentValue ((value == null) ? IntPtr.Zero : ((global::Java.Lang.Object) value).Handle);
 					_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 				} finally {
+					global::System.GC.KeepAlive (value);
 				}
 			}
 		}
@@ -307,13 +314,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetCopyHandler ()
 		{
 			if (cb_copy == null)
-				cb_copy = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_Copy);
+				cb_copy = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_Copy);
 			return cb_copy;
 		}
 
 		static IntPtr n_Copy (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.ScatterDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Copy ());
 		}
 #pragma warning restore 0169
@@ -335,14 +342,14 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetCopy_Lcom_github_mikephil_charting_data_ScatterDataSet_Handler ()
 		{
 			if (cb_copy_Lcom_github_mikephil_charting_data_ScatterDataSet_ == null)
-				cb_copy_Lcom_github_mikephil_charting_data_ScatterDataSet_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_Copy_Lcom_github_mikephil_charting_data_ScatterDataSet_);
+				cb_copy_Lcom_github_mikephil_charting_data_ScatterDataSet_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_Copy_Lcom_github_mikephil_charting_data_ScatterDataSet_);
 			return cb_copy_Lcom_github_mikephil_charting_data_ScatterDataSet_;
 		}
 
 		static void n_Copy_Lcom_github_mikephil_charting_data_ScatterDataSet_ (IntPtr jnienv, IntPtr native__this, IntPtr native_scatterDataSet)
 		{
-			global::MikePhil.Charting.Data.ScatterDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Data.ScatterDataSet scatterDataSet = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (native_scatterDataSet, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var scatterDataSet = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (native_scatterDataSet, JniHandleOwnership.DoNotTransfer);
 			__this.Copy (scatterDataSet);
 		}
 #pragma warning restore 0169
@@ -357,6 +364,7 @@ namespace MikePhil.Charting.Data {
 				__args [0] = new JniArgumentValue ((scatterDataSet == null) ? IntPtr.Zero : ((global::Java.Lang.Object) scatterDataSet).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (scatterDataSet);
 			}
 		}
 
@@ -371,6 +379,7 @@ namespace MikePhil.Charting.Data {
 				var __rm = _members.StaticMethods.InvokeObjectMethod (__id, __args);
 				return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.Scatter.IShapeRenderer> (__rm.Handle, JniHandleOwnership.TransferLocalRef);
 			} finally {
+				global::System.GC.KeepAlive (shape);
 			}
 		}
 
@@ -379,14 +388,14 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetScatterShape_Lcom_github_mikephil_charting_charts_ScatterChart_ScatterShape_Handler ()
 		{
 			if (cb_setScatterShape_Lcom_github_mikephil_charting_charts_ScatterChart_ScatterShape_ == null)
-				cb_setScatterShape_Lcom_github_mikephil_charting_charts_ScatterChart_ScatterShape_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetScatterShape_Lcom_github_mikephil_charting_charts_ScatterChart_ScatterShape_);
+				cb_setScatterShape_Lcom_github_mikephil_charting_charts_ScatterChart_ScatterShape_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetScatterShape_Lcom_github_mikephil_charting_charts_ScatterChart_ScatterShape_);
 			return cb_setScatterShape_Lcom_github_mikephil_charting_charts_ScatterChart_ScatterShape_;
 		}
 
 		static void n_SetScatterShape_Lcom_github_mikephil_charting_charts_ScatterChart_ScatterShape_ (IntPtr jnienv, IntPtr native__this, IntPtr native_shape)
 		{
-			global::MikePhil.Charting.Data.ScatterDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Charts.ScatterChart.ScatterShape shape = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.ScatterChart.ScatterShape> (native_shape, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var shape = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.ScatterChart.ScatterShape> (native_shape, JniHandleOwnership.DoNotTransfer);
 			__this.SetScatterShape (shape);
 		}
 #pragma warning restore 0169
@@ -401,6 +410,7 @@ namespace MikePhil.Charting.Data {
 				__args [0] = new JniArgumentValue ((shape == null) ? IntPtr.Zero : ((global::Java.Lang.Object) shape).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (shape);
 			}
 		}
 

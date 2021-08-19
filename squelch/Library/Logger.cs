@@ -1,4 +1,6 @@
 ﻿using Android.Util;
+using Firebase.Crashlytics;
+using Squelch.Library.Data;
 using System;
 using System.Diagnostics;
 using System.Text;
@@ -25,6 +27,7 @@ namespace Squelch.Library
             }
 
             Logger.Write(tag, messageFromException, severity);
+            FirebaseCrashlytics.Instance.RecordException(Java.Lang.Throwable.FromException(ex));
         }
 
         internal static void Write(string tag, string message, Severity severity)
@@ -39,26 +42,36 @@ namespace Squelch.Library
                 throw new ArgumentNullException("message");
             }
 
-#if DEBUG
             switch (severity)
             {
                 case Severity.Info:
+#if DEBUG
                     Log.Info(tag, message);
+#endif
                     break;
                 case Severity.Warn:
+#if DEBUG
                     Log.Warn(tag, message);
+#endif
                     break;
                 case Severity.Debug:
+#if DEBUG
                     Log.Debug(tag, message);
+#endif
                     break;
                 case Severity.Error:
+#if DEBUG
                     Log.Error(tag, message);
+#endif
+                    FirebaseCrashlytics.Instance.Log(message);
                     break;
                 case Severity.Wtf:
+#if DEBUG
                     Log.Wtf(tag, message);
+#endif
+                    FirebaseCrashlytics.Instance.Log(message);
                     break;
             }
-#endif
         }
 
         /// <summary>

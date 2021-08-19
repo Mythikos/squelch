@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Renderer {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/renderer/RadarChartRenderer", DoNotGenerateAcw=true)]
 	public partial class RadarChartRenderer : global::MikePhil.Charting.Renderer.LineRadarRenderer {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.renderer']/class[@name='RadarChartRenderer']/field[@name='mChart']"
 		[Register ("mChart")]
 		protected global::MikePhil.Charting.Charts.RadarChart MChart {
@@ -119,31 +117,38 @@ namespace MikePhil.Charting.Renderer {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/renderer/RadarChartRenderer", typeof (RadarChartRenderer));
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/RadarChartRenderer", typeof (RadarChartRenderer));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected RadarChartRenderer (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected RadarChartRenderer (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.renderer']/class[@name='RadarChartRenderer']/constructor[@name='RadarChartRenderer' and count(parameter)=3 and parameter[1][@type='com.github.mikephil.charting.charts.RadarChart'] and parameter[2][@type='com.github.mikephil.charting.animation.ChartAnimator'] and parameter[3][@type='com.github.mikephil.charting.utils.ViewPortHandler']]"
 		[Register (".ctor", "(Lcom/github/mikephil/charting/charts/RadarChart;Lcom/github/mikephil/charting/animation/ChartAnimator;Lcom/github/mikephil/charting/utils/ViewPortHandler;)V", "")]
-		public unsafe RadarChartRenderer (global::MikePhil.Charting.Charts.RadarChart chart, global::MikePhil.Charting.Animation.ChartAnimator animator, global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe RadarChartRenderer (global::MikePhil.Charting.Charts.RadarChart chart, global::MikePhil.Charting.Animation.ChartAnimator animator, global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Lcom/github/mikephil/charting/charts/RadarChart;Lcom/github/mikephil/charting/animation/ChartAnimator;Lcom/github/mikephil/charting/utils/ViewPortHandler;)V";
 
@@ -159,6 +164,9 @@ namespace MikePhil.Charting.Renderer {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (chart);
+				global::System.GC.KeepAlive (animator);
+				global::System.GC.KeepAlive (viewPortHandler);
 			}
 		}
 
@@ -167,13 +175,13 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetGetWebPaintHandler ()
 		{
 			if (cb_getWebPaint == null)
-				cb_getWebPaint = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetWebPaint);
+				cb_getWebPaint = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetWebPaint);
 			return cb_getWebPaint;
 		}
 
 		static IntPtr n_GetWebPaint (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Renderer.RadarChartRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.RadarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.RadarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.WebPaint);
 		}
 #pragma warning restore 0169
@@ -196,14 +204,14 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetDrawData_Landroid_graphics_Canvas_Handler ()
 		{
 			if (cb_drawData_Landroid_graphics_Canvas_ == null)
-				cb_drawData_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_DrawData_Landroid_graphics_Canvas_);
+				cb_drawData_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_DrawData_Landroid_graphics_Canvas_);
 			return cb_drawData_Landroid_graphics_Canvas_;
 		}
 
 		static void n_DrawData_Landroid_graphics_Canvas_ (IntPtr jnienv, IntPtr native__this, IntPtr native_c)
 		{
-			global::MikePhil.Charting.Renderer.RadarChartRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.RadarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.RadarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
 			__this.DrawData (c);
 		}
 #pragma warning restore 0169
@@ -218,6 +226,7 @@ namespace MikePhil.Charting.Renderer {
 				__args [0] = new JniArgumentValue ((c == null) ? IntPtr.Zero : ((global::Java.Lang.Object) c).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (c);
 			}
 		}
 
@@ -226,15 +235,15 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetDrawDataSet_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_interfaces_datasets_IRadarDataSet_IHandler ()
 		{
 			if (cb_drawDataSet_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_interfaces_datasets_IRadarDataSet_I == null)
-				cb_drawDataSet_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_interfaces_datasets_IRadarDataSet_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, IntPtr, int>) n_DrawDataSet_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_interfaces_datasets_IRadarDataSet_I);
+				cb_drawDataSet_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_interfaces_datasets_IRadarDataSet_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLLI_V) n_DrawDataSet_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_interfaces_datasets_IRadarDataSet_I);
 			return cb_drawDataSet_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_interfaces_datasets_IRadarDataSet_I;
 		}
 
 		static void n_DrawDataSet_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_interfaces_datasets_IRadarDataSet_I (IntPtr jnienv, IntPtr native__this, IntPtr native_c, IntPtr native_dataSet, int mostEntries)
 		{
-			global::MikePhil.Charting.Renderer.RadarChartRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.RadarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Interfaces.Datasets.IRadarDataSet dataSet = (global::MikePhil.Charting.Interfaces.Datasets.IRadarDataSet)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IRadarDataSet> (native_dataSet, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.RadarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
+			var dataSet = (global::MikePhil.Charting.Interfaces.Datasets.IRadarDataSet)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IRadarDataSet> (native_dataSet, JniHandleOwnership.DoNotTransfer);
 			__this.DrawDataSet (c, dataSet, mostEntries);
 		}
 #pragma warning restore 0169
@@ -251,6 +260,8 @@ namespace MikePhil.Charting.Renderer {
 				__args [2] = new JniArgumentValue (mostEntries);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (c);
+				global::System.GC.KeepAlive (dataSet);
 			}
 		}
 
@@ -259,14 +270,14 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetDrawExtras_Landroid_graphics_Canvas_Handler ()
 		{
 			if (cb_drawExtras_Landroid_graphics_Canvas_ == null)
-				cb_drawExtras_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_DrawExtras_Landroid_graphics_Canvas_);
+				cb_drawExtras_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_DrawExtras_Landroid_graphics_Canvas_);
 			return cb_drawExtras_Landroid_graphics_Canvas_;
 		}
 
 		static void n_DrawExtras_Landroid_graphics_Canvas_ (IntPtr jnienv, IntPtr native__this, IntPtr native_c)
 		{
-			global::MikePhil.Charting.Renderer.RadarChartRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.RadarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.RadarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
 			__this.DrawExtras (c);
 		}
 #pragma warning restore 0169
@@ -281,6 +292,7 @@ namespace MikePhil.Charting.Renderer {
 				__args [0] = new JniArgumentValue ((c == null) ? IntPtr.Zero : ((global::Java.Lang.Object) c).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (c);
 			}
 		}
 
@@ -289,15 +301,15 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetDrawHighlightCircle_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_utils_MPPointF_FFIIFHandler ()
 		{
 			if (cb_drawHighlightCircle_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_utils_MPPointF_FFIIF == null)
-				cb_drawHighlightCircle_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_utils_MPPointF_FFIIF = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, IntPtr, float, float, int, int, float>) n_DrawHighlightCircle_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_utils_MPPointF_FFIIF);
+				cb_drawHighlightCircle_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_utils_MPPointF_FFIIF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLLFFIIF_V) n_DrawHighlightCircle_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_utils_MPPointF_FFIIF);
 			return cb_drawHighlightCircle_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_utils_MPPointF_FFIIF;
 		}
 
 		static void n_DrawHighlightCircle_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_utils_MPPointF_FFIIF (IntPtr jnienv, IntPtr native__this, IntPtr native_c, IntPtr native_point, float innerRadius, float outerRadius, int fillColor, int strokeColor, float strokeWidth)
 		{
-			global::MikePhil.Charting.Renderer.RadarChartRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.RadarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Util.MPPointF point = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.MPPointF> (native_point, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.RadarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
+			var point = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.MPPointF> (native_point, JniHandleOwnership.DoNotTransfer);
 			__this.DrawHighlightCircle (c, point, innerRadius, outerRadius, fillColor, strokeColor, strokeWidth);
 		}
 #pragma warning restore 0169
@@ -318,6 +330,8 @@ namespace MikePhil.Charting.Renderer {
 				__args [6] = new JniArgumentValue (strokeWidth);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (c);
+				global::System.GC.KeepAlive (point);
 			}
 		}
 
@@ -326,15 +340,15 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetDrawHighlighted_Landroid_graphics_Canvas_arrayLcom_github_mikephil_charting_highlight_Highlight_Handler ()
 		{
 			if (cb_drawHighlighted_Landroid_graphics_Canvas_arrayLcom_github_mikephil_charting_highlight_Highlight_ == null)
-				cb_drawHighlighted_Landroid_graphics_Canvas_arrayLcom_github_mikephil_charting_highlight_Highlight_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, IntPtr>) n_DrawHighlighted_Landroid_graphics_Canvas_arrayLcom_github_mikephil_charting_highlight_Highlight_);
+				cb_drawHighlighted_Landroid_graphics_Canvas_arrayLcom_github_mikephil_charting_highlight_Highlight_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLL_V) n_DrawHighlighted_Landroid_graphics_Canvas_arrayLcom_github_mikephil_charting_highlight_Highlight_);
 			return cb_drawHighlighted_Landroid_graphics_Canvas_arrayLcom_github_mikephil_charting_highlight_Highlight_;
 		}
 
 		static void n_DrawHighlighted_Landroid_graphics_Canvas_arrayLcom_github_mikephil_charting_highlight_Highlight_ (IntPtr jnienv, IntPtr native__this, IntPtr native_c, IntPtr native_indices)
 		{
-			global::MikePhil.Charting.Renderer.RadarChartRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.RadarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Highlight.Highlight[] indices = (global::MikePhil.Charting.Highlight.Highlight[]) JNIEnv.GetArray (native_indices, JniHandleOwnership.DoNotTransfer, typeof (global::MikePhil.Charting.Highlight.Highlight));
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.RadarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
+			var indices = (global::MikePhil.Charting.Highlight.Highlight[]) JNIEnv.GetArray (native_indices, JniHandleOwnership.DoNotTransfer, typeof (global::MikePhil.Charting.Highlight.Highlight));
 			__this.DrawHighlighted (c, indices);
 			if (indices != null)
 				JNIEnv.CopyArray (indices, native_indices);
@@ -357,6 +371,8 @@ namespace MikePhil.Charting.Renderer {
 					JNIEnv.CopyArray (native_indices, indices);
 					JNIEnv.DeleteLocalRef (native_indices);
 				}
+				global::System.GC.KeepAlive (c);
+				global::System.GC.KeepAlive (indices);
 			}
 		}
 
@@ -365,14 +381,14 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetDrawValues_Landroid_graphics_Canvas_Handler ()
 		{
 			if (cb_drawValues_Landroid_graphics_Canvas_ == null)
-				cb_drawValues_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_DrawValues_Landroid_graphics_Canvas_);
+				cb_drawValues_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_DrawValues_Landroid_graphics_Canvas_);
 			return cb_drawValues_Landroid_graphics_Canvas_;
 		}
 
 		static void n_DrawValues_Landroid_graphics_Canvas_ (IntPtr jnienv, IntPtr native__this, IntPtr native_c)
 		{
-			global::MikePhil.Charting.Renderer.RadarChartRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.RadarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.RadarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
 			__this.DrawValues (c);
 		}
 #pragma warning restore 0169
@@ -387,6 +403,7 @@ namespace MikePhil.Charting.Renderer {
 				__args [0] = new JniArgumentValue ((c == null) ? IntPtr.Zero : ((global::Java.Lang.Object) c).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (c);
 			}
 		}
 
@@ -395,14 +412,14 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetDrawWeb_Landroid_graphics_Canvas_Handler ()
 		{
 			if (cb_drawWeb_Landroid_graphics_Canvas_ == null)
-				cb_drawWeb_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_DrawWeb_Landroid_graphics_Canvas_);
+				cb_drawWeb_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_DrawWeb_Landroid_graphics_Canvas_);
 			return cb_drawWeb_Landroid_graphics_Canvas_;
 		}
 
 		static void n_DrawWeb_Landroid_graphics_Canvas_ (IntPtr jnienv, IntPtr native__this, IntPtr native_c)
 		{
-			global::MikePhil.Charting.Renderer.RadarChartRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.RadarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.RadarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
 			__this.DrawWeb (c);
 		}
 #pragma warning restore 0169
@@ -417,6 +434,7 @@ namespace MikePhil.Charting.Renderer {
 				__args [0] = new JniArgumentValue ((c == null) ? IntPtr.Zero : ((global::Java.Lang.Object) c).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (c);
 			}
 		}
 
@@ -425,13 +443,13 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetInitBuffersHandler ()
 		{
 			if (cb_initBuffers == null)
-				cb_initBuffers = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_InitBuffers);
+				cb_initBuffers = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_InitBuffers);
 			return cb_initBuffers;
 		}
 
 		static void n_InitBuffers (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Renderer.RadarChartRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.RadarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.RadarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.InitBuffers ();
 		}
 #pragma warning restore 0169

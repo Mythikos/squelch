@@ -7,11 +7,11 @@ namespace MikePhil.Charting.Components {
 
 	// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.components']/interface[@name='IMarker']"
 	[Register ("com/github/mikephil/charting/components/IMarker", "", "MikePhil.Charting.Components.IMarkerInvoker")]
-	public partial interface IMarker : IJavaObject {
-
+	public partial interface IMarker : IJavaObject, IJavaPeerable {
 		global::MikePhil.Charting.Util.MPPointF Offset {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.components']/interface[@name='IMarker']/method[@name='getOffset' and count(parameter)=0]"
-			[Register ("getOffset", "()Lcom/github/mikephil/charting/utils/MPPointF;", "GetGetOffsetHandler:MikePhil.Charting.Components.IMarkerInvoker, library-mpandroidchart")] get;
+			[Register ("getOffset", "()Lcom/github/mikephil/charting/utils/MPPointF;", "GetGetOffsetHandler:MikePhil.Charting.Components.IMarkerInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.components']/interface[@name='IMarker']/method[@name='draw' and count(parameter)=3 and parameter[1][@type='android.graphics.Canvas'] and parameter[2][@type='float'] and parameter[3][@type='float']]"
@@ -29,22 +29,27 @@ namespace MikePhil.Charting.Components {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/components/IMarker", DoNotGenerateAcw=true)]
-	internal class IMarkerInvoker : global::Java.Lang.Object, IMarker {
-
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/components/IMarker", typeof (IMarkerInvoker));
+	internal partial class IMarkerInvoker : global::Java.Lang.Object, IMarker {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/components/IMarker", typeof (IMarkerInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return class_ref; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
@@ -59,8 +64,7 @@ namespace MikePhil.Charting.Components {
 		static IntPtr Validate (IntPtr handle)
 		{
 			if (!JNIEnv.IsInstanceOf (handle, java_class_ref))
-				throw new InvalidCastException (string.Format ("Unable to convert instance of type '{0}' to type '{1}'.",
-							JNIEnv.GetClassNameFromInstance (handle), "com.github.mikephil.charting.components.IMarker"));
+				throw new InvalidCastException ($"Unable to convert instance of type '{JNIEnv.GetClassNameFromInstance (handle)}' to type 'com.github.mikephil.charting.components.IMarker'.");
 			return handle;
 		}
 
@@ -84,13 +88,13 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetGetOffsetHandler ()
 		{
 			if (cb_getOffset == null)
-				cb_getOffset = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetOffset);
+				cb_getOffset = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetOffset);
 			return cb_getOffset;
 		}
 
 		static IntPtr n_GetOffset (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Components.IMarker __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.IMarker> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.IMarker> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Offset);
 		}
 #pragma warning restore 0169
@@ -109,14 +113,14 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetDraw_Landroid_graphics_Canvas_FFHandler ()
 		{
 			if (cb_draw_Landroid_graphics_Canvas_FF == null)
-				cb_draw_Landroid_graphics_Canvas_FF = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, float, float>) n_Draw_Landroid_graphics_Canvas_FF);
+				cb_draw_Landroid_graphics_Canvas_FF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLFF_V) n_Draw_Landroid_graphics_Canvas_FF);
 			return cb_draw_Landroid_graphics_Canvas_FF;
 		}
 
 		static void n_Draw_Landroid_graphics_Canvas_FF (IntPtr jnienv, IntPtr native__this, IntPtr native_p0, float p1, float p2)
 		{
-			global::MikePhil.Charting.Components.IMarker __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.IMarker> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas p0 = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_p0, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.IMarker> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_p0, JniHandleOwnership.DoNotTransfer);
 			__this.Draw (p0, p1, p2);
 		}
 #pragma warning restore 0169
@@ -138,13 +142,13 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetGetOffsetForDrawingAtPoint_FFHandler ()
 		{
 			if (cb_getOffsetForDrawingAtPoint_FF == null)
-				cb_getOffsetForDrawingAtPoint_FF = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float, float, IntPtr>) n_GetOffsetForDrawingAtPoint_FF);
+				cb_getOffsetForDrawingAtPoint_FF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFF_L) n_GetOffsetForDrawingAtPoint_FF);
 			return cb_getOffsetForDrawingAtPoint_FF;
 		}
 
 		static IntPtr n_GetOffsetForDrawingAtPoint_FF (IntPtr jnienv, IntPtr native__this, float p0, float p1)
 		{
-			global::MikePhil.Charting.Components.IMarker __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.IMarker> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.IMarker> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.GetOffsetForDrawingAtPoint (p0, p1));
 		}
 #pragma warning restore 0169
@@ -165,15 +169,15 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetRefreshContent_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_highlight_Highlight_Handler ()
 		{
 			if (cb_refreshContent_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_highlight_Highlight_ == null)
-				cb_refreshContent_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_highlight_Highlight_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, IntPtr>) n_RefreshContent_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_highlight_Highlight_);
+				cb_refreshContent_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_highlight_Highlight_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLL_V) n_RefreshContent_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_highlight_Highlight_);
 			return cb_refreshContent_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_highlight_Highlight_;
 		}
 
 		static void n_RefreshContent_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_highlight_Highlight_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0, IntPtr native_p1)
 		{
-			global::MikePhil.Charting.Components.IMarker __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.IMarker> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Data.Entry p0 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (native_p0, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Highlight.Highlight p1 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (native_p1, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.IMarker> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (native_p0, JniHandleOwnership.DoNotTransfer);
+			var p1 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (native_p1, JniHandleOwnership.DoNotTransfer);
 			__this.RefreshContent (p0, p1);
 		}
 #pragma warning restore 0169
@@ -190,5 +194,4 @@ namespace MikePhil.Charting.Components {
 		}
 
 	}
-
 }

@@ -49,11 +49,22 @@ namespace Squelch.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            
+            //
+            // Setup framework stuff
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            this.SetContentView(Resource.Layout.activity_main);
+#if DEBUG
+            Firebase.Crashlytics.FirebaseCrashlytics.Instance.SetCrashlyticsCollectionEnabled(false);
+#else
+            Firebase.Crashlytics.FirebaseCrashlytics.Instance.SetCrashlyticsCollectionEnabled(true);
+#endif
+            Firebase.Crashlytics.FirebaseCrashlytics.Instance.SetUserId(UserSettings.Id);
+            Firebase.Crashlytics.FirebaseCrashlytics.Instance.SendUnsentReports();
 
             //
-            // Get view elements
+            // Set layout and get view elements
+            this.SetContentView(Resource.Layout.activity_main);
+
             this._fragmentLayout = this.FindViewById<FrameLayout>(Resource.Id.activity_main_fragment_layout);
             this.ProgressBar = this.FindViewById<ProgressBar>(Resource.Id.activity_main_progress_bar);
 
@@ -299,9 +310,9 @@ namespace Squelch.Activities
                 Logger.Write(s_tag, $"OnPostResume: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
             }
         }
-        #endregion
+#endregion
 
-        #region Event Handlers
+#region Event Handlers
         internal void BlackoutBroadcastReceived(Context context, Intent intent)
         {
             try
@@ -324,9 +335,9 @@ namespace Squelch.Activities
                 Logger.Write(s_tag, $"BlackoutBroadcastReceived: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
             }
         }
-        #endregion
+#endregion
 
-        #region Helper Methods
+#region Helper Methods
         public void SetupNavigation(int titleResourceId, bool showNavigationBar, bool showActionbarBackButton)
         {
             this.Title = this.GetString(titleResourceId);
@@ -334,9 +345,9 @@ namespace Squelch.Activities
             this.NavigationBarSetupBlackoutButton.Visibility = (showNavigationBar) ? ViewStates.Visible : ViewStates.Gone;
             this.SupportActionBar.SetDisplayHomeAsUpEnabled(showActionbarBackButton);
         }
-        #endregion
+#endregion
 
-        #region Interface Methods
+#region Interface Methods
         public void SetProgressBarState(bool visible)
         {
             RelativeLayout.LayoutParams layoutParameters;
@@ -351,7 +362,7 @@ namespace Squelch.Activities
                 this.ProgressBar.LayoutParameters = layoutParameters;
             }
         }
-        #endregion
+#endregion
     }
 }
 

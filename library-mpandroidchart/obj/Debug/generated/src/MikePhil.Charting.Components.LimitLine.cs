@@ -8,12 +8,9 @@ namespace MikePhil.Charting.Components {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.components']/class[@name='LimitLine']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/components/LimitLine", DoNotGenerateAcw=true)]
 	public partial class LimitLine : global::MikePhil.Charting.Components.ComponentBase {
-
 		// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.components']/class[@name='LimitLine.LimitLabelPosition']"
 		[global::Android.Runtime.Register ("com/github/mikephil/charting/components/LimitLine$LimitLabelPosition", DoNotGenerateAcw=true)]
 		public sealed partial class LimitLabelPosition : global::Java.Lang.Enum {
-
-
 
 			// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.components']/class[@name='LimitLine.LimitLabelPosition']/field[@name='LEFT_BOTTOM']"
 			[Register ("LEFT_BOTTOM")]
@@ -61,26 +58,34 @@ namespace MikePhil.Charting.Components {
 					return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine.LimitLabelPosition> (__v.Handle, JniHandleOwnership.TransferLocalRef);
 				}
 			}
-			internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/components/LimitLine$LimitLabelPosition", typeof (LimitLabelPosition));
-			internal static new IntPtr class_ref {
-				get {
-					return _members.JniPeerType.PeerReference.Handle;
-				}
+
+			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/components/LimitLine$LimitLabelPosition", typeof (LimitLabelPosition));
+
+			internal static IntPtr class_ref {
+				get { return _members.JniPeerType.PeerReference.Handle; }
 			}
 
+			[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+			[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 			public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 				get { return _members; }
 			}
 
+			[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+			[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 			protected override IntPtr ThresholdClass {
 				get { return _members.JniPeerType.PeerReference.Handle; }
 			}
 
+			[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+			[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 			protected override global::System.Type ThresholdType {
 				get { return _members.ManagedPeerType; }
 			}
 
-			internal LimitLabelPosition (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+			internal LimitLabelPosition (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+			{
+			}
 
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.components']/class[@name='LimitLine.LimitLabelPosition']/method[@name='valueOf' and count(parameter)=1 and parameter[1][@type='java.lang.String']]"
 			[Register ("valueOf", "(Ljava/lang/String;)Lcom/github/mikephil/charting/components/LimitLine$LimitLabelPosition;", "")]
@@ -112,31 +117,37 @@ namespace MikePhil.Charting.Components {
 
 		}
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/components/LimitLine", typeof (LimitLine));
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/components/LimitLine", typeof (LimitLine));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected LimitLine (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected LimitLine (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.components']/class[@name='LimitLine']/constructor[@name='LimitLine' and count(parameter)=1 and parameter[1][@type='float']]"
 		[Register (".ctor", "(F)V", "")]
-		public unsafe LimitLine (float limit)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe LimitLine (float limit) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(F)V";
 
@@ -155,8 +166,7 @@ namespace MikePhil.Charting.Components {
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.components']/class[@name='LimitLine']/constructor[@name='LimitLine' and count(parameter)=2 and parameter[1][@type='float'] and parameter[2][@type='java.lang.String']]"
 		[Register (".ctor", "(FLjava/lang/String;)V", "")]
-		public unsafe LimitLine (float limit, string label)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe LimitLine (float limit, string label) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(FLjava/lang/String;)V";
 
@@ -181,13 +191,13 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetGetDashPathEffectHandler ()
 		{
 			if (cb_getDashPathEffect == null)
-				cb_getDashPathEffect = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetDashPathEffect);
+				cb_getDashPathEffect = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetDashPathEffect);
 			return cb_getDashPathEffect;
 		}
 
 		static IntPtr n_GetDashPathEffect (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Components.LimitLine __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.DashPathEffect);
 		}
 #pragma warning restore 0169
@@ -210,13 +220,13 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetIsDashedLineEnabledHandler ()
 		{
 			if (cb_isDashedLineEnabled == null)
-				cb_isDashedLineEnabled = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsDashedLineEnabled);
+				cb_isDashedLineEnabled = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsDashedLineEnabled);
 			return cb_isDashedLineEnabled;
 		}
 
 		static bool n_IsDashedLineEnabled (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Components.LimitLine __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.IsDashedLineEnabled;
 		}
 #pragma warning restore 0169
@@ -239,13 +249,13 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetGetLabelHandler ()
 		{
 			if (cb_getLabel == null)
-				cb_getLabel = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetLabel);
+				cb_getLabel = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetLabel);
 			return cb_getLabel;
 		}
 
 		static IntPtr n_GetLabel (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Components.LimitLine __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.NewString (__this.Label);
 		}
 #pragma warning restore 0169
@@ -255,14 +265,14 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetSetLabel_Ljava_lang_String_Handler ()
 		{
 			if (cb_setLabel_Ljava_lang_String_ == null)
-				cb_setLabel_Ljava_lang_String_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetLabel_Ljava_lang_String_);
+				cb_setLabel_Ljava_lang_String_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetLabel_Ljava_lang_String_);
 			return cb_setLabel_Ljava_lang_String_;
 		}
 
 		static void n_SetLabel_Ljava_lang_String_ (IntPtr jnienv, IntPtr native__this, IntPtr native_label)
 		{
-			global::MikePhil.Charting.Components.LimitLine __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			string label = JNIEnv.GetString (native_label, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var label = JNIEnv.GetString (native_label, JniHandleOwnership.DoNotTransfer);
 			__this.Label = label;
 		}
 #pragma warning restore 0169
@@ -298,13 +308,13 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetGetLabelPositionHandler ()
 		{
 			if (cb_getLabelPosition == null)
-				cb_getLabelPosition = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetLabelPosition);
+				cb_getLabelPosition = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetLabelPosition);
 			return cb_getLabelPosition;
 		}
 
 		static IntPtr n_GetLabelPosition (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Components.LimitLine __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.LabelPosition);
 		}
 #pragma warning restore 0169
@@ -314,14 +324,14 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetSetLabelPosition_Lcom_github_mikephil_charting_components_LimitLine_LimitLabelPosition_Handler ()
 		{
 			if (cb_setLabelPosition_Lcom_github_mikephil_charting_components_LimitLine_LimitLabelPosition_ == null)
-				cb_setLabelPosition_Lcom_github_mikephil_charting_components_LimitLine_LimitLabelPosition_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetLabelPosition_Lcom_github_mikephil_charting_components_LimitLine_LimitLabelPosition_);
+				cb_setLabelPosition_Lcom_github_mikephil_charting_components_LimitLine_LimitLabelPosition_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetLabelPosition_Lcom_github_mikephil_charting_components_LimitLine_LimitLabelPosition_);
 			return cb_setLabelPosition_Lcom_github_mikephil_charting_components_LimitLine_LimitLabelPosition_;
 		}
 
 		static void n_SetLabelPosition_Lcom_github_mikephil_charting_components_LimitLine_LimitLabelPosition_ (IntPtr jnienv, IntPtr native__this, IntPtr native_pos)
 		{
-			global::MikePhil.Charting.Components.LimitLine __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Components.LimitLine.LimitLabelPosition pos = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine.LimitLabelPosition> (native_pos, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var pos = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine.LimitLabelPosition> (native_pos, JniHandleOwnership.DoNotTransfer);
 			__this.LabelPosition = pos;
 		}
 #pragma warning restore 0169
@@ -346,6 +356,7 @@ namespace MikePhil.Charting.Components {
 					__args [0] = new JniArgumentValue ((value == null) ? IntPtr.Zero : ((global::Java.Lang.Object) value).Handle);
 					_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 				} finally {
+					global::System.GC.KeepAlive (value);
 				}
 			}
 		}
@@ -355,13 +366,13 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetGetLimitHandler ()
 		{
 			if (cb_getLimit == null)
-				cb_getLimit = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetLimit);
+				cb_getLimit = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetLimit);
 			return cb_getLimit;
 		}
 
 		static float n_GetLimit (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Components.LimitLine __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.Limit;
 		}
 #pragma warning restore 0169
@@ -384,13 +395,13 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetGetLineColorHandler ()
 		{
 			if (cb_getLineColor == null)
-				cb_getLineColor = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetLineColor);
+				cb_getLineColor = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetLineColor);
 			return cb_getLineColor;
 		}
 
 		static int n_GetLineColor (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Components.LimitLine __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.LineColor;
 		}
 #pragma warning restore 0169
@@ -400,13 +411,13 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetSetLineColor_IHandler ()
 		{
 			if (cb_setLineColor_I == null)
-				cb_setLineColor_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int>) n_SetLineColor_I);
+				cb_setLineColor_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_V) n_SetLineColor_I);
 			return cb_setLineColor_I;
 		}
 
 		static void n_SetLineColor_I (IntPtr jnienv, IntPtr native__this, int color)
 		{
-			global::MikePhil.Charting.Components.LimitLine __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.LineColor = color;
 		}
 #pragma warning restore 0169
@@ -440,13 +451,13 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetGetLineWidthHandler ()
 		{
 			if (cb_getLineWidth == null)
-				cb_getLineWidth = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetLineWidth);
+				cb_getLineWidth = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetLineWidth);
 			return cb_getLineWidth;
 		}
 
 		static float n_GetLineWidth (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Components.LimitLine __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.LineWidth;
 		}
 #pragma warning restore 0169
@@ -456,13 +467,13 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetSetLineWidth_FHandler ()
 		{
 			if (cb_setLineWidth_F == null)
-				cb_setLineWidth_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetLineWidth_F);
+				cb_setLineWidth_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetLineWidth_F);
 			return cb_setLineWidth_F;
 		}
 
 		static void n_SetLineWidth_F (IntPtr jnienv, IntPtr native__this, float width)
 		{
-			global::MikePhil.Charting.Components.LimitLine __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.LineWidth = width;
 		}
 #pragma warning restore 0169
@@ -496,13 +507,13 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetGetTextStyleHandler ()
 		{
 			if (cb_getTextStyle == null)
-				cb_getTextStyle = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetTextStyle);
+				cb_getTextStyle = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetTextStyle);
 			return cb_getTextStyle;
 		}
 
 		static IntPtr n_GetTextStyle (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Components.LimitLine __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.TextStyle);
 		}
 #pragma warning restore 0169
@@ -512,14 +523,14 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetSetTextStyle_Landroid_graphics_Paint_Style_Handler ()
 		{
 			if (cb_setTextStyle_Landroid_graphics_Paint_Style_ == null)
-				cb_setTextStyle_Landroid_graphics_Paint_Style_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetTextStyle_Landroid_graphics_Paint_Style_);
+				cb_setTextStyle_Landroid_graphics_Paint_Style_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetTextStyle_Landroid_graphics_Paint_Style_);
 			return cb_setTextStyle_Landroid_graphics_Paint_Style_;
 		}
 
 		static void n_SetTextStyle_Landroid_graphics_Paint_Style_ (IntPtr jnienv, IntPtr native__this, IntPtr native_style)
 		{
-			global::MikePhil.Charting.Components.LimitLine __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Paint.Style style = global::Java.Lang.Object.GetObject<global::Android.Graphics.Paint.Style> (native_style, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var style = global::Java.Lang.Object.GetObject<global::Android.Graphics.Paint.Style> (native_style, JniHandleOwnership.DoNotTransfer);
 			__this.TextStyle = style;
 		}
 #pragma warning restore 0169
@@ -544,6 +555,7 @@ namespace MikePhil.Charting.Components {
 					__args [0] = new JniArgumentValue ((value == null) ? IntPtr.Zero : ((global::Java.Lang.Object) value).Handle);
 					_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 				} finally {
+					global::System.GC.KeepAlive (value);
 				}
 			}
 		}
@@ -553,13 +565,13 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetDisableDashedLineHandler ()
 		{
 			if (cb_disableDashedLine == null)
-				cb_disableDashedLine = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_DisableDashedLine);
+				cb_disableDashedLine = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_DisableDashedLine);
 			return cb_disableDashedLine;
 		}
 
 		static void n_DisableDashedLine (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Components.LimitLine __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.DisableDashedLine ();
 		}
 #pragma warning restore 0169
@@ -580,13 +592,13 @@ namespace MikePhil.Charting.Components {
 		static Delegate GetEnableDashedLine_FFFHandler ()
 		{
 			if (cb_enableDashedLine_FFF == null)
-				cb_enableDashedLine_FFF = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float, float, float>) n_EnableDashedLine_FFF);
+				cb_enableDashedLine_FFF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFFF_V) n_EnableDashedLine_FFF);
 			return cb_enableDashedLine_FFF;
 		}
 
 		static void n_EnableDashedLine_FFF (IntPtr jnienv, IntPtr native__this, float lineLength, float spaceLength, float phase)
 		{
-			global::MikePhil.Charting.Components.LimitLine __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.LimitLine> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.EnableDashedLine (lineLength, spaceLength, phase);
 		}
 #pragma warning restore 0169

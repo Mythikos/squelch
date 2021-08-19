@@ -10,8 +10,6 @@ namespace MikePhil.Charting.Data {
 	[global::Java.Interop.JavaTypeParameters (new string [] {"T extends com.github.mikephil.charting.data.Entry"})]
 	public abstract partial class LineScatterCandleRadarDataSet : global::MikePhil.Charting.Data.BarLineScatterCandleBubbleDataSet, global::MikePhil.Charting.Interfaces.Datasets.ILineScatterCandleRadarDataSet {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='LineScatterCandleRadarDataSet']/field[@name='mDrawHorizontalHighlightIndicator']"
 		[Register ("mDrawHorizontalHighlightIndicator")]
 		protected bool MDrawHorizontalHighlightIndicator {
@@ -92,31 +90,38 @@ namespace MikePhil.Charting.Data {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/LineScatterCandleRadarDataSet", typeof (LineScatterCandleRadarDataSet));
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/LineScatterCandleRadarDataSet", typeof (LineScatterCandleRadarDataSet));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected LineScatterCandleRadarDataSet (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected LineScatterCandleRadarDataSet (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='LineScatterCandleRadarDataSet']/constructor[@name='LineScatterCandleRadarDataSet' and count(parameter)=2 and parameter[1][@type='java.util.List&lt;T&gt;'] and parameter[2][@type='java.lang.String']]"
 		[Register (".ctor", "(Ljava/util/List;Ljava/lang/String;)V", "")]
-		public unsafe LineScatterCandleRadarDataSet (global::System.Collections.IList yVals, string label)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe LineScatterCandleRadarDataSet (global::System.Collections.IList yVals, string label) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Ljava/util/List;Ljava/lang/String;)V";
 
@@ -135,6 +140,7 @@ namespace MikePhil.Charting.Data {
 			} finally {
 				JNIEnv.DeleteLocalRef (native_yVals);
 				JNIEnv.DeleteLocalRef (native_label);
+				global::System.GC.KeepAlive (yVals);
 			}
 		}
 
@@ -143,13 +149,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetDashPathEffectHighlightHandler ()
 		{
 			if (cb_getDashPathEffectHighlight == null)
-				cb_getDashPathEffectHighlight = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetDashPathEffectHighlight);
+				cb_getDashPathEffectHighlight = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetDashPathEffectHighlight);
 			return cb_getDashPathEffectHighlight;
 		}
 
 		static IntPtr n_GetDashPathEffectHighlight (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.DashPathEffectHighlight);
 		}
 #pragma warning restore 0169
@@ -172,13 +178,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetHighlightLineWidthHandler ()
 		{
 			if (cb_getHighlightLineWidth == null)
-				cb_getHighlightLineWidth = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetHighlightLineWidth);
+				cb_getHighlightLineWidth = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetHighlightLineWidth);
 			return cb_getHighlightLineWidth;
 		}
 
 		static float n_GetHighlightLineWidth (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.HighlightLineWidth;
 		}
 #pragma warning restore 0169
@@ -188,13 +194,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetHighlightLineWidth_FHandler ()
 		{
 			if (cb_setHighlightLineWidth_F == null)
-				cb_setHighlightLineWidth_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetHighlightLineWidth_F);
+				cb_setHighlightLineWidth_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetHighlightLineWidth_F);
 			return cb_setHighlightLineWidth_F;
 		}
 
 		static void n_SetHighlightLineWidth_F (IntPtr jnienv, IntPtr native__this, float width)
 		{
-			global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.HighlightLineWidth = width;
 		}
 #pragma warning restore 0169
@@ -228,13 +234,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetIsDashedHighlightLineEnabledHandler ()
 		{
 			if (cb_isDashedHighlightLineEnabled == null)
-				cb_isDashedHighlightLineEnabled = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsDashedHighlightLineEnabled);
+				cb_isDashedHighlightLineEnabled = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsDashedHighlightLineEnabled);
 			return cb_isDashedHighlightLineEnabled;
 		}
 
 		static bool n_IsDashedHighlightLineEnabled (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.IsDashedHighlightLineEnabled;
 		}
 #pragma warning restore 0169
@@ -257,13 +263,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetIsHorizontalHighlightIndicatorEnabledHandler ()
 		{
 			if (cb_isHorizontalHighlightIndicatorEnabled == null)
-				cb_isHorizontalHighlightIndicatorEnabled = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsHorizontalHighlightIndicatorEnabled);
+				cb_isHorizontalHighlightIndicatorEnabled = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsHorizontalHighlightIndicatorEnabled);
 			return cb_isHorizontalHighlightIndicatorEnabled;
 		}
 
 		static bool n_IsHorizontalHighlightIndicatorEnabled (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.IsHorizontalHighlightIndicatorEnabled;
 		}
 #pragma warning restore 0169
@@ -286,13 +292,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetIsVerticalHighlightIndicatorEnabledHandler ()
 		{
 			if (cb_isVerticalHighlightIndicatorEnabled == null)
-				cb_isVerticalHighlightIndicatorEnabled = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsVerticalHighlightIndicatorEnabled);
+				cb_isVerticalHighlightIndicatorEnabled = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsVerticalHighlightIndicatorEnabled);
 			return cb_isVerticalHighlightIndicatorEnabled;
 		}
 
 		static bool n_IsVerticalHighlightIndicatorEnabled (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.IsVerticalHighlightIndicatorEnabled;
 		}
 #pragma warning restore 0169
@@ -315,14 +321,14 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetCopy_Lcom_github_mikephil_charting_data_LineScatterCandleRadarDataSet_Handler ()
 		{
 			if (cb_copy_Lcom_github_mikephil_charting_data_LineScatterCandleRadarDataSet_ == null)
-				cb_copy_Lcom_github_mikephil_charting_data_LineScatterCandleRadarDataSet_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_Copy_Lcom_github_mikephil_charting_data_LineScatterCandleRadarDataSet_);
+				cb_copy_Lcom_github_mikephil_charting_data_LineScatterCandleRadarDataSet_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_Copy_Lcom_github_mikephil_charting_data_LineScatterCandleRadarDataSet_);
 			return cb_copy_Lcom_github_mikephil_charting_data_LineScatterCandleRadarDataSet_;
 		}
 
 		static void n_Copy_Lcom_github_mikephil_charting_data_LineScatterCandleRadarDataSet_ (IntPtr jnienv, IntPtr native__this, IntPtr native_lineScatterCandleRadarDataSet)
 		{
-			global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet lineScatterCandleRadarDataSet = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (native_lineScatterCandleRadarDataSet, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var lineScatterCandleRadarDataSet = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (native_lineScatterCandleRadarDataSet, JniHandleOwnership.DoNotTransfer);
 			__this.Copy (lineScatterCandleRadarDataSet);
 		}
 #pragma warning restore 0169
@@ -337,6 +343,7 @@ namespace MikePhil.Charting.Data {
 				__args [0] = new JniArgumentValue ((lineScatterCandleRadarDataSet == null) ? IntPtr.Zero : ((global::Java.Lang.Object) lineScatterCandleRadarDataSet).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (lineScatterCandleRadarDataSet);
 			}
 		}
 
@@ -345,13 +352,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetDisableDashedHighlightLineHandler ()
 		{
 			if (cb_disableDashedHighlightLine == null)
-				cb_disableDashedHighlightLine = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_DisableDashedHighlightLine);
+				cb_disableDashedHighlightLine = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_DisableDashedHighlightLine);
 			return cb_disableDashedHighlightLine;
 		}
 
 		static void n_DisableDashedHighlightLine (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.DisableDashedHighlightLine ();
 		}
 #pragma warning restore 0169
@@ -372,13 +379,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetEnableDashedHighlightLine_FFFHandler ()
 		{
 			if (cb_enableDashedHighlightLine_FFF == null)
-				cb_enableDashedHighlightLine_FFF = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float, float, float>) n_EnableDashedHighlightLine_FFF);
+				cb_enableDashedHighlightLine_FFF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFFF_V) n_EnableDashedHighlightLine_FFF);
 			return cb_enableDashedHighlightLine_FFF;
 		}
 
 		static void n_EnableDashedHighlightLine_FFF (IntPtr jnienv, IntPtr native__this, float lineLength, float spaceLength, float phase)
 		{
-			global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.EnableDashedHighlightLine (lineLength, spaceLength, phase);
 		}
 #pragma warning restore 0169
@@ -403,13 +410,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetDrawHighlightIndicators_ZHandler ()
 		{
 			if (cb_setDrawHighlightIndicators_Z == null)
-				cb_setDrawHighlightIndicators_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetDrawHighlightIndicators_Z);
+				cb_setDrawHighlightIndicators_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetDrawHighlightIndicators_Z);
 			return cb_setDrawHighlightIndicators_Z;
 		}
 
 		static void n_SetDrawHighlightIndicators_Z (IntPtr jnienv, IntPtr native__this, bool enabled)
 		{
-			global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetDrawHighlightIndicators (enabled);
 		}
 #pragma warning restore 0169
@@ -432,13 +439,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetDrawHorizontalHighlightIndicator_ZHandler ()
 		{
 			if (cb_setDrawHorizontalHighlightIndicator_Z == null)
-				cb_setDrawHorizontalHighlightIndicator_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetDrawHorizontalHighlightIndicator_Z);
+				cb_setDrawHorizontalHighlightIndicator_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetDrawHorizontalHighlightIndicator_Z);
 			return cb_setDrawHorizontalHighlightIndicator_Z;
 		}
 
 		static void n_SetDrawHorizontalHighlightIndicator_Z (IntPtr jnienv, IntPtr native__this, bool enabled)
 		{
-			global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetDrawHorizontalHighlightIndicator (enabled);
 		}
 #pragma warning restore 0169
@@ -461,13 +468,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetDrawVerticalHighlightIndicator_ZHandler ()
 		{
 			if (cb_setDrawVerticalHighlightIndicator_Z == null)
-				cb_setDrawVerticalHighlightIndicator_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetDrawVerticalHighlightIndicator_Z);
+				cb_setDrawVerticalHighlightIndicator_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetDrawVerticalHighlightIndicator_Z);
 			return cb_setDrawVerticalHighlightIndicator_Z;
 		}
 
 		static void n_SetDrawVerticalHighlightIndicator_Z (IntPtr jnienv, IntPtr native__this, bool enabled)
 		{
-			global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetDrawVerticalHighlightIndicator (enabled);
 		}
 #pragma warning restore 0169
@@ -489,15 +496,20 @@ namespace MikePhil.Charting.Data {
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/data/LineScatterCandleRadarDataSet", DoNotGenerateAcw=true)]
 	internal partial class LineScatterCandleRadarDataSetInvoker : LineScatterCandleRadarDataSet, global::MikePhil.Charting.Interfaces.Datasets.ILineScatterCandleRadarDataSet, global::MikePhil.Charting.Interfaces.Datasets.IBarLineScatterCandleBubbleDataSet, global::MikePhil.Charting.Interfaces.Datasets.IDataSet {
+		public LineScatterCandleRadarDataSetInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer)
+		{
+		}
 
-		public LineScatterCandleRadarDataSetInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/LineScatterCandleRadarDataSet", typeof (LineScatterCandleRadarDataSetInvoker));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/data/LineScatterCandleRadarDataSet", typeof (LineScatterCandleRadarDataSetInvoker));
-
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
@@ -515,5 +527,4 @@ namespace MikePhil.Charting.Data {
 		}
 
 	}
-
 }

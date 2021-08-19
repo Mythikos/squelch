@@ -8,15 +8,16 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 	// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='BarLineScatterCandleBubbleDataProvider']"
 	[Register ("com/github/mikephil/charting/interfaces/dataprovider/BarLineScatterCandleBubbleDataProvider", "", "MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProviderInvoker")]
 	public partial interface IBarLineScatterCandleBubbleDataProvider : global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface {
-
 		float HighestVisibleX {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='BarLineScatterCandleBubbleDataProvider']/method[@name='getHighestVisibleX' and count(parameter)=0]"
-			[Register ("getHighestVisibleX", "()F", "GetGetHighestVisibleXHandler:MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProviderInvoker, library-mpandroidchart")] get;
+			[Register ("getHighestVisibleX", "()F", "GetGetHighestVisibleXHandler:MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProviderInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		float LowestVisibleX {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='BarLineScatterCandleBubbleDataProvider']/method[@name='getLowestVisibleX' and count(parameter)=0]"
-			[Register ("getLowestVisibleX", "()F", "GetGetLowestVisibleXHandler:MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProviderInvoker, library-mpandroidchart")] get;
+			[Register ("getLowestVisibleX", "()F", "GetGetLowestVisibleXHandler:MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProviderInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='BarLineScatterCandleBubbleDataProvider']/method[@name='getTransformer' and count(parameter)=1 and parameter[1][@type='com.github.mikephil.charting.components.YAxis.AxisDependency']]"
@@ -30,22 +31,27 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/interfaces/dataprovider/BarLineScatterCandleBubbleDataProvider", DoNotGenerateAcw=true)]
-	internal class IBarLineScatterCandleBubbleDataProviderInvoker : global::Java.Lang.Object, IBarLineScatterCandleBubbleDataProvider {
-
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/interfaces/dataprovider/BarLineScatterCandleBubbleDataProvider", typeof (IBarLineScatterCandleBubbleDataProviderInvoker));
+	internal partial class IBarLineScatterCandleBubbleDataProviderInvoker : global::Java.Lang.Object, IBarLineScatterCandleBubbleDataProvider {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/interfaces/dataprovider/BarLineScatterCandleBubbleDataProvider", typeof (IBarLineScatterCandleBubbleDataProviderInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return class_ref; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
@@ -60,8 +66,7 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static IntPtr Validate (IntPtr handle)
 		{
 			if (!JNIEnv.IsInstanceOf (handle, java_class_ref))
-				throw new InvalidCastException (string.Format ("Unable to convert instance of type '{0}' to type '{1}'.",
-							JNIEnv.GetClassNameFromInstance (handle), "com.github.mikephil.charting.interfaces.dataprovider.BarLineScatterCandleBubbleDataProvider"));
+				throw new InvalidCastException ($"Unable to convert instance of type '{JNIEnv.GetClassNameFromInstance (handle)}' to type 'com.github.mikephil.charting.interfaces.dataprovider.BarLineScatterCandleBubbleDataProvider'.");
 			return handle;
 		}
 
@@ -85,13 +90,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetHighestVisibleXHandler ()
 		{
 			if (cb_getHighestVisibleX == null)
-				cb_getHighestVisibleX = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetHighestVisibleX);
+				cb_getHighestVisibleX = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetHighestVisibleX);
 			return cb_getHighestVisibleX;
 		}
 
 		static float n_GetHighestVisibleX (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.HighestVisibleX;
 		}
 #pragma warning restore 0169
@@ -110,13 +115,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetLowestVisibleXHandler ()
 		{
 			if (cb_getLowestVisibleX == null)
-				cb_getLowestVisibleX = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetLowestVisibleX);
+				cb_getLowestVisibleX = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetLowestVisibleX);
 			return cb_getLowestVisibleX;
 		}
 
 		static float n_GetLowestVisibleX (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.LowestVisibleX;
 		}
 #pragma warning restore 0169
@@ -135,14 +140,14 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetTransformer_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_Handler ()
 		{
 			if (cb_getTransformer_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_ == null)
-				cb_getTransformer_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, IntPtr>) n_GetTransformer_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_);
+				cb_getTransformer_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_L) n_GetTransformer_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_);
 			return cb_getTransformer_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_;
 		}
 
 		static IntPtr n_GetTransformer_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Components.YAxis.AxisDependency p0 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.YAxis.AxisDependency> (native_p0, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.YAxis.AxisDependency> (native_p0, JniHandleOwnership.DoNotTransfer);
 			IntPtr __ret = JNIEnv.ToLocalJniHandle (__this.GetTransformer (p0));
 			return __ret;
 		}
@@ -155,7 +160,7 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 				id_getTransformer_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_ = JNIEnv.GetMethodID (class_ref, "getTransformer", "(Lcom/github/mikephil/charting/components/YAxis$AxisDependency;)Lcom/github/mikephil/charting/utils/Transformer;");
 			JValue* __args = stackalloc JValue [1];
 			__args [0] = new JValue ((p0 == null) ? IntPtr.Zero : ((global::Java.Lang.Object) p0).Handle);
-			global::MikePhil.Charting.Util.Transformer __ret = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.Transformer> (JNIEnv.CallObjectMethod (((global::Java.Lang.Object) this).Handle, id_getTransformer_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_, __args), JniHandleOwnership.TransferLocalRef);
+			var __ret = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.Transformer> (JNIEnv.CallObjectMethod (((global::Java.Lang.Object) this).Handle, id_getTransformer_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_, __args), JniHandleOwnership.TransferLocalRef);
 			return __ret;
 		}
 
@@ -164,14 +169,14 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetIsInverted_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_Handler ()
 		{
 			if (cb_isInverted_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_ == null)
-				cb_isInverted_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, bool>) n_IsInverted_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_);
+				cb_isInverted_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_Z) n_IsInverted_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_);
 			return cb_isInverted_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_;
 		}
 
 		static bool n_IsInverted_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Components.YAxis.AxisDependency p0 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.YAxis.AxisDependency> (native_p0, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.YAxis.AxisDependency> (native_p0, JniHandleOwnership.DoNotTransfer);
 			bool __ret = __this.IsInverted (p0);
 			return __ret;
 		}
@@ -184,7 +189,7 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 				id_isInverted_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_ = JNIEnv.GetMethodID (class_ref, "isInverted", "(Lcom/github/mikephil/charting/components/YAxis$AxisDependency;)Z");
 			JValue* __args = stackalloc JValue [1];
 			__args [0] = new JValue ((p0 == null) ? IntPtr.Zero : ((global::Java.Lang.Object) p0).Handle);
-			bool __ret = JNIEnv.CallBooleanMethod (((global::Java.Lang.Object) this).Handle, id_isInverted_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_, __args);
+			var __ret = JNIEnv.CallBooleanMethod (((global::Java.Lang.Object) this).Handle, id_isInverted_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_, __args);
 			return __ret;
 		}
 
@@ -193,13 +198,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetCenterOfViewHandler ()
 		{
 			if (cb_getCenterOfView == null)
-				cb_getCenterOfView = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetCenterOfView);
+				cb_getCenterOfView = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetCenterOfView);
 			return cb_getCenterOfView;
 		}
 
 		static IntPtr n_GetCenterOfView (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.CenterOfView);
 		}
 #pragma warning restore 0169
@@ -218,13 +223,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetCenterOffsetsHandler ()
 		{
 			if (cb_getCenterOffsets == null)
-				cb_getCenterOffsets = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetCenterOffsets);
+				cb_getCenterOffsets = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetCenterOffsets);
 			return cb_getCenterOffsets;
 		}
 
 		static IntPtr n_GetCenterOffsets (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.CenterOffsets);
 		}
 #pragma warning restore 0169
@@ -243,13 +248,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetContentRectHandler ()
 		{
 			if (cb_getContentRect == null)
-				cb_getContentRect = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetContentRect);
+				cb_getContentRect = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetContentRect);
 			return cb_getContentRect;
 		}
 
 		static IntPtr n_GetContentRect (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.ContentRect);
 		}
 #pragma warning restore 0169
@@ -268,13 +273,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetDefaultValueFormatterHandler ()
 		{
 			if (cb_getDefaultValueFormatter == null)
-				cb_getDefaultValueFormatter = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetDefaultValueFormatter);
+				cb_getDefaultValueFormatter = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetDefaultValueFormatter);
 			return cb_getDefaultValueFormatter;
 		}
 
 		static IntPtr n_GetDefaultValueFormatter (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.DefaultValueFormatter);
 		}
 #pragma warning restore 0169
@@ -293,13 +298,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetHeightHandler ()
 		{
 			if (cb_getHeight == null)
-				cb_getHeight = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetHeight);
+				cb_getHeight = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetHeight);
 			return cb_getHeight;
 		}
 
 		static int n_GetHeight (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.Height;
 		}
 #pragma warning restore 0169
@@ -318,13 +323,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetMaxHighlightDistanceHandler ()
 		{
 			if (cb_getMaxHighlightDistance == null)
-				cb_getMaxHighlightDistance = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetMaxHighlightDistance);
+				cb_getMaxHighlightDistance = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetMaxHighlightDistance);
 			return cb_getMaxHighlightDistance;
 		}
 
 		static float n_GetMaxHighlightDistance (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.MaxHighlightDistance;
 		}
 #pragma warning restore 0169
@@ -343,13 +348,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetMaxVisibleCountHandler ()
 		{
 			if (cb_getMaxVisibleCount == null)
-				cb_getMaxVisibleCount = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetMaxVisibleCount);
+				cb_getMaxVisibleCount = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetMaxVisibleCount);
 			return cb_getMaxVisibleCount;
 		}
 
 		static int n_GetMaxVisibleCount (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.MaxVisibleCount;
 		}
 #pragma warning restore 0169
@@ -368,13 +373,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetWidthHandler ()
 		{
 			if (cb_getWidth == null)
-				cb_getWidth = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetWidth);
+				cb_getWidth = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetWidth);
 			return cb_getWidth;
 		}
 
 		static int n_GetWidth (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.Width;
 		}
 #pragma warning restore 0169
@@ -393,13 +398,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetXChartMaxHandler ()
 		{
 			if (cb_getXChartMax == null)
-				cb_getXChartMax = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetXChartMax);
+				cb_getXChartMax = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetXChartMax);
 			return cb_getXChartMax;
 		}
 
 		static float n_GetXChartMax (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.XChartMax;
 		}
 #pragma warning restore 0169
@@ -418,13 +423,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetXChartMinHandler ()
 		{
 			if (cb_getXChartMin == null)
-				cb_getXChartMin = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetXChartMin);
+				cb_getXChartMin = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetXChartMin);
 			return cb_getXChartMin;
 		}
 
 		static float n_GetXChartMin (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.XChartMin;
 		}
 #pragma warning restore 0169
@@ -443,13 +448,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetXRangeHandler ()
 		{
 			if (cb_getXRange == null)
-				cb_getXRange = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetXRange);
+				cb_getXRange = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetXRange);
 			return cb_getXRange;
 		}
 
 		static float n_GetXRange (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.XRange;
 		}
 #pragma warning restore 0169
@@ -468,13 +473,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetYChartMaxHandler ()
 		{
 			if (cb_getYChartMax == null)
-				cb_getYChartMax = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetYChartMax);
+				cb_getYChartMax = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetYChartMax);
 			return cb_getYChartMax;
 		}
 
 		static float n_GetYChartMax (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.YChartMax;
 		}
 #pragma warning restore 0169
@@ -493,13 +498,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetYChartMinHandler ()
 		{
 			if (cb_getYChartMin == null)
-				cb_getYChartMin = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetYChartMin);
+				cb_getYChartMin = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetYChartMin);
 			return cb_getYChartMin;
 		}
 
 		static float n_GetYChartMin (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IBarLineScatterCandleBubbleDataProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.YChartMin;
 		}
 #pragma warning restore 0169
@@ -514,5 +519,4 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		}
 
 	}
-
 }

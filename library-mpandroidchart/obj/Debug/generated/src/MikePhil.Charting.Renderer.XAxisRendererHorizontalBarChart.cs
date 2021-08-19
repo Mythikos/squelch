@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Renderer {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/renderer/XAxisRendererHorizontalBarChart", DoNotGenerateAcw=true)]
 	public partial class XAxisRendererHorizontalBarChart : global::MikePhil.Charting.Renderer.XAxisRenderer {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.renderer']/class[@name='XAxisRendererHorizontalBarChart']/field[@name='mChart']"
 		[Register ("mChart")]
 		protected global::MikePhil.Charting.Charts.BarChart MChart {
@@ -53,31 +51,38 @@ namespace MikePhil.Charting.Renderer {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/renderer/XAxisRendererHorizontalBarChart", typeof (XAxisRendererHorizontalBarChart));
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/XAxisRendererHorizontalBarChart", typeof (XAxisRendererHorizontalBarChart));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected XAxisRendererHorizontalBarChart (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected XAxisRendererHorizontalBarChart (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.renderer']/class[@name='XAxisRendererHorizontalBarChart']/constructor[@name='XAxisRendererHorizontalBarChart' and count(parameter)=4 and parameter[1][@type='com.github.mikephil.charting.utils.ViewPortHandler'] and parameter[2][@type='com.github.mikephil.charting.components.XAxis'] and parameter[3][@type='com.github.mikephil.charting.utils.Transformer'] and parameter[4][@type='com.github.mikephil.charting.charts.BarChart']]"
 		[Register (".ctor", "(Lcom/github/mikephil/charting/utils/ViewPortHandler;Lcom/github/mikephil/charting/components/XAxis;Lcom/github/mikephil/charting/utils/Transformer;Lcom/github/mikephil/charting/charts/BarChart;)V", "")]
-		public unsafe XAxisRendererHorizontalBarChart (global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler, global::MikePhil.Charting.Components.XAxis xAxis, global::MikePhil.Charting.Util.Transformer trans, global::MikePhil.Charting.Charts.BarChart chart)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe XAxisRendererHorizontalBarChart (global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler, global::MikePhil.Charting.Components.XAxis xAxis, global::MikePhil.Charting.Util.Transformer trans, global::MikePhil.Charting.Charts.BarChart chart) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Lcom/github/mikephil/charting/utils/ViewPortHandler;Lcom/github/mikephil/charting/components/XAxis;Lcom/github/mikephil/charting/utils/Transformer;Lcom/github/mikephil/charting/charts/BarChart;)V";
 
@@ -94,6 +99,10 @@ namespace MikePhil.Charting.Renderer {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (viewPortHandler);
+				global::System.GC.KeepAlive (xAxis);
+				global::System.GC.KeepAlive (trans);
+				global::System.GC.KeepAlive (chart);
 			}
 		}
 

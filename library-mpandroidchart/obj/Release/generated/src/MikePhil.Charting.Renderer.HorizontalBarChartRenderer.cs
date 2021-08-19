@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Renderer {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.renderer']/class[@name='HorizontalBarChartRenderer']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/renderer/HorizontalBarChartRenderer", DoNotGenerateAcw=true)]
 	public partial class HorizontalBarChartRenderer : global::MikePhil.Charting.Renderer.BarChartRenderer {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/HorizontalBarChartRenderer", typeof (HorizontalBarChartRenderer));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/renderer/HorizontalBarChartRenderer", typeof (HorizontalBarChartRenderer));
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected HorizontalBarChartRenderer (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected HorizontalBarChartRenderer (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.renderer']/class[@name='HorizontalBarChartRenderer']/constructor[@name='HorizontalBarChartRenderer' and count(parameter)=3 and parameter[1][@type='com.github.mikephil.charting.interfaces.dataprovider.BarDataProvider'] and parameter[2][@type='com.github.mikephil.charting.animation.ChartAnimator'] and parameter[3][@type='com.github.mikephil.charting.utils.ViewPortHandler']]"
 		[Register (".ctor", "(Lcom/github/mikephil/charting/interfaces/dataprovider/BarDataProvider;Lcom/github/mikephil/charting/animation/ChartAnimator;Lcom/github/mikephil/charting/utils/ViewPortHandler;)V", "")]
-		public unsafe HorizontalBarChartRenderer (global::MikePhil.Charting.Interfaces.Dataprovider.IBarDataProvider chart, global::MikePhil.Charting.Animation.ChartAnimator animator, global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe HorizontalBarChartRenderer (global::MikePhil.Charting.Interfaces.Dataprovider.IBarDataProvider chart, global::MikePhil.Charting.Animation.ChartAnimator animator, global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Lcom/github/mikephil/charting/interfaces/dataprovider/BarDataProvider;Lcom/github/mikephil/charting/animation/ChartAnimator;Lcom/github/mikephil/charting/utils/ViewPortHandler;)V";
 
@@ -49,6 +54,9 @@ namespace MikePhil.Charting.Renderer {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (chart);
+				global::System.GC.KeepAlive (animator);
+				global::System.GC.KeepAlive (viewPortHandler);
 			}
 		}
 
@@ -57,15 +65,15 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetDrawValue_Landroid_graphics_Canvas_Ljava_lang_String_FFIHandler ()
 		{
 			if (cb_drawValue_Landroid_graphics_Canvas_Ljava_lang_String_FFI == null)
-				cb_drawValue_Landroid_graphics_Canvas_Ljava_lang_String_FFI = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, IntPtr, float, float, int>) n_DrawValue_Landroid_graphics_Canvas_Ljava_lang_String_FFI);
+				cb_drawValue_Landroid_graphics_Canvas_Ljava_lang_String_FFI = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLLFFI_V) n_DrawValue_Landroid_graphics_Canvas_Ljava_lang_String_FFI);
 			return cb_drawValue_Landroid_graphics_Canvas_Ljava_lang_String_FFI;
 		}
 
 		static void n_DrawValue_Landroid_graphics_Canvas_Ljava_lang_String_FFI (IntPtr jnienv, IntPtr native__this, IntPtr native_c, IntPtr native_valueText, float x, float y, int color)
 		{
-			global::MikePhil.Charting.Renderer.HorizontalBarChartRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.HorizontalBarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
-			string valueText = JNIEnv.GetString (native_valueText, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.HorizontalBarChartRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
+			var valueText = JNIEnv.GetString (native_valueText, JniHandleOwnership.DoNotTransfer);
 			__this.DrawValue (c, valueText, x, y, color);
 		}
 #pragma warning restore 0169
@@ -86,6 +94,7 @@ namespace MikePhil.Charting.Renderer {
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
 				JNIEnv.DeleteLocalRef (native_valueText);
+				global::System.GC.KeepAlive (c);
 			}
 		}
 

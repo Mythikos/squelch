@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Util {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='EntryXComparator']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/utils/EntryXComparator", DoNotGenerateAcw=true)]
 	public partial class EntryXComparator : global::Java.Lang.Object, global::Java.Util.IComparator {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/EntryXComparator", typeof (EntryXComparator));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/utils/EntryXComparator", typeof (EntryXComparator));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected EntryXComparator (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected EntryXComparator (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='EntryXComparator']/constructor[@name='EntryXComparator' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe EntryXComparator ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe EntryXComparator () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 
@@ -53,15 +58,15 @@ namespace MikePhil.Charting.Util {
 		static Delegate GetCompare_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_data_Entry_Handler ()
 		{
 			if (cb_compare_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_data_Entry_ == null)
-				cb_compare_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_data_Entry_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, IntPtr, int>) n_Compare_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_data_Entry_);
+				cb_compare_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_data_Entry_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLL_I) n_Compare_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_data_Entry_);
 			return cb_compare_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_data_Entry_;
 		}
 
 		static int n_Compare_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_data_Entry_ (IntPtr jnienv, IntPtr native__this, IntPtr native_entry1, IntPtr native_entry2)
 		{
-			global::MikePhil.Charting.Util.EntryXComparator __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.EntryXComparator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Data.Entry entry1 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (native_entry1, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Data.Entry entry2 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (native_entry2, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.EntryXComparator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var entry1 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (native_entry1, JniHandleOwnership.DoNotTransfer);
+			var entry2 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (native_entry2, JniHandleOwnership.DoNotTransfer);
 			int __ret = __this.Compare (entry1, entry2);
 			return __ret;
 		}
@@ -79,6 +84,8 @@ namespace MikePhil.Charting.Util {
 				var __rm = _members.InstanceMethods.InvokeVirtualInt32Method (__id, this, __args);
 				return __rm;
 			} finally {
+				global::System.GC.KeepAlive (entry1);
+				global::System.GC.KeepAlive (entry2);
 			}
 		}
 

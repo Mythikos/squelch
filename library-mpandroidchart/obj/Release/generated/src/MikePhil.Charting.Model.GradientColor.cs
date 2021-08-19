@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Model {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.model']/class[@name='GradientColor']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/model/GradientColor", DoNotGenerateAcw=true)]
 	public partial class GradientColor : global::Java.Lang.Object {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/model/GradientColor", typeof (GradientColor));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/model/GradientColor", typeof (GradientColor));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected GradientColor (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected GradientColor (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.model']/class[@name='GradientColor']/constructor[@name='GradientColor' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='int']]"
 		[Register (".ctor", "(II)V", "")]
-		public unsafe GradientColor (int startColor, int endColor)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe GradientColor (int startColor, int endColor) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(II)V";
 
@@ -56,13 +61,13 @@ namespace MikePhil.Charting.Model {
 		static Delegate GetGetEndColorHandler ()
 		{
 			if (cb_getEndColor == null)
-				cb_getEndColor = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetEndColor);
+				cb_getEndColor = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetEndColor);
 			return cb_getEndColor;
 		}
 
 		static int n_GetEndColor (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Model.GradientColor __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Model.GradientColor> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Model.GradientColor> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.EndColor;
 		}
 #pragma warning restore 0169
@@ -72,13 +77,13 @@ namespace MikePhil.Charting.Model {
 		static Delegate GetSetEndColor_IHandler ()
 		{
 			if (cb_setEndColor_I == null)
-				cb_setEndColor_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int>) n_SetEndColor_I);
+				cb_setEndColor_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_V) n_SetEndColor_I);
 			return cb_setEndColor_I;
 		}
 
 		static void n_SetEndColor_I (IntPtr jnienv, IntPtr native__this, int endColor)
 		{
-			global::MikePhil.Charting.Model.GradientColor __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Model.GradientColor> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Model.GradientColor> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.EndColor = endColor;
 		}
 #pragma warning restore 0169
@@ -112,13 +117,13 @@ namespace MikePhil.Charting.Model {
 		static Delegate GetGetStartColorHandler ()
 		{
 			if (cb_getStartColor == null)
-				cb_getStartColor = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetStartColor);
+				cb_getStartColor = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetStartColor);
 			return cb_getStartColor;
 		}
 
 		static int n_GetStartColor (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Model.GradientColor __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Model.GradientColor> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Model.GradientColor> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.StartColor;
 		}
 #pragma warning restore 0169
@@ -128,13 +133,13 @@ namespace MikePhil.Charting.Model {
 		static Delegate GetSetStartColor_IHandler ()
 		{
 			if (cb_setStartColor_I == null)
-				cb_setStartColor_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int>) n_SetStartColor_I);
+				cb_setStartColor_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_V) n_SetStartColor_I);
 			return cb_setStartColor_I;
 		}
 
 		static void n_SetStartColor_I (IntPtr jnienv, IntPtr native__this, int startColor)
 		{
-			global::MikePhil.Charting.Model.GradientColor __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Model.GradientColor> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Model.GradientColor> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.StartColor = startColor;
 		}
 #pragma warning restore 0169

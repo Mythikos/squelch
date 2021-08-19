@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Charts {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/charts/BarChart", DoNotGenerateAcw=true)]
 	public partial class BarChart : global::MikePhil.Charting.Charts.BarLineChartBase, global::MikePhil.Charting.Interfaces.Dataprovider.IBarDataProvider {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.charts']/class[@name='BarChart']/field[@name='mHighlightFullBarEnabled']"
 		[Register ("mHighlightFullBarEnabled")]
 		protected bool MHighlightFullBarEnabled {
@@ -29,31 +27,38 @@ namespace MikePhil.Charting.Charts {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/charts/BarChart", typeof (BarChart));
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/charts/BarChart", typeof (BarChart));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected BarChart (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected BarChart (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.charts']/class[@name='BarChart']/constructor[@name='BarChart' and count(parameter)=1 and parameter[1][@type='android.content.Context']]"
 		[Register (".ctor", "(Landroid/content/Context;)V", "")]
-		public unsafe BarChart (global::Android.Content.Context context)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe BarChart (global::Android.Content.Context context) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Landroid/content/Context;)V";
 
@@ -67,13 +72,13 @@ namespace MikePhil.Charting.Charts {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (context);
 			}
 		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.charts']/class[@name='BarChart']/constructor[@name='BarChart' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet']]"
 		[Register (".ctor", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "")]
-		public unsafe BarChart (global::Android.Content.Context context, global::Android.Util.IAttributeSet attrs)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe BarChart (global::Android.Content.Context context, global::Android.Util.IAttributeSet attrs) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 
@@ -88,13 +93,14 @@ namespace MikePhil.Charting.Charts {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (context);
+				global::System.GC.KeepAlive (attrs);
 			}
 		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.charts']/class[@name='BarChart']/constructor[@name='BarChart' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet'] and parameter[3][@type='int']]"
 		[Register (".ctor", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "")]
-		public unsafe BarChart (global::Android.Content.Context context, global::Android.Util.IAttributeSet attrs, int defStyle)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe BarChart (global::Android.Content.Context context, global::Android.Util.IAttributeSet attrs, int defStyle) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 
@@ -110,6 +116,8 @@ namespace MikePhil.Charting.Charts {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (context);
+				global::System.GC.KeepAlive (attrs);
 			}
 		}
 
@@ -118,13 +126,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetBarDataHandler ()
 		{
 			if (cb_getBarData == null)
-				cb_getBarData = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetBarData);
+				cb_getBarData = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetBarData);
 			return cb_getBarData;
 		}
 
 		static IntPtr n_GetBarData (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.BarChart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.BarData);
 		}
 #pragma warning restore 0169
@@ -147,13 +155,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetIsDrawBarShadowEnabledHandler ()
 		{
 			if (cb_isDrawBarShadowEnabled == null)
-				cb_isDrawBarShadowEnabled = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsDrawBarShadowEnabled);
+				cb_isDrawBarShadowEnabled = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsDrawBarShadowEnabled);
 			return cb_isDrawBarShadowEnabled;
 		}
 
 		static bool n_IsDrawBarShadowEnabled (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.BarChart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.IsDrawBarShadowEnabled;
 		}
 #pragma warning restore 0169
@@ -176,13 +184,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetIsDrawValueAboveBarEnabledHandler ()
 		{
 			if (cb_isDrawValueAboveBarEnabled == null)
-				cb_isDrawValueAboveBarEnabled = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsDrawValueAboveBarEnabled);
+				cb_isDrawValueAboveBarEnabled = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsDrawValueAboveBarEnabled);
 			return cb_isDrawValueAboveBarEnabled;
 		}
 
 		static bool n_IsDrawValueAboveBarEnabled (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.BarChart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.IsDrawValueAboveBarEnabled;
 		}
 #pragma warning restore 0169
@@ -205,13 +213,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetIsHighlightFullBarEnabledHandler ()
 		{
 			if (cb_isHighlightFullBarEnabled == null)
-				cb_isHighlightFullBarEnabled = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsHighlightFullBarEnabled);
+				cb_isHighlightFullBarEnabled = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsHighlightFullBarEnabled);
 			return cb_isHighlightFullBarEnabled;
 		}
 
 		static bool n_IsHighlightFullBarEnabled (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.BarChart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.IsHighlightFullBarEnabled;
 		}
 #pragma warning restore 0169
@@ -234,14 +242,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetBarBounds_Lcom_github_mikephil_charting_data_BarEntry_Handler ()
 		{
 			if (cb_getBarBounds_Lcom_github_mikephil_charting_data_BarEntry_ == null)
-				cb_getBarBounds_Lcom_github_mikephil_charting_data_BarEntry_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, IntPtr>) n_GetBarBounds_Lcom_github_mikephil_charting_data_BarEntry_);
+				cb_getBarBounds_Lcom_github_mikephil_charting_data_BarEntry_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_L) n_GetBarBounds_Lcom_github_mikephil_charting_data_BarEntry_);
 			return cb_getBarBounds_Lcom_github_mikephil_charting_data_BarEntry_;
 		}
 
 		static IntPtr n_GetBarBounds_Lcom_github_mikephil_charting_data_BarEntry_ (IntPtr jnienv, IntPtr native__this, IntPtr native_e)
 		{
-			global::MikePhil.Charting.Charts.BarChart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Data.BarEntry e = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BarEntry> (native_e, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var e = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BarEntry> (native_e, JniHandleOwnership.DoNotTransfer);
 			IntPtr __ret = JNIEnv.ToLocalJniHandle (__this.GetBarBounds (e));
 			return __ret;
 		}
@@ -258,6 +266,7 @@ namespace MikePhil.Charting.Charts {
 				var __rm = _members.InstanceMethods.InvokeVirtualObjectMethod (__id, this, __args);
 				return global::Java.Lang.Object.GetObject<global::Android.Graphics.RectF> (__rm.Handle, JniHandleOwnership.TransferLocalRef);
 			} finally {
+				global::System.GC.KeepAlive (e);
 			}
 		}
 
@@ -266,15 +275,15 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetBarBounds_Lcom_github_mikephil_charting_data_BarEntry_Landroid_graphics_RectF_Handler ()
 		{
 			if (cb_getBarBounds_Lcom_github_mikephil_charting_data_BarEntry_Landroid_graphics_RectF_ == null)
-				cb_getBarBounds_Lcom_github_mikephil_charting_data_BarEntry_Landroid_graphics_RectF_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, IntPtr>) n_GetBarBounds_Lcom_github_mikephil_charting_data_BarEntry_Landroid_graphics_RectF_);
+				cb_getBarBounds_Lcom_github_mikephil_charting_data_BarEntry_Landroid_graphics_RectF_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLL_V) n_GetBarBounds_Lcom_github_mikephil_charting_data_BarEntry_Landroid_graphics_RectF_);
 			return cb_getBarBounds_Lcom_github_mikephil_charting_data_BarEntry_Landroid_graphics_RectF_;
 		}
 
 		static void n_GetBarBounds_Lcom_github_mikephil_charting_data_BarEntry_Landroid_graphics_RectF_ (IntPtr jnienv, IntPtr native__this, IntPtr native_e, IntPtr native_outputRect)
 		{
-			global::MikePhil.Charting.Charts.BarChart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Data.BarEntry e = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BarEntry> (native_e, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.RectF outputRect = global::Java.Lang.Object.GetObject<global::Android.Graphics.RectF> (native_outputRect, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var e = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BarEntry> (native_e, JniHandleOwnership.DoNotTransfer);
+			var outputRect = global::Java.Lang.Object.GetObject<global::Android.Graphics.RectF> (native_outputRect, JniHandleOwnership.DoNotTransfer);
 			__this.GetBarBounds (e, outputRect);
 		}
 #pragma warning restore 0169
@@ -290,6 +299,8 @@ namespace MikePhil.Charting.Charts {
 				__args [1] = new JniArgumentValue ((outputRect == null) ? IntPtr.Zero : ((global::Java.Lang.Object) outputRect).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (e);
+				global::System.GC.KeepAlive (outputRect);
 			}
 		}
 
@@ -298,13 +309,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGroupBars_FFFHandler ()
 		{
 			if (cb_groupBars_FFF == null)
-				cb_groupBars_FFF = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float, float, float>) n_GroupBars_FFF);
+				cb_groupBars_FFF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFFF_V) n_GroupBars_FFF);
 			return cb_groupBars_FFF;
 		}
 
 		static void n_GroupBars_FFF (IntPtr jnienv, IntPtr native__this, float fromX, float groupSpace, float barSpace)
 		{
-			global::MikePhil.Charting.Charts.BarChart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.GroupBars (fromX, groupSpace, barSpace);
 		}
 #pragma warning restore 0169
@@ -329,13 +340,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetHighlightValue_FIIHandler ()
 		{
 			if (cb_highlightValue_FII == null)
-				cb_highlightValue_FII = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float, int, int>) n_HighlightValue_FII);
+				cb_highlightValue_FII = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFII_V) n_HighlightValue_FII);
 			return cb_highlightValue_FII;
 		}
 
 		static void n_HighlightValue_FII (IntPtr jnienv, IntPtr native__this, float x, int dataSetIndex, int stackIndex)
 		{
-			global::MikePhil.Charting.Charts.BarChart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.HighlightValue (x, dataSetIndex, stackIndex);
 		}
 #pragma warning restore 0169
@@ -360,13 +371,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetDrawBarShadow_ZHandler ()
 		{
 			if (cb_setDrawBarShadow_Z == null)
-				cb_setDrawBarShadow_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetDrawBarShadow_Z);
+				cb_setDrawBarShadow_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetDrawBarShadow_Z);
 			return cb_setDrawBarShadow_Z;
 		}
 
 		static void n_SetDrawBarShadow_Z (IntPtr jnienv, IntPtr native__this, bool enabled)
 		{
-			global::MikePhil.Charting.Charts.BarChart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetDrawBarShadow (enabled);
 		}
 #pragma warning restore 0169
@@ -389,13 +400,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetDrawValueAboveBar_ZHandler ()
 		{
 			if (cb_setDrawValueAboveBar_Z == null)
-				cb_setDrawValueAboveBar_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetDrawValueAboveBar_Z);
+				cb_setDrawValueAboveBar_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetDrawValueAboveBar_Z);
 			return cb_setDrawValueAboveBar_Z;
 		}
 
 		static void n_SetDrawValueAboveBar_Z (IntPtr jnienv, IntPtr native__this, bool enabled)
 		{
-			global::MikePhil.Charting.Charts.BarChart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetDrawValueAboveBar (enabled);
 		}
 #pragma warning restore 0169
@@ -418,13 +429,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetFitBars_ZHandler ()
 		{
 			if (cb_setFitBars_Z == null)
-				cb_setFitBars_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetFitBars_Z);
+				cb_setFitBars_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetFitBars_Z);
 			return cb_setFitBars_Z;
 		}
 
 		static void n_SetFitBars_Z (IntPtr jnienv, IntPtr native__this, bool enabled)
 		{
-			global::MikePhil.Charting.Charts.BarChart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetFitBars (enabled);
 		}
 #pragma warning restore 0169
@@ -447,13 +458,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetHighlightFullBarEnabled_ZHandler ()
 		{
 			if (cb_setHighlightFullBarEnabled_Z == null)
-				cb_setHighlightFullBarEnabled_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetHighlightFullBarEnabled_Z);
+				cb_setHighlightFullBarEnabled_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetHighlightFullBarEnabled_Z);
 			return cb_setHighlightFullBarEnabled_Z;
 		}
 
 		static void n_SetHighlightFullBarEnabled_Z (IntPtr jnienv, IntPtr native__this, bool enabled)
 		{
-			global::MikePhil.Charting.Charts.BarChart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.BarChart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetHighlightFullBarEnabled (enabled);
 		}
 #pragma warning restore 0169

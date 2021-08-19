@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Renderer {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/renderer/YAxisRenderer", DoNotGenerateAcw=true)]
 	public partial class YAxisRenderer : global::MikePhil.Charting.Renderer.AxisRenderer {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.renderer']/class[@name='YAxisRenderer']/field[@name='mDrawZeroLinePath']"
 		[Register ("mDrawZeroLinePath")]
 		protected global::Android.Graphics.Path MDrawZeroLinePath {
@@ -229,31 +227,38 @@ namespace MikePhil.Charting.Renderer {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/renderer/YAxisRenderer", typeof (YAxisRenderer));
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/YAxisRenderer", typeof (YAxisRenderer));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected YAxisRenderer (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected YAxisRenderer (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.renderer']/class[@name='YAxisRenderer']/constructor[@name='YAxisRenderer' and count(parameter)=3 and parameter[1][@type='com.github.mikephil.charting.utils.ViewPortHandler'] and parameter[2][@type='com.github.mikephil.charting.components.YAxis'] and parameter[3][@type='com.github.mikephil.charting.utils.Transformer']]"
 		[Register (".ctor", "(Lcom/github/mikephil/charting/utils/ViewPortHandler;Lcom/github/mikephil/charting/components/YAxis;Lcom/github/mikephil/charting/utils/Transformer;)V", "")]
-		public unsafe YAxisRenderer (global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler, global::MikePhil.Charting.Components.YAxis yAxis, global::MikePhil.Charting.Util.Transformer trans)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe YAxisRenderer (global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler, global::MikePhil.Charting.Components.YAxis yAxis, global::MikePhil.Charting.Util.Transformer trans) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Lcom/github/mikephil/charting/utils/ViewPortHandler;Lcom/github/mikephil/charting/components/YAxis;Lcom/github/mikephil/charting/utils/Transformer;)V";
 
@@ -269,6 +274,9 @@ namespace MikePhil.Charting.Renderer {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (viewPortHandler);
+				global::System.GC.KeepAlive (yAxis);
+				global::System.GC.KeepAlive (trans);
 			}
 		}
 
@@ -277,13 +285,13 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetGetGridClippingRectHandler ()
 		{
 			if (cb_getGridClippingRect == null)
-				cb_getGridClippingRect = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetGridClippingRect);
+				cb_getGridClippingRect = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetGridClippingRect);
 			return cb_getGridClippingRect;
 		}
 
 		static IntPtr n_GetGridClippingRect (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Renderer.YAxisRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.YAxisRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.YAxisRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.GridClippingRect);
 		}
 #pragma warning restore 0169
@@ -306,15 +314,15 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetDrawYLabels_Landroid_graphics_Canvas_FarrayFFHandler ()
 		{
 			if (cb_drawYLabels_Landroid_graphics_Canvas_FarrayFF == null)
-				cb_drawYLabels_Landroid_graphics_Canvas_FarrayFF = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, float, IntPtr, float>) n_DrawYLabels_Landroid_graphics_Canvas_FarrayFF);
+				cb_drawYLabels_Landroid_graphics_Canvas_FarrayFF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLFLF_V) n_DrawYLabels_Landroid_graphics_Canvas_FarrayFF);
 			return cb_drawYLabels_Landroid_graphics_Canvas_FarrayFF;
 		}
 
 		static void n_DrawYLabels_Landroid_graphics_Canvas_FarrayFF (IntPtr jnienv, IntPtr native__this, IntPtr native_c, float fixedPosition, IntPtr native_positions, float offset)
 		{
-			global::MikePhil.Charting.Renderer.YAxisRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.YAxisRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
-			float[] positions = (float[]) JNIEnv.GetArray (native_positions, JniHandleOwnership.DoNotTransfer, typeof (float));
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.YAxisRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
+			var positions = (float[]) JNIEnv.GetArray (native_positions, JniHandleOwnership.DoNotTransfer, typeof (float));
 			__this.DrawYLabels (c, fixedPosition, positions, offset);
 			if (positions != null)
 				JNIEnv.CopyArray (positions, native_positions);
@@ -339,6 +347,8 @@ namespace MikePhil.Charting.Renderer {
 					JNIEnv.CopyArray (native_positions, positions);
 					JNIEnv.DeleteLocalRef (native_positions);
 				}
+				global::System.GC.KeepAlive (c);
+				global::System.GC.KeepAlive (positions);
 			}
 		}
 
@@ -347,14 +357,14 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetDrawZeroLine_Landroid_graphics_Canvas_Handler ()
 		{
 			if (cb_drawZeroLine_Landroid_graphics_Canvas_ == null)
-				cb_drawZeroLine_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_DrawZeroLine_Landroid_graphics_Canvas_);
+				cb_drawZeroLine_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_DrawZeroLine_Landroid_graphics_Canvas_);
 			return cb_drawZeroLine_Landroid_graphics_Canvas_;
 		}
 
 		static void n_DrawZeroLine_Landroid_graphics_Canvas_ (IntPtr jnienv, IntPtr native__this, IntPtr native_c)
 		{
-			global::MikePhil.Charting.Renderer.YAxisRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.YAxisRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.YAxisRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
 			__this.DrawZeroLine (c);
 		}
 #pragma warning restore 0169
@@ -369,6 +379,7 @@ namespace MikePhil.Charting.Renderer {
 				__args [0] = new JniArgumentValue ((c == null) ? IntPtr.Zero : ((global::Java.Lang.Object) c).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (c);
 			}
 		}
 
@@ -377,13 +388,13 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetGetTransformedPositionsHandler ()
 		{
 			if (cb_getTransformedPositions == null)
-				cb_getTransformedPositions = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetTransformedPositions);
+				cb_getTransformedPositions = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetTransformedPositions);
 			return cb_getTransformedPositions;
 		}
 
 		static IntPtr n_GetTransformedPositions (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Renderer.YAxisRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.YAxisRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.YAxisRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.NewArray (__this.GetTransformedPositions ());
 		}
 #pragma warning restore 0169
@@ -405,15 +416,15 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetLinePath_Landroid_graphics_Path_IarrayFHandler ()
 		{
 			if (cb_linePath_Landroid_graphics_Path_IarrayF == null)
-				cb_linePath_Landroid_graphics_Path_IarrayF = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, int, IntPtr, IntPtr>) n_LinePath_Landroid_graphics_Path_IarrayF);
+				cb_linePath_Landroid_graphics_Path_IarrayF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLIL_L) n_LinePath_Landroid_graphics_Path_IarrayF);
 			return cb_linePath_Landroid_graphics_Path_IarrayF;
 		}
 
 		static IntPtr n_LinePath_Landroid_graphics_Path_IarrayF (IntPtr jnienv, IntPtr native__this, IntPtr native_p, int i, IntPtr native_positions)
 		{
-			global::MikePhil.Charting.Renderer.YAxisRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.YAxisRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Path p = global::Java.Lang.Object.GetObject<global::Android.Graphics.Path> (native_p, JniHandleOwnership.DoNotTransfer);
-			float[] positions = (float[]) JNIEnv.GetArray (native_positions, JniHandleOwnership.DoNotTransfer, typeof (float));
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.YAxisRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p = global::Java.Lang.Object.GetObject<global::Android.Graphics.Path> (native_p, JniHandleOwnership.DoNotTransfer);
+			var positions = (float[]) JNIEnv.GetArray (native_positions, JniHandleOwnership.DoNotTransfer, typeof (float));
 			IntPtr __ret = JNIEnv.ToLocalJniHandle (__this.LinePath (p, i, positions));
 			if (positions != null)
 				JNIEnv.CopyArray (positions, native_positions);
@@ -439,6 +450,8 @@ namespace MikePhil.Charting.Renderer {
 					JNIEnv.CopyArray (native_positions, positions);
 					JNIEnv.DeleteLocalRef (native_positions);
 				}
+				global::System.GC.KeepAlive (p);
+				global::System.GC.KeepAlive (positions);
 			}
 		}
 
@@ -447,14 +460,14 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetRenderAxisLabels_Landroid_graphics_Canvas_Handler ()
 		{
 			if (cb_renderAxisLabels_Landroid_graphics_Canvas_ == null)
-				cb_renderAxisLabels_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_RenderAxisLabels_Landroid_graphics_Canvas_);
+				cb_renderAxisLabels_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_RenderAxisLabels_Landroid_graphics_Canvas_);
 			return cb_renderAxisLabels_Landroid_graphics_Canvas_;
 		}
 
 		static void n_RenderAxisLabels_Landroid_graphics_Canvas_ (IntPtr jnienv, IntPtr native__this, IntPtr native_c)
 		{
-			global::MikePhil.Charting.Renderer.YAxisRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.YAxisRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.YAxisRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
 			__this.RenderAxisLabels (c);
 		}
 #pragma warning restore 0169
@@ -469,6 +482,7 @@ namespace MikePhil.Charting.Renderer {
 				__args [0] = new JniArgumentValue ((c == null) ? IntPtr.Zero : ((global::Java.Lang.Object) c).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (c);
 			}
 		}
 
@@ -477,14 +491,14 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetRenderAxisLine_Landroid_graphics_Canvas_Handler ()
 		{
 			if (cb_renderAxisLine_Landroid_graphics_Canvas_ == null)
-				cb_renderAxisLine_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_RenderAxisLine_Landroid_graphics_Canvas_);
+				cb_renderAxisLine_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_RenderAxisLine_Landroid_graphics_Canvas_);
 			return cb_renderAxisLine_Landroid_graphics_Canvas_;
 		}
 
 		static void n_RenderAxisLine_Landroid_graphics_Canvas_ (IntPtr jnienv, IntPtr native__this, IntPtr native_c)
 		{
-			global::MikePhil.Charting.Renderer.YAxisRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.YAxisRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.YAxisRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
 			__this.RenderAxisLine (c);
 		}
 #pragma warning restore 0169
@@ -499,6 +513,7 @@ namespace MikePhil.Charting.Renderer {
 				__args [0] = new JniArgumentValue ((c == null) ? IntPtr.Zero : ((global::Java.Lang.Object) c).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (c);
 			}
 		}
 
@@ -507,14 +522,14 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetRenderGridLines_Landroid_graphics_Canvas_Handler ()
 		{
 			if (cb_renderGridLines_Landroid_graphics_Canvas_ == null)
-				cb_renderGridLines_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_RenderGridLines_Landroid_graphics_Canvas_);
+				cb_renderGridLines_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_RenderGridLines_Landroid_graphics_Canvas_);
 			return cb_renderGridLines_Landroid_graphics_Canvas_;
 		}
 
 		static void n_RenderGridLines_Landroid_graphics_Canvas_ (IntPtr jnienv, IntPtr native__this, IntPtr native_c)
 		{
-			global::MikePhil.Charting.Renderer.YAxisRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.YAxisRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.YAxisRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
 			__this.RenderGridLines (c);
 		}
 #pragma warning restore 0169
@@ -529,6 +544,7 @@ namespace MikePhil.Charting.Renderer {
 				__args [0] = new JniArgumentValue ((c == null) ? IntPtr.Zero : ((global::Java.Lang.Object) c).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (c);
 			}
 		}
 
@@ -537,14 +553,14 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetRenderLimitLines_Landroid_graphics_Canvas_Handler ()
 		{
 			if (cb_renderLimitLines_Landroid_graphics_Canvas_ == null)
-				cb_renderLimitLines_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_RenderLimitLines_Landroid_graphics_Canvas_);
+				cb_renderLimitLines_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_RenderLimitLines_Landroid_graphics_Canvas_);
 			return cb_renderLimitLines_Landroid_graphics_Canvas_;
 		}
 
 		static void n_RenderLimitLines_Landroid_graphics_Canvas_ (IntPtr jnienv, IntPtr native__this, IntPtr native_c)
 		{
-			global::MikePhil.Charting.Renderer.YAxisRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.YAxisRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.YAxisRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
 			__this.RenderLimitLines (c);
 		}
 #pragma warning restore 0169
@@ -559,6 +575,7 @@ namespace MikePhil.Charting.Renderer {
 				__args [0] = new JniArgumentValue ((c == null) ? IntPtr.Zero : ((global::Java.Lang.Object) c).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (c);
 			}
 		}
 

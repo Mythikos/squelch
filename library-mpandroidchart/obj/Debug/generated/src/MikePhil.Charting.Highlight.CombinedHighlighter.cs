@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Highlight {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/highlight/CombinedHighlighter", DoNotGenerateAcw=true)]
 	public partial class CombinedHighlighter : global::MikePhil.Charting.Highlight.ChartHighlighter, global::MikePhil.Charting.Highlight.IHighlighter {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.highlight']/class[@name='CombinedHighlighter']/field[@name='barHighlighter']"
 		[Register ("barHighlighter")]
 		protected global::MikePhil.Charting.Highlight.BarHighlighter BarHighlighter {
@@ -31,31 +29,38 @@ namespace MikePhil.Charting.Highlight {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/highlight/CombinedHighlighter", typeof (CombinedHighlighter));
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/highlight/CombinedHighlighter", typeof (CombinedHighlighter));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected CombinedHighlighter (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected CombinedHighlighter (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.highlight']/class[@name='CombinedHighlighter']/constructor[@name='CombinedHighlighter' and count(parameter)=2 and parameter[1][@type='com.github.mikephil.charting.interfaces.dataprovider.CombinedDataProvider'] and parameter[2][@type='com.github.mikephil.charting.interfaces.dataprovider.BarDataProvider']]"
 		[Register (".ctor", "(Lcom/github/mikephil/charting/interfaces/dataprovider/CombinedDataProvider;Lcom/github/mikephil/charting/interfaces/dataprovider/BarDataProvider;)V", "")]
-		public unsafe CombinedHighlighter (global::MikePhil.Charting.Interfaces.Dataprovider.ICombinedDataProvider chart, global::MikePhil.Charting.Interfaces.Dataprovider.IBarDataProvider barChart)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe CombinedHighlighter (global::MikePhil.Charting.Interfaces.Dataprovider.ICombinedDataProvider chart, global::MikePhil.Charting.Interfaces.Dataprovider.IBarDataProvider barChart) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Lcom/github/mikephil/charting/interfaces/dataprovider/CombinedDataProvider;Lcom/github/mikephil/charting/interfaces/dataprovider/BarDataProvider;)V";
 
@@ -70,6 +75,8 @@ namespace MikePhil.Charting.Highlight {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (chart);
+				global::System.GC.KeepAlive (barChart);
 			}
 		}
 

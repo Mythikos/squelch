@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Renderer {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/renderer/YAxisRendererHorizontalBarChart", DoNotGenerateAcw=true)]
 	public partial class YAxisRendererHorizontalBarChart : global::MikePhil.Charting.Renderer.YAxisRenderer {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.renderer']/class[@name='YAxisRendererHorizontalBarChart']/field[@name='mDrawZeroLinePathBuffer']"
 		[Register ("mDrawZeroLinePathBuffer")]
 		protected global::Android.Graphics.Path MDrawZeroLinePathBuffer {
@@ -75,31 +73,38 @@ namespace MikePhil.Charting.Renderer {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/renderer/YAxisRendererHorizontalBarChart", typeof (YAxisRendererHorizontalBarChart));
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/YAxisRendererHorizontalBarChart", typeof (YAxisRendererHorizontalBarChart));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected YAxisRendererHorizontalBarChart (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected YAxisRendererHorizontalBarChart (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.renderer']/class[@name='YAxisRendererHorizontalBarChart']/constructor[@name='YAxisRendererHorizontalBarChart' and count(parameter)=3 and parameter[1][@type='com.github.mikephil.charting.utils.ViewPortHandler'] and parameter[2][@type='com.github.mikephil.charting.components.YAxis'] and parameter[3][@type='com.github.mikephil.charting.utils.Transformer']]"
 		[Register (".ctor", "(Lcom/github/mikephil/charting/utils/ViewPortHandler;Lcom/github/mikephil/charting/components/YAxis;Lcom/github/mikephil/charting/utils/Transformer;)V", "")]
-		public unsafe YAxisRendererHorizontalBarChart (global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler, global::MikePhil.Charting.Components.YAxis yAxis, global::MikePhil.Charting.Util.Transformer trans)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe YAxisRendererHorizontalBarChart (global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler, global::MikePhil.Charting.Components.YAxis yAxis, global::MikePhil.Charting.Util.Transformer trans) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Lcom/github/mikephil/charting/utils/ViewPortHandler;Lcom/github/mikephil/charting/components/YAxis;Lcom/github/mikephil/charting/utils/Transformer;)V";
 
@@ -115,6 +120,9 @@ namespace MikePhil.Charting.Renderer {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (viewPortHandler);
+				global::System.GC.KeepAlive (yAxis);
+				global::System.GC.KeepAlive (trans);
 			}
 		}
 

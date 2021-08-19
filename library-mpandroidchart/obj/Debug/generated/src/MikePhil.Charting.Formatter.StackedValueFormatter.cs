@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Formatter {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.formatter']/class[@name='StackedValueFormatter']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/formatter/StackedValueFormatter", DoNotGenerateAcw=true)]
 	public partial class StackedValueFormatter : global::Java.Lang.Object, global::MikePhil.Charting.Formatter.IValueFormatter {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/formatter/StackedValueFormatter", typeof (StackedValueFormatter));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/formatter/StackedValueFormatter", typeof (StackedValueFormatter));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected StackedValueFormatter (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected StackedValueFormatter (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.formatter']/class[@name='StackedValueFormatter']/constructor[@name='StackedValueFormatter' and count(parameter)=3 and parameter[1][@type='boolean'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='int']]"
 		[Register (".ctor", "(ZLjava/lang/String;I)V", "")]
-		public unsafe StackedValueFormatter (bool drawWholeStack, string appendix, int decimals)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe StackedValueFormatter (bool drawWholeStack, string appendix, int decimals) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(ZLjava/lang/String;I)V";
 
@@ -59,15 +64,15 @@ namespace MikePhil.Charting.Formatter {
 		static Delegate GetGetFormattedValue_FLcom_github_mikephil_charting_data_Entry_ILcom_github_mikephil_charting_utils_ViewPortHandler_Handler ()
 		{
 			if (cb_getFormattedValue_FLcom_github_mikephil_charting_data_Entry_ILcom_github_mikephil_charting_utils_ViewPortHandler_ == null)
-				cb_getFormattedValue_FLcom_github_mikephil_charting_data_Entry_ILcom_github_mikephil_charting_utils_ViewPortHandler_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float, IntPtr, int, IntPtr, IntPtr>) n_GetFormattedValue_FLcom_github_mikephil_charting_data_Entry_ILcom_github_mikephil_charting_utils_ViewPortHandler_);
+				cb_getFormattedValue_FLcom_github_mikephil_charting_data_Entry_ILcom_github_mikephil_charting_utils_ViewPortHandler_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFLIL_L) n_GetFormattedValue_FLcom_github_mikephil_charting_data_Entry_ILcom_github_mikephil_charting_utils_ViewPortHandler_);
 			return cb_getFormattedValue_FLcom_github_mikephil_charting_data_Entry_ILcom_github_mikephil_charting_utils_ViewPortHandler_;
 		}
 
 		static IntPtr n_GetFormattedValue_FLcom_github_mikephil_charting_data_Entry_ILcom_github_mikephil_charting_utils_ViewPortHandler_ (IntPtr jnienv, IntPtr native__this, float value, IntPtr native_entry, int dataSetIndex, IntPtr native_viewPortHandler)
 		{
-			global::MikePhil.Charting.Formatter.StackedValueFormatter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Formatter.StackedValueFormatter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Data.Entry entry = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (native_entry, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ViewPortHandler> (native_viewPortHandler, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Formatter.StackedValueFormatter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var entry = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (native_entry, JniHandleOwnership.DoNotTransfer);
+			var viewPortHandler = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ViewPortHandler> (native_viewPortHandler, JniHandleOwnership.DoNotTransfer);
 			IntPtr __ret = JNIEnv.NewString (__this.GetFormattedValue (value, entry, dataSetIndex, viewPortHandler));
 			return __ret;
 		}
@@ -87,6 +92,8 @@ namespace MikePhil.Charting.Formatter {
 				var __rm = _members.InstanceMethods.InvokeVirtualObjectMethod (__id, this, __args);
 				return JNIEnv.GetString (__rm.Handle, JniHandleOwnership.TransferLocalRef);
 			} finally {
+				global::System.GC.KeepAlive (entry);
+				global::System.GC.KeepAlive (viewPortHandler);
 			}
 		}
 

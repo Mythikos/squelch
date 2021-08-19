@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Jobs {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/jobs/ViewPortJob", DoNotGenerateAcw=true)]
 	public abstract partial class ViewPortJob : global::MikePhil.Charting.Util.ObjectPool.Poolable, global::Java.Lang.IRunnable {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.jobs']/class[@name='ViewPortJob']/field[@name='mTrans']"
 		[Register ("mTrans")]
 		protected global::MikePhil.Charting.Util.Transformer MTrans {
@@ -97,31 +95,38 @@ namespace MikePhil.Charting.Jobs {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/jobs/ViewPortJob", typeof (ViewPortJob));
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/jobs/ViewPortJob", typeof (ViewPortJob));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected ViewPortJob (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected ViewPortJob (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.jobs']/class[@name='ViewPortJob']/constructor[@name='ViewPortJob' and count(parameter)=5 and parameter[1][@type='com.github.mikephil.charting.utils.ViewPortHandler'] and parameter[2][@type='float'] and parameter[3][@type='float'] and parameter[4][@type='com.github.mikephil.charting.utils.Transformer'] and parameter[5][@type='android.view.View']]"
 		[Register (".ctor", "(Lcom/github/mikephil/charting/utils/ViewPortHandler;FFLcom/github/mikephil/charting/utils/Transformer;Landroid/view/View;)V", "")]
-		public unsafe ViewPortJob (global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler, float xValue, float yValue, global::MikePhil.Charting.Util.Transformer trans, global::Android.Views.View v)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe ViewPortJob (global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler, float xValue, float yValue, global::MikePhil.Charting.Util.Transformer trans, global::Android.Views.View v) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Lcom/github/mikephil/charting/utils/ViewPortHandler;FFLcom/github/mikephil/charting/utils/Transformer;Landroid/view/View;)V";
 
@@ -139,6 +144,9 @@ namespace MikePhil.Charting.Jobs {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (viewPortHandler);
+				global::System.GC.KeepAlive (trans);
+				global::System.GC.KeepAlive (v);
 			}
 		}
 
@@ -147,13 +155,13 @@ namespace MikePhil.Charting.Jobs {
 		static Delegate GetGetXValueHandler ()
 		{
 			if (cb_getXValue == null)
-				cb_getXValue = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetXValue);
+				cb_getXValue = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetXValue);
 			return cb_getXValue;
 		}
 
 		static float n_GetXValue (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Jobs.ViewPortJob __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.ViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.ViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.XValue;
 		}
 #pragma warning restore 0169
@@ -176,13 +184,13 @@ namespace MikePhil.Charting.Jobs {
 		static Delegate GetGetYValueHandler ()
 		{
 			if (cb_getYValue == null)
-				cb_getYValue = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetYValue);
+				cb_getYValue = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetYValue);
 			return cb_getYValue;
 		}
 
 		static float n_GetYValue (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Jobs.ViewPortJob __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.ViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.ViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.YValue;
 		}
 #pragma warning restore 0169
@@ -205,13 +213,13 @@ namespace MikePhil.Charting.Jobs {
 		static Delegate GetRunHandler ()
 		{
 			if (cb_run == null)
-				cb_run = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_Run);
+				cb_run = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_Run);
 			return cb_run;
 		}
 
 		static void n_Run (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Jobs.ViewPortJob __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.ViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.ViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.Run ();
 		}
 #pragma warning restore 0169
@@ -223,15 +231,20 @@ namespace MikePhil.Charting.Jobs {
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/jobs/ViewPortJob", DoNotGenerateAcw=true)]
 	internal partial class ViewPortJobInvoker : ViewPortJob {
+		public ViewPortJobInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer)
+		{
+		}
 
-		public ViewPortJobInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/jobs/ViewPortJob", typeof (ViewPortJobInvoker));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/jobs/ViewPortJob", typeof (ViewPortJobInvoker));
-
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
@@ -259,5 +272,4 @@ namespace MikePhil.Charting.Jobs {
 		}
 
 	}
-
 }

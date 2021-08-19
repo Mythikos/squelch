@@ -7,8 +7,7 @@ namespace MikePhil.Charting.Formatter {
 
 	// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.formatter']/interface[@name='IValueFormatter']"
 	[Register ("com/github/mikephil/charting/formatter/IValueFormatter", "", "MikePhil.Charting.Formatter.IValueFormatterInvoker")]
-	public partial interface IValueFormatter : IJavaObject {
-
+	public partial interface IValueFormatter : IJavaObject, IJavaPeerable {
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.formatter']/interface[@name='IValueFormatter']/method[@name='getFormattedValue' and count(parameter)=4 and parameter[1][@type='float'] and parameter[2][@type='com.github.mikephil.charting.data.Entry'] and parameter[3][@type='int'] and parameter[4][@type='com.github.mikephil.charting.utils.ViewPortHandler']]"
 		[Register ("getFormattedValue", "(FLcom/github/mikephil/charting/data/Entry;ILcom/github/mikephil/charting/utils/ViewPortHandler;)Ljava/lang/String;", "GetGetFormattedValue_FLcom_github_mikephil_charting_data_Entry_ILcom_github_mikephil_charting_utils_ViewPortHandler_Handler:MikePhil.Charting.Formatter.IValueFormatterInvoker, library-mpandroidchart")]
 		string GetFormattedValue (float p0, global::MikePhil.Charting.Data.Entry p1, int p2, global::MikePhil.Charting.Util.ViewPortHandler p3);
@@ -16,22 +15,27 @@ namespace MikePhil.Charting.Formatter {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/formatter/IValueFormatter", DoNotGenerateAcw=true)]
-	internal class IValueFormatterInvoker : global::Java.Lang.Object, IValueFormatter {
-
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/formatter/IValueFormatter", typeof (IValueFormatterInvoker));
+	internal partial class IValueFormatterInvoker : global::Java.Lang.Object, IValueFormatter {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/formatter/IValueFormatter", typeof (IValueFormatterInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return class_ref; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
@@ -46,8 +50,7 @@ namespace MikePhil.Charting.Formatter {
 		static IntPtr Validate (IntPtr handle)
 		{
 			if (!JNIEnv.IsInstanceOf (handle, java_class_ref))
-				throw new InvalidCastException (string.Format ("Unable to convert instance of type '{0}' to type '{1}'.",
-							JNIEnv.GetClassNameFromInstance (handle), "com.github.mikephil.charting.formatter.IValueFormatter"));
+				throw new InvalidCastException ($"Unable to convert instance of type '{JNIEnv.GetClassNameFromInstance (handle)}' to type 'com.github.mikephil.charting.formatter.IValueFormatter'.");
 			return handle;
 		}
 
@@ -71,15 +74,15 @@ namespace MikePhil.Charting.Formatter {
 		static Delegate GetGetFormattedValue_FLcom_github_mikephil_charting_data_Entry_ILcom_github_mikephil_charting_utils_ViewPortHandler_Handler ()
 		{
 			if (cb_getFormattedValue_FLcom_github_mikephil_charting_data_Entry_ILcom_github_mikephil_charting_utils_ViewPortHandler_ == null)
-				cb_getFormattedValue_FLcom_github_mikephil_charting_data_Entry_ILcom_github_mikephil_charting_utils_ViewPortHandler_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float, IntPtr, int, IntPtr, IntPtr>) n_GetFormattedValue_FLcom_github_mikephil_charting_data_Entry_ILcom_github_mikephil_charting_utils_ViewPortHandler_);
+				cb_getFormattedValue_FLcom_github_mikephil_charting_data_Entry_ILcom_github_mikephil_charting_utils_ViewPortHandler_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFLIL_L) n_GetFormattedValue_FLcom_github_mikephil_charting_data_Entry_ILcom_github_mikephil_charting_utils_ViewPortHandler_);
 			return cb_getFormattedValue_FLcom_github_mikephil_charting_data_Entry_ILcom_github_mikephil_charting_utils_ViewPortHandler_;
 		}
 
 		static IntPtr n_GetFormattedValue_FLcom_github_mikephil_charting_data_Entry_ILcom_github_mikephil_charting_utils_ViewPortHandler_ (IntPtr jnienv, IntPtr native__this, float p0, IntPtr native_p1, int p2, IntPtr native_p3)
 		{
-			global::MikePhil.Charting.Formatter.IValueFormatter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Formatter.IValueFormatter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Data.Entry p1 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (native_p1, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Util.ViewPortHandler p3 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ViewPortHandler> (native_p3, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Formatter.IValueFormatter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p1 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (native_p1, JniHandleOwnership.DoNotTransfer);
+			var p3 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ViewPortHandler> (native_p3, JniHandleOwnership.DoNotTransfer);
 			IntPtr __ret = JNIEnv.NewString (__this.GetFormattedValue (p0, p1, p2, p3));
 			return __ret;
 		}
@@ -95,10 +98,9 @@ namespace MikePhil.Charting.Formatter {
 			__args [1] = new JValue ((p1 == null) ? IntPtr.Zero : ((global::Java.Lang.Object) p1).Handle);
 			__args [2] = new JValue (p2);
 			__args [3] = new JValue ((p3 == null) ? IntPtr.Zero : ((global::Java.Lang.Object) p3).Handle);
-			string __ret = JNIEnv.GetString (JNIEnv.CallObjectMethod (((global::Java.Lang.Object) this).Handle, id_getFormattedValue_FLcom_github_mikephil_charting_data_Entry_ILcom_github_mikephil_charting_utils_ViewPortHandler_, __args), JniHandleOwnership.TransferLocalRef);
+			var __ret = JNIEnv.GetString (JNIEnv.CallObjectMethod (((global::Java.Lang.Object) this).Handle, id_getFormattedValue_FLcom_github_mikephil_charting_data_Entry_ILcom_github_mikephil_charting_utils_ViewPortHandler_, __args), JniHandleOwnership.TransferLocalRef);
 			return __ret;
 		}
 
 	}
-
 }

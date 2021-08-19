@@ -8,35 +8,40 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 	// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.datasets']/interface[@name='IBarDataSet']"
 	[Register ("com/github/mikephil/charting/interfaces/datasets/IBarDataSet", "", "MikePhil.Charting.Interfaces.Datasets.IBarDataSetInvoker")]
 	public partial interface IBarDataSet : global::MikePhil.Charting.Interfaces.Datasets.IBarLineScatterCandleBubbleDataSet {
-
 		int BarBorderColor {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.datasets']/interface[@name='IBarDataSet']/method[@name='getBarBorderColor' and count(parameter)=0]"
-			[Register ("getBarBorderColor", "()I", "GetGetBarBorderColorHandler:MikePhil.Charting.Interfaces.Datasets.IBarDataSetInvoker, library-mpandroidchart")] get;
+			[Register ("getBarBorderColor", "()I", "GetGetBarBorderColorHandler:MikePhil.Charting.Interfaces.Datasets.IBarDataSetInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		float BarBorderWidth {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.datasets']/interface[@name='IBarDataSet']/method[@name='getBarBorderWidth' and count(parameter)=0]"
-			[Register ("getBarBorderWidth", "()F", "GetGetBarBorderWidthHandler:MikePhil.Charting.Interfaces.Datasets.IBarDataSetInvoker, library-mpandroidchart")] get;
+			[Register ("getBarBorderWidth", "()F", "GetGetBarBorderWidthHandler:MikePhil.Charting.Interfaces.Datasets.IBarDataSetInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		int BarShadowColor {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.datasets']/interface[@name='IBarDataSet']/method[@name='getBarShadowColor' and count(parameter)=0]"
-			[Register ("getBarShadowColor", "()I", "GetGetBarShadowColorHandler:MikePhil.Charting.Interfaces.Datasets.IBarDataSetInvoker, library-mpandroidchart")] get;
+			[Register ("getBarShadowColor", "()I", "GetGetBarShadowColorHandler:MikePhil.Charting.Interfaces.Datasets.IBarDataSetInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		int HighLightAlpha {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.datasets']/interface[@name='IBarDataSet']/method[@name='getHighLightAlpha' and count(parameter)=0]"
-			[Register ("getHighLightAlpha", "()I", "GetGetHighLightAlphaHandler:MikePhil.Charting.Interfaces.Datasets.IBarDataSetInvoker, library-mpandroidchart")] get;
+			[Register ("getHighLightAlpha", "()I", "GetGetHighLightAlphaHandler:MikePhil.Charting.Interfaces.Datasets.IBarDataSetInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		bool IsStacked {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.datasets']/interface[@name='IBarDataSet']/method[@name='isStacked' and count(parameter)=0]"
-			[Register ("isStacked", "()Z", "GetIsStackedHandler:MikePhil.Charting.Interfaces.Datasets.IBarDataSetInvoker, library-mpandroidchart")] get;
+			[Register ("isStacked", "()Z", "GetIsStackedHandler:MikePhil.Charting.Interfaces.Datasets.IBarDataSetInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		int StackSize {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.datasets']/interface[@name='IBarDataSet']/method[@name='getStackSize' and count(parameter)=0]"
-			[Register ("getStackSize", "()I", "GetGetStackSizeHandler:MikePhil.Charting.Interfaces.Datasets.IBarDataSetInvoker, library-mpandroidchart")] get;
+			[Register ("getStackSize", "()I", "GetGetStackSizeHandler:MikePhil.Charting.Interfaces.Datasets.IBarDataSetInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.datasets']/interface[@name='IBarDataSet']/method[@name='getStackLabels' and count(parameter)=0]"
@@ -46,22 +51,27 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/interfaces/datasets/IBarDataSet", DoNotGenerateAcw=true)]
-	internal class IBarDataSetInvoker : global::Java.Lang.Object, IBarDataSet {
-
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/interfaces/datasets/IBarDataSet", typeof (IBarDataSetInvoker));
+	internal partial class IBarDataSetInvoker : global::Java.Lang.Object, IBarDataSet {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/interfaces/datasets/IBarDataSet", typeof (IBarDataSetInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return class_ref; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
@@ -76,8 +86,7 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static IntPtr Validate (IntPtr handle)
 		{
 			if (!JNIEnv.IsInstanceOf (handle, java_class_ref))
-				throw new InvalidCastException (string.Format ("Unable to convert instance of type '{0}' to type '{1}'.",
-							JNIEnv.GetClassNameFromInstance (handle), "com.github.mikephil.charting.interfaces.datasets.IBarDataSet"));
+				throw new InvalidCastException ($"Unable to convert instance of type '{JNIEnv.GetClassNameFromInstance (handle)}' to type 'com.github.mikephil.charting.interfaces.datasets.IBarDataSet'.");
 			return handle;
 		}
 
@@ -101,13 +110,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetBarBorderColorHandler ()
 		{
 			if (cb_getBarBorderColor == null)
-				cb_getBarBorderColor = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetBarBorderColor);
+				cb_getBarBorderColor = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetBarBorderColor);
 			return cb_getBarBorderColor;
 		}
 
 		static int n_GetBarBorderColor (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.BarBorderColor;
 		}
 #pragma warning restore 0169
@@ -126,13 +135,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetBarBorderWidthHandler ()
 		{
 			if (cb_getBarBorderWidth == null)
-				cb_getBarBorderWidth = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetBarBorderWidth);
+				cb_getBarBorderWidth = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetBarBorderWidth);
 			return cb_getBarBorderWidth;
 		}
 
 		static float n_GetBarBorderWidth (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.BarBorderWidth;
 		}
 #pragma warning restore 0169
@@ -151,13 +160,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetBarShadowColorHandler ()
 		{
 			if (cb_getBarShadowColor == null)
-				cb_getBarShadowColor = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetBarShadowColor);
+				cb_getBarShadowColor = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetBarShadowColor);
 			return cb_getBarShadowColor;
 		}
 
 		static int n_GetBarShadowColor (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.BarShadowColor;
 		}
 #pragma warning restore 0169
@@ -176,13 +185,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetHighLightAlphaHandler ()
 		{
 			if (cb_getHighLightAlpha == null)
-				cb_getHighLightAlpha = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetHighLightAlpha);
+				cb_getHighLightAlpha = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetHighLightAlpha);
 			return cb_getHighLightAlpha;
 		}
 
 		static int n_GetHighLightAlpha (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.HighLightAlpha;
 		}
 #pragma warning restore 0169
@@ -201,13 +210,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetIsStackedHandler ()
 		{
 			if (cb_isStacked == null)
-				cb_isStacked = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsStacked);
+				cb_isStacked = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsStacked);
 			return cb_isStacked;
 		}
 
 		static bool n_IsStacked (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.IsStacked;
 		}
 #pragma warning restore 0169
@@ -226,13 +235,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetStackSizeHandler ()
 		{
 			if (cb_getStackSize == null)
-				cb_getStackSize = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetStackSize);
+				cb_getStackSize = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetStackSize);
 			return cb_getStackSize;
 		}
 
 		static int n_GetStackSize (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.StackSize;
 		}
 #pragma warning restore 0169
@@ -251,13 +260,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetStackLabelsHandler ()
 		{
 			if (cb_getStackLabels == null)
-				cb_getStackLabels = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetStackLabels);
+				cb_getStackLabels = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetStackLabels);
 			return cb_getStackLabels;
 		}
 
 		static IntPtr n_GetStackLabels (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.NewArray (__this.GetStackLabels ());
 		}
 #pragma warning restore 0169
@@ -275,13 +284,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetHighLightColorHandler ()
 		{
 			if (cb_getHighLightColor == null)
-				cb_getHighLightColor = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetHighLightColor);
+				cb_getHighLightColor = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetHighLightColor);
 			return cb_getHighLightColor;
 		}
 
 		static int n_GetHighLightColor (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.HighLightColor;
 		}
 #pragma warning restore 0169
@@ -300,13 +309,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetAxisDependencyHandler ()
 		{
 			if (cb_getAxisDependency == null)
-				cb_getAxisDependency = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetAxisDependency);
+				cb_getAxisDependency = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetAxisDependency);
 			return cb_getAxisDependency;
 		}
 
 		static IntPtr n_GetAxisDependency (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.AxisDependency);
 		}
 #pragma warning restore 0169
@@ -316,14 +325,14 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetSetAxisDependency_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_Handler ()
 		{
 			if (cb_setAxisDependency_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_ == null)
-				cb_setAxisDependency_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetAxisDependency_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_);
+				cb_setAxisDependency_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetAxisDependency_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_);
 			return cb_setAxisDependency_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_;
 		}
 
 		static void n_SetAxisDependency_Lcom_github_mikephil_charting_components_YAxis_AxisDependency_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Components.YAxis.AxisDependency p0 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.YAxis.AxisDependency> (native_p0, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.YAxis.AxisDependency> (native_p0, JniHandleOwnership.DoNotTransfer);
 			__this.AxisDependency = p0;
 		}
 #pragma warning restore 0169
@@ -350,13 +359,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetColorHandler ()
 		{
 			if (cb_getColor == null)
-				cb_getColor = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetColor);
+				cb_getColor = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetColor);
 			return cb_getColor;
 		}
 
 		static int n_GetColor (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.Color;
 		}
 #pragma warning restore 0169
@@ -375,13 +384,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetColorsHandler ()
 		{
 			if (cb_getColors == null)
-				cb_getColors = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetColors);
+				cb_getColors = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetColors);
 			return cb_getColors;
 		}
 
 		static IntPtr n_GetColors (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return global::Android.Runtime.JavaList<global::Java.Lang.Integer>.ToLocalJniHandle (__this.Colors);
 		}
 #pragma warning restore 0169
@@ -400,13 +409,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetEntryCountHandler ()
 		{
 			if (cb_getEntryCount == null)
-				cb_getEntryCount = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetEntryCount);
+				cb_getEntryCount = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetEntryCount);
 			return cb_getEntryCount;
 		}
 
 		static int n_GetEntryCount (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.EntryCount;
 		}
 #pragma warning restore 0169
@@ -425,13 +434,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetFormHandler ()
 		{
 			if (cb_getForm == null)
-				cb_getForm = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetForm);
+				cb_getForm = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetForm);
 			return cb_getForm;
 		}
 
 		static IntPtr n_GetForm (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Form);
 		}
 #pragma warning restore 0169
@@ -450,13 +459,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetFormLineDashEffectHandler ()
 		{
 			if (cb_getFormLineDashEffect == null)
-				cb_getFormLineDashEffect = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetFormLineDashEffect);
+				cb_getFormLineDashEffect = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetFormLineDashEffect);
 			return cb_getFormLineDashEffect;
 		}
 
 		static IntPtr n_GetFormLineDashEffect (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.FormLineDashEffect);
 		}
 #pragma warning restore 0169
@@ -475,13 +484,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetFormLineWidthHandler ()
 		{
 			if (cb_getFormLineWidth == null)
-				cb_getFormLineWidth = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetFormLineWidth);
+				cb_getFormLineWidth = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetFormLineWidth);
 			return cb_getFormLineWidth;
 		}
 
 		static float n_GetFormLineWidth (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.FormLineWidth;
 		}
 #pragma warning restore 0169
@@ -500,13 +509,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetFormSizeHandler ()
 		{
 			if (cb_getFormSize == null)
-				cb_getFormSize = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetFormSize);
+				cb_getFormSize = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetFormSize);
 			return cb_getFormSize;
 		}
 
 		static float n_GetFormSize (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.FormSize;
 		}
 #pragma warning restore 0169
@@ -525,13 +534,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetGradientColorHandler ()
 		{
 			if (cb_getGradientColor == null)
-				cb_getGradientColor = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetGradientColor);
+				cb_getGradientColor = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetGradientColor);
 			return cb_getGradientColor;
 		}
 
 		static IntPtr n_GetGradientColor (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.GradientColor);
 		}
 #pragma warning restore 0169
@@ -550,13 +559,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetGradientColorsHandler ()
 		{
 			if (cb_getGradientColors == null)
-				cb_getGradientColors = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetGradientColors);
+				cb_getGradientColors = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetGradientColors);
 			return cb_getGradientColors;
 		}
 
 		static IntPtr n_GetGradientColors (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return global::Android.Runtime.JavaList<global::MikePhil.Charting.Model.GradientColor>.ToLocalJniHandle (__this.GradientColors);
 		}
 #pragma warning restore 0169
@@ -575,13 +584,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetIsHighlightEnabledHandler ()
 		{
 			if (cb_isHighlightEnabled == null)
-				cb_isHighlightEnabled = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsHighlightEnabled);
+				cb_isHighlightEnabled = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsHighlightEnabled);
 			return cb_isHighlightEnabled;
 		}
 
 		static bool n_IsHighlightEnabled (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.HighlightEnabled;
 		}
 #pragma warning restore 0169
@@ -591,13 +600,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetSetHighlightEnabled_ZHandler ()
 		{
 			if (cb_setHighlightEnabled_Z == null)
-				cb_setHighlightEnabled_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetHighlightEnabled_Z);
+				cb_setHighlightEnabled_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetHighlightEnabled_Z);
 			return cb_setHighlightEnabled_Z;
 		}
 
 		static void n_SetHighlightEnabled_Z (IntPtr jnienv, IntPtr native__this, bool p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.HighlightEnabled = p0;
 		}
 #pragma warning restore 0169
@@ -624,13 +633,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetIconsOffsetHandler ()
 		{
 			if (cb_getIconsOffset == null)
-				cb_getIconsOffset = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetIconsOffset);
+				cb_getIconsOffset = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetIconsOffset);
 			return cb_getIconsOffset;
 		}
 
 		static IntPtr n_GetIconsOffset (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.IconsOffset);
 		}
 #pragma warning restore 0169
@@ -640,14 +649,14 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetSetIconsOffset_Lcom_github_mikephil_charting_utils_MPPointF_Handler ()
 		{
 			if (cb_setIconsOffset_Lcom_github_mikephil_charting_utils_MPPointF_ == null)
-				cb_setIconsOffset_Lcom_github_mikephil_charting_utils_MPPointF_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetIconsOffset_Lcom_github_mikephil_charting_utils_MPPointF_);
+				cb_setIconsOffset_Lcom_github_mikephil_charting_utils_MPPointF_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetIconsOffset_Lcom_github_mikephil_charting_utils_MPPointF_);
 			return cb_setIconsOffset_Lcom_github_mikephil_charting_utils_MPPointF_;
 		}
 
 		static void n_SetIconsOffset_Lcom_github_mikephil_charting_utils_MPPointF_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Util.MPPointF p0 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.MPPointF> (native_p0, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.MPPointF> (native_p0, JniHandleOwnership.DoNotTransfer);
 			__this.IconsOffset = p0;
 		}
 #pragma warning restore 0169
@@ -674,13 +683,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetIsDrawIconsEnabledHandler ()
 		{
 			if (cb_isDrawIconsEnabled == null)
-				cb_isDrawIconsEnabled = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsDrawIconsEnabled);
+				cb_isDrawIconsEnabled = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsDrawIconsEnabled);
 			return cb_isDrawIconsEnabled;
 		}
 
 		static bool n_IsDrawIconsEnabled (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.IsDrawIconsEnabled;
 		}
 #pragma warning restore 0169
@@ -699,13 +708,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetIsDrawValuesEnabledHandler ()
 		{
 			if (cb_isDrawValuesEnabled == null)
-				cb_isDrawValuesEnabled = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsDrawValuesEnabled);
+				cb_isDrawValuesEnabled = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsDrawValuesEnabled);
 			return cb_isDrawValuesEnabled;
 		}
 
 		static bool n_IsDrawValuesEnabled (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.IsDrawValuesEnabled;
 		}
 #pragma warning restore 0169
@@ -724,13 +733,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetLabelHandler ()
 		{
 			if (cb_getLabel == null)
-				cb_getLabel = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetLabel);
+				cb_getLabel = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetLabel);
 			return cb_getLabel;
 		}
 
 		static IntPtr n_GetLabel (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.NewString (__this.Label);
 		}
 #pragma warning restore 0169
@@ -740,14 +749,14 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetSetLabel_Ljava_lang_String_Handler ()
 		{
 			if (cb_setLabel_Ljava_lang_String_ == null)
-				cb_setLabel_Ljava_lang_String_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetLabel_Ljava_lang_String_);
+				cb_setLabel_Ljava_lang_String_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetLabel_Ljava_lang_String_);
 			return cb_setLabel_Ljava_lang_String_;
 		}
 
 		static void n_SetLabel_Ljava_lang_String_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			string p0 = JNIEnv.GetString (native_p0, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = JNIEnv.GetString (native_p0, JniHandleOwnership.DoNotTransfer);
 			__this.Label = p0;
 		}
 #pragma warning restore 0169
@@ -776,13 +785,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetValueFormatterHandler ()
 		{
 			if (cb_getValueFormatter == null)
-				cb_getValueFormatter = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetValueFormatter);
+				cb_getValueFormatter = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetValueFormatter);
 			return cb_getValueFormatter;
 		}
 
 		static IntPtr n_GetValueFormatter (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.ValueFormatter);
 		}
 #pragma warning restore 0169
@@ -792,14 +801,14 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetSetValueFormatter_Lcom_github_mikephil_charting_formatter_IValueFormatter_Handler ()
 		{
 			if (cb_setValueFormatter_Lcom_github_mikephil_charting_formatter_IValueFormatter_ == null)
-				cb_setValueFormatter_Lcom_github_mikephil_charting_formatter_IValueFormatter_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetValueFormatter_Lcom_github_mikephil_charting_formatter_IValueFormatter_);
+				cb_setValueFormatter_Lcom_github_mikephil_charting_formatter_IValueFormatter_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetValueFormatter_Lcom_github_mikephil_charting_formatter_IValueFormatter_);
 			return cb_setValueFormatter_Lcom_github_mikephil_charting_formatter_IValueFormatter_;
 		}
 
 		static void n_SetValueFormatter_Lcom_github_mikephil_charting_formatter_IValueFormatter_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Formatter.IValueFormatter p0 = (global::MikePhil.Charting.Formatter.IValueFormatter)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Formatter.IValueFormatter> (native_p0, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = (global::MikePhil.Charting.Formatter.IValueFormatter)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Formatter.IValueFormatter> (native_p0, JniHandleOwnership.DoNotTransfer);
 			__this.ValueFormatter = p0;
 		}
 #pragma warning restore 0169
@@ -826,13 +835,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetValueTextColorHandler ()
 		{
 			if (cb_getValueTextColor == null)
-				cb_getValueTextColor = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetValueTextColor);
+				cb_getValueTextColor = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetValueTextColor);
 			return cb_getValueTextColor;
 		}
 
 		static int n_GetValueTextColor (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.ValueTextColor;
 		}
 #pragma warning restore 0169
@@ -842,13 +851,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetSetValueTextColor_IHandler ()
 		{
 			if (cb_setValueTextColor_I == null)
-				cb_setValueTextColor_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int>) n_SetValueTextColor_I);
+				cb_setValueTextColor_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_V) n_SetValueTextColor_I);
 			return cb_setValueTextColor_I;
 		}
 
 		static void n_SetValueTextColor_I (IntPtr jnienv, IntPtr native__this, int p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.ValueTextColor = p0;
 		}
 #pragma warning restore 0169
@@ -875,13 +884,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetValueTextSizeHandler ()
 		{
 			if (cb_getValueTextSize == null)
-				cb_getValueTextSize = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetValueTextSize);
+				cb_getValueTextSize = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetValueTextSize);
 			return cb_getValueTextSize;
 		}
 
 		static float n_GetValueTextSize (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.ValueTextSize;
 		}
 #pragma warning restore 0169
@@ -891,13 +900,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetSetValueTextSize_FHandler ()
 		{
 			if (cb_setValueTextSize_F == null)
-				cb_setValueTextSize_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetValueTextSize_F);
+				cb_setValueTextSize_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetValueTextSize_F);
 			return cb_setValueTextSize_F;
 		}
 
 		static void n_SetValueTextSize_F (IntPtr jnienv, IntPtr native__this, float p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.ValueTextSize = p0;
 		}
 #pragma warning restore 0169
@@ -924,13 +933,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetValueTypefaceHandler ()
 		{
 			if (cb_getValueTypeface == null)
-				cb_getValueTypeface = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetValueTypeface);
+				cb_getValueTypeface = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetValueTypeface);
 			return cb_getValueTypeface;
 		}
 
 		static IntPtr n_GetValueTypeface (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.ValueTypeface);
 		}
 #pragma warning restore 0169
@@ -940,14 +949,14 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetSetValueTypeface_Landroid_graphics_Typeface_Handler ()
 		{
 			if (cb_setValueTypeface_Landroid_graphics_Typeface_ == null)
-				cb_setValueTypeface_Landroid_graphics_Typeface_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetValueTypeface_Landroid_graphics_Typeface_);
+				cb_setValueTypeface_Landroid_graphics_Typeface_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetValueTypeface_Landroid_graphics_Typeface_);
 			return cb_setValueTypeface_Landroid_graphics_Typeface_;
 		}
 
 		static void n_SetValueTypeface_Landroid_graphics_Typeface_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Typeface p0 = global::Java.Lang.Object.GetObject<global::Android.Graphics.Typeface> (native_p0, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = global::Java.Lang.Object.GetObject<global::Android.Graphics.Typeface> (native_p0, JniHandleOwnership.DoNotTransfer);
 			__this.ValueTypeface = p0;
 		}
 #pragma warning restore 0169
@@ -974,13 +983,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetIsVisibleHandler ()
 		{
 			if (cb_isVisible == null)
-				cb_isVisible = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsVisible);
+				cb_isVisible = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsVisible);
 			return cb_isVisible;
 		}
 
 		static bool n_IsVisible (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.Visible;
 		}
 #pragma warning restore 0169
@@ -990,13 +999,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetSetVisible_ZHandler ()
 		{
 			if (cb_setVisible_Z == null)
-				cb_setVisible_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetVisible_Z);
+				cb_setVisible_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetVisible_Z);
 			return cb_setVisible_Z;
 		}
 
 		static void n_SetVisible_Z (IntPtr jnienv, IntPtr native__this, bool p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.Visible = p0;
 		}
 #pragma warning restore 0169
@@ -1023,13 +1032,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetXMaxHandler ()
 		{
 			if (cb_getXMax == null)
-				cb_getXMax = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetXMax);
+				cb_getXMax = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetXMax);
 			return cb_getXMax;
 		}
 
 		static float n_GetXMax (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.XMax;
 		}
 #pragma warning restore 0169
@@ -1048,13 +1057,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetXMinHandler ()
 		{
 			if (cb_getXMin == null)
-				cb_getXMin = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetXMin);
+				cb_getXMin = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetXMin);
 			return cb_getXMin;
 		}
 
 		static float n_GetXMin (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.XMin;
 		}
 #pragma warning restore 0169
@@ -1073,13 +1082,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetYMaxHandler ()
 		{
 			if (cb_getYMax == null)
-				cb_getYMax = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetYMax);
+				cb_getYMax = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetYMax);
 			return cb_getYMax;
 		}
 
 		static float n_GetYMax (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.YMax;
 		}
 #pragma warning restore 0169
@@ -1098,13 +1107,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetYMinHandler ()
 		{
 			if (cb_getYMin == null)
-				cb_getYMin = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetYMin);
+				cb_getYMin = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetYMin);
 			return cb_getYMin;
 		}
 
 		static float n_GetYMin (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.YMin;
 		}
 #pragma warning restore 0169
@@ -1123,13 +1132,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetCalcMinMaxHandler ()
 		{
 			if (cb_calcMinMax == null)
-				cb_calcMinMax = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_CalcMinMax);
+				cb_calcMinMax = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_CalcMinMax);
 			return cb_calcMinMax;
 		}
 
 		static void n_CalcMinMax (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.CalcMinMax ();
 		}
 #pragma warning restore 0169
@@ -1147,13 +1156,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetCalcMinMaxY_FFHandler ()
 		{
 			if (cb_calcMinMaxY_FF == null)
-				cb_calcMinMaxY_FF = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float, float>) n_CalcMinMaxY_FF);
+				cb_calcMinMaxY_FF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFF_V) n_CalcMinMaxY_FF);
 			return cb_calcMinMaxY_FF;
 		}
 
 		static void n_CalcMinMaxY_FF (IntPtr jnienv, IntPtr native__this, float p0, float p1)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.CalcMinMaxY (p0, p1);
 		}
 #pragma warning restore 0169
@@ -1174,13 +1183,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetClearHandler ()
 		{
 			if (cb_clear == null)
-				cb_clear = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_Clear);
+				cb_clear = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_Clear);
 			return cb_clear;
 		}
 
 		static void n_Clear (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.Clear ();
 		}
 #pragma warning restore 0169
@@ -1198,14 +1207,14 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetContains_Lcom_github_mikephil_charting_data_Entry_Handler ()
 		{
 			if (cb_contains_Lcom_github_mikephil_charting_data_Entry_ == null)
-				cb_contains_Lcom_github_mikephil_charting_data_Entry_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, bool>) n_Contains_Lcom_github_mikephil_charting_data_Entry_);
+				cb_contains_Lcom_github_mikephil_charting_data_Entry_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_Z) n_Contains_Lcom_github_mikephil_charting_data_Entry_);
 			return cb_contains_Lcom_github_mikephil_charting_data_Entry_;
 		}
 
 		static bool n_Contains_Lcom_github_mikephil_charting_data_Entry_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Java.Lang.Object p0 = global::Java.Lang.Object.GetObject<global::Java.Lang.Object> (native_p0, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = global::Java.Lang.Object.GetObject<global::Java.Lang.Object> (native_p0, JniHandleOwnership.DoNotTransfer);
 			bool __ret = __this.Contains (p0);
 			return __ret;
 		}
@@ -1219,7 +1228,7 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 			IntPtr native_p0 = JNIEnv.ToLocalJniHandle (p0);
 			JValue* __args = stackalloc JValue [1];
 			__args [0] = new JValue (native_p0);
-			bool __ret = JNIEnv.CallBooleanMethod (((global::Java.Lang.Object) this).Handle, id_contains_Lcom_github_mikephil_charting_data_Entry_, __args);
+			var __ret = JNIEnv.CallBooleanMethod (((global::Java.Lang.Object) this).Handle, id_contains_Lcom_github_mikephil_charting_data_Entry_, __args);
 			JNIEnv.DeleteLocalRef (native_p0);
 			return __ret;
 		}
@@ -1229,13 +1238,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetColor_IHandler ()
 		{
 			if (cb_getColor_I == null)
-				cb_getColor_I = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int, int>) n_GetColor_I);
+				cb_getColor_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_I) n_GetColor_I);
 			return cb_getColor_I;
 		}
 
 		static int n_GetColor_I (IntPtr jnienv, IntPtr native__this, int p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.GetColor (p0);
 		}
 #pragma warning restore 0169
@@ -1255,13 +1264,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetEntriesForXValue_FHandler ()
 		{
 			if (cb_getEntriesForXValue_F == null)
-				cb_getEntriesForXValue_F = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float, IntPtr>) n_GetEntriesForXValue_F);
+				cb_getEntriesForXValue_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_L) n_GetEntriesForXValue_F);
 			return cb_getEntriesForXValue_F;
 		}
 
 		static IntPtr n_GetEntriesForXValue_F (IntPtr jnienv, IntPtr native__this, float p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return global::Android.Runtime.JavaList.ToLocalJniHandle (__this.GetEntriesForXValue (p0));
 		}
 #pragma warning restore 0169
@@ -1281,14 +1290,14 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetEntryIndex_FFLcom_github_mikephil_charting_data_DataSet_Rounding_Handler ()
 		{
 			if (cb_getEntryIndex_FFLcom_github_mikephil_charting_data_DataSet_Rounding_ == null)
-				cb_getEntryIndex_FFLcom_github_mikephil_charting_data_DataSet_Rounding_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float, float, IntPtr, int>) n_GetEntryIndex_FFLcom_github_mikephil_charting_data_DataSet_Rounding_);
+				cb_getEntryIndex_FFLcom_github_mikephil_charting_data_DataSet_Rounding_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFFL_I) n_GetEntryIndex_FFLcom_github_mikephil_charting_data_DataSet_Rounding_);
 			return cb_getEntryIndex_FFLcom_github_mikephil_charting_data_DataSet_Rounding_;
 		}
 
 		static int n_GetEntryIndex_FFLcom_github_mikephil_charting_data_DataSet_Rounding_ (IntPtr jnienv, IntPtr native__this, float p0, float p1, IntPtr native_p2)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Data.DataSet.Rounding p2 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.DataSet.Rounding> (native_p2, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p2 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.DataSet.Rounding> (native_p2, JniHandleOwnership.DoNotTransfer);
 			int __ret = __this.GetEntryIndex (p0, p1, p2);
 			return __ret;
 		}
@@ -1303,7 +1312,7 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 			__args [0] = new JValue (p0);
 			__args [1] = new JValue (p1);
 			__args [2] = new JValue ((p2 == null) ? IntPtr.Zero : ((global::Java.Lang.Object) p2).Handle);
-			int __ret = JNIEnv.CallIntMethod (((global::Java.Lang.Object) this).Handle, id_getEntryIndex_FFLcom_github_mikephil_charting_data_DataSet_Rounding_, __args);
+			var __ret = JNIEnv.CallIntMethod (((global::Java.Lang.Object) this).Handle, id_getEntryIndex_FFLcom_github_mikephil_charting_data_DataSet_Rounding_, __args);
 			return __ret;
 		}
 
@@ -1312,13 +1321,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetGradientColor_IHandler ()
 		{
 			if (cb_getGradientColor_I == null)
-				cb_getGradientColor_I = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int, IntPtr>) n_GetGradientColor_I);
+				cb_getGradientColor_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_L) n_GetGradientColor_I);
 			return cb_getGradientColor_I;
 		}
 
 		static IntPtr n_GetGradientColor_I (IntPtr jnienv, IntPtr native__this, int p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.GetGradientColor (p0));
 		}
 #pragma warning restore 0169
@@ -1338,13 +1347,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetIndexInEntries_IHandler ()
 		{
 			if (cb_getIndexInEntries_I == null)
-				cb_getIndexInEntries_I = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int, int>) n_GetIndexInEntries_I);
+				cb_getIndexInEntries_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_I) n_GetIndexInEntries_I);
 			return cb_getIndexInEntries_I;
 		}
 
 		static int n_GetIndexInEntries_I (IntPtr jnienv, IntPtr native__this, int p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.GetIndexInEntries (p0);
 		}
 #pragma warning restore 0169
@@ -1364,13 +1373,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetGetValueTextColor_IHandler ()
 		{
 			if (cb_getValueTextColor_I == null)
-				cb_getValueTextColor_I = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int, int>) n_GetValueTextColor_I);
+				cb_getValueTextColor_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_I) n_GetValueTextColor_I);
 			return cb_getValueTextColor_I;
 		}
 
 		static int n_GetValueTextColor_I (IntPtr jnienv, IntPtr native__this, int p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.GetValueTextColor (p0);
 		}
 #pragma warning restore 0169
@@ -1390,13 +1399,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetNeedsFormatterHandler ()
 		{
 			if (cb_needsFormatter == null)
-				cb_needsFormatter = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_NeedsFormatter);
+				cb_needsFormatter = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_NeedsFormatter);
 			return cb_needsFormatter;
 		}
 
 		static bool n_NeedsFormatter (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.NeedsFormatter ();
 		}
 #pragma warning restore 0169
@@ -1414,13 +1423,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetRemoveEntry_IHandler ()
 		{
 			if (cb_removeEntry_I == null)
-				cb_removeEntry_I = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int, bool>) n_RemoveEntry_I);
+				cb_removeEntry_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_Z) n_RemoveEntry_I);
 			return cb_removeEntry_I;
 		}
 
 		static bool n_RemoveEntry_I (IntPtr jnienv, IntPtr native__this, int p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.RemoveEntry (p0);
 		}
 #pragma warning restore 0169
@@ -1440,13 +1449,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetRemoveEntryByXValue_FHandler ()
 		{
 			if (cb_removeEntryByXValue_F == null)
-				cb_removeEntryByXValue_F = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float, bool>) n_RemoveEntryByXValue_F);
+				cb_removeEntryByXValue_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_Z) n_RemoveEntryByXValue_F);
 			return cb_removeEntryByXValue_F;
 		}
 
 		static bool n_RemoveEntryByXValue_F (IntPtr jnienv, IntPtr native__this, float p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.RemoveEntryByXValue (p0);
 		}
 #pragma warning restore 0169
@@ -1466,13 +1475,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetRemoveFirstHandler ()
 		{
 			if (cb_removeFirst == null)
-				cb_removeFirst = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_RemoveFirst);
+				cb_removeFirst = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_RemoveFirst);
 			return cb_removeFirst;
 		}
 
 		static bool n_RemoveFirst (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.RemoveFirst ();
 		}
 #pragma warning restore 0169
@@ -1490,13 +1499,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetRemoveLastHandler ()
 		{
 			if (cb_removeLast == null)
-				cb_removeLast = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_RemoveLast);
+				cb_removeLast = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_RemoveLast);
 			return cb_removeLast;
 		}
 
 		static bool n_RemoveLast (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.RemoveLast ();
 		}
 #pragma warning restore 0169
@@ -1514,13 +1523,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetSetDrawIcons_ZHandler ()
 		{
 			if (cb_setDrawIcons_Z == null)
-				cb_setDrawIcons_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetDrawIcons_Z);
+				cb_setDrawIcons_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetDrawIcons_Z);
 			return cb_setDrawIcons_Z;
 		}
 
 		static void n_SetDrawIcons_Z (IntPtr jnienv, IntPtr native__this, bool p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetDrawIcons (p0);
 		}
 #pragma warning restore 0169
@@ -1540,13 +1549,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetSetDrawValues_ZHandler ()
 		{
 			if (cb_setDrawValues_Z == null)
-				cb_setDrawValues_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetDrawValues_Z);
+				cb_setDrawValues_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetDrawValues_Z);
 			return cb_setDrawValues_Z;
 		}
 
 		static void n_SetDrawValues_Z (IntPtr jnienv, IntPtr native__this, bool p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetDrawValues (p0);
 		}
 #pragma warning restore 0169
@@ -1566,13 +1575,13 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		static Delegate GetSetValueTextColors_Ljava_util_List_Handler ()
 		{
 			if (cb_setValueTextColors_Ljava_util_List_ == null)
-				cb_setValueTextColors_Ljava_util_List_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetValueTextColors_Ljava_util_List_);
+				cb_setValueTextColors_Ljava_util_List_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetValueTextColors_Ljava_util_List_);
 			return cb_setValueTextColors_Ljava_util_List_;
 		}
 
 		static void n_SetValueTextColors_Ljava_util_List_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0)
 		{
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			var p0 = global::Android.Runtime.JavaList<global::Java.Lang.Integer>.FromJniHandle (native_p0, JniHandleOwnership.DoNotTransfer);
 			__this.SetValueTextColors (p0);
 		}
@@ -1591,5 +1600,4 @@ namespace MikePhil.Charting.Interfaces.Datasets {
 		}
 
 	}
-
 }

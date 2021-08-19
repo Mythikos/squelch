@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Highlight {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/highlight/Range", DoNotGenerateAcw=true)]
 	public sealed partial class Range : global::Java.Lang.Object {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.highlight']/class[@name='Range']/field[@name='from']"
 		[Register ("from")]
 		public float From {
@@ -49,31 +47,38 @@ namespace MikePhil.Charting.Highlight {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/highlight/Range", typeof (Range));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/highlight/Range", typeof (Range));
+
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		internal Range (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		internal Range (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.highlight']/class[@name='Range']/constructor[@name='Range' and count(parameter)=2 and parameter[1][@type='float'] and parameter[2][@type='float']]"
 		[Register (".ctor", "(FF)V", "")]
-		public unsafe Range (float from, float to)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Range (float from, float to) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(FF)V";
 

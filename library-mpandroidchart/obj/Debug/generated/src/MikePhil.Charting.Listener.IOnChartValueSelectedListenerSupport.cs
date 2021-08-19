@@ -7,8 +7,7 @@ namespace MikePhil.Charting.Listener {
 
 	// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.listener']/interface[@name='OnChartValueSelectedListener']"
 	[Register ("com/github/mikephil/charting/listener/OnChartValueSelectedListener", "", "MikePhil.Charting.Listener.IOnChartValueSelectedListenerSupportInvoker")]
-	public partial interface IOnChartValueSelectedListenerSupport : IJavaObject {
-
+	public partial interface IOnChartValueSelectedListenerSupport : IJavaObject, IJavaPeerable {
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.listener']/interface[@name='OnChartValueSelectedListener']/method[@name='onNothingSelected' and count(parameter)=0]"
 		[Register ("onNothingSelected", "()V", "GetOnNothingSelectedHandler:MikePhil.Charting.Listener.IOnChartValueSelectedListenerSupportInvoker, library-mpandroidchart")]
 		void OnNothingSelected ();
@@ -20,22 +19,27 @@ namespace MikePhil.Charting.Listener {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/listener/OnChartValueSelectedListener", DoNotGenerateAcw=true)]
-	internal class IOnChartValueSelectedListenerSupportInvoker : global::Java.Lang.Object, IOnChartValueSelectedListenerSupport {
-
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/listener/OnChartValueSelectedListener", typeof (IOnChartValueSelectedListenerSupportInvoker));
+	internal partial class IOnChartValueSelectedListenerSupportInvoker : global::Java.Lang.Object, IOnChartValueSelectedListenerSupport {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/listener/OnChartValueSelectedListener", typeof (IOnChartValueSelectedListenerSupportInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return class_ref; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
@@ -50,8 +54,7 @@ namespace MikePhil.Charting.Listener {
 		static IntPtr Validate (IntPtr handle)
 		{
 			if (!JNIEnv.IsInstanceOf (handle, java_class_ref))
-				throw new InvalidCastException (string.Format ("Unable to convert instance of type '{0}' to type '{1}'.",
-							JNIEnv.GetClassNameFromInstance (handle), "com.github.mikephil.charting.listener.OnChartValueSelectedListener"));
+				throw new InvalidCastException ($"Unable to convert instance of type '{JNIEnv.GetClassNameFromInstance (handle)}' to type 'com.github.mikephil.charting.listener.OnChartValueSelectedListener'.");
 			return handle;
 		}
 
@@ -75,13 +78,13 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetOnNothingSelectedHandler ()
 		{
 			if (cb_onNothingSelected == null)
-				cb_onNothingSelected = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_OnNothingSelected);
+				cb_onNothingSelected = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_OnNothingSelected);
 			return cb_onNothingSelected;
 		}
 
 		static void n_OnNothingSelected (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Listener.IOnChartValueSelectedListenerSupport __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartValueSelectedListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartValueSelectedListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.OnNothingSelected ();
 		}
 #pragma warning restore 0169
@@ -99,15 +102,15 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetOnValueSelected_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_highlight_Highlight_Handler ()
 		{
 			if (cb_onValueSelected_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_highlight_Highlight_ == null)
-				cb_onValueSelected_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_highlight_Highlight_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, IntPtr>) n_OnValueSelected_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_highlight_Highlight_);
+				cb_onValueSelected_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_highlight_Highlight_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLL_V) n_OnValueSelected_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_highlight_Highlight_);
 			return cb_onValueSelected_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_highlight_Highlight_;
 		}
 
 		static void n_OnValueSelected_Lcom_github_mikephil_charting_data_Entry_Lcom_github_mikephil_charting_highlight_Highlight_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0, IntPtr native_p1)
 		{
-			global::MikePhil.Charting.Listener.IOnChartValueSelectedListenerSupport __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartValueSelectedListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Data.Entry p0 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (native_p0, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Highlight.Highlight p1 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (native_p1, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartValueSelectedListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (native_p0, JniHandleOwnership.DoNotTransfer);
+			var p1 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (native_p1, JniHandleOwnership.DoNotTransfer);
 			__this.OnValueSelected (p0, p1);
 		}
 #pragma warning restore 0169
@@ -124,5 +127,4 @@ namespace MikePhil.Charting.Listener {
 		}
 
 	}
-
 }

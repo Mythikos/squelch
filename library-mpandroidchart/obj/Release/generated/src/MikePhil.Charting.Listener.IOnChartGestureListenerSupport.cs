@@ -7,8 +7,7 @@ namespace MikePhil.Charting.Listener {
 
 	// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.listener']/interface[@name='OnChartGestureListener']"
 	[Register ("com/github/mikephil/charting/listener/OnChartGestureListener", "", "MikePhil.Charting.Listener.IOnChartGestureListenerSupportInvoker")]
-	public partial interface IOnChartGestureListenerSupport : IJavaObject {
-
+	public partial interface IOnChartGestureListenerSupport : IJavaObject, IJavaPeerable {
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.listener']/interface[@name='OnChartGestureListener']/method[@name='onChartDoubleTapped' and count(parameter)=1 and parameter[1][@type='android.view.MotionEvent']]"
 		[Register ("onChartDoubleTapped", "(Landroid/view/MotionEvent;)V", "GetOnChartDoubleTapped_Landroid_view_MotionEvent_Handler:MikePhil.Charting.Listener.IOnChartGestureListenerSupportInvoker, library-mpandroidchart")]
 		void OnChartDoubleTapped (global::Android.Views.MotionEvent p0);
@@ -44,22 +43,27 @@ namespace MikePhil.Charting.Listener {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/listener/OnChartGestureListener", DoNotGenerateAcw=true)]
-	internal class IOnChartGestureListenerSupportInvoker : global::Java.Lang.Object, IOnChartGestureListenerSupport {
-
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/listener/OnChartGestureListener", typeof (IOnChartGestureListenerSupportInvoker));
+	internal partial class IOnChartGestureListenerSupportInvoker : global::Java.Lang.Object, IOnChartGestureListenerSupport {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/listener/OnChartGestureListener", typeof (IOnChartGestureListenerSupportInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return class_ref; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
@@ -74,8 +78,7 @@ namespace MikePhil.Charting.Listener {
 		static IntPtr Validate (IntPtr handle)
 		{
 			if (!JNIEnv.IsInstanceOf (handle, java_class_ref))
-				throw new InvalidCastException (string.Format ("Unable to convert instance of type '{0}' to type '{1}'.",
-							JNIEnv.GetClassNameFromInstance (handle), "com.github.mikephil.charting.listener.OnChartGestureListener"));
+				throw new InvalidCastException ($"Unable to convert instance of type '{JNIEnv.GetClassNameFromInstance (handle)}' to type 'com.github.mikephil.charting.listener.OnChartGestureListener'.");
 			return handle;
 		}
 
@@ -99,14 +102,14 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetOnChartDoubleTapped_Landroid_view_MotionEvent_Handler ()
 		{
 			if (cb_onChartDoubleTapped_Landroid_view_MotionEvent_ == null)
-				cb_onChartDoubleTapped_Landroid_view_MotionEvent_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_OnChartDoubleTapped_Landroid_view_MotionEvent_);
+				cb_onChartDoubleTapped_Landroid_view_MotionEvent_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_OnChartDoubleTapped_Landroid_view_MotionEvent_);
 			return cb_onChartDoubleTapped_Landroid_view_MotionEvent_;
 		}
 
 		static void n_OnChartDoubleTapped_Landroid_view_MotionEvent_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0)
 		{
-			global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Views.MotionEvent p0 = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_p0, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_p0, JniHandleOwnership.DoNotTransfer);
 			__this.OnChartDoubleTapped (p0);
 		}
 #pragma warning restore 0169
@@ -126,15 +129,15 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetOnChartFling_Landroid_view_MotionEvent_Landroid_view_MotionEvent_FFHandler ()
 		{
 			if (cb_onChartFling_Landroid_view_MotionEvent_Landroid_view_MotionEvent_FF == null)
-				cb_onChartFling_Landroid_view_MotionEvent_Landroid_view_MotionEvent_FF = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, IntPtr, float, float>) n_OnChartFling_Landroid_view_MotionEvent_Landroid_view_MotionEvent_FF);
+				cb_onChartFling_Landroid_view_MotionEvent_Landroid_view_MotionEvent_FF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLLFF_V) n_OnChartFling_Landroid_view_MotionEvent_Landroid_view_MotionEvent_FF);
 			return cb_onChartFling_Landroid_view_MotionEvent_Landroid_view_MotionEvent_FF;
 		}
 
 		static void n_OnChartFling_Landroid_view_MotionEvent_Landroid_view_MotionEvent_FF (IntPtr jnienv, IntPtr native__this, IntPtr native_p0, IntPtr native_p1, float p2, float p3)
 		{
-			global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Views.MotionEvent p0 = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_p0, JniHandleOwnership.DoNotTransfer);
-			global::Android.Views.MotionEvent p1 = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_p1, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_p0, JniHandleOwnership.DoNotTransfer);
+			var p1 = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_p1, JniHandleOwnership.DoNotTransfer);
 			__this.OnChartFling (p0, p1, p2, p3);
 		}
 #pragma warning restore 0169
@@ -157,15 +160,15 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetOnChartGestureEnd_Landroid_view_MotionEvent_Lcom_github_mikephil_charting_listener_ChartTouchListener_ChartGesture_Handler ()
 		{
 			if (cb_onChartGestureEnd_Landroid_view_MotionEvent_Lcom_github_mikephil_charting_listener_ChartTouchListener_ChartGesture_ == null)
-				cb_onChartGestureEnd_Landroid_view_MotionEvent_Lcom_github_mikephil_charting_listener_ChartTouchListener_ChartGesture_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, IntPtr>) n_OnChartGestureEnd_Landroid_view_MotionEvent_Lcom_github_mikephil_charting_listener_ChartTouchListener_ChartGesture_);
+				cb_onChartGestureEnd_Landroid_view_MotionEvent_Lcom_github_mikephil_charting_listener_ChartTouchListener_ChartGesture_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLL_V) n_OnChartGestureEnd_Landroid_view_MotionEvent_Lcom_github_mikephil_charting_listener_ChartTouchListener_ChartGesture_);
 			return cb_onChartGestureEnd_Landroid_view_MotionEvent_Lcom_github_mikephil_charting_listener_ChartTouchListener_ChartGesture_;
 		}
 
 		static void n_OnChartGestureEnd_Landroid_view_MotionEvent_Lcom_github_mikephil_charting_listener_ChartTouchListener_ChartGesture_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0, IntPtr native_p1)
 		{
-			global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Views.MotionEvent p0 = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_p0, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Listener.ChartTouchListener.ChartGesture p1 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.ChartTouchListener.ChartGesture> (native_p1, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_p0, JniHandleOwnership.DoNotTransfer);
+			var p1 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.ChartTouchListener.ChartGesture> (native_p1, JniHandleOwnership.DoNotTransfer);
 			__this.OnChartGestureEnd (p0, p1);
 		}
 #pragma warning restore 0169
@@ -186,15 +189,15 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetOnChartGestureStart_Landroid_view_MotionEvent_Lcom_github_mikephil_charting_listener_ChartTouchListener_ChartGesture_Handler ()
 		{
 			if (cb_onChartGestureStart_Landroid_view_MotionEvent_Lcom_github_mikephil_charting_listener_ChartTouchListener_ChartGesture_ == null)
-				cb_onChartGestureStart_Landroid_view_MotionEvent_Lcom_github_mikephil_charting_listener_ChartTouchListener_ChartGesture_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, IntPtr>) n_OnChartGestureStart_Landroid_view_MotionEvent_Lcom_github_mikephil_charting_listener_ChartTouchListener_ChartGesture_);
+				cb_onChartGestureStart_Landroid_view_MotionEvent_Lcom_github_mikephil_charting_listener_ChartTouchListener_ChartGesture_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLL_V) n_OnChartGestureStart_Landroid_view_MotionEvent_Lcom_github_mikephil_charting_listener_ChartTouchListener_ChartGesture_);
 			return cb_onChartGestureStart_Landroid_view_MotionEvent_Lcom_github_mikephil_charting_listener_ChartTouchListener_ChartGesture_;
 		}
 
 		static void n_OnChartGestureStart_Landroid_view_MotionEvent_Lcom_github_mikephil_charting_listener_ChartTouchListener_ChartGesture_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0, IntPtr native_p1)
 		{
-			global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Views.MotionEvent p0 = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_p0, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Listener.ChartTouchListener.ChartGesture p1 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.ChartTouchListener.ChartGesture> (native_p1, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_p0, JniHandleOwnership.DoNotTransfer);
+			var p1 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.ChartTouchListener.ChartGesture> (native_p1, JniHandleOwnership.DoNotTransfer);
 			__this.OnChartGestureStart (p0, p1);
 		}
 #pragma warning restore 0169
@@ -215,14 +218,14 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetOnChartLongPressed_Landroid_view_MotionEvent_Handler ()
 		{
 			if (cb_onChartLongPressed_Landroid_view_MotionEvent_ == null)
-				cb_onChartLongPressed_Landroid_view_MotionEvent_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_OnChartLongPressed_Landroid_view_MotionEvent_);
+				cb_onChartLongPressed_Landroid_view_MotionEvent_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_OnChartLongPressed_Landroid_view_MotionEvent_);
 			return cb_onChartLongPressed_Landroid_view_MotionEvent_;
 		}
 
 		static void n_OnChartLongPressed_Landroid_view_MotionEvent_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0)
 		{
-			global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Views.MotionEvent p0 = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_p0, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_p0, JniHandleOwnership.DoNotTransfer);
 			__this.OnChartLongPressed (p0);
 		}
 #pragma warning restore 0169
@@ -242,14 +245,14 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetOnChartScale_Landroid_view_MotionEvent_FFHandler ()
 		{
 			if (cb_onChartScale_Landroid_view_MotionEvent_FF == null)
-				cb_onChartScale_Landroid_view_MotionEvent_FF = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, float, float>) n_OnChartScale_Landroid_view_MotionEvent_FF);
+				cb_onChartScale_Landroid_view_MotionEvent_FF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLFF_V) n_OnChartScale_Landroid_view_MotionEvent_FF);
 			return cb_onChartScale_Landroid_view_MotionEvent_FF;
 		}
 
 		static void n_OnChartScale_Landroid_view_MotionEvent_FF (IntPtr jnienv, IntPtr native__this, IntPtr native_p0, float p1, float p2)
 		{
-			global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Views.MotionEvent p0 = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_p0, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_p0, JniHandleOwnership.DoNotTransfer);
 			__this.OnChartScale (p0, p1, p2);
 		}
 #pragma warning restore 0169
@@ -271,14 +274,14 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetOnChartSingleTapped_Landroid_view_MotionEvent_Handler ()
 		{
 			if (cb_onChartSingleTapped_Landroid_view_MotionEvent_ == null)
-				cb_onChartSingleTapped_Landroid_view_MotionEvent_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_OnChartSingleTapped_Landroid_view_MotionEvent_);
+				cb_onChartSingleTapped_Landroid_view_MotionEvent_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_OnChartSingleTapped_Landroid_view_MotionEvent_);
 			return cb_onChartSingleTapped_Landroid_view_MotionEvent_;
 		}
 
 		static void n_OnChartSingleTapped_Landroid_view_MotionEvent_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0)
 		{
-			global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Views.MotionEvent p0 = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_p0, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_p0, JniHandleOwnership.DoNotTransfer);
 			__this.OnChartSingleTapped (p0);
 		}
 #pragma warning restore 0169
@@ -298,14 +301,14 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetOnChartTranslate_Landroid_view_MotionEvent_FFHandler ()
 		{
 			if (cb_onChartTranslate_Landroid_view_MotionEvent_FF == null)
-				cb_onChartTranslate_Landroid_view_MotionEvent_FF = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, float, float>) n_OnChartTranslate_Landroid_view_MotionEvent_FF);
+				cb_onChartTranslate_Landroid_view_MotionEvent_FF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLFF_V) n_OnChartTranslate_Landroid_view_MotionEvent_FF);
 			return cb_onChartTranslate_Landroid_view_MotionEvent_FF;
 		}
 
 		static void n_OnChartTranslate_Landroid_view_MotionEvent_FF (IntPtr jnienv, IntPtr native__this, IntPtr native_p0, float p1, float p2)
 		{
-			global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Views.MotionEvent p0 = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_p0, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_p0, JniHandleOwnership.DoNotTransfer);
 			__this.OnChartTranslate (p0, p1, p2);
 		}
 #pragma warning restore 0169
@@ -323,5 +326,4 @@ namespace MikePhil.Charting.Listener {
 		}
 
 	}
-
 }

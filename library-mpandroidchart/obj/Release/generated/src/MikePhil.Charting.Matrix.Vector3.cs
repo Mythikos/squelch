@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Matrix {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/matrix/Vector3", DoNotGenerateAcw=true)]
 	public sealed partial class Vector3 : global::Java.Lang.Object {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.matrix']/class[@name='Vector3']/field[@name='UNIT_X']"
 		[Register ("UNIT_X")]
 		public static global::MikePhil.Charting.Matrix.Vector3 UnitX {
@@ -105,31 +103,38 @@ namespace MikePhil.Charting.Matrix {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/matrix/Vector3", typeof (Vector3));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/matrix/Vector3", typeof (Vector3));
+
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		internal Vector3 (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		internal Vector3 (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.matrix']/class[@name='Vector3']/constructor[@name='Vector3' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe Vector3 ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Vector3 () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 
@@ -146,8 +151,7 @@ namespace MikePhil.Charting.Matrix {
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.matrix']/class[@name='Vector3']/constructor[@name='Vector3' and count(parameter)=1 and parameter[1][@type='com.github.mikephil.charting.matrix.Vector3']]"
 		[Register (".ctor", "(Lcom/github/mikephil/charting/matrix/Vector3;)V", "")]
-		public unsafe Vector3 (global::MikePhil.Charting.Matrix.Vector3 other)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Vector3 (global::MikePhil.Charting.Matrix.Vector3 other) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Lcom/github/mikephil/charting/matrix/Vector3;)V";
 
@@ -161,13 +165,13 @@ namespace MikePhil.Charting.Matrix {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (other);
 			}
 		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.matrix']/class[@name='Vector3']/constructor[@name='Vector3' and count(parameter)=3 and parameter[1][@type='float'] and parameter[2][@type='float'] and parameter[3][@type='float']]"
 		[Register (".ctor", "(FFF)V", "")]
-		public unsafe Vector3 (float xValue, float yValue, float zValue)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Vector3 (float xValue, float yValue, float zValue) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(FFF)V";
 
@@ -188,8 +192,7 @@ namespace MikePhil.Charting.Matrix {
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.matrix']/class[@name='Vector3']/constructor[@name='Vector3' and count(parameter)=1 and parameter[1][@type='float[]']]"
 		[Register (".ctor", "([F)V", "")]
-		public unsafe Vector3 (float[] array)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Vector3 (float[] array) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "([F)V";
 
@@ -208,6 +211,7 @@ namespace MikePhil.Charting.Matrix {
 					JNIEnv.CopyArray (native_array, array);
 					JNIEnv.DeleteLocalRef (native_array);
 				}
+				global::System.GC.KeepAlive (array);
 			}
 		}
 
@@ -221,6 +225,7 @@ namespace MikePhil.Charting.Matrix {
 				__args [0] = new JniArgumentValue ((other == null) ? IntPtr.Zero : ((global::Java.Lang.Object) other).Handle);
 				_members.InstanceMethods.InvokeNonvirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (other);
 			}
 		}
 
@@ -250,6 +255,7 @@ namespace MikePhil.Charting.Matrix {
 				var __rm = _members.InstanceMethods.InvokeNonvirtualObjectMethod (__id, this, __args);
 				return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Matrix.Vector3> (__rm.Handle, JniHandleOwnership.TransferLocalRef);
 			} finally {
+				global::System.GC.KeepAlive (other);
 			}
 		}
 
@@ -264,6 +270,7 @@ namespace MikePhil.Charting.Matrix {
 				var __rm = _members.InstanceMethods.InvokeNonvirtualSingleMethod (__id, this, __args);
 				return __rm;
 			} finally {
+				global::System.GC.KeepAlive (other);
 			}
 		}
 
@@ -291,6 +298,7 @@ namespace MikePhil.Charting.Matrix {
 				var __rm = _members.InstanceMethods.InvokeNonvirtualSingleMethod (__id, this, __args);
 				return __rm;
 			} finally {
+				global::System.GC.KeepAlive (other);
 			}
 		}
 
@@ -328,6 +336,7 @@ namespace MikePhil.Charting.Matrix {
 				__args [0] = new JniArgumentValue ((other == null) ? IntPtr.Zero : ((global::Java.Lang.Object) other).Handle);
 				_members.InstanceMethods.InvokeNonvirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (other);
 			}
 		}
 
@@ -367,6 +376,7 @@ namespace MikePhil.Charting.Matrix {
 				var __rm = _members.InstanceMethods.InvokeNonvirtualBooleanMethod (__id, this, __args);
 				return __rm;
 			} finally {
+				global::System.GC.KeepAlive (other);
 			}
 		}
 
@@ -380,6 +390,7 @@ namespace MikePhil.Charting.Matrix {
 				__args [0] = new JniArgumentValue ((other == null) ? IntPtr.Zero : ((global::Java.Lang.Object) other).Handle);
 				_members.InstanceMethods.InvokeNonvirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (other);
 			}
 		}
 
@@ -408,6 +419,7 @@ namespace MikePhil.Charting.Matrix {
 				__args [0] = new JniArgumentValue ((other == null) ? IntPtr.Zero : ((global::Java.Lang.Object) other).Handle);
 				_members.InstanceMethods.InvokeNonvirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (other);
 			}
 		}
 
@@ -422,6 +434,7 @@ namespace MikePhil.Charting.Matrix {
 				__args [1] = new JniArgumentValue (multiplicator);
 				_members.InstanceMethods.InvokeNonvirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (other);
 			}
 		}
 

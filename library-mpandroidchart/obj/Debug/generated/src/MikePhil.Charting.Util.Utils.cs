@@ -8,8 +8,6 @@ namespace MikePhil.Charting.Util {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='Utils']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/utils/Utils", DoNotGenerateAcw=true)]
 	public abstract partial class Utils : global::Java.Lang.Object {
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='Utils']/field[@name='DEG2RAD']"
 		[Register ("DEG2RAD")]
 		public const double Deg2rad = (double) 0.017453292519943295;
@@ -41,31 +39,38 @@ namespace MikePhil.Charting.Util {
 				return __v;
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/utils/Utils", typeof (Utils));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/Utils", typeof (Utils));
+
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected Utils (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected Utils (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='Utils']/constructor[@name='Utils' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe Utils ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Utils () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 
@@ -82,7 +87,7 @@ namespace MikePhil.Charting.Util {
 
 		public static unsafe global::MikePhil.Charting.Formatter.IValueFormatter DefaultValueFormatter {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='Utils']/method[@name='getDefaultValueFormatter' and count(parameter)=0]"
-			[Register ("getDefaultValueFormatter", "()Lcom/github/mikephil/charting/formatter/IValueFormatter;", "GetGetDefaultValueFormatterHandler")]
+			[Register ("getDefaultValueFormatter", "()Lcom/github/mikephil/charting/formatter/IValueFormatter;", "")]
 			get {
 				const string __id = "getDefaultValueFormatter.()Lcom/github/mikephil/charting/formatter/IValueFormatter;";
 				try {
@@ -95,7 +100,7 @@ namespace MikePhil.Charting.Util {
 
 		public static unsafe int MaximumFlingVelocity {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='Utils']/method[@name='getMaximumFlingVelocity' and count(parameter)=0]"
-			[Register ("getMaximumFlingVelocity", "()I", "GetGetMaximumFlingVelocityHandler")]
+			[Register ("getMaximumFlingVelocity", "()I", "")]
 			get {
 				const string __id = "getMaximumFlingVelocity.()I";
 				try {
@@ -108,7 +113,7 @@ namespace MikePhil.Charting.Util {
 
 		public static unsafe int MinimumFlingVelocity {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='Utils']/method[@name='getMinimumFlingVelocity' and count(parameter)=0]"
-			[Register ("getMinimumFlingVelocity", "()I", "GetGetMinimumFlingVelocityHandler")]
+			[Register ("getMinimumFlingVelocity", "()I", "")]
 			get {
 				const string __id = "getMinimumFlingVelocity.()I";
 				try {
@@ -121,7 +126,7 @@ namespace MikePhil.Charting.Util {
 
 		public static unsafe int SDKInt {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='Utils']/method[@name='getSDKInt' and count(parameter)=0]"
-			[Register ("getSDKInt", "()I", "GetGetSDKIntHandler")]
+			[Register ("getSDKInt", "()I", "")]
 			get {
 				const string __id = "getSDKInt.()I";
 				try {
@@ -146,6 +151,7 @@ namespace MikePhil.Charting.Util {
 				return __rm;
 			} finally {
 				JNIEnv.DeleteLocalRef (native_demoText);
+				global::System.GC.KeepAlive (paint);
 			}
 		}
 
@@ -163,6 +169,7 @@ namespace MikePhil.Charting.Util {
 				return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.FSize> (__rm.Handle, JniHandleOwnership.TransferLocalRef);
 			} finally {
 				JNIEnv.DeleteLocalRef (native_demoText);
+				global::System.GC.KeepAlive (paint);
 			}
 		}
 
@@ -180,6 +187,8 @@ namespace MikePhil.Charting.Util {
 				_members.StaticMethods.InvokeVoidMethod (__id, __args);
 			} finally {
 				JNIEnv.DeleteLocalRef (native_demoText);
+				global::System.GC.KeepAlive (paint);
+				global::System.GC.KeepAlive (outputFSize);
 			}
 		}
 
@@ -197,6 +206,7 @@ namespace MikePhil.Charting.Util {
 				return __rm;
 			} finally {
 				JNIEnv.DeleteLocalRef (native_demoText);
+				global::System.GC.KeepAlive (paint);
 			}
 		}
 
@@ -227,6 +237,7 @@ namespace MikePhil.Charting.Util {
 				return (int[]) JNIEnv.GetArray (__rm.Handle, JniHandleOwnership.TransferLocalRef, typeof (int));
 			} finally {
 				JNIEnv.DeleteLocalRef (native_integers);
+				global::System.GC.KeepAlive (integers);
 			}
 		}
 
@@ -257,6 +268,7 @@ namespace MikePhil.Charting.Util {
 				return (string[]) JNIEnv.GetArray (__rm.Handle, JniHandleOwnership.TransferLocalRef, typeof (string));
 			} finally {
 				JNIEnv.DeleteLocalRef (native_strings);
+				global::System.GC.KeepAlive (strings);
 			}
 		}
 
@@ -278,6 +290,8 @@ namespace MikePhil.Charting.Util {
 					JNIEnv.CopyArray (native_to, to);
 					JNIEnv.DeleteLocalRef (native_to);
 				}
+				global::System.GC.KeepAlive (from);
+				global::System.GC.KeepAlive (to);
 			}
 		}
 
@@ -299,6 +313,8 @@ namespace MikePhil.Charting.Util {
 					JNIEnv.CopyArray (native_to, to);
 					JNIEnv.DeleteLocalRef (native_to);
 				}
+				global::System.GC.KeepAlive (from);
+				global::System.GC.KeepAlive (to);
 			}
 		}
 
@@ -317,6 +333,8 @@ namespace MikePhil.Charting.Util {
 				__args [5] = new JniArgumentValue (height);
 				_members.StaticMethods.InvokeVoidMethod (__id, __args);
 			} finally {
+				global::System.GC.KeepAlive (canvas);
+				global::System.GC.KeepAlive (drawable);
 			}
 		}
 
@@ -336,6 +354,10 @@ namespace MikePhil.Charting.Util {
 				__args [6] = new JniArgumentValue (angleDegrees);
 				_members.StaticMethods.InvokeVoidMethod (__id, __args);
 			} finally {
+				global::System.GC.KeepAlive (c);
+				global::System.GC.KeepAlive (textLayout);
+				global::System.GC.KeepAlive (paint);
+				global::System.GC.KeepAlive (anchor);
 			}
 		}
 
@@ -358,6 +380,10 @@ namespace MikePhil.Charting.Util {
 				_members.StaticMethods.InvokeVoidMethod (__id, __args);
 			} finally {
 				JNIEnv.DeleteLocalRef (native_text);
+				global::System.GC.KeepAlive (c);
+				global::System.GC.KeepAlive (paint);
+				global::System.GC.KeepAlive (constrainedToSize);
+				global::System.GC.KeepAlive (anchor);
 			}
 		}
 
@@ -379,6 +405,9 @@ namespace MikePhil.Charting.Util {
 				_members.StaticMethods.InvokeVoidMethod (__id, __args);
 			} finally {
 				JNIEnv.DeleteLocalRef (native_text);
+				global::System.GC.KeepAlive (c);
+				global::System.GC.KeepAlive (paint);
+				global::System.GC.KeepAlive (anchor);
 			}
 		}
 
@@ -440,6 +469,7 @@ namespace MikePhil.Charting.Util {
 				var __rm = _members.StaticMethods.InvokeSingleMethod (__id, __args);
 				return __rm;
 			} finally {
+				global::System.GC.KeepAlive (paint);
 			}
 		}
 
@@ -455,6 +485,8 @@ namespace MikePhil.Charting.Util {
 				var __rm = _members.StaticMethods.InvokeSingleMethod (__id, __args);
 				return __rm;
 			} finally {
+				global::System.GC.KeepAlive (paint);
+				global::System.GC.KeepAlive (fontMetrics);
 			}
 		}
 
@@ -469,6 +501,7 @@ namespace MikePhil.Charting.Util {
 				var __rm = _members.StaticMethods.InvokeSingleMethod (__id, __args);
 				return __rm;
 			} finally {
+				global::System.GC.KeepAlive (paint);
 			}
 		}
 
@@ -484,6 +517,8 @@ namespace MikePhil.Charting.Util {
 				var __rm = _members.StaticMethods.InvokeSingleMethod (__id, __args);
 				return __rm;
 			} finally {
+				global::System.GC.KeepAlive (paint);
+				global::System.GC.KeepAlive (fontMetrics);
 			}
 		}
 
@@ -514,6 +549,7 @@ namespace MikePhil.Charting.Util {
 				var __rm = _members.StaticMethods.InvokeObjectMethod (__id, __args);
 				return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.MPPointF> (__rm.Handle, JniHandleOwnership.TransferLocalRef);
 			} finally {
+				global::System.GC.KeepAlive (center);
 			}
 		}
 
@@ -530,6 +566,8 @@ namespace MikePhil.Charting.Util {
 				__args [3] = new JniArgumentValue ((outputPoint == null) ? IntPtr.Zero : ((global::Java.Lang.Object) outputPoint).Handle);
 				_members.StaticMethods.InvokeVoidMethod (__id, __args);
 			} finally {
+				global::System.GC.KeepAlive (center);
+				global::System.GC.KeepAlive (outputPoint);
 			}
 		}
 
@@ -545,6 +583,7 @@ namespace MikePhil.Charting.Util {
 				var __rm = _members.StaticMethods.InvokeObjectMethod (__id, __args);
 				return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.FSize> (__rm.Handle, JniHandleOwnership.TransferLocalRef);
 			} finally {
+				global::System.GC.KeepAlive (rectangleSize);
 			}
 		}
 
@@ -576,6 +615,7 @@ namespace MikePhil.Charting.Util {
 				var __rm = _members.StaticMethods.InvokeObjectMethod (__id, __args);
 				return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.FSize> (__rm.Handle, JniHandleOwnership.TransferLocalRef);
 			} finally {
+				global::System.GC.KeepAlive (rectangleSize);
 			}
 		}
 
@@ -605,6 +645,7 @@ namespace MikePhil.Charting.Util {
 				__args [0] = new JniArgumentValue ((context == null) ? IntPtr.Zero : ((global::Java.Lang.Object) context).Handle);
 				_members.StaticMethods.InvokeVoidMethod (__id, __args);
 			} finally {
+				global::System.GC.KeepAlive (context);
 			}
 		}
 
@@ -619,6 +660,7 @@ namespace MikePhil.Charting.Util {
 				__args [0] = new JniArgumentValue ((res == null) ? IntPtr.Zero : ((global::Java.Lang.Object) res).Handle);
 				_members.StaticMethods.InvokeVoidMethod (__id, __args);
 			} finally {
+				global::System.GC.KeepAlive (res);
 			}
 		}
 
@@ -646,6 +688,7 @@ namespace MikePhil.Charting.Util {
 				__args [0] = new JniArgumentValue ((view == null) ? IntPtr.Zero : ((global::Java.Lang.Object) view).Handle);
 				_members.StaticMethods.InvokeVoidMethod (__id, __args);
 			} finally {
+				global::System.GC.KeepAlive (view);
 			}
 		}
 
@@ -674,6 +717,8 @@ namespace MikePhil.Charting.Util {
 				__args [1] = new JniArgumentValue ((tracker == null) ? IntPtr.Zero : ((global::Java.Lang.Object) tracker).Handle);
 				_members.StaticMethods.InvokeVoidMethod (__id, __args);
 			} finally {
+				global::System.GC.KeepAlive (ev);
+				global::System.GC.KeepAlive (tracker);
 			}
 		}
 
@@ -681,19 +726,23 @@ namespace MikePhil.Charting.Util {
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/utils/Utils", DoNotGenerateAcw=true)]
 	internal partial class UtilsInvoker : Utils {
+		public UtilsInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer)
+		{
+		}
 
-		public UtilsInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/Utils", typeof (UtilsInvoker));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/utils/Utils", typeof (UtilsInvoker));
-
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
 	}
-
 }

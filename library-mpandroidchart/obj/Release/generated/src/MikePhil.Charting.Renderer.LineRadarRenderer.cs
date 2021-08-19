@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Renderer {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.renderer']/class[@name='LineRadarRenderer']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/renderer/LineRadarRenderer", DoNotGenerateAcw=true)]
 	public abstract partial class LineRadarRenderer : global::MikePhil.Charting.Renderer.LineScatterCandleRadarRenderer {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/LineRadarRenderer", typeof (LineRadarRenderer));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/renderer/LineRadarRenderer", typeof (LineRadarRenderer));
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected LineRadarRenderer (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected LineRadarRenderer (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.renderer']/class[@name='LineRadarRenderer']/constructor[@name='LineRadarRenderer' and count(parameter)=2 and parameter[1][@type='com.github.mikephil.charting.animation.ChartAnimator'] and parameter[2][@type='com.github.mikephil.charting.utils.ViewPortHandler']]"
 		[Register (".ctor", "(Lcom/github/mikephil/charting/animation/ChartAnimator;Lcom/github/mikephil/charting/utils/ViewPortHandler;)V", "")]
-		public unsafe LineRadarRenderer (global::MikePhil.Charting.Animation.ChartAnimator animator, global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe LineRadarRenderer (global::MikePhil.Charting.Animation.ChartAnimator animator, global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Lcom/github/mikephil/charting/animation/ChartAnimator;Lcom/github/mikephil/charting/utils/ViewPortHandler;)V";
 
@@ -48,6 +53,8 @@ namespace MikePhil.Charting.Renderer {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (animator);
+				global::System.GC.KeepAlive (viewPortHandler);
 			}
 		}
 
@@ -56,16 +63,16 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetDrawFilledPath_Landroid_graphics_Canvas_Landroid_graphics_Path_Landroid_graphics_drawable_Drawable_Handler ()
 		{
 			if (cb_drawFilledPath_Landroid_graphics_Canvas_Landroid_graphics_Path_Landroid_graphics_drawable_Drawable_ == null)
-				cb_drawFilledPath_Landroid_graphics_Canvas_Landroid_graphics_Path_Landroid_graphics_drawable_Drawable_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, IntPtr, IntPtr>) n_DrawFilledPath_Landroid_graphics_Canvas_Landroid_graphics_Path_Landroid_graphics_drawable_Drawable_);
+				cb_drawFilledPath_Landroid_graphics_Canvas_Landroid_graphics_Path_Landroid_graphics_drawable_Drawable_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLLL_V) n_DrawFilledPath_Landroid_graphics_Canvas_Landroid_graphics_Path_Landroid_graphics_drawable_Drawable_);
 			return cb_drawFilledPath_Landroid_graphics_Canvas_Landroid_graphics_Path_Landroid_graphics_drawable_Drawable_;
 		}
 
 		static void n_DrawFilledPath_Landroid_graphics_Canvas_Landroid_graphics_Path_Landroid_graphics_drawable_Drawable_ (IntPtr jnienv, IntPtr native__this, IntPtr native_c, IntPtr native_filledPath, IntPtr native_drawable)
 		{
-			global::MikePhil.Charting.Renderer.LineRadarRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.LineRadarRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Path filledPath = global::Java.Lang.Object.GetObject<global::Android.Graphics.Path> (native_filledPath, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Drawables.Drawable drawable = global::Java.Lang.Object.GetObject<global::Android.Graphics.Drawables.Drawable> (native_drawable, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.LineRadarRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
+			var filledPath = global::Java.Lang.Object.GetObject<global::Android.Graphics.Path> (native_filledPath, JniHandleOwnership.DoNotTransfer);
+			var drawable = global::Java.Lang.Object.GetObject<global::Android.Graphics.Drawables.Drawable> (native_drawable, JniHandleOwnership.DoNotTransfer);
 			__this.DrawFilledPath (c, filledPath, drawable);
 		}
 #pragma warning restore 0169
@@ -82,6 +89,9 @@ namespace MikePhil.Charting.Renderer {
 				__args [2] = new JniArgumentValue ((drawable == null) ? IntPtr.Zero : ((global::Java.Lang.Object) drawable).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (c);
+				global::System.GC.KeepAlive (filledPath);
+				global::System.GC.KeepAlive (drawable);
 			}
 		}
 
@@ -90,15 +100,15 @@ namespace MikePhil.Charting.Renderer {
 		static Delegate GetDrawFilledPath_Landroid_graphics_Canvas_Landroid_graphics_Path_IIHandler ()
 		{
 			if (cb_drawFilledPath_Landroid_graphics_Canvas_Landroid_graphics_Path_II == null)
-				cb_drawFilledPath_Landroid_graphics_Canvas_Landroid_graphics_Path_II = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, IntPtr, int, int>) n_DrawFilledPath_Landroid_graphics_Canvas_Landroid_graphics_Path_II);
+				cb_drawFilledPath_Landroid_graphics_Canvas_Landroid_graphics_Path_II = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLLII_V) n_DrawFilledPath_Landroid_graphics_Canvas_Landroid_graphics_Path_II);
 			return cb_drawFilledPath_Landroid_graphics_Canvas_Landroid_graphics_Path_II;
 		}
 
 		static void n_DrawFilledPath_Landroid_graphics_Canvas_Landroid_graphics_Path_II (IntPtr jnienv, IntPtr native__this, IntPtr native_c, IntPtr native_filledPath, int fillColor, int fillAlpha)
 		{
-			global::MikePhil.Charting.Renderer.LineRadarRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.LineRadarRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Path filledPath = global::Java.Lang.Object.GetObject<global::Android.Graphics.Path> (native_filledPath, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.LineRadarRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
+			var filledPath = global::Java.Lang.Object.GetObject<global::Android.Graphics.Path> (native_filledPath, JniHandleOwnership.DoNotTransfer);
 			__this.DrawFilledPath (c, filledPath, fillColor, fillAlpha);
 		}
 #pragma warning restore 0169
@@ -116,6 +126,8 @@ namespace MikePhil.Charting.Renderer {
 				__args [3] = new JniArgumentValue (fillAlpha);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (c);
+				global::System.GC.KeepAlive (filledPath);
 			}
 		}
 
@@ -123,15 +135,20 @@ namespace MikePhil.Charting.Renderer {
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/renderer/LineRadarRenderer", DoNotGenerateAcw=true)]
 	internal partial class LineRadarRendererInvoker : LineRadarRenderer {
+		public LineRadarRendererInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer)
+		{
+		}
 
-		public LineRadarRendererInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/LineRadarRenderer", typeof (LineRadarRendererInvoker));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/renderer/LineRadarRenderer", typeof (LineRadarRendererInvoker));
-
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
@@ -146,6 +163,7 @@ namespace MikePhil.Charting.Renderer {
 				__args [0] = new JniArgumentValue ((p0 == null) ? IntPtr.Zero : ((global::Java.Lang.Object) p0).Handle);
 				_members.InstanceMethods.InvokeAbstractVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (p0);
 			}
 		}
 
@@ -159,6 +177,7 @@ namespace MikePhil.Charting.Renderer {
 				__args [0] = new JniArgumentValue ((p0 == null) ? IntPtr.Zero : ((global::Java.Lang.Object) p0).Handle);
 				_members.InstanceMethods.InvokeAbstractVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (p0);
 			}
 		}
 
@@ -178,6 +197,8 @@ namespace MikePhil.Charting.Renderer {
 					JNIEnv.CopyArray (native_p1, p1);
 					JNIEnv.DeleteLocalRef (native_p1);
 				}
+				global::System.GC.KeepAlive (p0);
+				global::System.GC.KeepAlive (p1);
 			}
 		}
 
@@ -191,6 +212,7 @@ namespace MikePhil.Charting.Renderer {
 				__args [0] = new JniArgumentValue ((p0 == null) ? IntPtr.Zero : ((global::Java.Lang.Object) p0).Handle);
 				_members.InstanceMethods.InvokeAbstractVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (p0);
 			}
 		}
 
@@ -206,5 +228,4 @@ namespace MikePhil.Charting.Renderer {
 		}
 
 	}
-
 }

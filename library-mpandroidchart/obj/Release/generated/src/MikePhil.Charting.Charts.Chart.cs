@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Charts {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/charts/Chart", DoNotGenerateAcw=true)]
 	[global::Java.Interop.JavaTypeParameters (new string [] {"T extends com.github.mikephil.charting.data.ChartData<? extends com.github.mikephil.charting.interfaces.datasets.IDataSet<? extends com.github.mikephil.charting.data.Entry>>"})]
 	public abstract partial class Chart : global::Android.Views.ViewGroup, global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface {
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.charts']/class[@name='Chart']/field[@name='LOG_TAG']"
 		[Register ("LOG_TAG")]
 		public const string LogTag = (string) "MPAndroidChart";
@@ -512,31 +510,38 @@ namespace MikePhil.Charting.Charts {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/charts/Chart", typeof (Chart));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/charts/Chart", typeof (Chart));
+
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected Chart (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected Chart (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.charts']/class[@name='Chart']/constructor[@name='Chart' and count(parameter)=1 and parameter[1][@type='android.content.Context']]"
 		[Register (".ctor", "(Landroid/content/Context;)V", "")]
-		public unsafe Chart (global::Android.Content.Context context)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Chart (global::Android.Content.Context context) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Landroid/content/Context;)V";
 
@@ -550,13 +555,13 @@ namespace MikePhil.Charting.Charts {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (context);
 			}
 		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.charts']/class[@name='Chart']/constructor[@name='Chart' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet']]"
 		[Register (".ctor", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "")]
-		public unsafe Chart (global::Android.Content.Context context, global::Android.Util.IAttributeSet attrs)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Chart (global::Android.Content.Context context, global::Android.Util.IAttributeSet attrs) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 
@@ -571,13 +576,14 @@ namespace MikePhil.Charting.Charts {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (context);
+				global::System.GC.KeepAlive (attrs);
 			}
 		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.charts']/class[@name='Chart']/constructor[@name='Chart' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet'] and parameter[3][@type='int']]"
 		[Register (".ctor", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "")]
-		public unsafe Chart (global::Android.Content.Context context, global::Android.Util.IAttributeSet attrs, int defStyle)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Chart (global::Android.Content.Context context, global::Android.Util.IAttributeSet attrs, int defStyle) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 
@@ -593,6 +599,8 @@ namespace MikePhil.Charting.Charts {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (context);
+				global::System.GC.KeepAlive (attrs);
 			}
 		}
 
@@ -601,13 +609,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetAnimatorHandler ()
 		{
 			if (cb_getAnimator == null)
-				cb_getAnimator = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetAnimator);
+				cb_getAnimator = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetAnimator);
 			return cb_getAnimator;
 		}
 
 		static IntPtr n_GetAnimator (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Animator);
 		}
 #pragma warning restore 0169
@@ -630,13 +638,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetCenterHandler ()
 		{
 			if (cb_getCenter == null)
-				cb_getCenter = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetCenter);
+				cb_getCenter = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetCenter);
 			return cb_getCenter;
 		}
 
 		static IntPtr n_GetCenter (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Center);
 		}
 #pragma warning restore 0169
@@ -659,13 +667,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetCenterOfViewHandler ()
 		{
 			if (cb_getCenterOfView == null)
-				cb_getCenterOfView = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetCenterOfView);
+				cb_getCenterOfView = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetCenterOfView);
 			return cb_getCenterOfView;
 		}
 
 		static IntPtr n_GetCenterOfView (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.CenterOfView);
 		}
 #pragma warning restore 0169
@@ -688,13 +696,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetCenterOffsetsHandler ()
 		{
 			if (cb_getCenterOffsets == null)
-				cb_getCenterOffsets = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetCenterOffsets);
+				cb_getCenterOffsets = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetCenterOffsets);
 			return cb_getCenterOffsets;
 		}
 
 		static IntPtr n_GetCenterOffsets (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.CenterOffsets);
 		}
 #pragma warning restore 0169
@@ -717,13 +725,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetChartBitmapHandler ()
 		{
 			if (cb_getChartBitmap == null)
-				cb_getChartBitmap = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetChartBitmap);
+				cb_getChartBitmap = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetChartBitmap);
 			return cb_getChartBitmap;
 		}
 
 		static IntPtr n_GetChartBitmap (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.ChartBitmap);
 		}
 #pragma warning restore 0169
@@ -746,13 +754,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetContentRectHandler ()
 		{
 			if (cb_getContentRect == null)
-				cb_getContentRect = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetContentRect);
+				cb_getContentRect = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetContentRect);
 			return cb_getContentRect;
 		}
 
 		static IntPtr n_GetContentRect (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.ContentRect);
 		}
 #pragma warning restore 0169
@@ -775,13 +783,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetDataHandler ()
 		{
 			if (cb_getData == null)
-				cb_getData = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetData);
+				cb_getData = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetData);
 			return cb_getData;
 		}
 
 		static IntPtr n_GetData (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Data);
 		}
 #pragma warning restore 0169
@@ -791,14 +799,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetData_Lcom_github_mikephil_charting_data_ChartData_Handler ()
 		{
 			if (cb_setData_Lcom_github_mikephil_charting_data_ChartData_ == null)
-				cb_setData_Lcom_github_mikephil_charting_data_ChartData_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetData_Lcom_github_mikephil_charting_data_ChartData_);
+				cb_setData_Lcom_github_mikephil_charting_data_ChartData_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetData_Lcom_github_mikephil_charting_data_ChartData_);
 			return cb_setData_Lcom_github_mikephil_charting_data_ChartData_;
 		}
 
 		static void n_SetData_Lcom_github_mikephil_charting_data_ChartData_ (IntPtr jnienv, IntPtr native__this, IntPtr native_data)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Data.ChartData data = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ChartData> (native_data, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var data = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ChartData> (native_data, JniHandleOwnership.DoNotTransfer);
 			__this.Data = data;
 		}
 #pragma warning restore 0169
@@ -823,6 +831,7 @@ namespace MikePhil.Charting.Charts {
 					__args [0] = new JniArgumentValue ((value == null) ? IntPtr.Zero : ((global::Java.Lang.Object) value).Handle);
 					_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 				} finally {
+					global::System.GC.KeepAlive (value);
 				}
 			}
 		}
@@ -832,13 +841,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetDefaultValueFormatterHandler ()
 		{
 			if (cb_getDefaultValueFormatter == null)
-				cb_getDefaultValueFormatter = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetDefaultValueFormatter);
+				cb_getDefaultValueFormatter = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetDefaultValueFormatter);
 			return cb_getDefaultValueFormatter;
 		}
 
 		static IntPtr n_GetDefaultValueFormatter (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.DefaultValueFormatter);
 		}
 #pragma warning restore 0169
@@ -861,13 +870,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetDescriptionHandler ()
 		{
 			if (cb_getDescription == null)
-				cb_getDescription = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetDescription);
+				cb_getDescription = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetDescription);
 			return cb_getDescription;
 		}
 
 		static IntPtr n_GetDescription (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Description);
 		}
 #pragma warning restore 0169
@@ -877,14 +886,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetDescription_Lcom_github_mikephil_charting_components_Description_Handler ()
 		{
 			if (cb_setDescription_Lcom_github_mikephil_charting_components_Description_ == null)
-				cb_setDescription_Lcom_github_mikephil_charting_components_Description_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetDescription_Lcom_github_mikephil_charting_components_Description_);
+				cb_setDescription_Lcom_github_mikephil_charting_components_Description_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetDescription_Lcom_github_mikephil_charting_components_Description_);
 			return cb_setDescription_Lcom_github_mikephil_charting_components_Description_;
 		}
 
 		static void n_SetDescription_Lcom_github_mikephil_charting_components_Description_ (IntPtr jnienv, IntPtr native__this, IntPtr native_desc)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Components.Description desc = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.Description> (native_desc, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var desc = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.Description> (native_desc, JniHandleOwnership.DoNotTransfer);
 			__this.Description = desc;
 		}
 #pragma warning restore 0169
@@ -909,6 +918,7 @@ namespace MikePhil.Charting.Charts {
 					__args [0] = new JniArgumentValue ((value == null) ? IntPtr.Zero : ((global::Java.Lang.Object) value).Handle);
 					_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 				} finally {
+					global::System.GC.KeepAlive (value);
 				}
 			}
 		}
@@ -918,13 +928,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetIsDragDecelerationEnabledHandler ()
 		{
 			if (cb_isDragDecelerationEnabled == null)
-				cb_isDragDecelerationEnabled = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsDragDecelerationEnabled);
+				cb_isDragDecelerationEnabled = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsDragDecelerationEnabled);
 			return cb_isDragDecelerationEnabled;
 		}
 
 		static bool n_IsDragDecelerationEnabled (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.DragDecelerationEnabled;
 		}
 #pragma warning restore 0169
@@ -934,13 +944,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetDragDecelerationEnabled_ZHandler ()
 		{
 			if (cb_setDragDecelerationEnabled_Z == null)
-				cb_setDragDecelerationEnabled_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetDragDecelerationEnabled_Z);
+				cb_setDragDecelerationEnabled_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetDragDecelerationEnabled_Z);
 			return cb_setDragDecelerationEnabled_Z;
 		}
 
 		static void n_SetDragDecelerationEnabled_Z (IntPtr jnienv, IntPtr native__this, bool enabled)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.DragDecelerationEnabled = enabled;
 		}
 #pragma warning restore 0169
@@ -974,13 +984,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetDragDecelerationFrictionCoefHandler ()
 		{
 			if (cb_getDragDecelerationFrictionCoef == null)
-				cb_getDragDecelerationFrictionCoef = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetDragDecelerationFrictionCoef);
+				cb_getDragDecelerationFrictionCoef = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetDragDecelerationFrictionCoef);
 			return cb_getDragDecelerationFrictionCoef;
 		}
 
 		static float n_GetDragDecelerationFrictionCoef (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.DragDecelerationFrictionCoef;
 		}
 #pragma warning restore 0169
@@ -990,13 +1000,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetDragDecelerationFrictionCoef_FHandler ()
 		{
 			if (cb_setDragDecelerationFrictionCoef_F == null)
-				cb_setDragDecelerationFrictionCoef_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetDragDecelerationFrictionCoef_F);
+				cb_setDragDecelerationFrictionCoef_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetDragDecelerationFrictionCoef_F);
 			return cb_setDragDecelerationFrictionCoef_F;
 		}
 
 		static void n_SetDragDecelerationFrictionCoef_F (IntPtr jnienv, IntPtr native__this, float newValue)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.DragDecelerationFrictionCoef = newValue;
 		}
 #pragma warning restore 0169
@@ -1030,13 +1040,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetExtraBottomOffsetHandler ()
 		{
 			if (cb_getExtraBottomOffset == null)
-				cb_getExtraBottomOffset = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetExtraBottomOffset);
+				cb_getExtraBottomOffset = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetExtraBottomOffset);
 			return cb_getExtraBottomOffset;
 		}
 
 		static float n_GetExtraBottomOffset (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.ExtraBottomOffset;
 		}
 #pragma warning restore 0169
@@ -1046,13 +1056,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetExtraBottomOffset_FHandler ()
 		{
 			if (cb_setExtraBottomOffset_F == null)
-				cb_setExtraBottomOffset_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetExtraBottomOffset_F);
+				cb_setExtraBottomOffset_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetExtraBottomOffset_F);
 			return cb_setExtraBottomOffset_F;
 		}
 
 		static void n_SetExtraBottomOffset_F (IntPtr jnienv, IntPtr native__this, float offset)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.ExtraBottomOffset = offset;
 		}
 #pragma warning restore 0169
@@ -1086,13 +1096,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetExtraLeftOffsetHandler ()
 		{
 			if (cb_getExtraLeftOffset == null)
-				cb_getExtraLeftOffset = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetExtraLeftOffset);
+				cb_getExtraLeftOffset = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetExtraLeftOffset);
 			return cb_getExtraLeftOffset;
 		}
 
 		static float n_GetExtraLeftOffset (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.ExtraLeftOffset;
 		}
 #pragma warning restore 0169
@@ -1102,13 +1112,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetExtraLeftOffset_FHandler ()
 		{
 			if (cb_setExtraLeftOffset_F == null)
-				cb_setExtraLeftOffset_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetExtraLeftOffset_F);
+				cb_setExtraLeftOffset_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetExtraLeftOffset_F);
 			return cb_setExtraLeftOffset_F;
 		}
 
 		static void n_SetExtraLeftOffset_F (IntPtr jnienv, IntPtr native__this, float offset)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.ExtraLeftOffset = offset;
 		}
 #pragma warning restore 0169
@@ -1142,13 +1152,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetExtraRightOffsetHandler ()
 		{
 			if (cb_getExtraRightOffset == null)
-				cb_getExtraRightOffset = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetExtraRightOffset);
+				cb_getExtraRightOffset = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetExtraRightOffset);
 			return cb_getExtraRightOffset;
 		}
 
 		static float n_GetExtraRightOffset (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.ExtraRightOffset;
 		}
 #pragma warning restore 0169
@@ -1158,13 +1168,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetExtraRightOffset_FHandler ()
 		{
 			if (cb_setExtraRightOffset_F == null)
-				cb_setExtraRightOffset_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetExtraRightOffset_F);
+				cb_setExtraRightOffset_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetExtraRightOffset_F);
 			return cb_setExtraRightOffset_F;
 		}
 
 		static void n_SetExtraRightOffset_F (IntPtr jnienv, IntPtr native__this, float offset)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.ExtraRightOffset = offset;
 		}
 #pragma warning restore 0169
@@ -1198,13 +1208,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetExtraTopOffsetHandler ()
 		{
 			if (cb_getExtraTopOffset == null)
-				cb_getExtraTopOffset = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetExtraTopOffset);
+				cb_getExtraTopOffset = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetExtraTopOffset);
 			return cb_getExtraTopOffset;
 		}
 
 		static float n_GetExtraTopOffset (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.ExtraTopOffset;
 		}
 #pragma warning restore 0169
@@ -1214,13 +1224,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetExtraTopOffset_FHandler ()
 		{
 			if (cb_setExtraTopOffset_F == null)
-				cb_setExtraTopOffset_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetExtraTopOffset_F);
+				cb_setExtraTopOffset_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetExtraTopOffset_F);
 			return cb_setExtraTopOffset_F;
 		}
 
 		static void n_SetExtraTopOffset_F (IntPtr jnienv, IntPtr native__this, float offset)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.ExtraTopOffset = offset;
 		}
 #pragma warning restore 0169
@@ -1254,13 +1264,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetIsHighlightPerTapEnabledHandler ()
 		{
 			if (cb_isHighlightPerTapEnabled == null)
-				cb_isHighlightPerTapEnabled = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsHighlightPerTapEnabled);
+				cb_isHighlightPerTapEnabled = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsHighlightPerTapEnabled);
 			return cb_isHighlightPerTapEnabled;
 		}
 
 		static bool n_IsHighlightPerTapEnabled (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.HighlightPerTapEnabled;
 		}
 #pragma warning restore 0169
@@ -1270,13 +1280,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetHighlightPerTapEnabled_ZHandler ()
 		{
 			if (cb_setHighlightPerTapEnabled_Z == null)
-				cb_setHighlightPerTapEnabled_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetHighlightPerTapEnabled_Z);
+				cb_setHighlightPerTapEnabled_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetHighlightPerTapEnabled_Z);
 			return cb_setHighlightPerTapEnabled_Z;
 		}
 
 		static void n_SetHighlightPerTapEnabled_Z (IntPtr jnienv, IntPtr native__this, bool enabled)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.HighlightPerTapEnabled = enabled;
 		}
 #pragma warning restore 0169
@@ -1310,13 +1320,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetHighlighterHandler ()
 		{
 			if (cb_getHighlighter == null)
-				cb_getHighlighter = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetHighlighter);
+				cb_getHighlighter = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetHighlighter);
 			return cb_getHighlighter;
 		}
 
 		static IntPtr n_GetHighlighter (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Highlighter);
 		}
 #pragma warning restore 0169
@@ -1340,14 +1350,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetIsDrawMarkerViewsEnabledHandler ()
 		{
 			if (cb_isDrawMarkerViewsEnabled == null)
-				cb_isDrawMarkerViewsEnabled = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsDrawMarkerViewsEnabled);
+				cb_isDrawMarkerViewsEnabled = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsDrawMarkerViewsEnabled);
 			return cb_isDrawMarkerViewsEnabled;
 		}
 
 		[Obsolete]
 		static bool n_IsDrawMarkerViewsEnabled (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.IsDrawMarkerViewsEnabled;
 		}
 #pragma warning restore 0169
@@ -1371,13 +1381,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetIsDrawMarkersEnabledHandler ()
 		{
 			if (cb_isDrawMarkersEnabled == null)
-				cb_isDrawMarkersEnabled = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsDrawMarkersEnabled);
+				cb_isDrawMarkersEnabled = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsDrawMarkersEnabled);
 			return cb_isDrawMarkersEnabled;
 		}
 
 		static bool n_IsDrawMarkersEnabled (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.IsDrawMarkersEnabled;
 		}
 #pragma warning restore 0169
@@ -1400,13 +1410,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetIsEmptyHandler ()
 		{
 			if (cb_isEmpty == null)
-				cb_isEmpty = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsEmpty);
+				cb_isEmpty = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsEmpty);
 			return cb_isEmpty;
 		}
 
 		static bool n_IsEmpty (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.IsEmpty;
 		}
 #pragma warning restore 0169
@@ -1429,13 +1439,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetJobsHandler ()
 		{
 			if (cb_getJobs == null)
-				cb_getJobs = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetJobs);
+				cb_getJobs = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetJobs);
 			return cb_getJobs;
 		}
 
 		static IntPtr n_GetJobs (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return global::Android.Runtime.JavaList<global::Java.Lang.IRunnable>.ToLocalJniHandle (__this.Jobs);
 		}
 #pragma warning restore 0169
@@ -1458,13 +1468,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetLegendHandler ()
 		{
 			if (cb_getLegend == null)
-				cb_getLegend = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetLegend);
+				cb_getLegend = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetLegend);
 			return cb_getLegend;
 		}
 
 		static IntPtr n_GetLegend (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Legend);
 		}
 #pragma warning restore 0169
@@ -1487,13 +1497,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetLegendRendererHandler ()
 		{
 			if (cb_getLegendRenderer == null)
-				cb_getLegendRenderer = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetLegendRenderer);
+				cb_getLegendRenderer = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetLegendRenderer);
 			return cb_getLegendRenderer;
 		}
 
 		static IntPtr n_GetLegendRenderer (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.LegendRenderer);
 		}
 #pragma warning restore 0169
@@ -1516,13 +1526,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetIsLogEnabledHandler ()
 		{
 			if (cb_isLogEnabled == null)
-				cb_isLogEnabled = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsLogEnabled);
+				cb_isLogEnabled = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsLogEnabled);
 			return cb_isLogEnabled;
 		}
 
 		static bool n_IsLogEnabled (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.LogEnabled;
 		}
 #pragma warning restore 0169
@@ -1532,13 +1542,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetLogEnabled_ZHandler ()
 		{
 			if (cb_setLogEnabled_Z == null)
-				cb_setLogEnabled_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetLogEnabled_Z);
+				cb_setLogEnabled_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetLogEnabled_Z);
 			return cb_setLogEnabled_Z;
 		}
 
 		static void n_SetLogEnabled_Z (IntPtr jnienv, IntPtr native__this, bool enabled)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.LogEnabled = enabled;
 		}
 #pragma warning restore 0169
@@ -1572,13 +1582,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetMarkerHandler ()
 		{
 			if (cb_getMarker == null)
-				cb_getMarker = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetMarker);
+				cb_getMarker = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetMarker);
 			return cb_getMarker;
 		}
 
 		static IntPtr n_GetMarker (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Marker);
 		}
 #pragma warning restore 0169
@@ -1588,14 +1598,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetMarker_Lcom_github_mikephil_charting_components_IMarker_Handler ()
 		{
 			if (cb_setMarker_Lcom_github_mikephil_charting_components_IMarker_ == null)
-				cb_setMarker_Lcom_github_mikephil_charting_components_IMarker_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetMarker_Lcom_github_mikephil_charting_components_IMarker_);
+				cb_setMarker_Lcom_github_mikephil_charting_components_IMarker_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetMarker_Lcom_github_mikephil_charting_components_IMarker_);
 			return cb_setMarker_Lcom_github_mikephil_charting_components_IMarker_;
 		}
 
 		static void n_SetMarker_Lcom_github_mikephil_charting_components_IMarker_ (IntPtr jnienv, IntPtr native__this, IntPtr native_marker)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Components.IMarker marker = (global::MikePhil.Charting.Components.IMarker)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.IMarker> (native_marker, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var marker = (global::MikePhil.Charting.Components.IMarker)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.IMarker> (native_marker, JniHandleOwnership.DoNotTransfer);
 			__this.Marker = marker;
 		}
 #pragma warning restore 0169
@@ -1620,6 +1630,7 @@ namespace MikePhil.Charting.Charts {
 					__args [0] = new JniArgumentValue ((value == null) ? IntPtr.Zero : ((global::Java.Lang.Object) value).Handle);
 					_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 				} finally {
+					global::System.GC.KeepAlive (value);
 				}
 			}
 		}
@@ -1630,14 +1641,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetMarkerViewHandler ()
 		{
 			if (cb_getMarkerView == null)
-				cb_getMarkerView = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetMarkerView);
+				cb_getMarkerView = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetMarkerView);
 			return cb_getMarkerView;
 		}
 
 		[Obsolete]
 		static IntPtr n_GetMarkerView (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.MarkerView);
 		}
 #pragma warning restore 0169
@@ -1648,15 +1659,15 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetMarkerView_Lcom_github_mikephil_charting_components_IMarker_Handler ()
 		{
 			if (cb_setMarkerView_Lcom_github_mikephil_charting_components_IMarker_ == null)
-				cb_setMarkerView_Lcom_github_mikephil_charting_components_IMarker_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetMarkerView_Lcom_github_mikephil_charting_components_IMarker_);
+				cb_setMarkerView_Lcom_github_mikephil_charting_components_IMarker_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetMarkerView_Lcom_github_mikephil_charting_components_IMarker_);
 			return cb_setMarkerView_Lcom_github_mikephil_charting_components_IMarker_;
 		}
 
 		[Obsolete]
 		static void n_SetMarkerView_Lcom_github_mikephil_charting_components_IMarker_ (IntPtr jnienv, IntPtr native__this, IntPtr native_v)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Components.IMarker v = (global::MikePhil.Charting.Components.IMarker)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.IMarker> (native_v, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var v = (global::MikePhil.Charting.Components.IMarker)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.IMarker> (native_v, JniHandleOwnership.DoNotTransfer);
 			__this.MarkerView = v;
 		}
 #pragma warning restore 0169
@@ -1682,6 +1693,7 @@ namespace MikePhil.Charting.Charts {
 					__args [0] = new JniArgumentValue ((value == null) ? IntPtr.Zero : ((global::Java.Lang.Object) value).Handle);
 					_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 				} finally {
+					global::System.GC.KeepAlive (value);
 				}
 			}
 		}
@@ -1691,13 +1703,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetMaxHighlightDistanceHandler ()
 		{
 			if (cb_getMaxHighlightDistance == null)
-				cb_getMaxHighlightDistance = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetMaxHighlightDistance);
+				cb_getMaxHighlightDistance = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetMaxHighlightDistance);
 			return cb_getMaxHighlightDistance;
 		}
 
 		static float n_GetMaxHighlightDistance (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.MaxHighlightDistance;
 		}
 #pragma warning restore 0169
@@ -1707,13 +1719,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetMaxHighlightDistance_FHandler ()
 		{
 			if (cb_setMaxHighlightDistance_F == null)
-				cb_setMaxHighlightDistance_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetMaxHighlightDistance_F);
+				cb_setMaxHighlightDistance_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetMaxHighlightDistance_F);
 			return cb_setMaxHighlightDistance_F;
 		}
 
 		static void n_SetMaxHighlightDistance_F (IntPtr jnienv, IntPtr native__this, float distDp)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.MaxHighlightDistance = distDp;
 		}
 #pragma warning restore 0169
@@ -1747,13 +1759,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetOnChartGestureListenerHandler ()
 		{
 			if (cb_getOnChartGestureListener == null)
-				cb_getOnChartGestureListener = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetOnChartGestureListener);
+				cb_getOnChartGestureListener = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetOnChartGestureListener);
 			return cb_getOnChartGestureListener;
 		}
 
 		static IntPtr n_GetOnChartGestureListener (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.OnChartGestureListener);
 		}
 #pragma warning restore 0169
@@ -1763,14 +1775,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetOnChartGestureListener_Lcom_github_mikephil_charting_listener_OnChartGestureListener_Handler ()
 		{
 			if (cb_setOnChartGestureListener_Lcom_github_mikephil_charting_listener_OnChartGestureListener_ == null)
-				cb_setOnChartGestureListener_Lcom_github_mikephil_charting_listener_OnChartGestureListener_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetOnChartGestureListener_Lcom_github_mikephil_charting_listener_OnChartGestureListener_);
+				cb_setOnChartGestureListener_Lcom_github_mikephil_charting_listener_OnChartGestureListener_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetOnChartGestureListener_Lcom_github_mikephil_charting_listener_OnChartGestureListener_);
 			return cb_setOnChartGestureListener_Lcom_github_mikephil_charting_listener_OnChartGestureListener_;
 		}
 
 		static void n_SetOnChartGestureListener_Lcom_github_mikephil_charting_listener_OnChartGestureListener_ (IntPtr jnienv, IntPtr native__this, IntPtr native_l)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport l = (global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport> (native_l, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var l = (global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartGestureListenerSupport> (native_l, JniHandleOwnership.DoNotTransfer);
 			__this.OnChartGestureListener = l;
 		}
 #pragma warning restore 0169
@@ -1795,6 +1807,7 @@ namespace MikePhil.Charting.Charts {
 					__args [0] = new JniArgumentValue ((value == null) ? IntPtr.Zero : ((global::Java.Lang.Object) value).Handle);
 					_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 				} finally {
+					global::System.GC.KeepAlive (value);
 				}
 			}
 		}
@@ -1804,13 +1817,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetOnTouchListenerHandler ()
 		{
 			if (cb_getOnTouchListener == null)
-				cb_getOnTouchListener = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetOnTouchListener);
+				cb_getOnTouchListener = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetOnTouchListener);
 			return cb_getOnTouchListener;
 		}
 
 		static IntPtr n_GetOnTouchListener (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.OnTouchListener);
 		}
 #pragma warning restore 0169
@@ -1820,14 +1833,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetOnTouchListener_Lcom_github_mikephil_charting_listener_ChartTouchListener_Handler ()
 		{
 			if (cb_setOnTouchListener_Lcom_github_mikephil_charting_listener_ChartTouchListener_ == null)
-				cb_setOnTouchListener_Lcom_github_mikephil_charting_listener_ChartTouchListener_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetOnTouchListener_Lcom_github_mikephil_charting_listener_ChartTouchListener_);
+				cb_setOnTouchListener_Lcom_github_mikephil_charting_listener_ChartTouchListener_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetOnTouchListener_Lcom_github_mikephil_charting_listener_ChartTouchListener_);
 			return cb_setOnTouchListener_Lcom_github_mikephil_charting_listener_ChartTouchListener_;
 		}
 
 		static void n_SetOnTouchListener_Lcom_github_mikephil_charting_listener_ChartTouchListener_ (IntPtr jnienv, IntPtr native__this, IntPtr native_l)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Listener.ChartTouchListener l = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.ChartTouchListener> (native_l, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var l = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.ChartTouchListener> (native_l, JniHandleOwnership.DoNotTransfer);
 			__this.OnTouchListener = l;
 		}
 #pragma warning restore 0169
@@ -1852,6 +1865,7 @@ namespace MikePhil.Charting.Charts {
 					__args [0] = new JniArgumentValue ((value == null) ? IntPtr.Zero : ((global::Java.Lang.Object) value).Handle);
 					_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 				} finally {
+					global::System.GC.KeepAlive (value);
 				}
 			}
 		}
@@ -1861,13 +1875,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetRendererHandler ()
 		{
 			if (cb_getRenderer == null)
-				cb_getRenderer = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetRenderer);
+				cb_getRenderer = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetRenderer);
 			return cb_getRenderer;
 		}
 
 		static IntPtr n_GetRenderer (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Renderer);
 		}
 #pragma warning restore 0169
@@ -1877,14 +1891,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetRenderer_Lcom_github_mikephil_charting_renderer_DataRenderer_Handler ()
 		{
 			if (cb_setRenderer_Lcom_github_mikephil_charting_renderer_DataRenderer_ == null)
-				cb_setRenderer_Lcom_github_mikephil_charting_renderer_DataRenderer_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetRenderer_Lcom_github_mikephil_charting_renderer_DataRenderer_);
+				cb_setRenderer_Lcom_github_mikephil_charting_renderer_DataRenderer_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetRenderer_Lcom_github_mikephil_charting_renderer_DataRenderer_);
 			return cb_setRenderer_Lcom_github_mikephil_charting_renderer_DataRenderer_;
 		}
 
 		static void n_SetRenderer_Lcom_github_mikephil_charting_renderer_DataRenderer_ (IntPtr jnienv, IntPtr native__this, IntPtr native_renderer)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Renderer.DataRenderer renderer = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.DataRenderer> (native_renderer, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var renderer = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.DataRenderer> (native_renderer, JniHandleOwnership.DoNotTransfer);
 			__this.Renderer = renderer;
 		}
 #pragma warning restore 0169
@@ -1909,6 +1923,7 @@ namespace MikePhil.Charting.Charts {
 					__args [0] = new JniArgumentValue ((value == null) ? IntPtr.Zero : ((global::Java.Lang.Object) value).Handle);
 					_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 				} finally {
+					global::System.GC.KeepAlive (value);
 				}
 			}
 		}
@@ -1918,13 +1933,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetViewPortHandlerHandler ()
 		{
 			if (cb_getViewPortHandler == null)
-				cb_getViewPortHandler = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetViewPortHandler);
+				cb_getViewPortHandler = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetViewPortHandler);
 			return cb_getViewPortHandler;
 		}
 
 		static IntPtr n_GetViewPortHandler (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.ViewPortHandler);
 		}
 #pragma warning restore 0169
@@ -1947,13 +1962,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetXAxisHandler ()
 		{
 			if (cb_getXAxis == null)
-				cb_getXAxis = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetXAxis);
+				cb_getXAxis = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetXAxis);
 			return cb_getXAxis;
 		}
 
 		static IntPtr n_GetXAxis (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.XAxis);
 		}
 #pragma warning restore 0169
@@ -1976,13 +1991,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetXChartMaxHandler ()
 		{
 			if (cb_getXChartMax == null)
-				cb_getXChartMax = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetXChartMax);
+				cb_getXChartMax = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetXChartMax);
 			return cb_getXChartMax;
 		}
 
 		static float n_GetXChartMax (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.XChartMax;
 		}
 #pragma warning restore 0169
@@ -2005,13 +2020,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetXChartMinHandler ()
 		{
 			if (cb_getXChartMin == null)
-				cb_getXChartMin = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetXChartMin);
+				cb_getXChartMin = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetXChartMin);
 			return cb_getXChartMin;
 		}
 
 		static float n_GetXChartMin (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.XChartMin;
 		}
 #pragma warning restore 0169
@@ -2034,13 +2049,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetXRangeHandler ()
 		{
 			if (cb_getXRange == null)
-				cb_getXRange = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetXRange);
+				cb_getXRange = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetXRange);
 			return cb_getXRange;
 		}
 
 		static float n_GetXRange (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.XRange;
 		}
 #pragma warning restore 0169
@@ -2063,13 +2078,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetYMaxHandler ()
 		{
 			if (cb_getYMax == null)
-				cb_getYMax = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetYMax);
+				cb_getYMax = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetYMax);
 			return cb_getYMax;
 		}
 
 		static float n_GetYMax (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.YMax;
 		}
 #pragma warning restore 0169
@@ -2092,13 +2107,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetYMinHandler ()
 		{
 			if (cb_getYMin == null)
-				cb_getYMin = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetYMin);
+				cb_getYMin = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetYMin);
 			return cb_getYMin;
 		}
 
 		static float n_GetYMin (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.YMin;
 		}
 #pragma warning restore 0169
@@ -2121,14 +2136,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetAddViewportJob_Ljava_lang_Runnable_Handler ()
 		{
 			if (cb_addViewportJob_Ljava_lang_Runnable_ == null)
-				cb_addViewportJob_Ljava_lang_Runnable_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_AddViewportJob_Ljava_lang_Runnable_);
+				cb_addViewportJob_Ljava_lang_Runnable_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_AddViewportJob_Ljava_lang_Runnable_);
 			return cb_addViewportJob_Ljava_lang_Runnable_;
 		}
 
 		static void n_AddViewportJob_Ljava_lang_Runnable_ (IntPtr jnienv, IntPtr native__this, IntPtr native_job)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Java.Lang.IRunnable job = (global::Java.Lang.IRunnable)global::Java.Lang.Object.GetObject<global::Java.Lang.IRunnable> (native_job, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var job = (global::Java.Lang.IRunnable)global::Java.Lang.Object.GetObject<global::Java.Lang.IRunnable> (native_job, JniHandleOwnership.DoNotTransfer);
 			__this.AddViewportJob (job);
 		}
 #pragma warning restore 0169
@@ -2143,6 +2158,7 @@ namespace MikePhil.Charting.Charts {
 				__args [0] = new JniArgumentValue ((job == null) ? IntPtr.Zero : ((global::Java.Lang.Object) job).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (job);
 			}
 		}
 
@@ -2151,13 +2167,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetAnimateX_IHandler ()
 		{
 			if (cb_animateX_I == null)
-				cb_animateX_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int>) n_AnimateX_I);
+				cb_animateX_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_V) n_AnimateX_I);
 			return cb_animateX_I;
 		}
 
 		static void n_AnimateX_I (IntPtr jnienv, IntPtr native__this, int durationMillis)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateX (durationMillis);
 		}
 #pragma warning restore 0169
@@ -2180,14 +2196,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetAnimateX_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_Handler ()
 		{
 			if (cb_animateX_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_ == null)
-				cb_animateX_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int, IntPtr>) n_AnimateX_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_);
+				cb_animateX_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPIL_V) n_AnimateX_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_);
 			return cb_animateX_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_;
 		}
 
 		static void n_AnimateX_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_ (IntPtr jnienv, IntPtr native__this, int durationMillis, IntPtr native_easing)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Animation.Easing.IEasingFunction easing = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easing, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var easing = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easing, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateX (durationMillis, easing);
 		}
 #pragma warning restore 0169
@@ -2203,6 +2219,7 @@ namespace MikePhil.Charting.Charts {
 				__args [1] = new JniArgumentValue ((easing == null) ? IntPtr.Zero : ((global::Java.Lang.Object) easing).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (easing);
 			}
 		}
 
@@ -2212,15 +2229,15 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetAnimateX_ILcom_github_mikephil_charting_animation_Easing_EasingOption_Handler ()
 		{
 			if (cb_animateX_ILcom_github_mikephil_charting_animation_Easing_EasingOption_ == null)
-				cb_animateX_ILcom_github_mikephil_charting_animation_Easing_EasingOption_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int, IntPtr>) n_AnimateX_ILcom_github_mikephil_charting_animation_Easing_EasingOption_);
+				cb_animateX_ILcom_github_mikephil_charting_animation_Easing_EasingOption_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPIL_V) n_AnimateX_ILcom_github_mikephil_charting_animation_Easing_EasingOption_);
 			return cb_animateX_ILcom_github_mikephil_charting_animation_Easing_EasingOption_;
 		}
 
 		[Obsolete]
 		static void n_AnimateX_ILcom_github_mikephil_charting_animation_Easing_EasingOption_ (IntPtr jnienv, IntPtr native__this, int durationMillis, IntPtr native_easing)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Animation.Easing.EasingOption easing = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.EasingOption> (native_easing, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var easing = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.EasingOption> (native_easing, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateX (durationMillis, easing);
 		}
 #pragma warning restore 0169
@@ -2237,6 +2254,7 @@ namespace MikePhil.Charting.Charts {
 				__args [1] = new JniArgumentValue ((easing == null) ? IntPtr.Zero : ((global::Java.Lang.Object) easing).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (easing);
 			}
 		}
 
@@ -2245,13 +2263,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetAnimateXY_IIHandler ()
 		{
 			if (cb_animateXY_II == null)
-				cb_animateXY_II = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int, int>) n_AnimateXY_II);
+				cb_animateXY_II = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPII_V) n_AnimateXY_II);
 			return cb_animateXY_II;
 		}
 
 		static void n_AnimateXY_II (IntPtr jnienv, IntPtr native__this, int durationMillisX, int durationMillisY)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateXY (durationMillisX, durationMillisY);
 		}
 #pragma warning restore 0169
@@ -2275,14 +2293,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetAnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_Handler ()
 		{
 			if (cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_ == null)
-				cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int, int, IntPtr>) n_AnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_);
+				cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPIIL_V) n_AnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_);
 			return cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_;
 		}
 
 		static void n_AnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_ (IntPtr jnienv, IntPtr native__this, int durationMillisX, int durationMillisY, IntPtr native_easing)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Animation.Easing.IEasingFunction easing = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easing, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var easing = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easing, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateXY (durationMillisX, durationMillisY, easing);
 		}
 #pragma warning restore 0169
@@ -2299,6 +2317,7 @@ namespace MikePhil.Charting.Charts {
 				__args [2] = new JniArgumentValue ((easing == null) ? IntPtr.Zero : ((global::Java.Lang.Object) easing).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (easing);
 			}
 		}
 
@@ -2307,15 +2326,15 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetAnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_Lcom_github_mikephil_charting_animation_Easing_EasingFunction_Handler ()
 		{
 			if (cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_Lcom_github_mikephil_charting_animation_Easing_EasingFunction_ == null)
-				cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_Lcom_github_mikephil_charting_animation_Easing_EasingFunction_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int, int, IntPtr, IntPtr>) n_AnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_Lcom_github_mikephil_charting_animation_Easing_EasingFunction_);
+				cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_Lcom_github_mikephil_charting_animation_Easing_EasingFunction_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPIILL_V) n_AnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_Lcom_github_mikephil_charting_animation_Easing_EasingFunction_);
 			return cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_Lcom_github_mikephil_charting_animation_Easing_EasingFunction_;
 		}
 
 		static void n_AnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_Lcom_github_mikephil_charting_animation_Easing_EasingFunction_ (IntPtr jnienv, IntPtr native__this, int durationMillisX, int durationMillisY, IntPtr native_easingX, IntPtr native_easingY)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Animation.Easing.IEasingFunction easingX = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easingX, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Animation.Easing.IEasingFunction easingY = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easingY, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var easingX = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easingX, JniHandleOwnership.DoNotTransfer);
+			var easingY = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easingY, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateXY (durationMillisX, durationMillisY, easingX, easingY);
 		}
 #pragma warning restore 0169
@@ -2333,6 +2352,8 @@ namespace MikePhil.Charting.Charts {
 				__args [3] = new JniArgumentValue ((easingY == null) ? IntPtr.Zero : ((global::Java.Lang.Object) easingY).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (easingX);
+				global::System.GC.KeepAlive (easingY);
 			}
 		}
 
@@ -2342,16 +2363,16 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetAnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingOption_Lcom_github_mikephil_charting_animation_Easing_EasingOption_Handler ()
 		{
 			if (cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingOption_Lcom_github_mikephil_charting_animation_Easing_EasingOption_ == null)
-				cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingOption_Lcom_github_mikephil_charting_animation_Easing_EasingOption_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int, int, IntPtr, IntPtr>) n_AnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingOption_Lcom_github_mikephil_charting_animation_Easing_EasingOption_);
+				cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingOption_Lcom_github_mikephil_charting_animation_Easing_EasingOption_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPIILL_V) n_AnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingOption_Lcom_github_mikephil_charting_animation_Easing_EasingOption_);
 			return cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingOption_Lcom_github_mikephil_charting_animation_Easing_EasingOption_;
 		}
 
 		[Obsolete]
 		static void n_AnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingOption_Lcom_github_mikephil_charting_animation_Easing_EasingOption_ (IntPtr jnienv, IntPtr native__this, int durationMillisX, int durationMillisY, IntPtr native_easingX, IntPtr native_easingY)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Animation.Easing.EasingOption easingX = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.EasingOption> (native_easingX, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Animation.Easing.EasingOption easingY = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.EasingOption> (native_easingY, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var easingX = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.EasingOption> (native_easingX, JniHandleOwnership.DoNotTransfer);
+			var easingY = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.EasingOption> (native_easingY, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateXY (durationMillisX, durationMillisY, easingX, easingY);
 		}
 #pragma warning restore 0169
@@ -2370,6 +2391,8 @@ namespace MikePhil.Charting.Charts {
 				__args [3] = new JniArgumentValue ((easingY == null) ? IntPtr.Zero : ((global::Java.Lang.Object) easingY).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (easingX);
+				global::System.GC.KeepAlive (easingY);
 			}
 		}
 
@@ -2378,13 +2401,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetAnimateY_IHandler ()
 		{
 			if (cb_animateY_I == null)
-				cb_animateY_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int>) n_AnimateY_I);
+				cb_animateY_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_V) n_AnimateY_I);
 			return cb_animateY_I;
 		}
 
 		static void n_AnimateY_I (IntPtr jnienv, IntPtr native__this, int durationMillis)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateY (durationMillis);
 		}
 #pragma warning restore 0169
@@ -2407,14 +2430,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetAnimateY_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_Handler ()
 		{
 			if (cb_animateY_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_ == null)
-				cb_animateY_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int, IntPtr>) n_AnimateY_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_);
+				cb_animateY_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPIL_V) n_AnimateY_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_);
 			return cb_animateY_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_;
 		}
 
 		static void n_AnimateY_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_ (IntPtr jnienv, IntPtr native__this, int durationMillis, IntPtr native_easing)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Animation.Easing.IEasingFunction easing = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easing, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var easing = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easing, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateY (durationMillis, easing);
 		}
 #pragma warning restore 0169
@@ -2430,6 +2453,7 @@ namespace MikePhil.Charting.Charts {
 				__args [1] = new JniArgumentValue ((easing == null) ? IntPtr.Zero : ((global::Java.Lang.Object) easing).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (easing);
 			}
 		}
 
@@ -2439,15 +2463,15 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetAnimateY_ILcom_github_mikephil_charting_animation_Easing_EasingOption_Handler ()
 		{
 			if (cb_animateY_ILcom_github_mikephil_charting_animation_Easing_EasingOption_ == null)
-				cb_animateY_ILcom_github_mikephil_charting_animation_Easing_EasingOption_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int, IntPtr>) n_AnimateY_ILcom_github_mikephil_charting_animation_Easing_EasingOption_);
+				cb_animateY_ILcom_github_mikephil_charting_animation_Easing_EasingOption_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPIL_V) n_AnimateY_ILcom_github_mikephil_charting_animation_Easing_EasingOption_);
 			return cb_animateY_ILcom_github_mikephil_charting_animation_Easing_EasingOption_;
 		}
 
 		[Obsolete]
 		static void n_AnimateY_ILcom_github_mikephil_charting_animation_Easing_EasingOption_ (IntPtr jnienv, IntPtr native__this, int durationMillis, IntPtr native_easing)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Animation.Easing.EasingOption easing = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.EasingOption> (native_easing, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var easing = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.EasingOption> (native_easing, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateY (durationMillis, easing);
 		}
 #pragma warning restore 0169
@@ -2464,6 +2488,7 @@ namespace MikePhil.Charting.Charts {
 				__args [1] = new JniArgumentValue ((easing == null) ? IntPtr.Zero : ((global::Java.Lang.Object) easing).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (easing);
 			}
 		}
 
@@ -2472,13 +2497,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetCalcMinMaxHandler ()
 		{
 			if (cb_calcMinMax == null)
-				cb_calcMinMax = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_CalcMinMax);
+				cb_calcMinMax = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_CalcMinMax);
 			return cb_calcMinMax;
 		}
 
 		static void n_CalcMinMax (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.CalcMinMax ();
 		}
 #pragma warning restore 0169
@@ -2492,13 +2517,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetCalculateOffsetsHandler ()
 		{
 			if (cb_calculateOffsets == null)
-				cb_calculateOffsets = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_CalculateOffsets);
+				cb_calculateOffsets = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_CalculateOffsets);
 			return cb_calculateOffsets;
 		}
 
 		static void n_CalculateOffsets (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.CalculateOffsets ();
 		}
 #pragma warning restore 0169
@@ -2512,13 +2537,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetClearHandler ()
 		{
 			if (cb_clear == null)
-				cb_clear = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_Clear);
+				cb_clear = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_Clear);
 			return cb_clear;
 		}
 
 		static void n_Clear (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.Clear ();
 		}
 #pragma warning restore 0169
@@ -2539,13 +2564,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetClearAllViewportJobsHandler ()
 		{
 			if (cb_clearAllViewportJobs == null)
-				cb_clearAllViewportJobs = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_ClearAllViewportJobs);
+				cb_clearAllViewportJobs = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_ClearAllViewportJobs);
 			return cb_clearAllViewportJobs;
 		}
 
 		static void n_ClearAllViewportJobs (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.ClearAllViewportJobs ();
 		}
 #pragma warning restore 0169
@@ -2566,13 +2591,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetClearValuesHandler ()
 		{
 			if (cb_clearValues == null)
-				cb_clearValues = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_ClearValues);
+				cb_clearValues = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_ClearValues);
 			return cb_clearValues;
 		}
 
 		static void n_ClearValues (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.ClearValues ();
 		}
 #pragma warning restore 0169
@@ -2593,13 +2618,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetDisableScrollHandler ()
 		{
 			if (cb_disableScroll == null)
-				cb_disableScroll = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_DisableScroll);
+				cb_disableScroll = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_DisableScroll);
 			return cb_disableScroll;
 		}
 
 		static void n_DisableScroll (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.DisableScroll ();
 		}
 #pragma warning restore 0169
@@ -2620,14 +2645,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetDrawDescription_Landroid_graphics_Canvas_Handler ()
 		{
 			if (cb_drawDescription_Landroid_graphics_Canvas_ == null)
-				cb_drawDescription_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_DrawDescription_Landroid_graphics_Canvas_);
+				cb_drawDescription_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_DrawDescription_Landroid_graphics_Canvas_);
 			return cb_drawDescription_Landroid_graphics_Canvas_;
 		}
 
 		static void n_DrawDescription_Landroid_graphics_Canvas_ (IntPtr jnienv, IntPtr native__this, IntPtr native_c)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
 			__this.DrawDescription (c);
 		}
 #pragma warning restore 0169
@@ -2642,6 +2667,7 @@ namespace MikePhil.Charting.Charts {
 				__args [0] = new JniArgumentValue ((c == null) ? IntPtr.Zero : ((global::Java.Lang.Object) c).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (c);
 			}
 		}
 
@@ -2650,14 +2676,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetDrawMarkers_Landroid_graphics_Canvas_Handler ()
 		{
 			if (cb_drawMarkers_Landroid_graphics_Canvas_ == null)
-				cb_drawMarkers_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_DrawMarkers_Landroid_graphics_Canvas_);
+				cb_drawMarkers_Landroid_graphics_Canvas_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_DrawMarkers_Landroid_graphics_Canvas_);
 			return cb_drawMarkers_Landroid_graphics_Canvas_;
 		}
 
 		static void n_DrawMarkers_Landroid_graphics_Canvas_ (IntPtr jnienv, IntPtr native__this, IntPtr native_canvas)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas canvas = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_canvas, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var canvas = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_canvas, JniHandleOwnership.DoNotTransfer);
 			__this.DrawMarkers (canvas);
 		}
 #pragma warning restore 0169
@@ -2672,6 +2698,7 @@ namespace MikePhil.Charting.Charts {
 				__args [0] = new JniArgumentValue ((canvas == null) ? IntPtr.Zero : ((global::Java.Lang.Object) canvas).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (canvas);
 			}
 		}
 
@@ -2680,13 +2707,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetEnableScrollHandler ()
 		{
 			if (cb_enableScroll == null)
-				cb_enableScroll = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_EnableScroll);
+				cb_enableScroll = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_EnableScroll);
 			return cb_enableScroll;
 		}
 
 		static void n_EnableScroll (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.EnableScroll ();
 		}
 #pragma warning restore 0169
@@ -2707,13 +2734,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetHighlightByTouchPoint_FFHandler ()
 		{
 			if (cb_getHighlightByTouchPoint_FF == null)
-				cb_getHighlightByTouchPoint_FF = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float, float, IntPtr>) n_GetHighlightByTouchPoint_FF);
+				cb_getHighlightByTouchPoint_FF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFF_L) n_GetHighlightByTouchPoint_FF);
 			return cb_getHighlightByTouchPoint_FF;
 		}
 
 		static IntPtr n_GetHighlightByTouchPoint_FF (IntPtr jnienv, IntPtr native__this, float x, float y)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.GetHighlightByTouchPoint (x, y));
 		}
 #pragma warning restore 0169
@@ -2738,13 +2765,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetHighlightedHandler ()
 		{
 			if (cb_getHighlighted == null)
-				cb_getHighlighted = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetHighlighted);
+				cb_getHighlighted = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetHighlighted);
 			return cb_getHighlighted;
 		}
 
 		static IntPtr n_GetHighlighted (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.NewArray (__this.GetHighlighted ());
 		}
 #pragma warning restore 0169
@@ -2766,14 +2793,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetMarkerPosition_Lcom_github_mikephil_charting_highlight_Highlight_Handler ()
 		{
 			if (cb_getMarkerPosition_Lcom_github_mikephil_charting_highlight_Highlight_ == null)
-				cb_getMarkerPosition_Lcom_github_mikephil_charting_highlight_Highlight_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, IntPtr>) n_GetMarkerPosition_Lcom_github_mikephil_charting_highlight_Highlight_);
+				cb_getMarkerPosition_Lcom_github_mikephil_charting_highlight_Highlight_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_L) n_GetMarkerPosition_Lcom_github_mikephil_charting_highlight_Highlight_);
 			return cb_getMarkerPosition_Lcom_github_mikephil_charting_highlight_Highlight_;
 		}
 
 		static IntPtr n_GetMarkerPosition_Lcom_github_mikephil_charting_highlight_Highlight_ (IntPtr jnienv, IntPtr native__this, IntPtr native_high)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Highlight.Highlight high = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (native_high, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var high = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (native_high, JniHandleOwnership.DoNotTransfer);
 			IntPtr __ret = JNIEnv.NewArray (__this.GetMarkerPosition (high));
 			return __ret;
 		}
@@ -2790,6 +2817,7 @@ namespace MikePhil.Charting.Charts {
 				var __rm = _members.InstanceMethods.InvokeVirtualObjectMethod (__id, this, __args);
 				return (float[]) JNIEnv.GetArray (__rm.Handle, JniHandleOwnership.TransferLocalRef, typeof (float));
 			} finally {
+				global::System.GC.KeepAlive (high);
 			}
 		}
 
@@ -2798,13 +2826,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetPaint_IHandler ()
 		{
 			if (cb_getPaint_I == null)
-				cb_getPaint_I = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int, IntPtr>) n_GetPaint_I);
+				cb_getPaint_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_L) n_GetPaint_I);
 			return cb_getPaint_I;
 		}
 
 		static IntPtr n_GetPaint_I (IntPtr jnienv, IntPtr native__this, int which)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.GetPaint (which));
 		}
 #pragma warning restore 0169
@@ -2828,14 +2856,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetHighlightValue_Lcom_github_mikephil_charting_highlight_Highlight_Handler ()
 		{
 			if (cb_highlightValue_Lcom_github_mikephil_charting_highlight_Highlight_ == null)
-				cb_highlightValue_Lcom_github_mikephil_charting_highlight_Highlight_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_HighlightValue_Lcom_github_mikephil_charting_highlight_Highlight_);
+				cb_highlightValue_Lcom_github_mikephil_charting_highlight_Highlight_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_HighlightValue_Lcom_github_mikephil_charting_highlight_Highlight_);
 			return cb_highlightValue_Lcom_github_mikephil_charting_highlight_Highlight_;
 		}
 
 		static void n_HighlightValue_Lcom_github_mikephil_charting_highlight_Highlight_ (IntPtr jnienv, IntPtr native__this, IntPtr native_highlight)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Highlight.Highlight highlight = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (native_highlight, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var highlight = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (native_highlight, JniHandleOwnership.DoNotTransfer);
 			__this.HighlightValue (highlight);
 		}
 #pragma warning restore 0169
@@ -2850,6 +2878,7 @@ namespace MikePhil.Charting.Charts {
 				__args [0] = new JniArgumentValue ((highlight == null) ? IntPtr.Zero : ((global::Java.Lang.Object) highlight).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (highlight);
 			}
 		}
 
@@ -2858,14 +2887,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetHighlightValue_Lcom_github_mikephil_charting_highlight_Highlight_ZHandler ()
 		{
 			if (cb_highlightValue_Lcom_github_mikephil_charting_highlight_Highlight_Z == null)
-				cb_highlightValue_Lcom_github_mikephil_charting_highlight_Highlight_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, bool>) n_HighlightValue_Lcom_github_mikephil_charting_highlight_Highlight_Z);
+				cb_highlightValue_Lcom_github_mikephil_charting_highlight_Highlight_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLZ_V) n_HighlightValue_Lcom_github_mikephil_charting_highlight_Highlight_Z);
 			return cb_highlightValue_Lcom_github_mikephil_charting_highlight_Highlight_Z;
 		}
 
 		static void n_HighlightValue_Lcom_github_mikephil_charting_highlight_Highlight_Z (IntPtr jnienv, IntPtr native__this, IntPtr native_high, bool callListener)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Highlight.Highlight high = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (native_high, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var high = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (native_high, JniHandleOwnership.DoNotTransfer);
 			__this.HighlightValue (high, callListener);
 		}
 #pragma warning restore 0169
@@ -2881,6 +2910,7 @@ namespace MikePhil.Charting.Charts {
 				__args [1] = new JniArgumentValue (callListener);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (high);
 			}
 		}
 
@@ -2889,13 +2919,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetHighlightValue_FFIHandler ()
 		{
 			if (cb_highlightValue_FFI == null)
-				cb_highlightValue_FFI = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float, float, int>) n_HighlightValue_FFI);
+				cb_highlightValue_FFI = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFFI_V) n_HighlightValue_FFI);
 			return cb_highlightValue_FFI;
 		}
 
 		static void n_HighlightValue_FFI (IntPtr jnienv, IntPtr native__this, float x, float y, int dataSetIndex)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.HighlightValue (x, y, dataSetIndex);
 		}
 #pragma warning restore 0169
@@ -2920,13 +2950,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetHighlightValue_FFIZHandler ()
 		{
 			if (cb_highlightValue_FFIZ == null)
-				cb_highlightValue_FFIZ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float, float, int, bool>) n_HighlightValue_FFIZ);
+				cb_highlightValue_FFIZ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFFIZ_V) n_HighlightValue_FFIZ);
 			return cb_highlightValue_FFIZ;
 		}
 
 		static void n_HighlightValue_FFIZ (IntPtr jnienv, IntPtr native__this, float x, float y, int dataSetIndex, bool callListener)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.HighlightValue (x, y, dataSetIndex, callListener);
 		}
 #pragma warning restore 0169
@@ -2952,13 +2982,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetHighlightValue_FIHandler ()
 		{
 			if (cb_highlightValue_FI == null)
-				cb_highlightValue_FI = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float, int>) n_HighlightValue_FI);
+				cb_highlightValue_FI = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFI_V) n_HighlightValue_FI);
 			return cb_highlightValue_FI;
 		}
 
 		static void n_HighlightValue_FI (IntPtr jnienv, IntPtr native__this, float x, int dataSetIndex)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.HighlightValue (x, dataSetIndex);
 		}
 #pragma warning restore 0169
@@ -2982,13 +3012,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetHighlightValue_FIZHandler ()
 		{
 			if (cb_highlightValue_FIZ == null)
-				cb_highlightValue_FIZ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float, int, bool>) n_HighlightValue_FIZ);
+				cb_highlightValue_FIZ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFIZ_V) n_HighlightValue_FIZ);
 			return cb_highlightValue_FIZ;
 		}
 
 		static void n_HighlightValue_FIZ (IntPtr jnienv, IntPtr native__this, float x, int dataSetIndex, bool callListener)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.HighlightValue (x, dataSetIndex, callListener);
 		}
 #pragma warning restore 0169
@@ -3013,14 +3043,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetHighlightValues_arrayLcom_github_mikephil_charting_highlight_Highlight_Handler ()
 		{
 			if (cb_highlightValues_arrayLcom_github_mikephil_charting_highlight_Highlight_ == null)
-				cb_highlightValues_arrayLcom_github_mikephil_charting_highlight_Highlight_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_HighlightValues_arrayLcom_github_mikephil_charting_highlight_Highlight_);
+				cb_highlightValues_arrayLcom_github_mikephil_charting_highlight_Highlight_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_HighlightValues_arrayLcom_github_mikephil_charting_highlight_Highlight_);
 			return cb_highlightValues_arrayLcom_github_mikephil_charting_highlight_Highlight_;
 		}
 
 		static void n_HighlightValues_arrayLcom_github_mikephil_charting_highlight_Highlight_ (IntPtr jnienv, IntPtr native__this, IntPtr native_highs)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Highlight.Highlight[] highs = (global::MikePhil.Charting.Highlight.Highlight[]) JNIEnv.GetArray (native_highs, JniHandleOwnership.DoNotTransfer, typeof (global::MikePhil.Charting.Highlight.Highlight));
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var highs = (global::MikePhil.Charting.Highlight.Highlight[]) JNIEnv.GetArray (native_highs, JniHandleOwnership.DoNotTransfer, typeof (global::MikePhil.Charting.Highlight.Highlight));
 			__this.HighlightValues (highs);
 			if (highs != null)
 				JNIEnv.CopyArray (highs, native_highs);
@@ -3042,6 +3072,7 @@ namespace MikePhil.Charting.Charts {
 					JNIEnv.CopyArray (native_highs, highs);
 					JNIEnv.DeleteLocalRef (native_highs);
 				}
+				global::System.GC.KeepAlive (highs);
 			}
 		}
 
@@ -3050,13 +3081,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetInitHandler ()
 		{
 			if (cb_init == null)
-				cb_init = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_Init);
+				cb_init = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_Init);
 			return cb_init;
 		}
 
 		static void n_Init (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.Init ();
 		}
 #pragma warning restore 0169
@@ -3077,13 +3108,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetNotifyDataSetChangedHandler ()
 		{
 			if (cb_notifyDataSetChanged == null)
-				cb_notifyDataSetChanged = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_NotifyDataSetChanged);
+				cb_notifyDataSetChanged = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_NotifyDataSetChanged);
 			return cb_notifyDataSetChanged;
 		}
 
 		static void n_NotifyDataSetChanged (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.NotifyDataSetChanged ();
 		}
 #pragma warning restore 0169
@@ -3097,13 +3128,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetOnLayout_ZIIIIHandler ()
 		{
 			if (cb_onLayout_ZIIII == null)
-				cb_onLayout_ZIIII = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool, int, int, int, int>) n_OnLayout_ZIIII);
+				cb_onLayout_ZIIII = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZIIII_V) n_OnLayout_ZIIII);
 			return cb_onLayout_ZIIII;
 		}
 
 		static void n_OnLayout_ZIIII (IntPtr jnienv, IntPtr native__this, bool changed, int left, int top, int right, int bottom)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.OnLayout (changed, left, top, right, bottom);
 		}
 #pragma warning restore 0169
@@ -3130,14 +3161,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetRemoveViewportJob_Ljava_lang_Runnable_Handler ()
 		{
 			if (cb_removeViewportJob_Ljava_lang_Runnable_ == null)
-				cb_removeViewportJob_Ljava_lang_Runnable_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_RemoveViewportJob_Ljava_lang_Runnable_);
+				cb_removeViewportJob_Ljava_lang_Runnable_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_RemoveViewportJob_Ljava_lang_Runnable_);
 			return cb_removeViewportJob_Ljava_lang_Runnable_;
 		}
 
 		static void n_RemoveViewportJob_Ljava_lang_Runnable_ (IntPtr jnienv, IntPtr native__this, IntPtr native_job)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Java.Lang.IRunnable job = (global::Java.Lang.IRunnable)global::Java.Lang.Object.GetObject<global::Java.Lang.IRunnable> (native_job, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var job = (global::Java.Lang.IRunnable)global::Java.Lang.Object.GetObject<global::Java.Lang.IRunnable> (native_job, JniHandleOwnership.DoNotTransfer);
 			__this.RemoveViewportJob (job);
 		}
 #pragma warning restore 0169
@@ -3152,6 +3183,7 @@ namespace MikePhil.Charting.Charts {
 				__args [0] = new JniArgumentValue ((job == null) ? IntPtr.Zero : ((global::Java.Lang.Object) job).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (job);
 			}
 		}
 
@@ -3160,14 +3192,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSaveToGallery_Ljava_lang_String_Handler ()
 		{
 			if (cb_saveToGallery_Ljava_lang_String_ == null)
-				cb_saveToGallery_Ljava_lang_String_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, bool>) n_SaveToGallery_Ljava_lang_String_);
+				cb_saveToGallery_Ljava_lang_String_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_Z) n_SaveToGallery_Ljava_lang_String_);
 			return cb_saveToGallery_Ljava_lang_String_;
 		}
 
 		static bool n_SaveToGallery_Ljava_lang_String_ (IntPtr jnienv, IntPtr native__this, IntPtr native_fileName)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			string fileName = JNIEnv.GetString (native_fileName, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var fileName = JNIEnv.GetString (native_fileName, JniHandleOwnership.DoNotTransfer);
 			bool __ret = __this.SaveToGallery (fileName);
 			return __ret;
 		}
@@ -3194,14 +3226,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSaveToGallery_Ljava_lang_String_IHandler ()
 		{
 			if (cb_saveToGallery_Ljava_lang_String_I == null)
-				cb_saveToGallery_Ljava_lang_String_I = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, int, bool>) n_SaveToGallery_Ljava_lang_String_I);
+				cb_saveToGallery_Ljava_lang_String_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLI_Z) n_SaveToGallery_Ljava_lang_String_I);
 			return cb_saveToGallery_Ljava_lang_String_I;
 		}
 
 		static bool n_SaveToGallery_Ljava_lang_String_I (IntPtr jnienv, IntPtr native__this, IntPtr native_fileName, int quality)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			string fileName = JNIEnv.GetString (native_fileName, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var fileName = JNIEnv.GetString (native_fileName, JniHandleOwnership.DoNotTransfer);
 			bool __ret = __this.SaveToGallery (fileName, quality);
 			return __ret;
 		}
@@ -3229,17 +3261,17 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSaveToGallery_Ljava_lang_String_Ljava_lang_String_Ljava_lang_String_Landroid_graphics_Bitmap_CompressFormat_IHandler ()
 		{
 			if (cb_saveToGallery_Ljava_lang_String_Ljava_lang_String_Ljava_lang_String_Landroid_graphics_Bitmap_CompressFormat_I == null)
-				cb_saveToGallery_Ljava_lang_String_Ljava_lang_String_Ljava_lang_String_Landroid_graphics_Bitmap_CompressFormat_I = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, int, bool>) n_SaveToGallery_Ljava_lang_String_Ljava_lang_String_Ljava_lang_String_Landroid_graphics_Bitmap_CompressFormat_I);
+				cb_saveToGallery_Ljava_lang_String_Ljava_lang_String_Ljava_lang_String_Landroid_graphics_Bitmap_CompressFormat_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLLLLI_Z) n_SaveToGallery_Ljava_lang_String_Ljava_lang_String_Ljava_lang_String_Landroid_graphics_Bitmap_CompressFormat_I);
 			return cb_saveToGallery_Ljava_lang_String_Ljava_lang_String_Ljava_lang_String_Landroid_graphics_Bitmap_CompressFormat_I;
 		}
 
 		static bool n_SaveToGallery_Ljava_lang_String_Ljava_lang_String_Ljava_lang_String_Landroid_graphics_Bitmap_CompressFormat_I (IntPtr jnienv, IntPtr native__this, IntPtr native_fileName, IntPtr native_subFolderPath, IntPtr native_fileDescription, IntPtr native_format, int quality)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			string fileName = JNIEnv.GetString (native_fileName, JniHandleOwnership.DoNotTransfer);
-			string subFolderPath = JNIEnv.GetString (native_subFolderPath, JniHandleOwnership.DoNotTransfer);
-			string fileDescription = JNIEnv.GetString (native_fileDescription, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Bitmap.CompressFormat format = global::Java.Lang.Object.GetObject<global::Android.Graphics.Bitmap.CompressFormat> (native_format, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var fileName = JNIEnv.GetString (native_fileName, JniHandleOwnership.DoNotTransfer);
+			var subFolderPath = JNIEnv.GetString (native_subFolderPath, JniHandleOwnership.DoNotTransfer);
+			var fileDescription = JNIEnv.GetString (native_fileDescription, JniHandleOwnership.DoNotTransfer);
+			var format = global::Java.Lang.Object.GetObject<global::Android.Graphics.Bitmap.CompressFormat> (native_format, JniHandleOwnership.DoNotTransfer);
 			bool __ret = __this.SaveToGallery (fileName, subFolderPath, fileDescription, format, quality);
 			return __ret;
 		}
@@ -3266,6 +3298,7 @@ namespace MikePhil.Charting.Charts {
 				JNIEnv.DeleteLocalRef (native_fileName);
 				JNIEnv.DeleteLocalRef (native_subFolderPath);
 				JNIEnv.DeleteLocalRef (native_fileDescription);
+				global::System.GC.KeepAlive (format);
 			}
 		}
 
@@ -3274,15 +3307,15 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSaveToPath_Ljava_lang_String_Ljava_lang_String_Handler ()
 		{
 			if (cb_saveToPath_Ljava_lang_String_Ljava_lang_String_ == null)
-				cb_saveToPath_Ljava_lang_String_Ljava_lang_String_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, IntPtr, bool>) n_SaveToPath_Ljava_lang_String_Ljava_lang_String_);
+				cb_saveToPath_Ljava_lang_String_Ljava_lang_String_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLL_Z) n_SaveToPath_Ljava_lang_String_Ljava_lang_String_);
 			return cb_saveToPath_Ljava_lang_String_Ljava_lang_String_;
 		}
 
 		static bool n_SaveToPath_Ljava_lang_String_Ljava_lang_String_ (IntPtr jnienv, IntPtr native__this, IntPtr native_title, IntPtr native_pathOnSD)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			string title = JNIEnv.GetString (native_title, JniHandleOwnership.DoNotTransfer);
-			string pathOnSD = JNIEnv.GetString (native_pathOnSD, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var title = JNIEnv.GetString (native_title, JniHandleOwnership.DoNotTransfer);
+			var pathOnSD = JNIEnv.GetString (native_pathOnSD, JniHandleOwnership.DoNotTransfer);
 			bool __ret = __this.SaveToPath (title, pathOnSD);
 			return __ret;
 		}
@@ -3313,14 +3346,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetDrawMarkerViews_ZHandler ()
 		{
 			if (cb_setDrawMarkerViews_Z == null)
-				cb_setDrawMarkerViews_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetDrawMarkerViews_Z);
+				cb_setDrawMarkerViews_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetDrawMarkerViews_Z);
 			return cb_setDrawMarkerViews_Z;
 		}
 
 		[Obsolete]
 		static void n_SetDrawMarkerViews_Z (IntPtr jnienv, IntPtr native__this, bool enabled)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetDrawMarkerViews (enabled);
 		}
 #pragma warning restore 0169
@@ -3344,13 +3377,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetDrawMarkers_ZHandler ()
 		{
 			if (cb_setDrawMarkers_Z == null)
-				cb_setDrawMarkers_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetDrawMarkers_Z);
+				cb_setDrawMarkers_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetDrawMarkers_Z);
 			return cb_setDrawMarkers_Z;
 		}
 
 		static void n_SetDrawMarkers_Z (IntPtr jnienv, IntPtr native__this, bool enabled)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetDrawMarkers (enabled);
 		}
 #pragma warning restore 0169
@@ -3373,13 +3406,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetExtraOffsets_FFFFHandler ()
 		{
 			if (cb_setExtraOffsets_FFFF == null)
-				cb_setExtraOffsets_FFFF = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float, float, float, float>) n_SetExtraOffsets_FFFF);
+				cb_setExtraOffsets_FFFF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFFFF_V) n_SetExtraOffsets_FFFF);
 			return cb_setExtraOffsets_FFFF;
 		}
 
 		static void n_SetExtraOffsets_FFFF (IntPtr jnienv, IntPtr native__this, float left, float top, float right, float bottom)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetExtraOffsets (left, top, right, bottom);
 		}
 #pragma warning restore 0169
@@ -3405,13 +3438,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetHardwareAccelerationEnabled_ZHandler ()
 		{
 			if (cb_setHardwareAccelerationEnabled_Z == null)
-				cb_setHardwareAccelerationEnabled_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetHardwareAccelerationEnabled_Z);
+				cb_setHardwareAccelerationEnabled_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetHardwareAccelerationEnabled_Z);
 			return cb_setHardwareAccelerationEnabled_Z;
 		}
 
 		static void n_SetHardwareAccelerationEnabled_Z (IntPtr jnienv, IntPtr native__this, bool enabled)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetHardwareAccelerationEnabled (enabled);
 		}
 #pragma warning restore 0169
@@ -3434,14 +3467,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetHighlighter_Lcom_github_mikephil_charting_highlight_ChartHighlighter_Handler ()
 		{
 			if (cb_setHighlighter_Lcom_github_mikephil_charting_highlight_ChartHighlighter_ == null)
-				cb_setHighlighter_Lcom_github_mikephil_charting_highlight_ChartHighlighter_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetHighlighter_Lcom_github_mikephil_charting_highlight_ChartHighlighter_);
+				cb_setHighlighter_Lcom_github_mikephil_charting_highlight_ChartHighlighter_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetHighlighter_Lcom_github_mikephil_charting_highlight_ChartHighlighter_);
 			return cb_setHighlighter_Lcom_github_mikephil_charting_highlight_ChartHighlighter_;
 		}
 
 		static void n_SetHighlighter_Lcom_github_mikephil_charting_highlight_ChartHighlighter_ (IntPtr jnienv, IntPtr native__this, IntPtr native_highlighter)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Highlight.ChartHighlighter highlighter = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (native_highlighter, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var highlighter = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.ChartHighlighter> (native_highlighter, JniHandleOwnership.DoNotTransfer);
 			__this.SetHighlighter (highlighter);
 		}
 #pragma warning restore 0169
@@ -3456,6 +3489,7 @@ namespace MikePhil.Charting.Charts {
 				__args [0] = new JniArgumentValue ((highlighter == null) ? IntPtr.Zero : ((global::Java.Lang.Object) highlighter).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (highlighter);
 			}
 		}
 
@@ -3464,14 +3498,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetLastHighlighted_arrayLcom_github_mikephil_charting_highlight_Highlight_Handler ()
 		{
 			if (cb_setLastHighlighted_arrayLcom_github_mikephil_charting_highlight_Highlight_ == null)
-				cb_setLastHighlighted_arrayLcom_github_mikephil_charting_highlight_Highlight_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetLastHighlighted_arrayLcom_github_mikephil_charting_highlight_Highlight_);
+				cb_setLastHighlighted_arrayLcom_github_mikephil_charting_highlight_Highlight_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetLastHighlighted_arrayLcom_github_mikephil_charting_highlight_Highlight_);
 			return cb_setLastHighlighted_arrayLcom_github_mikephil_charting_highlight_Highlight_;
 		}
 
 		static void n_SetLastHighlighted_arrayLcom_github_mikephil_charting_highlight_Highlight_ (IntPtr jnienv, IntPtr native__this, IntPtr native_highs)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Highlight.Highlight[] highs = (global::MikePhil.Charting.Highlight.Highlight[]) JNIEnv.GetArray (native_highs, JniHandleOwnership.DoNotTransfer, typeof (global::MikePhil.Charting.Highlight.Highlight));
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var highs = (global::MikePhil.Charting.Highlight.Highlight[]) JNIEnv.GetArray (native_highs, JniHandleOwnership.DoNotTransfer, typeof (global::MikePhil.Charting.Highlight.Highlight));
 			__this.SetLastHighlighted (highs);
 			if (highs != null)
 				JNIEnv.CopyArray (highs, native_highs);
@@ -3493,6 +3527,7 @@ namespace MikePhil.Charting.Charts {
 					JNIEnv.CopyArray (native_highs, highs);
 					JNIEnv.DeleteLocalRef (native_highs);
 				}
+				global::System.GC.KeepAlive (highs);
 			}
 		}
 
@@ -3501,14 +3536,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetNoDataText_Ljava_lang_String_Handler ()
 		{
 			if (cb_setNoDataText_Ljava_lang_String_ == null)
-				cb_setNoDataText_Ljava_lang_String_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetNoDataText_Ljava_lang_String_);
+				cb_setNoDataText_Ljava_lang_String_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetNoDataText_Ljava_lang_String_);
 			return cb_setNoDataText_Ljava_lang_String_;
 		}
 
 		static void n_SetNoDataText_Ljava_lang_String_ (IntPtr jnienv, IntPtr native__this, IntPtr native_text)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			string text = JNIEnv.GetString (native_text, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var text = JNIEnv.GetString (native_text, JniHandleOwnership.DoNotTransfer);
 			__this.SetNoDataText (text);
 		}
 #pragma warning restore 0169
@@ -3533,13 +3568,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetNoDataTextColor_IHandler ()
 		{
 			if (cb_setNoDataTextColor_I == null)
-				cb_setNoDataTextColor_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int>) n_SetNoDataTextColor_I);
+				cb_setNoDataTextColor_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_V) n_SetNoDataTextColor_I);
 			return cb_setNoDataTextColor_I;
 		}
 
 		static void n_SetNoDataTextColor_I (IntPtr jnienv, IntPtr native__this, int color)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetNoDataTextColor (color);
 		}
 #pragma warning restore 0169
@@ -3562,14 +3597,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetNoDataTextTypeface_Landroid_graphics_Typeface_Handler ()
 		{
 			if (cb_setNoDataTextTypeface_Landroid_graphics_Typeface_ == null)
-				cb_setNoDataTextTypeface_Landroid_graphics_Typeface_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetNoDataTextTypeface_Landroid_graphics_Typeface_);
+				cb_setNoDataTextTypeface_Landroid_graphics_Typeface_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetNoDataTextTypeface_Landroid_graphics_Typeface_);
 			return cb_setNoDataTextTypeface_Landroid_graphics_Typeface_;
 		}
 
 		static void n_SetNoDataTextTypeface_Landroid_graphics_Typeface_ (IntPtr jnienv, IntPtr native__this, IntPtr native_tf)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Typeface tf = global::Java.Lang.Object.GetObject<global::Android.Graphics.Typeface> (native_tf, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var tf = global::Java.Lang.Object.GetObject<global::Android.Graphics.Typeface> (native_tf, JniHandleOwnership.DoNotTransfer);
 			__this.SetNoDataTextTypeface (tf);
 		}
 #pragma warning restore 0169
@@ -3584,6 +3619,7 @@ namespace MikePhil.Charting.Charts {
 				__args [0] = new JniArgumentValue ((tf == null) ? IntPtr.Zero : ((global::Java.Lang.Object) tf).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (tf);
 			}
 		}
 
@@ -3592,14 +3628,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetOnChartValueSelectedListener_Lcom_github_mikephil_charting_listener_OnChartValueSelectedListener_Handler ()
 		{
 			if (cb_setOnChartValueSelectedListener_Lcom_github_mikephil_charting_listener_OnChartValueSelectedListener_ == null)
-				cb_setOnChartValueSelectedListener_Lcom_github_mikephil_charting_listener_OnChartValueSelectedListener_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetOnChartValueSelectedListener_Lcom_github_mikephil_charting_listener_OnChartValueSelectedListener_);
+				cb_setOnChartValueSelectedListener_Lcom_github_mikephil_charting_listener_OnChartValueSelectedListener_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetOnChartValueSelectedListener_Lcom_github_mikephil_charting_listener_OnChartValueSelectedListener_);
 			return cb_setOnChartValueSelectedListener_Lcom_github_mikephil_charting_listener_OnChartValueSelectedListener_;
 		}
 
 		static void n_SetOnChartValueSelectedListener_Lcom_github_mikephil_charting_listener_OnChartValueSelectedListener_ (IntPtr jnienv, IntPtr native__this, IntPtr native_l)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Listener.IOnChartValueSelectedListenerSupport l = (global::MikePhil.Charting.Listener.IOnChartValueSelectedListenerSupport)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartValueSelectedListenerSupport> (native_l, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var l = (global::MikePhil.Charting.Listener.IOnChartValueSelectedListenerSupport)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.IOnChartValueSelectedListenerSupport> (native_l, JniHandleOwnership.DoNotTransfer);
 			__this.SetOnChartValueSelectedListener (l);
 		}
 #pragma warning restore 0169
@@ -3614,6 +3650,7 @@ namespace MikePhil.Charting.Charts {
 				__args [0] = new JniArgumentValue ((l == null) ? IntPtr.Zero : ((global::Java.Lang.Object) l).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (l);
 			}
 		}
 
@@ -3622,14 +3659,14 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetPaint_Landroid_graphics_Paint_IHandler ()
 		{
 			if (cb_setPaint_Landroid_graphics_Paint_I == null)
-				cb_setPaint_Landroid_graphics_Paint_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, int>) n_SetPaint_Landroid_graphics_Paint_I);
+				cb_setPaint_Landroid_graphics_Paint_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLI_V) n_SetPaint_Landroid_graphics_Paint_I);
 			return cb_setPaint_Landroid_graphics_Paint_I;
 		}
 
 		static void n_SetPaint_Landroid_graphics_Paint_I (IntPtr jnienv, IntPtr native__this, IntPtr native_p, int which)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Paint p = global::Java.Lang.Object.GetObject<global::Android.Graphics.Paint> (native_p, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p = global::Java.Lang.Object.GetObject<global::Android.Graphics.Paint> (native_p, JniHandleOwnership.DoNotTransfer);
 			__this.SetPaint (p, which);
 		}
 #pragma warning restore 0169
@@ -3645,6 +3682,7 @@ namespace MikePhil.Charting.Charts {
 				__args [1] = new JniArgumentValue (which);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (p);
 			}
 		}
 
@@ -3653,13 +3691,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetTouchEnabled_ZHandler ()
 		{
 			if (cb_setTouchEnabled_Z == null)
-				cb_setTouchEnabled_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetTouchEnabled_Z);
+				cb_setTouchEnabled_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetTouchEnabled_Z);
 			return cb_setTouchEnabled_Z;
 		}
 
 		static void n_SetTouchEnabled_Z (IntPtr jnienv, IntPtr native__this, bool enabled)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetTouchEnabled (enabled);
 		}
 #pragma warning restore 0169
@@ -3682,13 +3720,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetUnbindEnabled_ZHandler ()
 		{
 			if (cb_setUnbindEnabled_Z == null)
-				cb_setUnbindEnabled_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetUnbindEnabled_Z);
+				cb_setUnbindEnabled_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetUnbindEnabled_Z);
 			return cb_setUnbindEnabled_Z;
 		}
 
 		static void n_SetUnbindEnabled_Z (IntPtr jnienv, IntPtr native__this, bool enabled)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetUnbindEnabled (enabled);
 		}
 #pragma warning restore 0169
@@ -3711,13 +3749,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetSetupDefaultFormatter_FFHandler ()
 		{
 			if (cb_setupDefaultFormatter_FF == null)
-				cb_setupDefaultFormatter_FF = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float, float>) n_SetupDefaultFormatter_FF);
+				cb_setupDefaultFormatter_FF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFF_V) n_SetupDefaultFormatter_FF);
 			return cb_setupDefaultFormatter_FF;
 		}
 
 		static void n_SetupDefaultFormatter_FF (IntPtr jnienv, IntPtr native__this, float min, float max)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetupDefaultFormatter (min, max);
 		}
 #pragma warning restore 0169
@@ -3741,13 +3779,13 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetValuesToHighlightHandler ()
 		{
 			if (cb_valuesToHighlight == null)
-				cb_valuesToHighlight = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_ValuesToHighlight);
+				cb_valuesToHighlight = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_ValuesToHighlight);
 			return cb_valuesToHighlight;
 		}
 
 		static bool n_ValuesToHighlight (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.ValuesToHighlight ();
 		}
 #pragma warning restore 0169
@@ -3769,20 +3807,21 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetMaxVisibleCountHandler ()
 		{
 			if (cb_getMaxVisibleCount == null)
-				cb_getMaxVisibleCount = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetMaxVisibleCount);
+				cb_getMaxVisibleCount = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetMaxVisibleCount);
 			return cb_getMaxVisibleCount;
 		}
 
 		static int n_GetMaxVisibleCount (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.MaxVisibleCount;
 		}
 #pragma warning restore 0169
 
 		public abstract int MaxVisibleCount {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.charts']/class[@name='Chart']/method[@name='getMaxVisibleCount' and count(parameter)=0]"
-			[Register ("getMaxVisibleCount", "()I", "GetGetMaxVisibleCountHandler")] get;
+			[Register ("getMaxVisibleCount", "()I", "GetGetMaxVisibleCountHandler")]
+			get; 
 		}
 
 		static Delegate cb_getYChartMax;
@@ -3790,20 +3829,21 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetYChartMaxHandler ()
 		{
 			if (cb_getYChartMax == null)
-				cb_getYChartMax = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetYChartMax);
+				cb_getYChartMax = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetYChartMax);
 			return cb_getYChartMax;
 		}
 
 		static float n_GetYChartMax (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.YChartMax;
 		}
 #pragma warning restore 0169
 
 		public abstract float YChartMax {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.charts']/class[@name='Chart']/method[@name='getYChartMax' and count(parameter)=0]"
-			[Register ("getYChartMax", "()F", "GetGetYChartMaxHandler")] get;
+			[Register ("getYChartMax", "()F", "GetGetYChartMaxHandler")]
+			get; 
 		}
 
 		static Delegate cb_getYChartMin;
@@ -3811,35 +3851,41 @@ namespace MikePhil.Charting.Charts {
 		static Delegate GetGetYChartMinHandler ()
 		{
 			if (cb_getYChartMin == null)
-				cb_getYChartMin = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetYChartMin);
+				cb_getYChartMin = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetYChartMin);
 			return cb_getYChartMin;
 		}
 
 		static float n_GetYChartMin (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Charts.Chart __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Charts.Chart> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.YChartMin;
 		}
 #pragma warning restore 0169
 
 		public abstract float YChartMin {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.charts']/class[@name='Chart']/method[@name='getYChartMin' and count(parameter)=0]"
-			[Register ("getYChartMin", "()F", "GetGetYChartMinHandler")] get;
+			[Register ("getYChartMin", "()F", "GetGetYChartMinHandler")]
+			get; 
 		}
 
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/charts/Chart", DoNotGenerateAcw=true)]
 	internal partial class ChartInvoker : Chart {
+		public ChartInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer)
+		{
+		}
 
-		public ChartInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/charts/Chart", typeof (ChartInvoker));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/charts/Chart", typeof (ChartInvoker));
-
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
@@ -3917,5 +3963,4 @@ namespace MikePhil.Charting.Charts {
 		}
 
 	}
-
 }

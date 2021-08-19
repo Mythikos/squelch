@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Formatter {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.formatter']/class[@name='IndexAxisValueFormatter']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/formatter/IndexAxisValueFormatter", DoNotGenerateAcw=true)]
 	public partial class IndexAxisValueFormatter : global::Java.Lang.Object, global::MikePhil.Charting.Formatter.IAxisValueFormatter {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/formatter/IndexAxisValueFormatter", typeof (IndexAxisValueFormatter));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/formatter/IndexAxisValueFormatter", typeof (IndexAxisValueFormatter));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected IndexAxisValueFormatter (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected IndexAxisValueFormatter (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.formatter']/class[@name='IndexAxisValueFormatter']/constructor[@name='IndexAxisValueFormatter' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe IndexAxisValueFormatter ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe IndexAxisValueFormatter () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 
@@ -50,8 +55,7 @@ namespace MikePhil.Charting.Formatter {
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.formatter']/class[@name='IndexAxisValueFormatter']/constructor[@name='IndexAxisValueFormatter' and count(parameter)=1 and parameter[1][@type='java.lang.String[]']]"
 		[Register (".ctor", "([Ljava/lang/String;)V", "")]
-		public unsafe IndexAxisValueFormatter (string[] values)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe IndexAxisValueFormatter (string[] values) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "([Ljava/lang/String;)V";
 
@@ -70,13 +74,13 @@ namespace MikePhil.Charting.Formatter {
 					JNIEnv.CopyArray (native_values, values);
 					JNIEnv.DeleteLocalRef (native_values);
 				}
+				global::System.GC.KeepAlive (values);
 			}
 		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.formatter']/class[@name='IndexAxisValueFormatter']/constructor[@name='IndexAxisValueFormatter' and count(parameter)=1 and parameter[1][@type='java.util.Collection&lt;java.lang.String&gt;']]"
 		[Register (".ctor", "(Ljava/util/Collection;)V", "")]
-		public unsafe IndexAxisValueFormatter (global::System.Collections.Generic.ICollection<string> values)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe IndexAxisValueFormatter (global::System.Collections.Generic.ICollection<string> values) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Ljava/util/Collection;)V";
 
@@ -92,6 +96,7 @@ namespace MikePhil.Charting.Formatter {
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
 				JNIEnv.DeleteLocalRef (native_values);
+				global::System.GC.KeepAlive (values);
 			}
 		}
 
@@ -100,14 +105,14 @@ namespace MikePhil.Charting.Formatter {
 		static Delegate GetGetFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_Handler ()
 		{
 			if (cb_getFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_ == null)
-				cb_getFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float, IntPtr, IntPtr>) n_GetFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_);
+				cb_getFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFL_L) n_GetFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_);
 			return cb_getFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_;
 		}
 
 		static IntPtr n_GetFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_ (IntPtr jnienv, IntPtr native__this, float value, IntPtr native_axis)
 		{
-			global::MikePhil.Charting.Formatter.IndexAxisValueFormatter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Formatter.IndexAxisValueFormatter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Components.AxisBase axis = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.AxisBase> (native_axis, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Formatter.IndexAxisValueFormatter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var axis = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.AxisBase> (native_axis, JniHandleOwnership.DoNotTransfer);
 			IntPtr __ret = JNIEnv.NewString (__this.GetFormattedValue (value, axis));
 			return __ret;
 		}
@@ -125,6 +130,7 @@ namespace MikePhil.Charting.Formatter {
 				var __rm = _members.InstanceMethods.InvokeVirtualObjectMethod (__id, this, __args);
 				return JNIEnv.GetString (__rm.Handle, JniHandleOwnership.TransferLocalRef);
 			} finally {
+				global::System.GC.KeepAlive (axis);
 			}
 		}
 
@@ -133,13 +139,13 @@ namespace MikePhil.Charting.Formatter {
 		static Delegate GetGetValuesHandler ()
 		{
 			if (cb_getValues == null)
-				cb_getValues = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetValues);
+				cb_getValues = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetValues);
 			return cb_getValues;
 		}
 
 		static IntPtr n_GetValues (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Formatter.IndexAxisValueFormatter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Formatter.IndexAxisValueFormatter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Formatter.IndexAxisValueFormatter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.NewArray (__this.GetValues ());
 		}
 #pragma warning restore 0169
@@ -161,14 +167,14 @@ namespace MikePhil.Charting.Formatter {
 		static Delegate GetSetValues_arrayLjava_lang_String_Handler ()
 		{
 			if (cb_setValues_arrayLjava_lang_String_ == null)
-				cb_setValues_arrayLjava_lang_String_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetValues_arrayLjava_lang_String_);
+				cb_setValues_arrayLjava_lang_String_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetValues_arrayLjava_lang_String_);
 			return cb_setValues_arrayLjava_lang_String_;
 		}
 
 		static void n_SetValues_arrayLjava_lang_String_ (IntPtr jnienv, IntPtr native__this, IntPtr native_values)
 		{
-			global::MikePhil.Charting.Formatter.IndexAxisValueFormatter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Formatter.IndexAxisValueFormatter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			string[] values = (string[]) JNIEnv.GetArray (native_values, JniHandleOwnership.DoNotTransfer, typeof (string));
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Formatter.IndexAxisValueFormatter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var values = (string[]) JNIEnv.GetArray (native_values, JniHandleOwnership.DoNotTransfer, typeof (string));
 			__this.SetValues (values);
 			if (values != null)
 				JNIEnv.CopyArray (values, native_values);
@@ -190,6 +196,7 @@ namespace MikePhil.Charting.Formatter {
 					JNIEnv.CopyArray (native_values, values);
 					JNIEnv.DeleteLocalRef (native_values);
 				}
+				global::System.GC.KeepAlive (values);
 			}
 		}
 

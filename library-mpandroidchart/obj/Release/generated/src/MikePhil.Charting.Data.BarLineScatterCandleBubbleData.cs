@@ -9,32 +9,37 @@ namespace MikePhil.Charting.Data {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/data/BarLineScatterCandleBubbleData", DoNotGenerateAcw=true)]
 	[global::Java.Interop.JavaTypeParameters (new string [] {"T extends com.github.mikephil.charting.interfaces.datasets.IBarLineScatterCandleBubbleDataSet<? extends com.github.mikephil.charting.data.Entry>"})]
 	public abstract partial class BarLineScatterCandleBubbleData : global::MikePhil.Charting.Data.ChartData {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/BarLineScatterCandleBubbleData", typeof (BarLineScatterCandleBubbleData));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/BarLineScatterCandleBubbleData", typeof (BarLineScatterCandleBubbleData));
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected BarLineScatterCandleBubbleData (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected BarLineScatterCandleBubbleData (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='BarLineScatterCandleBubbleData']/constructor[@name='BarLineScatterCandleBubbleData' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe BarLineScatterCandleBubbleData ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe BarLineScatterCandleBubbleData () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 
@@ -51,8 +56,7 @@ namespace MikePhil.Charting.Data {
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='BarLineScatterCandleBubbleData']/constructor[@name='BarLineScatterCandleBubbleData' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;T&gt;']]"
 		[Register (".ctor", "(Ljava/util/List;)V", "")]
-		public unsafe BarLineScatterCandleBubbleData (global::System.Collections.IList sets)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe BarLineScatterCandleBubbleData (global::System.Collections.IList sets) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Ljava/util/List;)V";
 
@@ -68,13 +72,13 @@ namespace MikePhil.Charting.Data {
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
 				JNIEnv.DeleteLocalRef (native_sets);
+				global::System.GC.KeepAlive (sets);
 			}
 		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='BarLineScatterCandleBubbleData']/constructor[@name='BarLineScatterCandleBubbleData' and count(parameter)=1 and parameter[1][@type='T...']]"
 		[Register (".ctor", "([Lcom/github/mikephil/charting/interfaces/datasets/IBarLineScatterCandleBubbleDataSet;)V", "")]
-		public unsafe BarLineScatterCandleBubbleData (params global::Java.Lang.Object[] sets)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe BarLineScatterCandleBubbleData (params global::Java.Lang.Object[] sets) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "([Lcom/github/mikephil/charting/interfaces/datasets/IBarLineScatterCandleBubbleDataSet;)V";
 
@@ -93,6 +97,7 @@ namespace MikePhil.Charting.Data {
 					JNIEnv.CopyArray (native_sets, sets);
 					JNIEnv.DeleteLocalRef (native_sets);
 				}
+				global::System.GC.KeepAlive (sets);
 			}
 		}
 
@@ -100,19 +105,23 @@ namespace MikePhil.Charting.Data {
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/data/BarLineScatterCandleBubbleData", DoNotGenerateAcw=true)]
 	internal partial class BarLineScatterCandleBubbleDataInvoker : BarLineScatterCandleBubbleData {
+		public BarLineScatterCandleBubbleDataInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer)
+		{
+		}
 
-		public BarLineScatterCandleBubbleDataInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/BarLineScatterCandleBubbleData", typeof (BarLineScatterCandleBubbleDataInvoker));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/data/BarLineScatterCandleBubbleData", typeof (BarLineScatterCandleBubbleDataInvoker));
-
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
 	}
-
 }

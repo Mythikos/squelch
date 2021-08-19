@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Util {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='FileUtils']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/utils/FileUtils", DoNotGenerateAcw=true)]
 	public partial class FileUtils : global::Java.Lang.Object {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/FileUtils", typeof (FileUtils));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/utils/FileUtils", typeof (FileUtils));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected FileUtils (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected FileUtils (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='FileUtils']/constructor[@name='FileUtils' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe FileUtils ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe FileUtils () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 
@@ -62,6 +67,7 @@ namespace MikePhil.Charting.Util {
 				return global::Android.Runtime.JavaList<global::MikePhil.Charting.Data.BarEntry>.FromJniHandle (__rm.Handle, JniHandleOwnership.TransferLocalRef);
 			} finally {
 				JNIEnv.DeleteLocalRef (native_path);
+				global::System.GC.KeepAlive (am);
 			}
 		}
 
@@ -79,6 +85,7 @@ namespace MikePhil.Charting.Util {
 				return global::Android.Runtime.JavaList<global::MikePhil.Charting.Data.Entry>.FromJniHandle (__rm.Handle, JniHandleOwnership.TransferLocalRef);
 			} finally {
 				JNIEnv.DeleteLocalRef (native_path);
+				global::System.GC.KeepAlive (am);
 			}
 		}
 
@@ -113,6 +120,7 @@ namespace MikePhil.Charting.Util {
 			} finally {
 				JNIEnv.DeleteLocalRef (native_entries);
 				JNIEnv.DeleteLocalRef (native_path);
+				global::System.GC.KeepAlive (entries);
 			}
 		}
 

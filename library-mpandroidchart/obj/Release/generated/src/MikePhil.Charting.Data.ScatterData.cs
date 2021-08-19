@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Data {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='ScatterData']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/data/ScatterData", DoNotGenerateAcw=true)]
 	public partial class ScatterData : global::MikePhil.Charting.Data.BarLineScatterCandleBubbleData {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/ScatterData", typeof (ScatterData));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/ScatterData", typeof (ScatterData));
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected ScatterData (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected ScatterData (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='ScatterData']/constructor[@name='ScatterData' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe ScatterData ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe ScatterData () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 
@@ -50,8 +55,7 @@ namespace MikePhil.Charting.Data {
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='ScatterData']/constructor[@name='ScatterData' and count(parameter)=1 and parameter[1][@type='com.github.mikephil.charting.interfaces.datasets.IScatterDataSet...']]"
 		[Register (".ctor", "([Lcom/github/mikephil/charting/interfaces/datasets/IScatterDataSet;)V", "")]
-		public unsafe ScatterData (params global::MikePhil.Charting.Interfaces.Datasets.IScatterDataSet[] dataSets)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe ScatterData (params global::MikePhil.Charting.Interfaces.Datasets.IScatterDataSet[] dataSets) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "([Lcom/github/mikephil/charting/interfaces/datasets/IScatterDataSet;)V";
 
@@ -70,13 +74,13 @@ namespace MikePhil.Charting.Data {
 					JNIEnv.CopyArray (native_dataSets, dataSets);
 					JNIEnv.DeleteLocalRef (native_dataSets);
 				}
+				global::System.GC.KeepAlive (dataSets);
 			}
 		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='ScatterData']/constructor[@name='ScatterData' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.github.mikephil.charting.interfaces.datasets.IScatterDataSet&gt;']]"
 		[Register (".ctor", "(Ljava/util/List;)V", "")]
-		public unsafe ScatterData (global::System.Collections.Generic.IList<global::MikePhil.Charting.Interfaces.Datasets.IScatterDataSet> dataSets)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe ScatterData (global::System.Collections.Generic.IList<global::MikePhil.Charting.Interfaces.Datasets.IScatterDataSet> dataSets) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Ljava/util/List;)V";
 
@@ -92,6 +96,7 @@ namespace MikePhil.Charting.Data {
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
 				JNIEnv.DeleteLocalRef (native_dataSets);
+				global::System.GC.KeepAlive (dataSets);
 			}
 		}
 
@@ -100,13 +105,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetGreatestShapeSizeHandler ()
 		{
 			if (cb_getGreatestShapeSize == null)
-				cb_getGreatestShapeSize = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetGreatestShapeSize);
+				cb_getGreatestShapeSize = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetGreatestShapeSize);
 			return cb_getGreatestShapeSize;
 		}
 
 		static float n_GetGreatestShapeSize (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.ScatterData __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterData> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.ScatterData> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.GreatestShapeSize;
 		}
 #pragma warning restore 0169

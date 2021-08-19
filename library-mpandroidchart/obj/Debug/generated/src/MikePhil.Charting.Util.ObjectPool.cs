@@ -9,12 +9,9 @@ namespace MikePhil.Charting.Util {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/utils/ObjectPool", DoNotGenerateAcw=true)]
 	[global::Java.Interop.JavaTypeParameters (new string [] {"T extends com.github.mikephil.charting.utils.ObjectPool.Poolable"})]
 	public partial class ObjectPool : global::Java.Lang.Object {
-
 		// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='ObjectPool.Poolable']"
 		[global::Android.Runtime.Register ("com/github/mikephil/charting/utils/ObjectPool$Poolable", DoNotGenerateAcw=true)]
 		public abstract partial class Poolable : global::Java.Lang.Object {
-
-
 
 			// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='ObjectPool.Poolable']/field[@name='NO_OWNER']"
 			[Register ("NO_OWNER")]
@@ -34,31 +31,38 @@ namespace MikePhil.Charting.Util {
 					}
 				}
 			}
-			internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/utils/ObjectPool$Poolable", typeof (Poolable));
-			internal static new IntPtr class_ref {
-				get {
-					return _members.JniPeerType.PeerReference.Handle;
-				}
+
+			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/ObjectPool$Poolable", typeof (Poolable));
+
+			internal static IntPtr class_ref {
+				get { return _members.JniPeerType.PeerReference.Handle; }
 			}
 
+			[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+			[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 			public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 				get { return _members; }
 			}
 
+			[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+			[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 			protected override IntPtr ThresholdClass {
 				get { return _members.JniPeerType.PeerReference.Handle; }
 			}
 
+			[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+			[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 			protected override global::System.Type ThresholdType {
 				get { return _members.ManagedPeerType; }
 			}
 
-			protected Poolable (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+			protected Poolable (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+			{
+			}
 
 			// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='ObjectPool.Poolable']/constructor[@name='ObjectPool.Poolable' and count(parameter)=0]"
 			[Register (".ctor", "()V", "")]
-			public unsafe Poolable ()
-				: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+			public unsafe Poolable () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 			{
 				const string __id = "()V";
 
@@ -78,13 +82,13 @@ namespace MikePhil.Charting.Util {
 			static Delegate GetInstantiateHandler ()
 			{
 				if (cb_instantiate == null)
-					cb_instantiate = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_Instantiate);
+					cb_instantiate = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_Instantiate);
 				return cb_instantiate;
 			}
 
 			static IntPtr n_Instantiate (IntPtr jnienv, IntPtr native__this)
 			{
-				global::MikePhil.Charting.Util.ObjectPool.Poolable __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ObjectPool.Poolable> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+				var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ObjectPool.Poolable> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 				return JNIEnv.ToLocalJniHandle (__this.Instantiate ());
 			}
 #pragma warning restore 0169
@@ -97,15 +101,20 @@ namespace MikePhil.Charting.Util {
 
 		[global::Android.Runtime.Register ("com/github/mikephil/charting/utils/ObjectPool$Poolable", DoNotGenerateAcw=true)]
 		internal partial class PoolableInvoker : Poolable {
+			public PoolableInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer)
+			{
+			}
 
-			public PoolableInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
+			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/ObjectPool$Poolable", typeof (PoolableInvoker));
 
-			internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/utils/ObjectPool$Poolable", typeof (PoolableInvoker));
-
+			[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+			[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 			public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 				get { return _members; }
 			}
 
+			[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+			[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 			protected override global::System.Type ThresholdType {
 				get { return _members.ManagedPeerType; }
 			}
@@ -124,40 +133,46 @@ namespace MikePhil.Charting.Util {
 
 		}
 
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/ObjectPool", typeof (ObjectPool));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/utils/ObjectPool", typeof (ObjectPool));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected ObjectPool (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected ObjectPool (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		static Delegate cb_getPoolCapacity;
 #pragma warning disable 0169
 		static Delegate GetGetPoolCapacityHandler ()
 		{
 			if (cb_getPoolCapacity == null)
-				cb_getPoolCapacity = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetPoolCapacity);
+				cb_getPoolCapacity = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetPoolCapacity);
 			return cb_getPoolCapacity;
 		}
 
 		static int n_GetPoolCapacity (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Util.ObjectPool __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ObjectPool> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ObjectPool> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.PoolCapacity;
 		}
 #pragma warning restore 0169
@@ -180,13 +195,13 @@ namespace MikePhil.Charting.Util {
 		static Delegate GetGetPoolCountHandler ()
 		{
 			if (cb_getPoolCount == null)
-				cb_getPoolCount = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetPoolCount);
+				cb_getPoolCount = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetPoolCount);
 			return cb_getPoolCount;
 		}
 
 		static int n_GetPoolCount (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Util.ObjectPool __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ObjectPool> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ObjectPool> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.PoolCount;
 		}
 #pragma warning restore 0169
@@ -209,13 +224,13 @@ namespace MikePhil.Charting.Util {
 		static Delegate GetGetPoolIdHandler ()
 		{
 			if (cb_getPoolId == null)
-				cb_getPoolId = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetPoolId);
+				cb_getPoolId = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetPoolId);
 			return cb_getPoolId;
 		}
 
 		static int n_GetPoolId (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Util.ObjectPool __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ObjectPool> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ObjectPool> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.PoolId;
 		}
 #pragma warning restore 0169
@@ -238,13 +253,13 @@ namespace MikePhil.Charting.Util {
 		static Delegate GetGetReplenishPercentageHandler ()
 		{
 			if (cb_getReplenishPercentage == null)
-				cb_getReplenishPercentage = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetReplenishPercentage);
+				cb_getReplenishPercentage = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetReplenishPercentage);
 			return cb_getReplenishPercentage;
 		}
 
 		static float n_GetReplenishPercentage (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Util.ObjectPool __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ObjectPool> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ObjectPool> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.ReplenishPercentage;
 		}
 #pragma warning restore 0169
@@ -254,13 +269,13 @@ namespace MikePhil.Charting.Util {
 		static Delegate GetSetReplenishPercentage_FHandler ()
 		{
 			if (cb_setReplenishPercentage_F == null)
-				cb_setReplenishPercentage_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetReplenishPercentage_F);
+				cb_setReplenishPercentage_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetReplenishPercentage_F);
 			return cb_setReplenishPercentage_F;
 		}
 
 		static void n_SetReplenishPercentage_F (IntPtr jnienv, IntPtr native__this, float percentage)
 		{
-			global::MikePhil.Charting.Util.ObjectPool __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ObjectPool> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ObjectPool> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.ReplenishPercentage = percentage;
 		}
 #pragma warning restore 0169
@@ -301,6 +316,7 @@ namespace MikePhil.Charting.Util {
 				var __rm = _members.StaticMethods.InvokeObjectMethod (__id, __args);
 				return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ObjectPool> (__rm.Handle, JniHandleOwnership.TransferLocalRef);
 			} finally {
+				global::System.GC.KeepAlive (@object);
 			}
 		}
 
@@ -309,13 +325,13 @@ namespace MikePhil.Charting.Util {
 		static Delegate GetGetHandler ()
 		{
 			if (cb_get == null)
-				cb_get = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_Get);
+				cb_get = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_Get);
 			return cb_get;
 		}
 
 		static IntPtr n_Get (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Util.ObjectPool __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ObjectPool> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ObjectPool> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Get ());
 		}
 #pragma warning restore 0169
@@ -327,7 +343,7 @@ namespace MikePhil.Charting.Util {
 			const string __id = "get.()Lcom/github/mikephil/charting/utils/ObjectPool$Poolable;";
 			try {
 				var __rm = _members.InstanceMethods.InvokeVirtualObjectMethod (__id, this, null);
-				return (Java.Lang.Object) global::Java.Lang.Object.GetObject<global::Java.Lang.Object> (__rm.Handle, JniHandleOwnership.TransferLocalRef);
+				return (global::Java.Lang.Object) global::Java.Lang.Object.GetObject<global::Java.Lang.Object> (__rm.Handle, JniHandleOwnership.TransferLocalRef);
 			} finally {
 			}
 		}
@@ -337,13 +353,13 @@ namespace MikePhil.Charting.Util {
 		static Delegate GetRecycle_Ljava_util_List_Handler ()
 		{
 			if (cb_recycle_Ljava_util_List_ == null)
-				cb_recycle_Ljava_util_List_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_Recycle_Ljava_util_List_);
+				cb_recycle_Ljava_util_List_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_Recycle_Ljava_util_List_);
 			return cb_recycle_Ljava_util_List_;
 		}
 
 		static void n_Recycle_Ljava_util_List_ (IntPtr jnienv, IntPtr native__this, IntPtr native_objects)
 		{
-			global::MikePhil.Charting.Util.ObjectPool __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ObjectPool> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ObjectPool> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			var objects = global::Android.Runtime.JavaList.FromJniHandle (native_objects, JniHandleOwnership.DoNotTransfer);
 			__this.Recycle (objects);
 		}
@@ -361,6 +377,7 @@ namespace MikePhil.Charting.Util {
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
 				JNIEnv.DeleteLocalRef (native_objects);
+				global::System.GC.KeepAlive (objects);
 			}
 		}
 
@@ -369,14 +386,14 @@ namespace MikePhil.Charting.Util {
 		static Delegate GetRecycle_Lcom_github_mikephil_charting_utils_ObjectPool_Poolable_Handler ()
 		{
 			if (cb_recycle_Lcom_github_mikephil_charting_utils_ObjectPool_Poolable_ == null)
-				cb_recycle_Lcom_github_mikephil_charting_utils_ObjectPool_Poolable_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_Recycle_Lcom_github_mikephil_charting_utils_ObjectPool_Poolable_);
+				cb_recycle_Lcom_github_mikephil_charting_utils_ObjectPool_Poolable_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_Recycle_Lcom_github_mikephil_charting_utils_ObjectPool_Poolable_);
 			return cb_recycle_Lcom_github_mikephil_charting_utils_ObjectPool_Poolable_;
 		}
 
 		static void n_Recycle_Lcom_github_mikephil_charting_utils_ObjectPool_Poolable_ (IntPtr jnienv, IntPtr native__this, IntPtr native__object)
 		{
-			global::MikePhil.Charting.Util.ObjectPool __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ObjectPool> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Java.Lang.Object @object = global::Java.Lang.Object.GetObject<global::Java.Lang.Object> (native__object, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ObjectPool> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var @object = global::Java.Lang.Object.GetObject<global::Java.Lang.Object> (native__object, JniHandleOwnership.DoNotTransfer);
 			__this.Recycle (@object);
 		}
 #pragma warning restore 0169
@@ -393,6 +410,7 @@ namespace MikePhil.Charting.Util {
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
 				JNIEnv.DeleteLocalRef (native__object);
+				global::System.GC.KeepAlive (@object);
 			}
 		}
 

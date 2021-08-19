@@ -7,8 +7,7 @@ namespace MikePhil.Charting.Formatter {
 
 	// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.formatter']/interface[@name='IAxisValueFormatter']"
 	[Register ("com/github/mikephil/charting/formatter/IAxisValueFormatter", "", "MikePhil.Charting.Formatter.IAxisValueFormatterInvoker")]
-	public partial interface IAxisValueFormatter : IJavaObject {
-
+	public partial interface IAxisValueFormatter : IJavaObject, IJavaPeerable {
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.formatter']/interface[@name='IAxisValueFormatter']/method[@name='getFormattedValue' and count(parameter)=2 and parameter[1][@type='float'] and parameter[2][@type='com.github.mikephil.charting.components.AxisBase']]"
 		[Register ("getFormattedValue", "(FLcom/github/mikephil/charting/components/AxisBase;)Ljava/lang/String;", "GetGetFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_Handler:MikePhil.Charting.Formatter.IAxisValueFormatterInvoker, library-mpandroidchart")]
 		string GetFormattedValue (float p0, global::MikePhil.Charting.Components.AxisBase p1);
@@ -16,22 +15,27 @@ namespace MikePhil.Charting.Formatter {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/formatter/IAxisValueFormatter", DoNotGenerateAcw=true)]
-	internal class IAxisValueFormatterInvoker : global::Java.Lang.Object, IAxisValueFormatter {
-
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/formatter/IAxisValueFormatter", typeof (IAxisValueFormatterInvoker));
+	internal partial class IAxisValueFormatterInvoker : global::Java.Lang.Object, IAxisValueFormatter {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/formatter/IAxisValueFormatter", typeof (IAxisValueFormatterInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return class_ref; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
@@ -46,8 +50,7 @@ namespace MikePhil.Charting.Formatter {
 		static IntPtr Validate (IntPtr handle)
 		{
 			if (!JNIEnv.IsInstanceOf (handle, java_class_ref))
-				throw new InvalidCastException (string.Format ("Unable to convert instance of type '{0}' to type '{1}'.",
-							JNIEnv.GetClassNameFromInstance (handle), "com.github.mikephil.charting.formatter.IAxisValueFormatter"));
+				throw new InvalidCastException ($"Unable to convert instance of type '{JNIEnv.GetClassNameFromInstance (handle)}' to type 'com.github.mikephil.charting.formatter.IAxisValueFormatter'.");
 			return handle;
 		}
 
@@ -71,14 +74,14 @@ namespace MikePhil.Charting.Formatter {
 		static Delegate GetGetFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_Handler ()
 		{
 			if (cb_getFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_ == null)
-				cb_getFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float, IntPtr, IntPtr>) n_GetFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_);
+				cb_getFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFL_L) n_GetFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_);
 			return cb_getFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_;
 		}
 
 		static IntPtr n_GetFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_ (IntPtr jnienv, IntPtr native__this, float p0, IntPtr native_p1)
 		{
-			global::MikePhil.Charting.Formatter.IAxisValueFormatter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Formatter.IAxisValueFormatter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Components.AxisBase p1 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.AxisBase> (native_p1, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Formatter.IAxisValueFormatter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p1 = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Components.AxisBase> (native_p1, JniHandleOwnership.DoNotTransfer);
 			IntPtr __ret = JNIEnv.NewString (__this.GetFormattedValue (p0, p1));
 			return __ret;
 		}
@@ -92,10 +95,9 @@ namespace MikePhil.Charting.Formatter {
 			JValue* __args = stackalloc JValue [2];
 			__args [0] = new JValue (p0);
 			__args [1] = new JValue ((p1 == null) ? IntPtr.Zero : ((global::Java.Lang.Object) p1).Handle);
-			string __ret = JNIEnv.GetString (JNIEnv.CallObjectMethod (((global::Java.Lang.Object) this).Handle, id_getFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_, __args), JniHandleOwnership.TransferLocalRef);
+			var __ret = JNIEnv.GetString (JNIEnv.CallObjectMethod (((global::Java.Lang.Object) this).Handle, id_getFormattedValue_FLcom_github_mikephil_charting_components_AxisBase_, __args), JniHandleOwnership.TransferLocalRef);
 			return __ret;
 		}
 
 	}
-
 }

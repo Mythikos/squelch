@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Data {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='RadarEntry']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/data/RadarEntry", DoNotGenerateAcw=true)]
 	public partial class RadarEntry : global::MikePhil.Charting.Data.Entry {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/RadarEntry", typeof (RadarEntry));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/RadarEntry", typeof (RadarEntry));
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected RadarEntry (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected RadarEntry (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='RadarEntry']/constructor[@name='RadarEntry' and count(parameter)=1 and parameter[1][@type='float']]"
 		[Register (".ctor", "(F)V", "")]
-		public unsafe RadarEntry (float value)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe RadarEntry (float value) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(F)V";
 
@@ -52,8 +57,7 @@ namespace MikePhil.Charting.Data {
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='RadarEntry']/constructor[@name='RadarEntry' and count(parameter)=2 and parameter[1][@type='float'] and parameter[2][@type='java.lang.Object']]"
 		[Register (".ctor", "(FLjava/lang/Object;)V", "")]
-		public unsafe RadarEntry (float value, global::Java.Lang.Object data)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe RadarEntry (float value, global::Java.Lang.Object data) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(FLjava/lang/Object;)V";
 
@@ -68,6 +72,7 @@ namespace MikePhil.Charting.Data {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (data);
 			}
 		}
 
@@ -76,13 +81,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetValueHandler ()
 		{
 			if (cb_getValue == null)
-				cb_getValue = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetValue);
+				cb_getValue = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetValue);
 			return cb_getValue;
 		}
 
 		static float n_GetValue (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.RadarEntry __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarEntry> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarEntry> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.Value;
 		}
 #pragma warning restore 0169

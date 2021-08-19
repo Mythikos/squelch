@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.OS;
 using Firebase.Analytics;
+using Squelch.Library.Data;
 using Squelch.Library.Entities;
 using System;
 using System.Collections.Generic;

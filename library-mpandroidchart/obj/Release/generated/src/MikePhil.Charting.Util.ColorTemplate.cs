@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Util {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/utils/ColorTemplate", DoNotGenerateAcw=true)]
 	public partial class ColorTemplate : global::Java.Lang.Object {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='ColorTemplate']/field[@name='COLORFUL_COLORS']"
 		[Register ("COLORFUL_COLORS")]
 		public static IList<int> ColorfulColors {
@@ -89,31 +87,38 @@ namespace MikePhil.Charting.Util {
 				return global::Android.Runtime.JavaArray<int>.FromJniHandle (__v.Handle, JniHandleOwnership.TransferLocalRef);
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/utils/ColorTemplate", typeof (ColorTemplate));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/utils/ColorTemplate", typeof (ColorTemplate));
+
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected ColorTemplate (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected ColorTemplate (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='ColorTemplate']/constructor[@name='ColorTemplate' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe ColorTemplate ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe ColorTemplate () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 
@@ -130,7 +135,7 @@ namespace MikePhil.Charting.Util {
 
 		public static unsafe int HoloBlue {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.utils']/class[@name='ColorTemplate']/method[@name='getHoloBlue' and count(parameter)=0]"
-			[Register ("getHoloBlue", "()I", "GetGetHoloBlueHandler")]
+			[Register ("getHoloBlue", "()I", "")]
 			get {
 				const string __id = "getHoloBlue.()I";
 				try {
@@ -173,6 +178,8 @@ namespace MikePhil.Charting.Util {
 					JNIEnv.CopyArray (native_colors, colors);
 					JNIEnv.DeleteLocalRef (native_colors);
 				}
+				global::System.GC.KeepAlive (r);
+				global::System.GC.KeepAlive (colors);
 			}
 		}
 
@@ -192,6 +199,7 @@ namespace MikePhil.Charting.Util {
 					JNIEnv.CopyArray (native_colors, colors);
 					JNIEnv.DeleteLocalRef (native_colors);
 				}
+				global::System.GC.KeepAlive (colors);
 			}
 		}
 

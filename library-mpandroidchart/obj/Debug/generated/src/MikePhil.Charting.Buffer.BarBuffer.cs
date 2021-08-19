@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Buffer {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/buffer/BarBuffer", DoNotGenerateAcw=true)]
 	public partial class BarBuffer : global::MikePhil.Charting.Buffer.AbstractBuffer {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.buffer']/class[@name='BarBuffer']/field[@name='mBarWidth']"
 		[Register ("mBarWidth")]
 		protected float MBarWidth {
@@ -109,31 +107,38 @@ namespace MikePhil.Charting.Buffer {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/buffer/BarBuffer", typeof (BarBuffer));
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/buffer/BarBuffer", typeof (BarBuffer));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected BarBuffer (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected BarBuffer (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.buffer']/class[@name='BarBuffer']/constructor[@name='BarBuffer' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='int'] and parameter[3][@type='boolean']]"
 		[Register (".ctor", "(IIZ)V", "")]
-		public unsafe BarBuffer (int size, int dataSetCount, bool containsStacks)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe BarBuffer (int size, int dataSetCount, bool containsStacks) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(IIZ)V";
 
@@ -157,13 +162,13 @@ namespace MikePhil.Charting.Buffer {
 		static Delegate GetAddBar_FFFFHandler ()
 		{
 			if (cb_addBar_FFFF == null)
-				cb_addBar_FFFF = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float, float, float, float>) n_AddBar_FFFF);
+				cb_addBar_FFFF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFFFF_V) n_AddBar_FFFF);
 			return cb_addBar_FFFF;
 		}
 
 		static void n_AddBar_FFFF (IntPtr jnienv, IntPtr native__this, float left, float top, float right, float bottom)
 		{
-			global::MikePhil.Charting.Buffer.BarBuffer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Buffer.BarBuffer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Buffer.BarBuffer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.AddBar (left, top, right, bottom);
 		}
 #pragma warning restore 0169
@@ -189,14 +194,14 @@ namespace MikePhil.Charting.Buffer {
 		static Delegate GetFeed_Lcom_github_mikephil_charting_interfaces_datasets_IBarDataSet_Handler ()
 		{
 			if (cb_feed_Lcom_github_mikephil_charting_interfaces_datasets_IBarDataSet_ == null)
-				cb_feed_Lcom_github_mikephil_charting_interfaces_datasets_IBarDataSet_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_Feed_Lcom_github_mikephil_charting_interfaces_datasets_IBarDataSet_);
+				cb_feed_Lcom_github_mikephil_charting_interfaces_datasets_IBarDataSet_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_Feed_Lcom_github_mikephil_charting_interfaces_datasets_IBarDataSet_);
 			return cb_feed_Lcom_github_mikephil_charting_interfaces_datasets_IBarDataSet_;
 		}
 
 		static void n_Feed_Lcom_github_mikephil_charting_interfaces_datasets_IBarDataSet_ (IntPtr jnienv, IntPtr native__this, IntPtr native_data)
 		{
-			global::MikePhil.Charting.Buffer.BarBuffer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Buffer.BarBuffer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet data = (global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (native_data, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Buffer.BarBuffer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var data = (global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IBarDataSet> (native_data, JniHandleOwnership.DoNotTransfer);
 			__this.Feed (data);
 		}
 #pragma warning restore 0169
@@ -211,6 +216,7 @@ namespace MikePhil.Charting.Buffer {
 				__args [0] = new JniArgumentValue ((data == null) ? IntPtr.Zero : ((global::Java.Lang.Object) data).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (data);
 			}
 		}
 
@@ -219,13 +225,13 @@ namespace MikePhil.Charting.Buffer {
 		static Delegate GetSetBarWidth_FHandler ()
 		{
 			if (cb_setBarWidth_F == null)
-				cb_setBarWidth_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetBarWidth_F);
+				cb_setBarWidth_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetBarWidth_F);
 			return cb_setBarWidth_F;
 		}
 
 		static void n_SetBarWidth_F (IntPtr jnienv, IntPtr native__this, float barWidth)
 		{
-			global::MikePhil.Charting.Buffer.BarBuffer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Buffer.BarBuffer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Buffer.BarBuffer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetBarWidth (barWidth);
 		}
 #pragma warning restore 0169
@@ -248,13 +254,13 @@ namespace MikePhil.Charting.Buffer {
 		static Delegate GetSetDataSet_IHandler ()
 		{
 			if (cb_setDataSet_I == null)
-				cb_setDataSet_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int>) n_SetDataSet_I);
+				cb_setDataSet_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_V) n_SetDataSet_I);
 			return cb_setDataSet_I;
 		}
 
 		static void n_SetDataSet_I (IntPtr jnienv, IntPtr native__this, int index)
 		{
-			global::MikePhil.Charting.Buffer.BarBuffer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Buffer.BarBuffer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Buffer.BarBuffer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetDataSet (index);
 		}
 #pragma warning restore 0169
@@ -277,13 +283,13 @@ namespace MikePhil.Charting.Buffer {
 		static Delegate GetSetInverted_ZHandler ()
 		{
 			if (cb_setInverted_Z == null)
-				cb_setInverted_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetInverted_Z);
+				cb_setInverted_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetInverted_Z);
 			return cb_setInverted_Z;
 		}
 
 		static void n_SetInverted_Z (IntPtr jnienv, IntPtr native__this, bool inverted)
 		{
-			global::MikePhil.Charting.Buffer.BarBuffer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Buffer.BarBuffer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Buffer.BarBuffer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetInverted (inverted);
 		}
 #pragma warning restore 0169

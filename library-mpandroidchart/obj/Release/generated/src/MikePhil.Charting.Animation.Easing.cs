@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Animation {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/animation/Easing", DoNotGenerateAcw=true)]
 	public partial class Easing : global::Java.Lang.Object {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.animation']/class[@name='Easing']/field[@name='EaseInBack']"
 		[Register ("EaseInBack")]
 		public static global::MikePhil.Charting.Animation.Easing.IEasingFunction EaseInBack {
@@ -345,10 +343,10 @@ namespace MikePhil.Charting.Animation {
 				return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (__v.Handle, JniHandleOwnership.TransferLocalRef);
 			}
 		}
+
 		// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.animation']/interface[@name='Easing.EasingFunction']"
 		[Register ("com/github/mikephil/charting/animation/Easing$EasingFunction", "", "MikePhil.Charting.Animation.Easing/IEasingFunctionInvoker")]
 		public partial interface IEasingFunction : global::Android.Animation.ITimeInterpolator {
-
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.animation']/interface[@name='Easing.EasingFunction']/method[@name='getInterpolation' and count(parameter)=1 and parameter[1][@type='float']]"
 			[Register ("getInterpolation", "(F)F", "GetGetInterpolation_FHandler:MikePhil.Charting.Animation.Easing/IEasingFunctionInvoker, library-mpandroidchart")]
 			float GetInterpolation (float p0);
@@ -356,22 +354,27 @@ namespace MikePhil.Charting.Animation {
 		}
 
 		[global::Android.Runtime.Register ("com/github/mikephil/charting/animation/Easing$EasingFunction", DoNotGenerateAcw=true)]
-		internal class IEasingFunctionInvoker : global::Java.Lang.Object, IEasingFunction {
-
-			internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/animation/Easing$EasingFunction", typeof (IEasingFunctionInvoker));
+		internal partial class IEasingFunctionInvoker : global::Java.Lang.Object, IEasingFunction {
+			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/animation/Easing$EasingFunction", typeof (IEasingFunctionInvoker));
 
 			static IntPtr java_class_ref {
 				get { return _members.JniPeerType.PeerReference.Handle; }
 			}
 
+			[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+			[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 			public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 				get { return _members; }
 			}
 
+			[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+			[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 			protected override IntPtr ThresholdClass {
 				get { return class_ref; }
 			}
 
+			[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+			[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 			protected override global::System.Type ThresholdType {
 				get { return _members.ManagedPeerType; }
 			}
@@ -386,8 +389,7 @@ namespace MikePhil.Charting.Animation {
 			static IntPtr Validate (IntPtr handle)
 			{
 				if (!JNIEnv.IsInstanceOf (handle, java_class_ref))
-					throw new InvalidCastException (string.Format ("Unable to convert instance of type '{0}' to type '{1}'.",
-								JNIEnv.GetClassNameFromInstance (handle), "com.github.mikephil.charting.animation.Easing.EasingFunction"));
+					throw new InvalidCastException ($"Unable to convert instance of type '{JNIEnv.GetClassNameFromInstance (handle)}' to type 'com.github.mikephil.charting.animation.Easing.EasingFunction'.");
 				return handle;
 			}
 
@@ -411,13 +413,13 @@ namespace MikePhil.Charting.Animation {
 			static Delegate GetGetInterpolation_FHandler ()
 			{
 				if (cb_getInterpolation_F == null)
-					cb_getInterpolation_F = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float, float>) n_GetInterpolation_F);
+					cb_getInterpolation_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_F) n_GetInterpolation_F);
 				return cb_getInterpolation_F;
 			}
 
 			static float n_GetInterpolation_F (IntPtr jnienv, IntPtr native__this, float p0)
 			{
-				global::MikePhil.Charting.Animation.Easing.IEasingFunction __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+				var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 				return __this.GetInterpolation (p0);
 			}
 #pragma warning restore 0169
@@ -434,13 +436,10 @@ namespace MikePhil.Charting.Animation {
 
 		}
 
-
 		// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.animation']/class[@name='Easing.EasingOption']"
 		[ObsoleteAttribute (@"This class is obsoleted in this android platform")]
 		[global::Android.Runtime.Register ("com/github/mikephil/charting/animation/Easing$EasingOption", DoNotGenerateAcw=true)]
 		public sealed partial class EasingOption : global::Java.Lang.Enum {
-
-
 
 			// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.animation']/class[@name='Easing.EasingOption']/field[@name='EaseInBack']"
 			[Register ("EaseInBack")]
@@ -776,26 +775,34 @@ namespace MikePhil.Charting.Animation {
 					return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.EasingOption> (__v.Handle, JniHandleOwnership.TransferLocalRef);
 				}
 			}
-			internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/animation/Easing$EasingOption", typeof (EasingOption));
-			internal static new IntPtr class_ref {
-				get {
-					return _members.JniPeerType.PeerReference.Handle;
-				}
+
+			static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/animation/Easing$EasingOption", typeof (EasingOption));
+
+			internal static IntPtr class_ref {
+				get { return _members.JniPeerType.PeerReference.Handle; }
 			}
 
+			[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+			[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 			public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 				get { return _members; }
 			}
 
+			[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+			[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 			protected override IntPtr ThresholdClass {
 				get { return _members.JniPeerType.PeerReference.Handle; }
 			}
 
+			[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+			[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 			protected override global::System.Type ThresholdType {
 				get { return _members.ManagedPeerType; }
 			}
 
-			internal EasingOption (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+			internal EasingOption (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+			{
+			}
 
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.animation']/class[@name='Easing.EasingOption']/method[@name='valueOf' and count(parameter)=1 and parameter[1][@type='java.lang.String']]"
 			[Register ("valueOf", "(Ljava/lang/String;)Lcom/github/mikephil/charting/animation/Easing$EasingOption;", "")]
@@ -827,31 +834,37 @@ namespace MikePhil.Charting.Animation {
 
 		}
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/animation/Easing", typeof (Easing));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/animation/Easing", typeof (Easing));
+
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected Easing (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected Easing (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.animation']/class[@name='Easing']/constructor[@name='Easing' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe Easing ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Easing () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 
@@ -878,6 +891,7 @@ namespace MikePhil.Charting.Animation {
 				var __rm = _members.StaticMethods.InvokeObjectMethod (__id, __args);
 				return global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (__rm.Handle, JniHandleOwnership.TransferLocalRef);
 			} finally {
+				global::System.GC.KeepAlive (easing);
 			}
 		}
 

@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Listener {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.listener']/class[@name='PieRadarChartTouchListener']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/listener/PieRadarChartTouchListener", DoNotGenerateAcw=true)]
 	public partial class PieRadarChartTouchListener : global::MikePhil.Charting.Listener.ChartTouchListener {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/listener/PieRadarChartTouchListener", typeof (PieRadarChartTouchListener));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/listener/PieRadarChartTouchListener", typeof (PieRadarChartTouchListener));
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected PieRadarChartTouchListener (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected PieRadarChartTouchListener (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.listener']/class[@name='PieRadarChartTouchListener']/constructor[@name='PieRadarChartTouchListener' and count(parameter)=1 and parameter[1][@type='com.github.mikephil.charting.charts.PieRadarChartBase&lt;?&gt;']]"
 		[Register (".ctor", "(Lcom/github/mikephil/charting/charts/PieRadarChartBase;)V", "")]
-		public unsafe PieRadarChartTouchListener (global::MikePhil.Charting.Charts.PieRadarChartBase chart)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe PieRadarChartTouchListener (global::MikePhil.Charting.Charts.PieRadarChartBase chart) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Lcom/github/mikephil/charting/charts/PieRadarChartBase;)V";
 
@@ -47,6 +52,7 @@ namespace MikePhil.Charting.Listener {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (chart);
 			}
 		}
 
@@ -55,13 +61,13 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetComputeScrollHandler ()
 		{
 			if (cb_computeScroll == null)
-				cb_computeScroll = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_ComputeScroll);
+				cb_computeScroll = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_ComputeScroll);
 			return cb_computeScroll;
 		}
 
 		static void n_ComputeScroll (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Listener.PieRadarChartTouchListener __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.PieRadarChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.PieRadarChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.ComputeScroll ();
 		}
 #pragma warning restore 0169
@@ -82,15 +88,15 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetOnTouch_Landroid_view_View_Landroid_view_MotionEvent_Handler ()
 		{
 			if (cb_onTouch_Landroid_view_View_Landroid_view_MotionEvent_ == null)
-				cb_onTouch_Landroid_view_View_Landroid_view_MotionEvent_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, IntPtr, bool>) n_OnTouch_Landroid_view_View_Landroid_view_MotionEvent_);
+				cb_onTouch_Landroid_view_View_Landroid_view_MotionEvent_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLL_Z) n_OnTouch_Landroid_view_View_Landroid_view_MotionEvent_);
 			return cb_onTouch_Landroid_view_View_Landroid_view_MotionEvent_;
 		}
 
 		static bool n_OnTouch_Landroid_view_View_Landroid_view_MotionEvent_ (IntPtr jnienv, IntPtr native__this, IntPtr native_v, IntPtr native_e)
 		{
-			global::MikePhil.Charting.Listener.PieRadarChartTouchListener __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.PieRadarChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Views.View v = global::Java.Lang.Object.GetObject<global::Android.Views.View> (native_v, JniHandleOwnership.DoNotTransfer);
-			global::Android.Views.MotionEvent e = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_e, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.PieRadarChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var v = global::Java.Lang.Object.GetObject<global::Android.Views.View> (native_v, JniHandleOwnership.DoNotTransfer);
+			var e = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_e, JniHandleOwnership.DoNotTransfer);
 			bool __ret = __this.OnTouch (v, e);
 			return __ret;
 		}
@@ -108,6 +114,8 @@ namespace MikePhil.Charting.Listener {
 				var __rm = _members.InstanceMethods.InvokeVirtualBooleanMethod (__id, this, __args);
 				return __rm;
 			} finally {
+				global::System.GC.KeepAlive (v);
+				global::System.GC.KeepAlive (e);
 			}
 		}
 
@@ -116,13 +124,13 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetSetGestureStartAngle_FFHandler ()
 		{
 			if (cb_setGestureStartAngle_FF == null)
-				cb_setGestureStartAngle_FF = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float, float>) n_SetGestureStartAngle_FF);
+				cb_setGestureStartAngle_FF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFF_V) n_SetGestureStartAngle_FF);
 			return cb_setGestureStartAngle_FF;
 		}
 
 		static void n_SetGestureStartAngle_FF (IntPtr jnienv, IntPtr native__this, float x, float y)
 		{
-			global::MikePhil.Charting.Listener.PieRadarChartTouchListener __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.PieRadarChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.PieRadarChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetGestureStartAngle (x, y);
 		}
 #pragma warning restore 0169
@@ -146,13 +154,13 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetStopDecelerationHandler ()
 		{
 			if (cb_stopDeceleration == null)
-				cb_stopDeceleration = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_StopDeceleration);
+				cb_stopDeceleration = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_StopDeceleration);
 			return cb_stopDeceleration;
 		}
 
 		static void n_StopDeceleration (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Listener.PieRadarChartTouchListener __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.PieRadarChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.PieRadarChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.StopDeceleration ();
 		}
 #pragma warning restore 0169
@@ -173,13 +181,13 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetUpdateGestureRotation_FFHandler ()
 		{
 			if (cb_updateGestureRotation_FF == null)
-				cb_updateGestureRotation_FF = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float, float>) n_UpdateGestureRotation_FF);
+				cb_updateGestureRotation_FF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFF_V) n_UpdateGestureRotation_FF);
 			return cb_updateGestureRotation_FF;
 		}
 
 		static void n_UpdateGestureRotation_FF (IntPtr jnienv, IntPtr native__this, float x, float y)
 		{
-			global::MikePhil.Charting.Listener.PieRadarChartTouchListener __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.PieRadarChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.PieRadarChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.UpdateGestureRotation (x, y);
 		}
 #pragma warning restore 0169

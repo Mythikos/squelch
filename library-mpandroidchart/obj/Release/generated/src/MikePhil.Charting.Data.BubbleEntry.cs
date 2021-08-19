@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Data {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='BubbleEntry']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/data/BubbleEntry", DoNotGenerateAcw=true)]
 	public partial class BubbleEntry : global::MikePhil.Charting.Data.Entry {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/BubbleEntry", typeof (BubbleEntry));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/BubbleEntry", typeof (BubbleEntry));
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected BubbleEntry (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected BubbleEntry (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='BubbleEntry']/constructor[@name='BubbleEntry' and count(parameter)=3 and parameter[1][@type='float'] and parameter[2][@type='float'] and parameter[3][@type='float']]"
 		[Register (".ctor", "(FFF)V", "")]
-		public unsafe BubbleEntry (float x, float y, float size)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe BubbleEntry (float x, float y, float size) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(FFF)V";
 
@@ -54,8 +59,7 @@ namespace MikePhil.Charting.Data {
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='BubbleEntry']/constructor[@name='BubbleEntry' and count(parameter)=4 and parameter[1][@type='float'] and parameter[2][@type='float'] and parameter[3][@type='float'] and parameter[4][@type='android.graphics.drawable.Drawable']]"
 		[Register (".ctor", "(FFFLandroid/graphics/drawable/Drawable;)V", "")]
-		public unsafe BubbleEntry (float x, float y, float size, global::Android.Graphics.Drawables.Drawable icon)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe BubbleEntry (float x, float y, float size, global::Android.Graphics.Drawables.Drawable icon) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(FFFLandroid/graphics/drawable/Drawable;)V";
 
@@ -72,13 +76,13 @@ namespace MikePhil.Charting.Data {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (icon);
 			}
 		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='BubbleEntry']/constructor[@name='BubbleEntry' and count(parameter)=5 and parameter[1][@type='float'] and parameter[2][@type='float'] and parameter[3][@type='float'] and parameter[4][@type='android.graphics.drawable.Drawable'] and parameter[5][@type='java.lang.Object']]"
 		[Register (".ctor", "(FFFLandroid/graphics/drawable/Drawable;Ljava/lang/Object;)V", "")]
-		public unsafe BubbleEntry (float x, float y, float size, global::Android.Graphics.Drawables.Drawable icon, global::Java.Lang.Object data)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe BubbleEntry (float x, float y, float size, global::Android.Graphics.Drawables.Drawable icon, global::Java.Lang.Object data) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(FFFLandroid/graphics/drawable/Drawable;Ljava/lang/Object;)V";
 
@@ -96,13 +100,14 @@ namespace MikePhil.Charting.Data {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (icon);
+				global::System.GC.KeepAlive (data);
 			}
 		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='BubbleEntry']/constructor[@name='BubbleEntry' and count(parameter)=4 and parameter[1][@type='float'] and parameter[2][@type='float'] and parameter[3][@type='float'] and parameter[4][@type='java.lang.Object']]"
 		[Register (".ctor", "(FFFLjava/lang/Object;)V", "")]
-		public unsafe BubbleEntry (float x, float y, float size, global::Java.Lang.Object data)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe BubbleEntry (float x, float y, float size, global::Java.Lang.Object data) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(FFFLjava/lang/Object;)V";
 
@@ -119,6 +124,7 @@ namespace MikePhil.Charting.Data {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (data);
 			}
 		}
 
@@ -127,13 +133,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetSizeHandler ()
 		{
 			if (cb_getSize == null)
-				cb_getSize = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetSize);
+				cb_getSize = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetSize);
 			return cb_getSize;
 		}
 
 		static float n_GetSize (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.BubbleEntry __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleEntry> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleEntry> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.Size;
 		}
 #pragma warning restore 0169
@@ -143,13 +149,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetSize_FHandler ()
 		{
 			if (cb_setSize_F == null)
-				cb_setSize_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetSize_F);
+				cb_setSize_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetSize_F);
 			return cb_setSize_F;
 		}
 
 		static void n_SetSize_F (IntPtr jnienv, IntPtr native__this, float size)
 		{
-			global::MikePhil.Charting.Data.BubbleEntry __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleEntry> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleEntry> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.Size = size;
 		}
 #pragma warning restore 0169

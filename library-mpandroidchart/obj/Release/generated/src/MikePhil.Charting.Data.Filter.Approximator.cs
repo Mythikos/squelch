@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Data.Filter {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.data.filter']/class[@name='Approximator']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/data/filter/Approximator", DoNotGenerateAcw=true)]
 	public partial class Approximator : global::Java.Lang.Object {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/filter/Approximator", typeof (Approximator));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/filter/Approximator", typeof (Approximator));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected Approximator (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected Approximator (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data.filter']/class[@name='Approximator']/constructor[@name='Approximator' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe Approximator ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Approximator () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 
@@ -53,14 +58,14 @@ namespace MikePhil.Charting.Data.Filter {
 		static Delegate GetReduceWithDouglasPeucker_arrayFFHandler ()
 		{
 			if (cb_reduceWithDouglasPeucker_arrayFF == null)
-				cb_reduceWithDouglasPeucker_arrayFF = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, float, IntPtr>) n_ReduceWithDouglasPeucker_arrayFF);
+				cb_reduceWithDouglasPeucker_arrayFF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLF_L) n_ReduceWithDouglasPeucker_arrayFF);
 			return cb_reduceWithDouglasPeucker_arrayFF;
 		}
 
 		static IntPtr n_ReduceWithDouglasPeucker_arrayFF (IntPtr jnienv, IntPtr native__this, IntPtr native_points, float tolerance)
 		{
-			global::MikePhil.Charting.Data.Filter.Approximator __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Filter.Approximator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			float[] points = (float[]) JNIEnv.GetArray (native_points, JniHandleOwnership.DoNotTransfer, typeof (float));
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Filter.Approximator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var points = (float[]) JNIEnv.GetArray (native_points, JniHandleOwnership.DoNotTransfer, typeof (float));
 			IntPtr __ret = JNIEnv.NewArray (__this.ReduceWithDouglasPeucker (points, tolerance));
 			if (points != null)
 				JNIEnv.CopyArray (points, native_points);
@@ -85,6 +90,7 @@ namespace MikePhil.Charting.Data.Filter {
 					JNIEnv.CopyArray (native_points, points);
 					JNIEnv.DeleteLocalRef (native_points);
 				}
+				global::System.GC.KeepAlive (points);
 			}
 		}
 

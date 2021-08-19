@@ -7,92 +7,109 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 
 	// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='ChartInterface']"
 	[Register ("com/github/mikephil/charting/interfaces/dataprovider/ChartInterface", "", "MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker")]
-	public partial interface IChartInterface : IJavaObject {
-
+	public partial interface IChartInterface : IJavaObject, IJavaPeerable {
 		global::MikePhil.Charting.Util.MPPointF CenterOfView {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='ChartInterface']/method[@name='getCenterOfView' and count(parameter)=0]"
-			[Register ("getCenterOfView", "()Lcom/github/mikephil/charting/utils/MPPointF;", "GetGetCenterOfViewHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")] get;
+			[Register ("getCenterOfView", "()Lcom/github/mikephil/charting/utils/MPPointF;", "GetGetCenterOfViewHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		global::MikePhil.Charting.Util.MPPointF CenterOffsets {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='ChartInterface']/method[@name='getCenterOffsets' and count(parameter)=0]"
-			[Register ("getCenterOffsets", "()Lcom/github/mikephil/charting/utils/MPPointF;", "GetGetCenterOffsetsHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")] get;
+			[Register ("getCenterOffsets", "()Lcom/github/mikephil/charting/utils/MPPointF;", "GetGetCenterOffsetsHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		global::Android.Graphics.RectF ContentRect {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='ChartInterface']/method[@name='getContentRect' and count(parameter)=0]"
-			[Register ("getContentRect", "()Landroid/graphics/RectF;", "GetGetContentRectHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")] get;
+			[Register ("getContentRect", "()Landroid/graphics/RectF;", "GetGetContentRectHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		global::MikePhil.Charting.Formatter.IValueFormatter DefaultValueFormatter {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='ChartInterface']/method[@name='getDefaultValueFormatter' and count(parameter)=0]"
-			[Register ("getDefaultValueFormatter", "()Lcom/github/mikephil/charting/formatter/IValueFormatter;", "GetGetDefaultValueFormatterHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")] get;
+			[Register ("getDefaultValueFormatter", "()Lcom/github/mikephil/charting/formatter/IValueFormatter;", "GetGetDefaultValueFormatterHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		int Height {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='ChartInterface']/method[@name='getHeight' and count(parameter)=0]"
-			[Register ("getHeight", "()I", "GetGetHeightHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")] get;
+			[Register ("getHeight", "()I", "GetGetHeightHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		float MaxHighlightDistance {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='ChartInterface']/method[@name='getMaxHighlightDistance' and count(parameter)=0]"
-			[Register ("getMaxHighlightDistance", "()F", "GetGetMaxHighlightDistanceHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")] get;
+			[Register ("getMaxHighlightDistance", "()F", "GetGetMaxHighlightDistanceHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		int MaxVisibleCount {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='ChartInterface']/method[@name='getMaxVisibleCount' and count(parameter)=0]"
-			[Register ("getMaxVisibleCount", "()I", "GetGetMaxVisibleCountHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")] get;
+			[Register ("getMaxVisibleCount", "()I", "GetGetMaxVisibleCountHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		int Width {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='ChartInterface']/method[@name='getWidth' and count(parameter)=0]"
-			[Register ("getWidth", "()I", "GetGetWidthHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")] get;
+			[Register ("getWidth", "()I", "GetGetWidthHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		float XChartMax {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='ChartInterface']/method[@name='getXChartMax' and count(parameter)=0]"
-			[Register ("getXChartMax", "()F", "GetGetXChartMaxHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")] get;
+			[Register ("getXChartMax", "()F", "GetGetXChartMaxHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		float XChartMin {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='ChartInterface']/method[@name='getXChartMin' and count(parameter)=0]"
-			[Register ("getXChartMin", "()F", "GetGetXChartMinHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")] get;
+			[Register ("getXChartMin", "()F", "GetGetXChartMinHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		float XRange {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='ChartInterface']/method[@name='getXRange' and count(parameter)=0]"
-			[Register ("getXRange", "()F", "GetGetXRangeHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")] get;
+			[Register ("getXRange", "()F", "GetGetXRangeHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		float YChartMax {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='ChartInterface']/method[@name='getYChartMax' and count(parameter)=0]"
-			[Register ("getYChartMax", "()F", "GetGetYChartMaxHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")] get;
+			[Register ("getYChartMax", "()F", "GetGetYChartMaxHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 		float YChartMin {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.interfaces.dataprovider']/interface[@name='ChartInterface']/method[@name='getYChartMin' and count(parameter)=0]"
-			[Register ("getYChartMin", "()F", "GetGetYChartMinHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")] get;
+			[Register ("getYChartMin", "()F", "GetGetYChartMinHandler:MikePhil.Charting.Interfaces.Dataprovider.IChartInterfaceInvoker, library-mpandroidchart")]
+			get; 
 		}
 
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/interfaces/dataprovider/ChartInterface", DoNotGenerateAcw=true)]
-	internal class IChartInterfaceInvoker : global::Java.Lang.Object, IChartInterface {
-
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/interfaces/dataprovider/ChartInterface", typeof (IChartInterfaceInvoker));
+	internal partial class IChartInterfaceInvoker : global::Java.Lang.Object, IChartInterface {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/interfaces/dataprovider/ChartInterface", typeof (IChartInterfaceInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return class_ref; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
@@ -107,8 +124,7 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static IntPtr Validate (IntPtr handle)
 		{
 			if (!JNIEnv.IsInstanceOf (handle, java_class_ref))
-				throw new InvalidCastException (string.Format ("Unable to convert instance of type '{0}' to type '{1}'.",
-							JNIEnv.GetClassNameFromInstance (handle), "com.github.mikephil.charting.interfaces.dataprovider.ChartInterface"));
+				throw new InvalidCastException ($"Unable to convert instance of type '{JNIEnv.GetClassNameFromInstance (handle)}' to type 'com.github.mikephil.charting.interfaces.dataprovider.ChartInterface'.");
 			return handle;
 		}
 
@@ -132,13 +148,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetCenterOfViewHandler ()
 		{
 			if (cb_getCenterOfView == null)
-				cb_getCenterOfView = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetCenterOfView);
+				cb_getCenterOfView = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetCenterOfView);
 			return cb_getCenterOfView;
 		}
 
 		static IntPtr n_GetCenterOfView (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.CenterOfView);
 		}
 #pragma warning restore 0169
@@ -157,13 +173,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetCenterOffsetsHandler ()
 		{
 			if (cb_getCenterOffsets == null)
-				cb_getCenterOffsets = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetCenterOffsets);
+				cb_getCenterOffsets = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetCenterOffsets);
 			return cb_getCenterOffsets;
 		}
 
 		static IntPtr n_GetCenterOffsets (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.CenterOffsets);
 		}
 #pragma warning restore 0169
@@ -182,13 +198,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetContentRectHandler ()
 		{
 			if (cb_getContentRect == null)
-				cb_getContentRect = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetContentRect);
+				cb_getContentRect = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetContentRect);
 			return cb_getContentRect;
 		}
 
 		static IntPtr n_GetContentRect (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.ContentRect);
 		}
 #pragma warning restore 0169
@@ -207,13 +223,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetDefaultValueFormatterHandler ()
 		{
 			if (cb_getDefaultValueFormatter == null)
-				cb_getDefaultValueFormatter = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetDefaultValueFormatter);
+				cb_getDefaultValueFormatter = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetDefaultValueFormatter);
 			return cb_getDefaultValueFormatter;
 		}
 
 		static IntPtr n_GetDefaultValueFormatter (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.DefaultValueFormatter);
 		}
 #pragma warning restore 0169
@@ -232,13 +248,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetHeightHandler ()
 		{
 			if (cb_getHeight == null)
-				cb_getHeight = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetHeight);
+				cb_getHeight = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetHeight);
 			return cb_getHeight;
 		}
 
 		static int n_GetHeight (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.Height;
 		}
 #pragma warning restore 0169
@@ -257,13 +273,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetMaxHighlightDistanceHandler ()
 		{
 			if (cb_getMaxHighlightDistance == null)
-				cb_getMaxHighlightDistance = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetMaxHighlightDistance);
+				cb_getMaxHighlightDistance = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetMaxHighlightDistance);
 			return cb_getMaxHighlightDistance;
 		}
 
 		static float n_GetMaxHighlightDistance (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.MaxHighlightDistance;
 		}
 #pragma warning restore 0169
@@ -282,13 +298,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetMaxVisibleCountHandler ()
 		{
 			if (cb_getMaxVisibleCount == null)
-				cb_getMaxVisibleCount = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetMaxVisibleCount);
+				cb_getMaxVisibleCount = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetMaxVisibleCount);
 			return cb_getMaxVisibleCount;
 		}
 
 		static int n_GetMaxVisibleCount (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.MaxVisibleCount;
 		}
 #pragma warning restore 0169
@@ -307,13 +323,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetWidthHandler ()
 		{
 			if (cb_getWidth == null)
-				cb_getWidth = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetWidth);
+				cb_getWidth = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetWidth);
 			return cb_getWidth;
 		}
 
 		static int n_GetWidth (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.Width;
 		}
 #pragma warning restore 0169
@@ -332,13 +348,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetXChartMaxHandler ()
 		{
 			if (cb_getXChartMax == null)
-				cb_getXChartMax = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetXChartMax);
+				cb_getXChartMax = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetXChartMax);
 			return cb_getXChartMax;
 		}
 
 		static float n_GetXChartMax (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.XChartMax;
 		}
 #pragma warning restore 0169
@@ -357,13 +373,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetXChartMinHandler ()
 		{
 			if (cb_getXChartMin == null)
-				cb_getXChartMin = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetXChartMin);
+				cb_getXChartMin = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetXChartMin);
 			return cb_getXChartMin;
 		}
 
 		static float n_GetXChartMin (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.XChartMin;
 		}
 #pragma warning restore 0169
@@ -382,13 +398,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetXRangeHandler ()
 		{
 			if (cb_getXRange == null)
-				cb_getXRange = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetXRange);
+				cb_getXRange = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetXRange);
 			return cb_getXRange;
 		}
 
 		static float n_GetXRange (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.XRange;
 		}
 #pragma warning restore 0169
@@ -407,13 +423,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetYChartMaxHandler ()
 		{
 			if (cb_getYChartMax == null)
-				cb_getYChartMax = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetYChartMax);
+				cb_getYChartMax = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetYChartMax);
 			return cb_getYChartMax;
 		}
 
 		static float n_GetYChartMax (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.YChartMax;
 		}
 #pragma warning restore 0169
@@ -432,13 +448,13 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		static Delegate GetGetYChartMinHandler ()
 		{
 			if (cb_getYChartMin == null)
-				cb_getYChartMin = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetYChartMin);
+				cb_getYChartMin = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetYChartMin);
 			return cb_getYChartMin;
 		}
 
 		static float n_GetYChartMin (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.IChartInterface> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.YChartMin;
 		}
 #pragma warning restore 0169
@@ -453,5 +469,4 @@ namespace MikePhil.Charting.Interfaces.Dataprovider {
 		}
 
 	}
-
 }

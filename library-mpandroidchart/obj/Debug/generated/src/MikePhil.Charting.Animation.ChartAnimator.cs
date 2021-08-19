@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Animation {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/animation/ChartAnimator", DoNotGenerateAcw=true)]
 	public partial class ChartAnimator : global::Java.Lang.Object {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.animation']/class[@name='ChartAnimator']/field[@name='mPhaseX']"
 		[Register ("mPhaseX")]
 		protected float MPhaseX {
@@ -49,31 +47,38 @@ namespace MikePhil.Charting.Animation {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/animation/ChartAnimator", typeof (ChartAnimator));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/animation/ChartAnimator", typeof (ChartAnimator));
+
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected ChartAnimator (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected ChartAnimator (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.animation']/class[@name='ChartAnimator']/constructor[@name='ChartAnimator' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe ChartAnimator ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe ChartAnimator () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 
@@ -90,8 +95,7 @@ namespace MikePhil.Charting.Animation {
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.animation']/class[@name='ChartAnimator']/constructor[@name='ChartAnimator' and count(parameter)=1 and parameter[1][@type='android.animation.ValueAnimator.AnimatorUpdateListener']]"
 		[Register (".ctor", "(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V", "")]
-		public unsafe ChartAnimator (global::Android.Animation.ValueAnimator.IAnimatorUpdateListener listener)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe ChartAnimator (global::Android.Animation.ValueAnimator.IAnimatorUpdateListener listener) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V";
 
@@ -105,6 +109,7 @@ namespace MikePhil.Charting.Animation {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (listener);
 			}
 		}
 
@@ -113,13 +118,13 @@ namespace MikePhil.Charting.Animation {
 		static Delegate GetGetPhaseXHandler ()
 		{
 			if (cb_getPhaseX == null)
-				cb_getPhaseX = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetPhaseX);
+				cb_getPhaseX = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetPhaseX);
 			return cb_getPhaseX;
 		}
 
 		static float n_GetPhaseX (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Animation.ChartAnimator __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.PhaseX;
 		}
 #pragma warning restore 0169
@@ -129,13 +134,13 @@ namespace MikePhil.Charting.Animation {
 		static Delegate GetSetPhaseX_FHandler ()
 		{
 			if (cb_setPhaseX_F == null)
-				cb_setPhaseX_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetPhaseX_F);
+				cb_setPhaseX_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetPhaseX_F);
 			return cb_setPhaseX_F;
 		}
 
 		static void n_SetPhaseX_F (IntPtr jnienv, IntPtr native__this, float phase)
 		{
-			global::MikePhil.Charting.Animation.ChartAnimator __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.PhaseX = phase;
 		}
 #pragma warning restore 0169
@@ -169,13 +174,13 @@ namespace MikePhil.Charting.Animation {
 		static Delegate GetGetPhaseYHandler ()
 		{
 			if (cb_getPhaseY == null)
-				cb_getPhaseY = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetPhaseY);
+				cb_getPhaseY = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetPhaseY);
 			return cb_getPhaseY;
 		}
 
 		static float n_GetPhaseY (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Animation.ChartAnimator __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.PhaseY;
 		}
 #pragma warning restore 0169
@@ -185,13 +190,13 @@ namespace MikePhil.Charting.Animation {
 		static Delegate GetSetPhaseY_FHandler ()
 		{
 			if (cb_setPhaseY_F == null)
-				cb_setPhaseY_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetPhaseY_F);
+				cb_setPhaseY_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetPhaseY_F);
 			return cb_setPhaseY_F;
 		}
 
 		static void n_SetPhaseY_F (IntPtr jnienv, IntPtr native__this, float phase)
 		{
-			global::MikePhil.Charting.Animation.ChartAnimator __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.PhaseY = phase;
 		}
 #pragma warning restore 0169
@@ -225,13 +230,13 @@ namespace MikePhil.Charting.Animation {
 		static Delegate GetAnimateX_IHandler ()
 		{
 			if (cb_animateX_I == null)
-				cb_animateX_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int>) n_AnimateX_I);
+				cb_animateX_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_V) n_AnimateX_I);
 			return cb_animateX_I;
 		}
 
 		static void n_AnimateX_I (IntPtr jnienv, IntPtr native__this, int durationMillis)
 		{
-			global::MikePhil.Charting.Animation.ChartAnimator __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateX (durationMillis);
 		}
 #pragma warning restore 0169
@@ -254,14 +259,14 @@ namespace MikePhil.Charting.Animation {
 		static Delegate GetAnimateX_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_Handler ()
 		{
 			if (cb_animateX_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_ == null)
-				cb_animateX_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int, IntPtr>) n_AnimateX_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_);
+				cb_animateX_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPIL_V) n_AnimateX_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_);
 			return cb_animateX_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_;
 		}
 
 		static void n_AnimateX_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_ (IntPtr jnienv, IntPtr native__this, int durationMillis, IntPtr native_easing)
 		{
-			global::MikePhil.Charting.Animation.ChartAnimator __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Animation.Easing.IEasingFunction easing = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easing, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var easing = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easing, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateX (durationMillis, easing);
 		}
 #pragma warning restore 0169
@@ -277,6 +282,7 @@ namespace MikePhil.Charting.Animation {
 				__args [1] = new JniArgumentValue ((easing == null) ? IntPtr.Zero : ((global::Java.Lang.Object) easing).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (easing);
 			}
 		}
 
@@ -286,15 +292,15 @@ namespace MikePhil.Charting.Animation {
 		static Delegate GetAnimateX_ILcom_github_mikephil_charting_animation_Easing_EasingOption_Handler ()
 		{
 			if (cb_animateX_ILcom_github_mikephil_charting_animation_Easing_EasingOption_ == null)
-				cb_animateX_ILcom_github_mikephil_charting_animation_Easing_EasingOption_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int, IntPtr>) n_AnimateX_ILcom_github_mikephil_charting_animation_Easing_EasingOption_);
+				cb_animateX_ILcom_github_mikephil_charting_animation_Easing_EasingOption_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPIL_V) n_AnimateX_ILcom_github_mikephil_charting_animation_Easing_EasingOption_);
 			return cb_animateX_ILcom_github_mikephil_charting_animation_Easing_EasingOption_;
 		}
 
 		[Obsolete]
 		static void n_AnimateX_ILcom_github_mikephil_charting_animation_Easing_EasingOption_ (IntPtr jnienv, IntPtr native__this, int durationMillis, IntPtr native_easing)
 		{
-			global::MikePhil.Charting.Animation.ChartAnimator __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Animation.Easing.EasingOption easing = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.EasingOption> (native_easing, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var easing = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.EasingOption> (native_easing, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateX (durationMillis, easing);
 		}
 #pragma warning restore 0169
@@ -311,6 +317,7 @@ namespace MikePhil.Charting.Animation {
 				__args [1] = new JniArgumentValue ((easing == null) ? IntPtr.Zero : ((global::Java.Lang.Object) easing).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (easing);
 			}
 		}
 
@@ -319,13 +326,13 @@ namespace MikePhil.Charting.Animation {
 		static Delegate GetAnimateXY_IIHandler ()
 		{
 			if (cb_animateXY_II == null)
-				cb_animateXY_II = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int, int>) n_AnimateXY_II);
+				cb_animateXY_II = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPII_V) n_AnimateXY_II);
 			return cb_animateXY_II;
 		}
 
 		static void n_AnimateXY_II (IntPtr jnienv, IntPtr native__this, int durationMillisX, int durationMillisY)
 		{
-			global::MikePhil.Charting.Animation.ChartAnimator __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateXY (durationMillisX, durationMillisY);
 		}
 #pragma warning restore 0169
@@ -349,14 +356,14 @@ namespace MikePhil.Charting.Animation {
 		static Delegate GetAnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_Handler ()
 		{
 			if (cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_ == null)
-				cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int, int, IntPtr>) n_AnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_);
+				cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPIIL_V) n_AnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_);
 			return cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_;
 		}
 
 		static void n_AnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_ (IntPtr jnienv, IntPtr native__this, int durationMillisX, int durationMillisY, IntPtr native_easing)
 		{
-			global::MikePhil.Charting.Animation.ChartAnimator __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Animation.Easing.IEasingFunction easing = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easing, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var easing = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easing, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateXY (durationMillisX, durationMillisY, easing);
 		}
 #pragma warning restore 0169
@@ -373,6 +380,7 @@ namespace MikePhil.Charting.Animation {
 				__args [2] = new JniArgumentValue ((easing == null) ? IntPtr.Zero : ((global::Java.Lang.Object) easing).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (easing);
 			}
 		}
 
@@ -381,15 +389,15 @@ namespace MikePhil.Charting.Animation {
 		static Delegate GetAnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_Lcom_github_mikephil_charting_animation_Easing_EasingFunction_Handler ()
 		{
 			if (cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_Lcom_github_mikephil_charting_animation_Easing_EasingFunction_ == null)
-				cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_Lcom_github_mikephil_charting_animation_Easing_EasingFunction_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int, int, IntPtr, IntPtr>) n_AnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_Lcom_github_mikephil_charting_animation_Easing_EasingFunction_);
+				cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_Lcom_github_mikephil_charting_animation_Easing_EasingFunction_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPIILL_V) n_AnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_Lcom_github_mikephil_charting_animation_Easing_EasingFunction_);
 			return cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_Lcom_github_mikephil_charting_animation_Easing_EasingFunction_;
 		}
 
 		static void n_AnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingFunction_Lcom_github_mikephil_charting_animation_Easing_EasingFunction_ (IntPtr jnienv, IntPtr native__this, int durationMillisX, int durationMillisY, IntPtr native_easingX, IntPtr native_easingY)
 		{
-			global::MikePhil.Charting.Animation.ChartAnimator __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Animation.Easing.IEasingFunction easingX = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easingX, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Animation.Easing.IEasingFunction easingY = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easingY, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var easingX = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easingX, JniHandleOwnership.DoNotTransfer);
+			var easingY = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easingY, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateXY (durationMillisX, durationMillisY, easingX, easingY);
 		}
 #pragma warning restore 0169
@@ -407,6 +415,8 @@ namespace MikePhil.Charting.Animation {
 				__args [3] = new JniArgumentValue ((easingY == null) ? IntPtr.Zero : ((global::Java.Lang.Object) easingY).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (easingX);
+				global::System.GC.KeepAlive (easingY);
 			}
 		}
 
@@ -416,16 +426,16 @@ namespace MikePhil.Charting.Animation {
 		static Delegate GetAnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingOption_Lcom_github_mikephil_charting_animation_Easing_EasingOption_Handler ()
 		{
 			if (cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingOption_Lcom_github_mikephil_charting_animation_Easing_EasingOption_ == null)
-				cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingOption_Lcom_github_mikephil_charting_animation_Easing_EasingOption_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int, int, IntPtr, IntPtr>) n_AnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingOption_Lcom_github_mikephil_charting_animation_Easing_EasingOption_);
+				cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingOption_Lcom_github_mikephil_charting_animation_Easing_EasingOption_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPIILL_V) n_AnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingOption_Lcom_github_mikephil_charting_animation_Easing_EasingOption_);
 			return cb_animateXY_IILcom_github_mikephil_charting_animation_Easing_EasingOption_Lcom_github_mikephil_charting_animation_Easing_EasingOption_;
 		}
 
 		[Obsolete]
 		static void n_AnimateXY_IILcom_github_mikephil_charting_animation_Easing_EasingOption_Lcom_github_mikephil_charting_animation_Easing_EasingOption_ (IntPtr jnienv, IntPtr native__this, int durationMillisX, int durationMillisY, IntPtr native_easingX, IntPtr native_easingY)
 		{
-			global::MikePhil.Charting.Animation.ChartAnimator __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Animation.Easing.EasingOption easingX = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.EasingOption> (native_easingX, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Animation.Easing.EasingOption easingY = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.EasingOption> (native_easingY, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var easingX = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.EasingOption> (native_easingX, JniHandleOwnership.DoNotTransfer);
+			var easingY = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.EasingOption> (native_easingY, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateXY (durationMillisX, durationMillisY, easingX, easingY);
 		}
 #pragma warning restore 0169
@@ -444,6 +454,8 @@ namespace MikePhil.Charting.Animation {
 				__args [3] = new JniArgumentValue ((easingY == null) ? IntPtr.Zero : ((global::Java.Lang.Object) easingY).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (easingX);
+				global::System.GC.KeepAlive (easingY);
 			}
 		}
 
@@ -452,13 +464,13 @@ namespace MikePhil.Charting.Animation {
 		static Delegate GetAnimateY_IHandler ()
 		{
 			if (cb_animateY_I == null)
-				cb_animateY_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int>) n_AnimateY_I);
+				cb_animateY_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_V) n_AnimateY_I);
 			return cb_animateY_I;
 		}
 
 		static void n_AnimateY_I (IntPtr jnienv, IntPtr native__this, int durationMillis)
 		{
-			global::MikePhil.Charting.Animation.ChartAnimator __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateY (durationMillis);
 		}
 #pragma warning restore 0169
@@ -481,14 +493,14 @@ namespace MikePhil.Charting.Animation {
 		static Delegate GetAnimateY_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_Handler ()
 		{
 			if (cb_animateY_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_ == null)
-				cb_animateY_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int, IntPtr>) n_AnimateY_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_);
+				cb_animateY_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPIL_V) n_AnimateY_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_);
 			return cb_animateY_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_;
 		}
 
 		static void n_AnimateY_ILcom_github_mikephil_charting_animation_Easing_EasingFunction_ (IntPtr jnienv, IntPtr native__this, int durationMillis, IntPtr native_easing)
 		{
-			global::MikePhil.Charting.Animation.ChartAnimator __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Animation.Easing.IEasingFunction easing = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easing, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var easing = (global::MikePhil.Charting.Animation.Easing.IEasingFunction)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.IEasingFunction> (native_easing, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateY (durationMillis, easing);
 		}
 #pragma warning restore 0169
@@ -504,6 +516,7 @@ namespace MikePhil.Charting.Animation {
 				__args [1] = new JniArgumentValue ((easing == null) ? IntPtr.Zero : ((global::Java.Lang.Object) easing).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (easing);
 			}
 		}
 
@@ -513,15 +526,15 @@ namespace MikePhil.Charting.Animation {
 		static Delegate GetAnimateY_ILcom_github_mikephil_charting_animation_Easing_EasingOption_Handler ()
 		{
 			if (cb_animateY_ILcom_github_mikephil_charting_animation_Easing_EasingOption_ == null)
-				cb_animateY_ILcom_github_mikephil_charting_animation_Easing_EasingOption_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int, IntPtr>) n_AnimateY_ILcom_github_mikephil_charting_animation_Easing_EasingOption_);
+				cb_animateY_ILcom_github_mikephil_charting_animation_Easing_EasingOption_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPIL_V) n_AnimateY_ILcom_github_mikephil_charting_animation_Easing_EasingOption_);
 			return cb_animateY_ILcom_github_mikephil_charting_animation_Easing_EasingOption_;
 		}
 
 		[Obsolete]
 		static void n_AnimateY_ILcom_github_mikephil_charting_animation_Easing_EasingOption_ (IntPtr jnienv, IntPtr native__this, int durationMillis, IntPtr native_easing)
 		{
-			global::MikePhil.Charting.Animation.ChartAnimator __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Animation.Easing.EasingOption easing = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.EasingOption> (native_easing, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.ChartAnimator> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var easing = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Animation.Easing.EasingOption> (native_easing, JniHandleOwnership.DoNotTransfer);
 			__this.AnimateY (durationMillis, easing);
 		}
 #pragma warning restore 0169
@@ -538,6 +551,7 @@ namespace MikePhil.Charting.Animation {
 				__args [1] = new JniArgumentValue ((easing == null) ? IntPtr.Zero : ((global::Java.Lang.Object) easing).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (easing);
 			}
 		}
 

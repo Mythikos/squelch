@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Jobs {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/jobs/AnimatedViewPortJob", DoNotGenerateAcw=true)]
 	public abstract partial class AnimatedViewPortJob : global::MikePhil.Charting.Jobs.ViewPortJob, global::Android.Animation.Animator.IAnimatorListener, global::Android.Animation.ValueAnimator.IAnimatorUpdateListener {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.jobs']/class[@name='AnimatedViewPortJob']/field[@name='animator']"
 		[Register ("animator")]
 		protected global::Android.Animation.ObjectAnimator Animator {
@@ -31,31 +29,38 @@ namespace MikePhil.Charting.Jobs {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/jobs/AnimatedViewPortJob", typeof (AnimatedViewPortJob));
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/jobs/AnimatedViewPortJob", typeof (AnimatedViewPortJob));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected AnimatedViewPortJob (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected AnimatedViewPortJob (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.jobs']/class[@name='AnimatedViewPortJob']/constructor[@name='AnimatedViewPortJob' and count(parameter)=8 and parameter[1][@type='com.github.mikephil.charting.utils.ViewPortHandler'] and parameter[2][@type='float'] and parameter[3][@type='float'] and parameter[4][@type='com.github.mikephil.charting.utils.Transformer'] and parameter[5][@type='android.view.View'] and parameter[6][@type='float'] and parameter[7][@type='float'] and parameter[8][@type='long']]"
 		[Register (".ctor", "(Lcom/github/mikephil/charting/utils/ViewPortHandler;FFLcom/github/mikephil/charting/utils/Transformer;Landroid/view/View;FFJ)V", "")]
-		public unsafe AnimatedViewPortJob (global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler, float xValue, float yValue, global::MikePhil.Charting.Util.Transformer trans, global::Android.Views.View v, float xOrigin, float yOrigin, long duration)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe AnimatedViewPortJob (global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler, float xValue, float yValue, global::MikePhil.Charting.Util.Transformer trans, global::Android.Views.View v, float xOrigin, float yOrigin, long duration) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Lcom/github/mikephil/charting/utils/ViewPortHandler;FFLcom/github/mikephil/charting/utils/Transformer;Landroid/view/View;FFJ)V";
 
@@ -76,6 +81,9 @@ namespace MikePhil.Charting.Jobs {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (viewPortHandler);
+				global::System.GC.KeepAlive (trans);
+				global::System.GC.KeepAlive (v);
 			}
 		}
 
@@ -84,13 +92,13 @@ namespace MikePhil.Charting.Jobs {
 		static Delegate GetGetPhaseHandler ()
 		{
 			if (cb_getPhase == null)
-				cb_getPhase = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetPhase);
+				cb_getPhase = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetPhase);
 			return cb_getPhase;
 		}
 
 		static float n_GetPhase (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Jobs.AnimatedViewPortJob __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.Phase;
 		}
 #pragma warning restore 0169
@@ -100,13 +108,13 @@ namespace MikePhil.Charting.Jobs {
 		static Delegate GetSetPhase_FHandler ()
 		{
 			if (cb_setPhase_F == null)
-				cb_setPhase_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetPhase_F);
+				cb_setPhase_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetPhase_F);
 			return cb_setPhase_F;
 		}
 
 		static void n_SetPhase_F (IntPtr jnienv, IntPtr native__this, float phase)
 		{
-			global::MikePhil.Charting.Jobs.AnimatedViewPortJob __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.Phase = phase;
 		}
 #pragma warning restore 0169
@@ -140,13 +148,13 @@ namespace MikePhil.Charting.Jobs {
 		static Delegate GetGetXOriginHandler ()
 		{
 			if (cb_getXOrigin == null)
-				cb_getXOrigin = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetXOrigin);
+				cb_getXOrigin = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetXOrigin);
 			return cb_getXOrigin;
 		}
 
 		static float n_GetXOrigin (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Jobs.AnimatedViewPortJob __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.XOrigin;
 		}
 #pragma warning restore 0169
@@ -169,13 +177,13 @@ namespace MikePhil.Charting.Jobs {
 		static Delegate GetGetYOriginHandler ()
 		{
 			if (cb_getYOrigin == null)
-				cb_getYOrigin = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetYOrigin);
+				cb_getYOrigin = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetYOrigin);
 			return cb_getYOrigin;
 		}
 
 		static float n_GetYOrigin (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Jobs.AnimatedViewPortJob __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.YOrigin;
 		}
 #pragma warning restore 0169
@@ -198,14 +206,14 @@ namespace MikePhil.Charting.Jobs {
 		static Delegate GetOnAnimationCancel_Landroid_animation_Animator_Handler ()
 		{
 			if (cb_onAnimationCancel_Landroid_animation_Animator_ == null)
-				cb_onAnimationCancel_Landroid_animation_Animator_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_OnAnimationCancel_Landroid_animation_Animator_);
+				cb_onAnimationCancel_Landroid_animation_Animator_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_OnAnimationCancel_Landroid_animation_Animator_);
 			return cb_onAnimationCancel_Landroid_animation_Animator_;
 		}
 
 		static void n_OnAnimationCancel_Landroid_animation_Animator_ (IntPtr jnienv, IntPtr native__this, IntPtr native_animation)
 		{
-			global::MikePhil.Charting.Jobs.AnimatedViewPortJob __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Animation.Animator animation = global::Java.Lang.Object.GetObject<global::Android.Animation.Animator> (native_animation, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var animation = global::Java.Lang.Object.GetObject<global::Android.Animation.Animator> (native_animation, JniHandleOwnership.DoNotTransfer);
 			__this.OnAnimationCancel (animation);
 		}
 #pragma warning restore 0169
@@ -220,6 +228,7 @@ namespace MikePhil.Charting.Jobs {
 				__args [0] = new JniArgumentValue ((animation == null) ? IntPtr.Zero : ((global::Java.Lang.Object) animation).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (animation);
 			}
 		}
 
@@ -228,14 +237,14 @@ namespace MikePhil.Charting.Jobs {
 		static Delegate GetOnAnimationEnd_Landroid_animation_Animator_Handler ()
 		{
 			if (cb_onAnimationEnd_Landroid_animation_Animator_ == null)
-				cb_onAnimationEnd_Landroid_animation_Animator_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_OnAnimationEnd_Landroid_animation_Animator_);
+				cb_onAnimationEnd_Landroid_animation_Animator_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_OnAnimationEnd_Landroid_animation_Animator_);
 			return cb_onAnimationEnd_Landroid_animation_Animator_;
 		}
 
 		static void n_OnAnimationEnd_Landroid_animation_Animator_ (IntPtr jnienv, IntPtr native__this, IntPtr native_animation)
 		{
-			global::MikePhil.Charting.Jobs.AnimatedViewPortJob __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Animation.Animator animation = global::Java.Lang.Object.GetObject<global::Android.Animation.Animator> (native_animation, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var animation = global::Java.Lang.Object.GetObject<global::Android.Animation.Animator> (native_animation, JniHandleOwnership.DoNotTransfer);
 			__this.OnAnimationEnd (animation);
 		}
 #pragma warning restore 0169
@@ -250,6 +259,7 @@ namespace MikePhil.Charting.Jobs {
 				__args [0] = new JniArgumentValue ((animation == null) ? IntPtr.Zero : ((global::Java.Lang.Object) animation).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (animation);
 			}
 		}
 
@@ -258,14 +268,14 @@ namespace MikePhil.Charting.Jobs {
 		static Delegate GetOnAnimationRepeat_Landroid_animation_Animator_Handler ()
 		{
 			if (cb_onAnimationRepeat_Landroid_animation_Animator_ == null)
-				cb_onAnimationRepeat_Landroid_animation_Animator_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_OnAnimationRepeat_Landroid_animation_Animator_);
+				cb_onAnimationRepeat_Landroid_animation_Animator_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_OnAnimationRepeat_Landroid_animation_Animator_);
 			return cb_onAnimationRepeat_Landroid_animation_Animator_;
 		}
 
 		static void n_OnAnimationRepeat_Landroid_animation_Animator_ (IntPtr jnienv, IntPtr native__this, IntPtr native_animation)
 		{
-			global::MikePhil.Charting.Jobs.AnimatedViewPortJob __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Animation.Animator animation = global::Java.Lang.Object.GetObject<global::Android.Animation.Animator> (native_animation, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var animation = global::Java.Lang.Object.GetObject<global::Android.Animation.Animator> (native_animation, JniHandleOwnership.DoNotTransfer);
 			__this.OnAnimationRepeat (animation);
 		}
 #pragma warning restore 0169
@@ -280,6 +290,7 @@ namespace MikePhil.Charting.Jobs {
 				__args [0] = new JniArgumentValue ((animation == null) ? IntPtr.Zero : ((global::Java.Lang.Object) animation).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (animation);
 			}
 		}
 
@@ -288,14 +299,14 @@ namespace MikePhil.Charting.Jobs {
 		static Delegate GetOnAnimationStart_Landroid_animation_Animator_Handler ()
 		{
 			if (cb_onAnimationStart_Landroid_animation_Animator_ == null)
-				cb_onAnimationStart_Landroid_animation_Animator_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_OnAnimationStart_Landroid_animation_Animator_);
+				cb_onAnimationStart_Landroid_animation_Animator_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_OnAnimationStart_Landroid_animation_Animator_);
 			return cb_onAnimationStart_Landroid_animation_Animator_;
 		}
 
 		static void n_OnAnimationStart_Landroid_animation_Animator_ (IntPtr jnienv, IntPtr native__this, IntPtr native_animation)
 		{
-			global::MikePhil.Charting.Jobs.AnimatedViewPortJob __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Animation.Animator animation = global::Java.Lang.Object.GetObject<global::Android.Animation.Animator> (native_animation, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var animation = global::Java.Lang.Object.GetObject<global::Android.Animation.Animator> (native_animation, JniHandleOwnership.DoNotTransfer);
 			__this.OnAnimationStart (animation);
 		}
 #pragma warning restore 0169
@@ -310,6 +321,7 @@ namespace MikePhil.Charting.Jobs {
 				__args [0] = new JniArgumentValue ((animation == null) ? IntPtr.Zero : ((global::Java.Lang.Object) animation).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (animation);
 			}
 		}
 
@@ -318,14 +330,14 @@ namespace MikePhil.Charting.Jobs {
 		static Delegate GetOnAnimationUpdate_Landroid_animation_ValueAnimator_Handler ()
 		{
 			if (cb_onAnimationUpdate_Landroid_animation_ValueAnimator_ == null)
-				cb_onAnimationUpdate_Landroid_animation_ValueAnimator_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_OnAnimationUpdate_Landroid_animation_ValueAnimator_);
+				cb_onAnimationUpdate_Landroid_animation_ValueAnimator_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_OnAnimationUpdate_Landroid_animation_ValueAnimator_);
 			return cb_onAnimationUpdate_Landroid_animation_ValueAnimator_;
 		}
 
 		static void n_OnAnimationUpdate_Landroid_animation_ValueAnimator_ (IntPtr jnienv, IntPtr native__this, IntPtr native_animation)
 		{
-			global::MikePhil.Charting.Jobs.AnimatedViewPortJob __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Animation.ValueAnimator animation = global::Java.Lang.Object.GetObject<global::Android.Animation.ValueAnimator> (native_animation, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var animation = global::Java.Lang.Object.GetObject<global::Android.Animation.ValueAnimator> (native_animation, JniHandleOwnership.DoNotTransfer);
 			__this.OnAnimationUpdate (animation);
 		}
 #pragma warning restore 0169
@@ -340,6 +352,7 @@ namespace MikePhil.Charting.Jobs {
 				__args [0] = new JniArgumentValue ((animation == null) ? IntPtr.Zero : ((global::Java.Lang.Object) animation).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (animation);
 			}
 		}
 
@@ -348,13 +361,13 @@ namespace MikePhil.Charting.Jobs {
 		static Delegate GetRecycleSelfHandler ()
 		{
 			if (cb_recycleSelf == null)
-				cb_recycleSelf = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_RecycleSelf);
+				cb_recycleSelf = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_RecycleSelf);
 			return cb_recycleSelf;
 		}
 
 		static void n_RecycleSelf (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Jobs.AnimatedViewPortJob __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.RecycleSelf ();
 		}
 #pragma warning restore 0169
@@ -368,13 +381,13 @@ namespace MikePhil.Charting.Jobs {
 		static Delegate GetResetAnimatorHandler ()
 		{
 			if (cb_resetAnimator == null)
-				cb_resetAnimator = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_ResetAnimator);
+				cb_resetAnimator = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_ResetAnimator);
 			return cb_resetAnimator;
 		}
 
 		static void n_ResetAnimator (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Jobs.AnimatedViewPortJob __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.ResetAnimator ();
 		}
 #pragma warning restore 0169
@@ -395,13 +408,13 @@ namespace MikePhil.Charting.Jobs {
 		static Delegate GetRunHandler ()
 		{
 			if (cb_run == null)
-				cb_run = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_Run);
+				cb_run = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_Run);
 			return cb_run;
 		}
 
 		static void n_Run (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Jobs.AnimatedViewPortJob __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Jobs.AnimatedViewPortJob> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.Run ();
 		}
 #pragma warning restore 0169
@@ -421,15 +434,20 @@ namespace MikePhil.Charting.Jobs {
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/jobs/AnimatedViewPortJob", DoNotGenerateAcw=true)]
 	internal partial class AnimatedViewPortJobInvoker : AnimatedViewPortJob {
+		public AnimatedViewPortJobInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer)
+		{
+		}
 
-		public AnimatedViewPortJobInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/jobs/AnimatedViewPortJob", typeof (AnimatedViewPortJobInvoker));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/jobs/AnimatedViewPortJob", typeof (AnimatedViewPortJobInvoker));
-
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
@@ -458,5 +476,4 @@ namespace MikePhil.Charting.Jobs {
 		}
 
 	}
-
 }

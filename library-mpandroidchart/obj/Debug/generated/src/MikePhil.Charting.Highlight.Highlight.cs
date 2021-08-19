@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Highlight {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.highlight']/class[@name='Highlight']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/highlight/Highlight", DoNotGenerateAcw=true)]
 	public partial class Highlight : global::Java.Lang.Object {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/highlight/Highlight", typeof (Highlight));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/highlight/Highlight", typeof (Highlight));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected Highlight (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected Highlight (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.highlight']/class[@name='Highlight']/constructor[@name='Highlight' and count(parameter)=6 and parameter[1][@type='float'] and parameter[2][@type='float'] and parameter[3][@type='float'] and parameter[4][@type='float'] and parameter[5][@type='int'] and parameter[6][@type='com.github.mikephil.charting.components.YAxis.AxisDependency']]"
 		[Register (".ctor", "(FFFFILcom/github/mikephil/charting/components/YAxis$AxisDependency;)V", "")]
-		public unsafe Highlight (float x, float y, float xPx, float yPx, int dataSetIndex, global::MikePhil.Charting.Components.YAxis.AxisDependency axis)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Highlight (float x, float y, float xPx, float yPx, int dataSetIndex, global::MikePhil.Charting.Components.YAxis.AxisDependency axis) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(FFFFILcom/github/mikephil/charting/components/YAxis$AxisDependency;)V";
 
@@ -52,13 +57,13 @@ namespace MikePhil.Charting.Highlight {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (axis);
 			}
 		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.highlight']/class[@name='Highlight']/constructor[@name='Highlight' and count(parameter)=7 and parameter[1][@type='float'] and parameter[2][@type='float'] and parameter[3][@type='float'] and parameter[4][@type='float'] and parameter[5][@type='int'] and parameter[6][@type='int'] and parameter[7][@type='com.github.mikephil.charting.components.YAxis.AxisDependency']]"
 		[Register (".ctor", "(FFFFIILcom/github/mikephil/charting/components/YAxis$AxisDependency;)V", "")]
-		public unsafe Highlight (float x, float y, float xPx, float yPx, int dataSetIndex, int stackIndex, global::MikePhil.Charting.Components.YAxis.AxisDependency axis)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Highlight (float x, float y, float xPx, float yPx, int dataSetIndex, int stackIndex, global::MikePhil.Charting.Components.YAxis.AxisDependency axis) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(FFFFIILcom/github/mikephil/charting/components/YAxis$AxisDependency;)V";
 
@@ -78,13 +83,13 @@ namespace MikePhil.Charting.Highlight {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (axis);
 			}
 		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.highlight']/class[@name='Highlight']/constructor[@name='Highlight' and count(parameter)=3 and parameter[1][@type='float'] and parameter[2][@type='float'] and parameter[3][@type='int']]"
 		[Register (".ctor", "(FFI)V", "")]
-		public unsafe Highlight (float x, float y, int dataSetIndex)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Highlight (float x, float y, int dataSetIndex) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(FFI)V";
 
@@ -105,8 +110,7 @@ namespace MikePhil.Charting.Highlight {
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.highlight']/class[@name='Highlight']/constructor[@name='Highlight' and count(parameter)=3 and parameter[1][@type='float'] and parameter[2][@type='int'] and parameter[3][@type='int']]"
 		[Register (".ctor", "(FII)V", "")]
-		public unsafe Highlight (float x, int dataSetIndex, int stackIndex)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Highlight (float x, int dataSetIndex, int stackIndex) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(FII)V";
 
@@ -130,13 +134,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetAxisHandler ()
 		{
 			if (cb_getAxis == null)
-				cb_getAxis = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetAxis);
+				cb_getAxis = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetAxis);
 			return cb_getAxis;
 		}
 
 		static IntPtr n_GetAxis (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Highlight.Highlight __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Axis);
 		}
 #pragma warning restore 0169
@@ -159,13 +163,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetDataIndexHandler ()
 		{
 			if (cb_getDataIndex == null)
-				cb_getDataIndex = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetDataIndex);
+				cb_getDataIndex = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetDataIndex);
 			return cb_getDataIndex;
 		}
 
 		static int n_GetDataIndex (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Highlight.Highlight __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.DataIndex;
 		}
 #pragma warning restore 0169
@@ -175,13 +179,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetSetDataIndex_IHandler ()
 		{
 			if (cb_setDataIndex_I == null)
-				cb_setDataIndex_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int>) n_SetDataIndex_I);
+				cb_setDataIndex_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_V) n_SetDataIndex_I);
 			return cb_setDataIndex_I;
 		}
 
 		static void n_SetDataIndex_I (IntPtr jnienv, IntPtr native__this, int mDataIndex)
 		{
-			global::MikePhil.Charting.Highlight.Highlight __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.DataIndex = mDataIndex;
 		}
 #pragma warning restore 0169
@@ -215,13 +219,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetDataSetIndexHandler ()
 		{
 			if (cb_getDataSetIndex == null)
-				cb_getDataSetIndex = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetDataSetIndex);
+				cb_getDataSetIndex = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetDataSetIndex);
 			return cb_getDataSetIndex;
 		}
 
 		static int n_GetDataSetIndex (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Highlight.Highlight __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.DataSetIndex;
 		}
 #pragma warning restore 0169
@@ -244,13 +248,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetDrawXHandler ()
 		{
 			if (cb_getDrawX == null)
-				cb_getDrawX = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetDrawX);
+				cb_getDrawX = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetDrawX);
 			return cb_getDrawX;
 		}
 
 		static float n_GetDrawX (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Highlight.Highlight __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.DrawX;
 		}
 #pragma warning restore 0169
@@ -273,13 +277,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetDrawYHandler ()
 		{
 			if (cb_getDrawY == null)
-				cb_getDrawY = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetDrawY);
+				cb_getDrawY = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetDrawY);
 			return cb_getDrawY;
 		}
 
 		static float n_GetDrawY (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Highlight.Highlight __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.DrawY;
 		}
 #pragma warning restore 0169
@@ -302,13 +306,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetIsStackedHandler ()
 		{
 			if (cb_isStacked == null)
-				cb_isStacked = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsStacked);
+				cb_isStacked = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsStacked);
 			return cb_isStacked;
 		}
 
 		static bool n_IsStacked (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Highlight.Highlight __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.IsStacked;
 		}
 #pragma warning restore 0169
@@ -331,13 +335,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetStackIndexHandler ()
 		{
 			if (cb_getStackIndex == null)
-				cb_getStackIndex = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetStackIndex);
+				cb_getStackIndex = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetStackIndex);
 			return cb_getStackIndex;
 		}
 
 		static int n_GetStackIndex (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Highlight.Highlight __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.StackIndex;
 		}
 #pragma warning restore 0169
@@ -360,13 +364,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetXPxHandler ()
 		{
 			if (cb_getXPx == null)
-				cb_getXPx = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetXPx);
+				cb_getXPx = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetXPx);
 			return cb_getXPx;
 		}
 
 		static float n_GetXPx (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Highlight.Highlight __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.XPx;
 		}
 #pragma warning restore 0169
@@ -389,13 +393,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetYPxHandler ()
 		{
 			if (cb_getYPx == null)
-				cb_getYPx = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetYPx);
+				cb_getYPx = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetYPx);
 			return cb_getYPx;
 		}
 
 		static float n_GetYPx (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Highlight.Highlight __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.YPx;
 		}
 #pragma warning restore 0169
@@ -418,14 +422,14 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetEqualTo_Lcom_github_mikephil_charting_highlight_Highlight_Handler ()
 		{
 			if (cb_equalTo_Lcom_github_mikephil_charting_highlight_Highlight_ == null)
-				cb_equalTo_Lcom_github_mikephil_charting_highlight_Highlight_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, bool>) n_EqualTo_Lcom_github_mikephil_charting_highlight_Highlight_);
+				cb_equalTo_Lcom_github_mikephil_charting_highlight_Highlight_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_Z) n_EqualTo_Lcom_github_mikephil_charting_highlight_Highlight_);
 			return cb_equalTo_Lcom_github_mikephil_charting_highlight_Highlight_;
 		}
 
 		static bool n_EqualTo_Lcom_github_mikephil_charting_highlight_Highlight_ (IntPtr jnienv, IntPtr native__this, IntPtr native_h)
 		{
-			global::MikePhil.Charting.Highlight.Highlight __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Highlight.Highlight h = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (native_h, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var h = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (native_h, JniHandleOwnership.DoNotTransfer);
 			bool __ret = __this.EqualTo (h);
 			return __ret;
 		}
@@ -442,6 +446,7 @@ namespace MikePhil.Charting.Highlight {
 				var __rm = _members.InstanceMethods.InvokeVirtualBooleanMethod (__id, this, __args);
 				return __rm;
 			} finally {
+				global::System.GC.KeepAlive (h);
 			}
 		}
 
@@ -450,13 +455,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetXHandler ()
 		{
 			if (cb_getX == null)
-				cb_getX = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetX);
+				cb_getX = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetX);
 			return cb_getX;
 		}
 
 		static float n_GetX (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Highlight.Highlight __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.GetX ();
 		}
 #pragma warning restore 0169
@@ -478,13 +483,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetYHandler ()
 		{
 			if (cb_getY == null)
-				cb_getY = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetY);
+				cb_getY = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetY);
 			return cb_getY;
 		}
 
 		static float n_GetY (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Highlight.Highlight __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.GetY ();
 		}
 #pragma warning restore 0169
@@ -506,13 +511,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetSetDraw_FFHandler ()
 		{
 			if (cb_setDraw_FF == null)
-				cb_setDraw_FF = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float, float>) n_SetDraw_FF);
+				cb_setDraw_FF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFF_V) n_SetDraw_FF);
 			return cb_setDraw_FF;
 		}
 
 		static void n_SetDraw_FF (IntPtr jnienv, IntPtr native__this, float x, float y)
 		{
-			global::MikePhil.Charting.Highlight.Highlight __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.Highlight> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetDraw (x, y);
 		}
 #pragma warning restore 0169

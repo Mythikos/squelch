@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Formatter {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.formatter']/class[@name='DefaultFillFormatter']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/formatter/DefaultFillFormatter", DoNotGenerateAcw=true)]
 	public partial class DefaultFillFormatter : global::Java.Lang.Object, global::MikePhil.Charting.Formatter.IFillFormatter {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/formatter/DefaultFillFormatter", typeof (DefaultFillFormatter));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/formatter/DefaultFillFormatter", typeof (DefaultFillFormatter));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected DefaultFillFormatter (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected DefaultFillFormatter (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.formatter']/class[@name='DefaultFillFormatter']/constructor[@name='DefaultFillFormatter' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe DefaultFillFormatter ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe DefaultFillFormatter () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 
@@ -53,15 +58,15 @@ namespace MikePhil.Charting.Formatter {
 		static Delegate GetGetFillLinePosition_Lcom_github_mikephil_charting_interfaces_datasets_ILineDataSet_Lcom_github_mikephil_charting_interfaces_dataprovider_LineDataProvider_Handler ()
 		{
 			if (cb_getFillLinePosition_Lcom_github_mikephil_charting_interfaces_datasets_ILineDataSet_Lcom_github_mikephil_charting_interfaces_dataprovider_LineDataProvider_ == null)
-				cb_getFillLinePosition_Lcom_github_mikephil_charting_interfaces_datasets_ILineDataSet_Lcom_github_mikephil_charting_interfaces_dataprovider_LineDataProvider_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, IntPtr, float>) n_GetFillLinePosition_Lcom_github_mikephil_charting_interfaces_datasets_ILineDataSet_Lcom_github_mikephil_charting_interfaces_dataprovider_LineDataProvider_);
+				cb_getFillLinePosition_Lcom_github_mikephil_charting_interfaces_datasets_ILineDataSet_Lcom_github_mikephil_charting_interfaces_dataprovider_LineDataProvider_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLL_F) n_GetFillLinePosition_Lcom_github_mikephil_charting_interfaces_datasets_ILineDataSet_Lcom_github_mikephil_charting_interfaces_dataprovider_LineDataProvider_);
 			return cb_getFillLinePosition_Lcom_github_mikephil_charting_interfaces_datasets_ILineDataSet_Lcom_github_mikephil_charting_interfaces_dataprovider_LineDataProvider_;
 		}
 
 		static float n_GetFillLinePosition_Lcom_github_mikephil_charting_interfaces_datasets_ILineDataSet_Lcom_github_mikephil_charting_interfaces_dataprovider_LineDataProvider_ (IntPtr jnienv, IntPtr native__this, IntPtr native_dataSet, IntPtr native_dataProvider)
 		{
-			global::MikePhil.Charting.Formatter.DefaultFillFormatter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Formatter.DefaultFillFormatter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Interfaces.Datasets.ILineDataSet dataSet = (global::MikePhil.Charting.Interfaces.Datasets.ILineDataSet)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.ILineDataSet> (native_dataSet, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Interfaces.Dataprovider.ILineDataProvider dataProvider = (global::MikePhil.Charting.Interfaces.Dataprovider.ILineDataProvider)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.ILineDataProvider> (native_dataProvider, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Formatter.DefaultFillFormatter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var dataSet = (global::MikePhil.Charting.Interfaces.Datasets.ILineDataSet)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.ILineDataSet> (native_dataSet, JniHandleOwnership.DoNotTransfer);
+			var dataProvider = (global::MikePhil.Charting.Interfaces.Dataprovider.ILineDataProvider)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Dataprovider.ILineDataProvider> (native_dataProvider, JniHandleOwnership.DoNotTransfer);
 			float __ret = __this.GetFillLinePosition (dataSet, dataProvider);
 			return __ret;
 		}
@@ -79,6 +84,8 @@ namespace MikePhil.Charting.Formatter {
 				var __rm = _members.InstanceMethods.InvokeVirtualSingleMethod (__id, this, __args);
 				return __rm;
 			} finally {
+				global::System.GC.KeepAlive (dataSet);
+				global::System.GC.KeepAlive (dataProvider);
 			}
 		}
 

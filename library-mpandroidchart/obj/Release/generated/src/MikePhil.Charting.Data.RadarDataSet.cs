@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Data {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/data/RadarDataSet", DoNotGenerateAcw=true)]
 	public partial class RadarDataSet : global::MikePhil.Charting.Data.LineRadarDataSet, global::MikePhil.Charting.Interfaces.Datasets.IRadarDataSet {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='RadarDataSet']/field[@name='mDrawHighlightCircleEnabled']"
 		[Register ("mDrawHighlightCircleEnabled")]
 		protected bool MDrawHighlightCircleEnabled {
@@ -149,31 +147,38 @@ namespace MikePhil.Charting.Data {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/RadarDataSet", typeof (RadarDataSet));
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/RadarDataSet", typeof (RadarDataSet));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected RadarDataSet (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected RadarDataSet (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='RadarDataSet']/constructor[@name='RadarDataSet' and count(parameter)=2 and parameter[1][@type='java.util.List&lt;com.github.mikephil.charting.data.RadarEntry&gt;'] and parameter[2][@type='java.lang.String']]"
 		[Register (".ctor", "(Ljava/util/List;Ljava/lang/String;)V", "")]
-		public unsafe RadarDataSet (global::System.Collections.Generic.IList<global::MikePhil.Charting.Data.RadarEntry> yVals, string label)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe RadarDataSet (global::System.Collections.Generic.IList<global::MikePhil.Charting.Data.RadarEntry> yVals, string label) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Ljava/util/List;Ljava/lang/String;)V";
 
@@ -192,6 +197,7 @@ namespace MikePhil.Charting.Data {
 			} finally {
 				JNIEnv.DeleteLocalRef (native_yVals);
 				JNIEnv.DeleteLocalRef (native_label);
+				global::System.GC.KeepAlive (yVals);
 			}
 		}
 
@@ -200,13 +206,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetIsDrawHighlightCircleEnabledHandler ()
 		{
 			if (cb_isDrawHighlightCircleEnabled == null)
-				cb_isDrawHighlightCircleEnabled = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsDrawHighlightCircleEnabled);
+				cb_isDrawHighlightCircleEnabled = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsDrawHighlightCircleEnabled);
 			return cb_isDrawHighlightCircleEnabled;
 		}
 
 		static bool n_IsDrawHighlightCircleEnabled (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.RadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.DrawHighlightCircleEnabled;
 		}
 #pragma warning restore 0169
@@ -216,13 +222,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetDrawHighlightCircleEnabled_ZHandler ()
 		{
 			if (cb_setDrawHighlightCircleEnabled_Z == null)
-				cb_setDrawHighlightCircleEnabled_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetDrawHighlightCircleEnabled_Z);
+				cb_setDrawHighlightCircleEnabled_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetDrawHighlightCircleEnabled_Z);
 			return cb_setDrawHighlightCircleEnabled_Z;
 		}
 
 		static void n_SetDrawHighlightCircleEnabled_Z (IntPtr jnienv, IntPtr native__this, bool enabled)
 		{
-			global::MikePhil.Charting.Data.RadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.DrawHighlightCircleEnabled = enabled;
 		}
 #pragma warning restore 0169
@@ -256,13 +262,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetHighlightCircleFillColorHandler ()
 		{
 			if (cb_getHighlightCircleFillColor == null)
-				cb_getHighlightCircleFillColor = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetHighlightCircleFillColor);
+				cb_getHighlightCircleFillColor = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetHighlightCircleFillColor);
 			return cb_getHighlightCircleFillColor;
 		}
 
 		static int n_GetHighlightCircleFillColor (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.RadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.HighlightCircleFillColor;
 		}
 #pragma warning restore 0169
@@ -272,13 +278,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetHighlightCircleFillColor_IHandler ()
 		{
 			if (cb_setHighlightCircleFillColor_I == null)
-				cb_setHighlightCircleFillColor_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int>) n_SetHighlightCircleFillColor_I);
+				cb_setHighlightCircleFillColor_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_V) n_SetHighlightCircleFillColor_I);
 			return cb_setHighlightCircleFillColor_I;
 		}
 
 		static void n_SetHighlightCircleFillColor_I (IntPtr jnienv, IntPtr native__this, int color)
 		{
-			global::MikePhil.Charting.Data.RadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.HighlightCircleFillColor = color;
 		}
 #pragma warning restore 0169
@@ -312,13 +318,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetHighlightCircleInnerRadiusHandler ()
 		{
 			if (cb_getHighlightCircleInnerRadius == null)
-				cb_getHighlightCircleInnerRadius = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetHighlightCircleInnerRadius);
+				cb_getHighlightCircleInnerRadius = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetHighlightCircleInnerRadius);
 			return cb_getHighlightCircleInnerRadius;
 		}
 
 		static float n_GetHighlightCircleInnerRadius (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.RadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.HighlightCircleInnerRadius;
 		}
 #pragma warning restore 0169
@@ -328,13 +334,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetHighlightCircleInnerRadius_FHandler ()
 		{
 			if (cb_setHighlightCircleInnerRadius_F == null)
-				cb_setHighlightCircleInnerRadius_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetHighlightCircleInnerRadius_F);
+				cb_setHighlightCircleInnerRadius_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetHighlightCircleInnerRadius_F);
 			return cb_setHighlightCircleInnerRadius_F;
 		}
 
 		static void n_SetHighlightCircleInnerRadius_F (IntPtr jnienv, IntPtr native__this, float radius)
 		{
-			global::MikePhil.Charting.Data.RadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.HighlightCircleInnerRadius = radius;
 		}
 #pragma warning restore 0169
@@ -368,13 +374,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetHighlightCircleOuterRadiusHandler ()
 		{
 			if (cb_getHighlightCircleOuterRadius == null)
-				cb_getHighlightCircleOuterRadius = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetHighlightCircleOuterRadius);
+				cb_getHighlightCircleOuterRadius = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetHighlightCircleOuterRadius);
 			return cb_getHighlightCircleOuterRadius;
 		}
 
 		static float n_GetHighlightCircleOuterRadius (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.RadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.HighlightCircleOuterRadius;
 		}
 #pragma warning restore 0169
@@ -384,13 +390,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetHighlightCircleOuterRadius_FHandler ()
 		{
 			if (cb_setHighlightCircleOuterRadius_F == null)
-				cb_setHighlightCircleOuterRadius_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetHighlightCircleOuterRadius_F);
+				cb_setHighlightCircleOuterRadius_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetHighlightCircleOuterRadius_F);
 			return cb_setHighlightCircleOuterRadius_F;
 		}
 
 		static void n_SetHighlightCircleOuterRadius_F (IntPtr jnienv, IntPtr native__this, float radius)
 		{
-			global::MikePhil.Charting.Data.RadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.HighlightCircleOuterRadius = radius;
 		}
 #pragma warning restore 0169
@@ -424,13 +430,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetHighlightCircleStrokeAlphaHandler ()
 		{
 			if (cb_getHighlightCircleStrokeAlpha == null)
-				cb_getHighlightCircleStrokeAlpha = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetHighlightCircleStrokeAlpha);
+				cb_getHighlightCircleStrokeAlpha = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetHighlightCircleStrokeAlpha);
 			return cb_getHighlightCircleStrokeAlpha;
 		}
 
 		static int n_GetHighlightCircleStrokeAlpha (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.RadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.HighlightCircleStrokeAlpha;
 		}
 #pragma warning restore 0169
@@ -440,13 +446,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetHighlightCircleStrokeAlpha_IHandler ()
 		{
 			if (cb_setHighlightCircleStrokeAlpha_I == null)
-				cb_setHighlightCircleStrokeAlpha_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int>) n_SetHighlightCircleStrokeAlpha_I);
+				cb_setHighlightCircleStrokeAlpha_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_V) n_SetHighlightCircleStrokeAlpha_I);
 			return cb_setHighlightCircleStrokeAlpha_I;
 		}
 
 		static void n_SetHighlightCircleStrokeAlpha_I (IntPtr jnienv, IntPtr native__this, int alpha)
 		{
-			global::MikePhil.Charting.Data.RadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.HighlightCircleStrokeAlpha = alpha;
 		}
 #pragma warning restore 0169
@@ -480,13 +486,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetHighlightCircleStrokeColorHandler ()
 		{
 			if (cb_getHighlightCircleStrokeColor == null)
-				cb_getHighlightCircleStrokeColor = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetHighlightCircleStrokeColor);
+				cb_getHighlightCircleStrokeColor = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetHighlightCircleStrokeColor);
 			return cb_getHighlightCircleStrokeColor;
 		}
 
 		static int n_GetHighlightCircleStrokeColor (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.RadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.HighlightCircleStrokeColor;
 		}
 #pragma warning restore 0169
@@ -496,13 +502,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetHighlightCircleStrokeColor_IHandler ()
 		{
 			if (cb_setHighlightCircleStrokeColor_I == null)
-				cb_setHighlightCircleStrokeColor_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int>) n_SetHighlightCircleStrokeColor_I);
+				cb_setHighlightCircleStrokeColor_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_V) n_SetHighlightCircleStrokeColor_I);
 			return cb_setHighlightCircleStrokeColor_I;
 		}
 
 		static void n_SetHighlightCircleStrokeColor_I (IntPtr jnienv, IntPtr native__this, int color)
 		{
-			global::MikePhil.Charting.Data.RadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.HighlightCircleStrokeColor = color;
 		}
 #pragma warning restore 0169
@@ -536,13 +542,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetHighlightCircleStrokeWidthHandler ()
 		{
 			if (cb_getHighlightCircleStrokeWidth == null)
-				cb_getHighlightCircleStrokeWidth = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetHighlightCircleStrokeWidth);
+				cb_getHighlightCircleStrokeWidth = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetHighlightCircleStrokeWidth);
 			return cb_getHighlightCircleStrokeWidth;
 		}
 
 		static float n_GetHighlightCircleStrokeWidth (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.RadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.HighlightCircleStrokeWidth;
 		}
 #pragma warning restore 0169
@@ -552,13 +558,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetHighlightCircleStrokeWidth_FHandler ()
 		{
 			if (cb_setHighlightCircleStrokeWidth_F == null)
-				cb_setHighlightCircleStrokeWidth_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetHighlightCircleStrokeWidth_F);
+				cb_setHighlightCircleStrokeWidth_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetHighlightCircleStrokeWidth_F);
 			return cb_setHighlightCircleStrokeWidth_F;
 		}
 
 		static void n_SetHighlightCircleStrokeWidth_F (IntPtr jnienv, IntPtr native__this, float strokeWidth)
 		{
-			global::MikePhil.Charting.Data.RadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.HighlightCircleStrokeWidth = strokeWidth;
 		}
 #pragma warning restore 0169
@@ -592,13 +598,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetCopyHandler ()
 		{
 			if (cb_copy == null)
-				cb_copy = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_Copy);
+				cb_copy = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_Copy);
 			return cb_copy;
 		}
 
 		static IntPtr n_Copy (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.RadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Copy ());
 		}
 #pragma warning restore 0169
@@ -620,14 +626,14 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetCopy_Lcom_github_mikephil_charting_data_RadarDataSet_Handler ()
 		{
 			if (cb_copy_Lcom_github_mikephil_charting_data_RadarDataSet_ == null)
-				cb_copy_Lcom_github_mikephil_charting_data_RadarDataSet_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_Copy_Lcom_github_mikephil_charting_data_RadarDataSet_);
+				cb_copy_Lcom_github_mikephil_charting_data_RadarDataSet_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_Copy_Lcom_github_mikephil_charting_data_RadarDataSet_);
 			return cb_copy_Lcom_github_mikephil_charting_data_RadarDataSet_;
 		}
 
 		static void n_Copy_Lcom_github_mikephil_charting_data_RadarDataSet_ (IntPtr jnienv, IntPtr native__this, IntPtr native_radarDataSet)
 		{
-			global::MikePhil.Charting.Data.RadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Data.RadarDataSet radarDataSet = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (native_radarDataSet, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var radarDataSet = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarDataSet> (native_radarDataSet, JniHandleOwnership.DoNotTransfer);
 			__this.Copy (radarDataSet);
 		}
 #pragma warning restore 0169
@@ -642,6 +648,7 @@ namespace MikePhil.Charting.Data {
 				__args [0] = new JniArgumentValue ((radarDataSet == null) ? IntPtr.Zero : ((global::Java.Lang.Object) radarDataSet).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (radarDataSet);
 			}
 		}
 

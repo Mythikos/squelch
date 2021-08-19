@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Renderer.Scatter {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.renderer.scatter']/class[@name='CrossShapeRenderer']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/renderer/scatter/CrossShapeRenderer", DoNotGenerateAcw=true)]
 	public partial class CrossShapeRenderer : global::Java.Lang.Object, global::MikePhil.Charting.Renderer.Scatter.IShapeRenderer {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/renderer/scatter/CrossShapeRenderer", typeof (CrossShapeRenderer));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/renderer/scatter/CrossShapeRenderer", typeof (CrossShapeRenderer));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected CrossShapeRenderer (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected CrossShapeRenderer (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.renderer.scatter']/class[@name='CrossShapeRenderer']/constructor[@name='CrossShapeRenderer' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe CrossShapeRenderer ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe CrossShapeRenderer () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 
@@ -53,17 +58,17 @@ namespace MikePhil.Charting.Renderer.Scatter {
 		static Delegate GetRenderShape_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_interfaces_datasets_IScatterDataSet_Lcom_github_mikephil_charting_utils_ViewPortHandler_FFLandroid_graphics_Paint_Handler ()
 		{
 			if (cb_renderShape_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_interfaces_datasets_IScatterDataSet_Lcom_github_mikephil_charting_utils_ViewPortHandler_FFLandroid_graphics_Paint_ == null)
-				cb_renderShape_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_interfaces_datasets_IScatterDataSet_Lcom_github_mikephil_charting_utils_ViewPortHandler_FFLandroid_graphics_Paint_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, float, float, IntPtr>) n_RenderShape_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_interfaces_datasets_IScatterDataSet_Lcom_github_mikephil_charting_utils_ViewPortHandler_FFLandroid_graphics_Paint_);
+				cb_renderShape_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_interfaces_datasets_IScatterDataSet_Lcom_github_mikephil_charting_utils_ViewPortHandler_FFLandroid_graphics_Paint_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLLLFFL_V) n_RenderShape_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_interfaces_datasets_IScatterDataSet_Lcom_github_mikephil_charting_utils_ViewPortHandler_FFLandroid_graphics_Paint_);
 			return cb_renderShape_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_interfaces_datasets_IScatterDataSet_Lcom_github_mikephil_charting_utils_ViewPortHandler_FFLandroid_graphics_Paint_;
 		}
 
 		static void n_RenderShape_Landroid_graphics_Canvas_Lcom_github_mikephil_charting_interfaces_datasets_IScatterDataSet_Lcom_github_mikephil_charting_utils_ViewPortHandler_FFLandroid_graphics_Paint_ (IntPtr jnienv, IntPtr native__this, IntPtr native_c, IntPtr native_dataSet, IntPtr native_viewPortHandler, float posX, float posY, IntPtr native_renderPaint)
 		{
-			global::MikePhil.Charting.Renderer.Scatter.CrossShapeRenderer __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.Scatter.CrossShapeRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Canvas c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Interfaces.Datasets.IScatterDataSet dataSet = (global::MikePhil.Charting.Interfaces.Datasets.IScatterDataSet)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IScatterDataSet> (native_dataSet, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Util.ViewPortHandler viewPortHandler = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ViewPortHandler> (native_viewPortHandler, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Paint renderPaint = global::Java.Lang.Object.GetObject<global::Android.Graphics.Paint> (native_renderPaint, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Renderer.Scatter.CrossShapeRenderer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var c = global::Java.Lang.Object.GetObject<global::Android.Graphics.Canvas> (native_c, JniHandleOwnership.DoNotTransfer);
+			var dataSet = (global::MikePhil.Charting.Interfaces.Datasets.IScatterDataSet)global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Interfaces.Datasets.IScatterDataSet> (native_dataSet, JniHandleOwnership.DoNotTransfer);
+			var viewPortHandler = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Util.ViewPortHandler> (native_viewPortHandler, JniHandleOwnership.DoNotTransfer);
+			var renderPaint = global::Java.Lang.Object.GetObject<global::Android.Graphics.Paint> (native_renderPaint, JniHandleOwnership.DoNotTransfer);
 			__this.RenderShape (c, dataSet, viewPortHandler, posX, posY, renderPaint);
 		}
 #pragma warning restore 0169
@@ -83,6 +88,10 @@ namespace MikePhil.Charting.Renderer.Scatter {
 				__args [5] = new JniArgumentValue ((renderPaint == null) ? IntPtr.Zero : ((global::Java.Lang.Object) renderPaint).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (c);
+				global::System.GC.KeepAlive (dataSet);
+				global::System.GC.KeepAlive (viewPortHandler);
+				global::System.GC.KeepAlive (renderPaint);
 			}
 		}
 

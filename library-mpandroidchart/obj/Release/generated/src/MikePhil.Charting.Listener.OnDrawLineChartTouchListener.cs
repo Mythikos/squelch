@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Listener {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.listener']/class[@name='OnDrawLineChartTouchListener']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/listener/OnDrawLineChartTouchListener", DoNotGenerateAcw=true)]
 	public partial class OnDrawLineChartTouchListener : global::Android.Views.GestureDetector.SimpleOnGestureListener, global::Android.Views.View.IOnTouchListener {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/listener/OnDrawLineChartTouchListener", typeof (OnDrawLineChartTouchListener));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/listener/OnDrawLineChartTouchListener", typeof (OnDrawLineChartTouchListener));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected OnDrawLineChartTouchListener (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected OnDrawLineChartTouchListener (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.listener']/class[@name='OnDrawLineChartTouchListener']/constructor[@name='OnDrawLineChartTouchListener' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe OnDrawLineChartTouchListener ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe OnDrawLineChartTouchListener () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 
@@ -53,15 +58,15 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetOnTouch_Landroid_view_View_Landroid_view_MotionEvent_Handler ()
 		{
 			if (cb_onTouch_Landroid_view_View_Landroid_view_MotionEvent_ == null)
-				cb_onTouch_Landroid_view_View_Landroid_view_MotionEvent_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, IntPtr, bool>) n_OnTouch_Landroid_view_View_Landroid_view_MotionEvent_);
+				cb_onTouch_Landroid_view_View_Landroid_view_MotionEvent_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLL_Z) n_OnTouch_Landroid_view_View_Landroid_view_MotionEvent_);
 			return cb_onTouch_Landroid_view_View_Landroid_view_MotionEvent_;
 		}
 
 		static bool n_OnTouch_Landroid_view_View_Landroid_view_MotionEvent_ (IntPtr jnienv, IntPtr native__this, IntPtr native_v, IntPtr native_e)
 		{
-			global::MikePhil.Charting.Listener.OnDrawLineChartTouchListener __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.OnDrawLineChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Views.View v = global::Java.Lang.Object.GetObject<global::Android.Views.View> (native_v, JniHandleOwnership.DoNotTransfer);
-			global::Android.Views.MotionEvent e = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_e, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.OnDrawLineChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var v = global::Java.Lang.Object.GetObject<global::Android.Views.View> (native_v, JniHandleOwnership.DoNotTransfer);
+			var e = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_e, JniHandleOwnership.DoNotTransfer);
 			bool __ret = __this.OnTouch (v, e);
 			return __ret;
 		}
@@ -79,6 +84,8 @@ namespace MikePhil.Charting.Listener {
 				var __rm = _members.InstanceMethods.InvokeVirtualBooleanMethod (__id, this, __args);
 				return __rm;
 			} finally {
+				global::System.GC.KeepAlive (v);
+				global::System.GC.KeepAlive (e);
 			}
 		}
 

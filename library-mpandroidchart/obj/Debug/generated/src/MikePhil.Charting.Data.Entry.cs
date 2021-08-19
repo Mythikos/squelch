@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Data {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/data/Entry", DoNotGenerateAcw=true)]
 	public partial class Entry : global::MikePhil.Charting.Data.BaseEntry, global::Android.OS.IParcelable {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='Entry']/field[@name='CREATOR']"
 		[Register ("CREATOR")]
 		public static global::Android.OS.IParcelableCreator Creator {
@@ -21,31 +19,38 @@ namespace MikePhil.Charting.Data {
 				return global::Java.Lang.Object.GetObject<global::Android.OS.IParcelableCreator> (__v.Handle, JniHandleOwnership.TransferLocalRef);
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/Entry", typeof (Entry));
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/Entry", typeof (Entry));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected Entry (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected Entry (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='Entry']/constructor[@name='Entry' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe Entry ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Entry () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 
@@ -62,8 +67,7 @@ namespace MikePhil.Charting.Data {
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='Entry']/constructor[@name='Entry' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]"
 		[Register (".ctor", "(Landroid/os/Parcel;)V", "")]
-		protected unsafe Entry (global::Android.OS.Parcel @in)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		protected unsafe Entry (global::Android.OS.Parcel @in) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Landroid/os/Parcel;)V";
 
@@ -77,13 +81,13 @@ namespace MikePhil.Charting.Data {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (@in);
 			}
 		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='Entry']/constructor[@name='Entry' and count(parameter)=2 and parameter[1][@type='float'] and parameter[2][@type='float']]"
 		[Register (".ctor", "(FF)V", "")]
-		public unsafe Entry (float x, float y)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Entry (float x, float y) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(FF)V";
 
@@ -103,8 +107,7 @@ namespace MikePhil.Charting.Data {
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='Entry']/constructor[@name='Entry' and count(parameter)=3 and parameter[1][@type='float'] and parameter[2][@type='float'] and parameter[3][@type='android.graphics.drawable.Drawable']]"
 		[Register (".ctor", "(FFLandroid/graphics/drawable/Drawable;)V", "")]
-		public unsafe Entry (float x, float y, global::Android.Graphics.Drawables.Drawable icon)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Entry (float x, float y, global::Android.Graphics.Drawables.Drawable icon) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(FFLandroid/graphics/drawable/Drawable;)V";
 
@@ -120,13 +123,13 @@ namespace MikePhil.Charting.Data {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (icon);
 			}
 		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='Entry']/constructor[@name='Entry' and count(parameter)=4 and parameter[1][@type='float'] and parameter[2][@type='float'] and parameter[3][@type='android.graphics.drawable.Drawable'] and parameter[4][@type='java.lang.Object']]"
 		[Register (".ctor", "(FFLandroid/graphics/drawable/Drawable;Ljava/lang/Object;)V", "")]
-		public unsafe Entry (float x, float y, global::Android.Graphics.Drawables.Drawable icon, global::Java.Lang.Object data)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Entry (float x, float y, global::Android.Graphics.Drawables.Drawable icon, global::Java.Lang.Object data) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(FFLandroid/graphics/drawable/Drawable;Ljava/lang/Object;)V";
 
@@ -143,13 +146,14 @@ namespace MikePhil.Charting.Data {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (icon);
+				global::System.GC.KeepAlive (data);
 			}
 		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='Entry']/constructor[@name='Entry' and count(parameter)=3 and parameter[1][@type='float'] and parameter[2][@type='float'] and parameter[3][@type='java.lang.Object']]"
 		[Register (".ctor", "(FFLjava/lang/Object;)V", "")]
-		public unsafe Entry (float x, float y, global::Java.Lang.Object data)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe Entry (float x, float y, global::Java.Lang.Object data) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(FFLjava/lang/Object;)V";
 
@@ -165,6 +169,7 @@ namespace MikePhil.Charting.Data {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (data);
 			}
 		}
 
@@ -173,13 +178,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetCopyHandler ()
 		{
 			if (cb_copy == null)
-				cb_copy = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_Copy);
+				cb_copy = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_Copy);
 			return cb_copy;
 		}
 
 		static IntPtr n_Copy (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.Entry __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Copy ());
 		}
 #pragma warning restore 0169
@@ -201,13 +206,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetDescribeContentsHandler ()
 		{
 			if (cb_describeContents == null)
-				cb_describeContents = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_DescribeContents);
+				cb_describeContents = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_DescribeContents);
 			return cb_describeContents;
 		}
 
 		static int n_DescribeContents (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.Entry __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.DescribeContents ();
 		}
 #pragma warning restore 0169
@@ -229,14 +234,14 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetEqualTo_Lcom_github_mikephil_charting_data_Entry_Handler ()
 		{
 			if (cb_equalTo_Lcom_github_mikephil_charting_data_Entry_ == null)
-				cb_equalTo_Lcom_github_mikephil_charting_data_Entry_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, bool>) n_EqualTo_Lcom_github_mikephil_charting_data_Entry_);
+				cb_equalTo_Lcom_github_mikephil_charting_data_Entry_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_Z) n_EqualTo_Lcom_github_mikephil_charting_data_Entry_);
 			return cb_equalTo_Lcom_github_mikephil_charting_data_Entry_;
 		}
 
 		static bool n_EqualTo_Lcom_github_mikephil_charting_data_Entry_ (IntPtr jnienv, IntPtr native__this, IntPtr native_e)
 		{
-			global::MikePhil.Charting.Data.Entry __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Data.Entry e = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (native_e, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var e = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (native_e, JniHandleOwnership.DoNotTransfer);
 			bool __ret = __this.EqualTo (e);
 			return __ret;
 		}
@@ -253,6 +258,7 @@ namespace MikePhil.Charting.Data {
 				var __rm = _members.InstanceMethods.InvokeVirtualBooleanMethod (__id, this, __args);
 				return __rm;
 			} finally {
+				global::System.GC.KeepAlive (e);
 			}
 		}
 
@@ -261,13 +267,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetXHandler ()
 		{
 			if (cb_getX == null)
-				cb_getX = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetX);
+				cb_getX = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetX);
 			return cb_getX;
 		}
 
 		static float n_GetX (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.Entry __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.GetX ();
 		}
 #pragma warning restore 0169
@@ -289,13 +295,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetX_FHandler ()
 		{
 			if (cb_setX_F == null)
-				cb_setX_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetX_F);
+				cb_setX_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetX_F);
 			return cb_setX_F;
 		}
 
 		static void n_SetX_F (IntPtr jnienv, IntPtr native__this, float x)
 		{
-			global::MikePhil.Charting.Data.Entry __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetX (x);
 		}
 #pragma warning restore 0169
@@ -318,15 +324,15 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetWriteToParcel_Landroid_os_Parcel_IHandler ()
 		{
 			if (cb_writeToParcel_Landroid_os_Parcel_I == null)
-				cb_writeToParcel_Landroid_os_Parcel_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr, int>) n_WriteToParcel_Landroid_os_Parcel_I);
+				cb_writeToParcel_Landroid_os_Parcel_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLI_V) n_WriteToParcel_Landroid_os_Parcel_I);
 			return cb_writeToParcel_Landroid_os_Parcel_I;
 		}
 
 		static void n_WriteToParcel_Landroid_os_Parcel_I (IntPtr jnienv, IntPtr native__this, IntPtr native_dest, int native_flags)
 		{
-			global::MikePhil.Charting.Data.Entry __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.OS.Parcel dest = global::Java.Lang.Object.GetObject<global::Android.OS.Parcel> (native_dest, JniHandleOwnership.DoNotTransfer);
-			global::Android.OS.ParcelableWriteFlags flags = (global::Android.OS.ParcelableWriteFlags) native_flags;
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.Entry> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var dest = global::Java.Lang.Object.GetObject<global::Android.OS.Parcel> (native_dest, JniHandleOwnership.DoNotTransfer);
+			var flags = (global::Android.OS.ParcelableWriteFlags) native_flags;
 			__this.WriteToParcel (dest, flags);
 		}
 #pragma warning restore 0169
@@ -342,6 +348,7 @@ namespace MikePhil.Charting.Data {
 				__args [1] = new JniArgumentValue ((int) flags);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (dest);
 			}
 		}
 

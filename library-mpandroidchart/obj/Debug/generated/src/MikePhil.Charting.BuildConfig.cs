@@ -8,8 +8,6 @@ namespace MikePhil.Charting {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting']/class[@name='BuildConfig']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/BuildConfig", DoNotGenerateAcw=true)]
 	public sealed partial class BuildConfig : global::Java.Lang.Object {
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting']/class[@name='BuildConfig']/field[@name='APPLICATION_ID']"
 		[Register ("APPLICATION_ID")]
 		public const string ApplicationId = (string) "com.github.mikephil.charting";
@@ -33,31 +31,38 @@ namespace MikePhil.Charting {
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting']/class[@name='BuildConfig']/field[@name='VERSION_NAME']"
 		[Register ("VERSION_NAME")]
 		public const string VersionName = (string) "3.0.3";
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/BuildConfig", typeof (BuildConfig));
-		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/BuildConfig", typeof (BuildConfig));
+
+		internal static IntPtr class_ref {
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		internal BuildConfig (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		internal BuildConfig (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting']/class[@name='BuildConfig']/constructor[@name='BuildConfig' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe BuildConfig ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe BuildConfig () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 

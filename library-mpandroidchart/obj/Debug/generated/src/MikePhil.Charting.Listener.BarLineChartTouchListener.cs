@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Listener {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.listener']/class[@name='BarLineChartTouchListener']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/listener/BarLineChartTouchListener", DoNotGenerateAcw=true)]
 	public partial class BarLineChartTouchListener : global::MikePhil.Charting.Listener.ChartTouchListener {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/listener/BarLineChartTouchListener", typeof (BarLineChartTouchListener));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/listener/BarLineChartTouchListener", typeof (BarLineChartTouchListener));
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected BarLineChartTouchListener (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected BarLineChartTouchListener (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.listener']/class[@name='BarLineChartTouchListener']/constructor[@name='BarLineChartTouchListener' and count(parameter)=3 and parameter[1][@type='com.github.mikephil.charting.charts.BarLineChartBase&lt;? extends com.github.mikephil.charting.data.BarLineScatterCandleBubbleData&lt;? extends com.github.mikephil.charting.interfaces.datasets.IBarLineScatterCandleBubbleDataSet&lt;? extends com.github.mikephil.charting.data.Entry&gt;&gt;&gt;'] and parameter[2][@type='android.graphics.Matrix'] and parameter[3][@type='float']]"
 		[Register (".ctor", "(Lcom/github/mikephil/charting/charts/BarLineChartBase;Landroid/graphics/Matrix;F)V", "")]
-		public unsafe BarLineChartTouchListener (global::MikePhil.Charting.Charts.BarLineChartBase chart, global::Android.Graphics.Matrix touchMatrix, float dragTriggerDistance)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe BarLineChartTouchListener (global::MikePhil.Charting.Charts.BarLineChartBase chart, global::Android.Graphics.Matrix touchMatrix, float dragTriggerDistance) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Lcom/github/mikephil/charting/charts/BarLineChartBase;Landroid/graphics/Matrix;F)V";
 
@@ -49,6 +54,8 @@ namespace MikePhil.Charting.Listener {
 				SetHandle (__r.Handle, JniHandleOwnership.TransferLocalRef);
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (chart);
+				global::System.GC.KeepAlive (touchMatrix);
 			}
 		}
 
@@ -57,13 +64,13 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetGetMatrixHandler ()
 		{
 			if (cb_getMatrix == null)
-				cb_getMatrix = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetMatrix);
+				cb_getMatrix = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetMatrix);
 			return cb_getMatrix;
 		}
 
 		static IntPtr n_GetMatrix (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Listener.BarLineChartTouchListener __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.BarLineChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.BarLineChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Matrix);
 		}
 #pragma warning restore 0169
@@ -86,13 +93,13 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetComputeScrollHandler ()
 		{
 			if (cb_computeScroll == null)
-				cb_computeScroll = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_ComputeScroll);
+				cb_computeScroll = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_ComputeScroll);
 			return cb_computeScroll;
 		}
 
 		static void n_ComputeScroll (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Listener.BarLineChartTouchListener __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.BarLineChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.BarLineChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.ComputeScroll ();
 		}
 #pragma warning restore 0169
@@ -113,13 +120,13 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetGetTrans_FFHandler ()
 		{
 			if (cb_getTrans_FF == null)
-				cb_getTrans_FF = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float, float, IntPtr>) n_GetTrans_FF);
+				cb_getTrans_FF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFF_L) n_GetTrans_FF);
 			return cb_getTrans_FF;
 		}
 
 		static IntPtr n_GetTrans_FF (IntPtr jnienv, IntPtr native__this, float x, float y)
 		{
-			global::MikePhil.Charting.Listener.BarLineChartTouchListener __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.BarLineChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.BarLineChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.GetTrans (x, y));
 		}
 #pragma warning restore 0169
@@ -144,15 +151,15 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetOnTouch_Landroid_view_View_Landroid_view_MotionEvent_Handler ()
 		{
 			if (cb_onTouch_Landroid_view_View_Landroid_view_MotionEvent_ == null)
-				cb_onTouch_Landroid_view_View_Landroid_view_MotionEvent_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, IntPtr, bool>) n_OnTouch_Landroid_view_View_Landroid_view_MotionEvent_);
+				cb_onTouch_Landroid_view_View_Landroid_view_MotionEvent_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPLL_Z) n_OnTouch_Landroid_view_View_Landroid_view_MotionEvent_);
 			return cb_onTouch_Landroid_view_View_Landroid_view_MotionEvent_;
 		}
 
 		static bool n_OnTouch_Landroid_view_View_Landroid_view_MotionEvent_ (IntPtr jnienv, IntPtr native__this, IntPtr native_v, IntPtr native_e)
 		{
-			global::MikePhil.Charting.Listener.BarLineChartTouchListener __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.BarLineChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Views.View v = global::Java.Lang.Object.GetObject<global::Android.Views.View> (native_v, JniHandleOwnership.DoNotTransfer);
-			global::Android.Views.MotionEvent e = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_e, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.BarLineChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var v = global::Java.Lang.Object.GetObject<global::Android.Views.View> (native_v, JniHandleOwnership.DoNotTransfer);
+			var e = global::Java.Lang.Object.GetObject<global::Android.Views.MotionEvent> (native_e, JniHandleOwnership.DoNotTransfer);
 			bool __ret = __this.OnTouch (v, e);
 			return __ret;
 		}
@@ -170,6 +177,8 @@ namespace MikePhil.Charting.Listener {
 				var __rm = _members.InstanceMethods.InvokeVirtualBooleanMethod (__id, this, __args);
 				return __rm;
 			} finally {
+				global::System.GC.KeepAlive (v);
+				global::System.GC.KeepAlive (e);
 			}
 		}
 
@@ -178,13 +187,13 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetSetDragTriggerDist_FHandler ()
 		{
 			if (cb_setDragTriggerDist_F == null)
-				cb_setDragTriggerDist_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetDragTriggerDist_F);
+				cb_setDragTriggerDist_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetDragTriggerDist_F);
 			return cb_setDragTriggerDist_F;
 		}
 
 		static void n_SetDragTriggerDist_F (IntPtr jnienv, IntPtr native__this, float dragTriggerDistance)
 		{
-			global::MikePhil.Charting.Listener.BarLineChartTouchListener __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.BarLineChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.BarLineChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetDragTriggerDist (dragTriggerDistance);
 		}
 #pragma warning restore 0169
@@ -207,13 +216,13 @@ namespace MikePhil.Charting.Listener {
 		static Delegate GetStopDecelerationHandler ()
 		{
 			if (cb_stopDeceleration == null)
-				cb_stopDeceleration = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr>) n_StopDeceleration);
+				cb_stopDeceleration = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_V) n_StopDeceleration);
 			return cb_stopDeceleration;
 		}
 
 		static void n_StopDeceleration (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Listener.BarLineChartTouchListener __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.BarLineChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Listener.BarLineChartTouchListener> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.StopDeceleration ();
 		}
 #pragma warning restore 0169

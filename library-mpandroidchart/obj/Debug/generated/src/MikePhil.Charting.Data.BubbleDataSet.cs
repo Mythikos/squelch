@@ -9,8 +9,6 @@ namespace MikePhil.Charting.Data {
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/data/BubbleDataSet", DoNotGenerateAcw=true)]
 	public partial class BubbleDataSet : global::MikePhil.Charting.Data.BarLineScatterCandleBubbleDataSet, global::MikePhil.Charting.Interfaces.Datasets.IBubbleDataSet {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='BubbleDataSet']/field[@name='mMaxSize']"
 		[Register ("mMaxSize")]
 		protected float MMaxSize {
@@ -49,31 +47,38 @@ namespace MikePhil.Charting.Data {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/BubbleDataSet", typeof (BubbleDataSet));
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/BubbleDataSet", typeof (BubbleDataSet));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected BubbleDataSet (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected BubbleDataSet (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='BubbleDataSet']/constructor[@name='BubbleDataSet' and count(parameter)=2 and parameter[1][@type='java.util.List&lt;com.github.mikephil.charting.data.BubbleEntry&gt;'] and parameter[2][@type='java.lang.String']]"
 		[Register (".ctor", "(Ljava/util/List;Ljava/lang/String;)V", "")]
-		public unsafe BubbleDataSet (global::System.Collections.Generic.IList<global::MikePhil.Charting.Data.BubbleEntry> yVals, string label)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe BubbleDataSet (global::System.Collections.Generic.IList<global::MikePhil.Charting.Data.BubbleEntry> yVals, string label) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Ljava/util/List;Ljava/lang/String;)V";
 
@@ -92,6 +97,7 @@ namespace MikePhil.Charting.Data {
 			} finally {
 				JNIEnv.DeleteLocalRef (native_yVals);
 				JNIEnv.DeleteLocalRef (native_label);
+				global::System.GC.KeepAlive (yVals);
 			}
 		}
 
@@ -100,13 +106,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetHighlightCircleWidthHandler ()
 		{
 			if (cb_getHighlightCircleWidth == null)
-				cb_getHighlightCircleWidth = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetHighlightCircleWidth);
+				cb_getHighlightCircleWidth = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetHighlightCircleWidth);
 			return cb_getHighlightCircleWidth;
 		}
 
 		static float n_GetHighlightCircleWidth (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.BubbleDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.HighlightCircleWidth;
 		}
 #pragma warning restore 0169
@@ -116,13 +122,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetHighlightCircleWidth_FHandler ()
 		{
 			if (cb_setHighlightCircleWidth_F == null)
-				cb_setHighlightCircleWidth_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetHighlightCircleWidth_F);
+				cb_setHighlightCircleWidth_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetHighlightCircleWidth_F);
 			return cb_setHighlightCircleWidth_F;
 		}
 
 		static void n_SetHighlightCircleWidth_F (IntPtr jnienv, IntPtr native__this, float width)
 		{
-			global::MikePhil.Charting.Data.BubbleDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.HighlightCircleWidth = width;
 		}
 #pragma warning restore 0169
@@ -156,13 +162,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetIsNormalizeSizeEnabledHandler ()
 		{
 			if (cb_isNormalizeSizeEnabled == null)
-				cb_isNormalizeSizeEnabled = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsNormalizeSizeEnabled);
+				cb_isNormalizeSizeEnabled = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsNormalizeSizeEnabled);
 			return cb_isNormalizeSizeEnabled;
 		}
 
 		static bool n_IsNormalizeSizeEnabled (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.BubbleDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.IsNormalizeSizeEnabled;
 		}
 #pragma warning restore 0169
@@ -185,13 +191,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetMaxSizeHandler ()
 		{
 			if (cb_getMaxSize == null)
-				cb_getMaxSize = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetMaxSize);
+				cb_getMaxSize = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetMaxSize);
 			return cb_getMaxSize;
 		}
 
 		static float n_GetMaxSize (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.BubbleDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.MaxSize;
 		}
 #pragma warning restore 0169
@@ -214,14 +220,14 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetCalcMinMax_Lcom_github_mikephil_charting_data_BubbleEntry_Handler ()
 		{
 			if (cb_calcMinMax_Lcom_github_mikephil_charting_data_BubbleEntry_ == null)
-				cb_calcMinMax_Lcom_github_mikephil_charting_data_BubbleEntry_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_CalcMinMax_Lcom_github_mikephil_charting_data_BubbleEntry_);
+				cb_calcMinMax_Lcom_github_mikephil_charting_data_BubbleEntry_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_CalcMinMax_Lcom_github_mikephil_charting_data_BubbleEntry_);
 			return cb_calcMinMax_Lcom_github_mikephil_charting_data_BubbleEntry_;
 		}
 
 		static void n_CalcMinMax_Lcom_github_mikephil_charting_data_BubbleEntry_ (IntPtr jnienv, IntPtr native__this, IntPtr native_e)
 		{
-			global::MikePhil.Charting.Data.BubbleDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Data.BubbleEntry e = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleEntry> (native_e, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var e = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleEntry> (native_e, JniHandleOwnership.DoNotTransfer);
 			__this.CalcMinMax (e);
 		}
 #pragma warning restore 0169
@@ -236,6 +242,7 @@ namespace MikePhil.Charting.Data {
 				__args [0] = new JniArgumentValue ((e == null) ? IntPtr.Zero : ((global::Java.Lang.Object) e).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (e);
 			}
 		}
 
@@ -244,13 +251,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetCopyHandler ()
 		{
 			if (cb_copy == null)
-				cb_copy = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_Copy);
+				cb_copy = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_Copy);
 			return cb_copy;
 		}
 
 		static IntPtr n_Copy (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.BubbleDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.Copy ());
 		}
 #pragma warning restore 0169
@@ -272,14 +279,14 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetCopy_Lcom_github_mikephil_charting_data_BubbleDataSet_Handler ()
 		{
 			if (cb_copy_Lcom_github_mikephil_charting_data_BubbleDataSet_ == null)
-				cb_copy_Lcom_github_mikephil_charting_data_BubbleDataSet_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_Copy_Lcom_github_mikephil_charting_data_BubbleDataSet_);
+				cb_copy_Lcom_github_mikephil_charting_data_BubbleDataSet_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_Copy_Lcom_github_mikephil_charting_data_BubbleDataSet_);
 			return cb_copy_Lcom_github_mikephil_charting_data_BubbleDataSet_;
 		}
 
 		static void n_Copy_Lcom_github_mikephil_charting_data_BubbleDataSet_ (IntPtr jnienv, IntPtr native__this, IntPtr native_bubbleDataSet)
 		{
-			global::MikePhil.Charting.Data.BubbleDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Data.BubbleDataSet bubbleDataSet = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleDataSet> (native_bubbleDataSet, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var bubbleDataSet = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleDataSet> (native_bubbleDataSet, JniHandleOwnership.DoNotTransfer);
 			__this.Copy (bubbleDataSet);
 		}
 #pragma warning restore 0169
@@ -294,6 +301,7 @@ namespace MikePhil.Charting.Data {
 				__args [0] = new JniArgumentValue ((bubbleDataSet == null) ? IntPtr.Zero : ((global::Java.Lang.Object) bubbleDataSet).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (bubbleDataSet);
 			}
 		}
 
@@ -302,13 +310,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetNormalizeSizeEnabled_ZHandler ()
 		{
 			if (cb_setNormalizeSizeEnabled_Z == null)
-				cb_setNormalizeSizeEnabled_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetNormalizeSizeEnabled_Z);
+				cb_setNormalizeSizeEnabled_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetNormalizeSizeEnabled_Z);
 			return cb_setNormalizeSizeEnabled_Z;
 		}
 
 		static void n_SetNormalizeSizeEnabled_Z (IntPtr jnienv, IntPtr native__this, bool normalizeSize)
 		{
-			global::MikePhil.Charting.Data.BubbleDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.BubbleDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetNormalizeSizeEnabled (normalizeSize);
 		}
 #pragma warning restore 0169

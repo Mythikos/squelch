@@ -10,8 +10,6 @@ namespace MikePhil.Charting.Data {
 	[global::Java.Interop.JavaTypeParameters (new string [] {"T extends com.github.mikephil.charting.data.Entry"})]
 	public abstract partial class LineRadarDataSet : global::MikePhil.Charting.Data.LineScatterCandleRadarDataSet, global::MikePhil.Charting.Interfaces.Datasets.ILineRadarDataSet {
 
-
-
 		// Metadata.xml XPath field reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='LineRadarDataSet']/field[@name='mFillDrawable']"
 		[Register ("mFillDrawable")]
 		protected global::Android.Graphics.Drawables.Drawable MFillDrawable {
@@ -32,31 +30,38 @@ namespace MikePhil.Charting.Data {
 				}
 			}
 		}
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/LineRadarDataSet", typeof (LineRadarDataSet));
+
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/LineRadarDataSet", typeof (LineRadarDataSet));
+
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected LineRadarDataSet (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected LineRadarDataSet (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='LineRadarDataSet']/constructor[@name='LineRadarDataSet' and count(parameter)=2 and parameter[1][@type='java.util.List&lt;T&gt;'] and parameter[2][@type='java.lang.String']]"
 		[Register (".ctor", "(Ljava/util/List;Ljava/lang/String;)V", "")]
-		public unsafe LineRadarDataSet (global::System.Collections.IList yVals, string label)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe LineRadarDataSet (global::System.Collections.IList yVals, string label) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Ljava/util/List;Ljava/lang/String;)V";
 
@@ -75,6 +80,7 @@ namespace MikePhil.Charting.Data {
 			} finally {
 				JNIEnv.DeleteLocalRef (native_yVals);
 				JNIEnv.DeleteLocalRef (native_label);
+				global::System.GC.KeepAlive (yVals);
 			}
 		}
 
@@ -83,13 +89,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetFillAlphaHandler ()
 		{
 			if (cb_getFillAlpha == null)
-				cb_getFillAlpha = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetFillAlpha);
+				cb_getFillAlpha = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetFillAlpha);
 			return cb_getFillAlpha;
 		}
 
 		static int n_GetFillAlpha (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.LineRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.FillAlpha;
 		}
 #pragma warning restore 0169
@@ -99,13 +105,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetFillAlpha_IHandler ()
 		{
 			if (cb_setFillAlpha_I == null)
-				cb_setFillAlpha_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int>) n_SetFillAlpha_I);
+				cb_setFillAlpha_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_V) n_SetFillAlpha_I);
 			return cb_setFillAlpha_I;
 		}
 
 		static void n_SetFillAlpha_I (IntPtr jnienv, IntPtr native__this, int alpha)
 		{
-			global::MikePhil.Charting.Data.LineRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.FillAlpha = alpha;
 		}
 #pragma warning restore 0169
@@ -139,13 +145,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetFillColorHandler ()
 		{
 			if (cb_getFillColor == null)
-				cb_getFillColor = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int>) n_GetFillColor);
+				cb_getFillColor = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_I) n_GetFillColor);
 			return cb_getFillColor;
 		}
 
 		static int n_GetFillColor (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.LineRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.FillColor;
 		}
 #pragma warning restore 0169
@@ -155,13 +161,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetFillColor_IHandler ()
 		{
 			if (cb_setFillColor_I == null)
-				cb_setFillColor_I = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, int>) n_SetFillColor_I);
+				cb_setFillColor_I = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPI_V) n_SetFillColor_I);
 			return cb_setFillColor_I;
 		}
 
 		static void n_SetFillColor_I (IntPtr jnienv, IntPtr native__this, int color)
 		{
-			global::MikePhil.Charting.Data.LineRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.FillColor = color;
 		}
 #pragma warning restore 0169
@@ -195,13 +201,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetFillDrawableHandler ()
 		{
 			if (cb_getFillDrawable == null)
-				cb_getFillDrawable = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetFillDrawable);
+				cb_getFillDrawable = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetFillDrawable);
 			return cb_getFillDrawable;
 		}
 
 		static IntPtr n_GetFillDrawable (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.LineRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.FillDrawable);
 		}
 #pragma warning restore 0169
@@ -211,14 +217,14 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetFillDrawable_Landroid_graphics_drawable_Drawable_Handler ()
 		{
 			if (cb_setFillDrawable_Landroid_graphics_drawable_Drawable_ == null)
-				cb_setFillDrawable_Landroid_graphics_drawable_Drawable_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetFillDrawable_Landroid_graphics_drawable_Drawable_);
+				cb_setFillDrawable_Landroid_graphics_drawable_Drawable_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetFillDrawable_Landroid_graphics_drawable_Drawable_);
 			return cb_setFillDrawable_Landroid_graphics_drawable_Drawable_;
 		}
 
 		static void n_SetFillDrawable_Landroid_graphics_drawable_Drawable_ (IntPtr jnienv, IntPtr native__this, IntPtr native_drawable)
 		{
-			global::MikePhil.Charting.Data.LineRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::Android.Graphics.Drawables.Drawable drawable = global::Java.Lang.Object.GetObject<global::Android.Graphics.Drawables.Drawable> (native_drawable, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var drawable = global::Java.Lang.Object.GetObject<global::Android.Graphics.Drawables.Drawable> (native_drawable, JniHandleOwnership.DoNotTransfer);
 			__this.FillDrawable = drawable;
 		}
 #pragma warning restore 0169
@@ -243,6 +249,7 @@ namespace MikePhil.Charting.Data {
 					__args [0] = new JniArgumentValue ((value == null) ? IntPtr.Zero : ((global::Java.Lang.Object) value).Handle);
 					_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 				} finally {
+					global::System.GC.KeepAlive (value);
 				}
 			}
 		}
@@ -252,13 +259,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetIsDrawFilledEnabledHandler ()
 		{
 			if (cb_isDrawFilledEnabled == null)
-				cb_isDrawFilledEnabled = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_IsDrawFilledEnabled);
+				cb_isDrawFilledEnabled = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_Z) n_IsDrawFilledEnabled);
 			return cb_isDrawFilledEnabled;
 		}
 
 		static bool n_IsDrawFilledEnabled (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.LineRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.IsDrawFilledEnabled;
 		}
 #pragma warning restore 0169
@@ -281,13 +288,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetLineWidthHandler ()
 		{
 			if (cb_getLineWidth == null)
-				cb_getLineWidth = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float>) n_GetLineWidth);
+				cb_getLineWidth = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_F) n_GetLineWidth);
 			return cb_getLineWidth;
 		}
 
 		static float n_GetLineWidth (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.LineRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return __this.LineWidth;
 		}
 #pragma warning restore 0169
@@ -297,13 +304,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetLineWidth_FHandler ()
 		{
 			if (cb_setLineWidth_F == null)
-				cb_setLineWidth_F = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, float>) n_SetLineWidth_F);
+				cb_setLineWidth_F = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPF_V) n_SetLineWidth_F);
 			return cb_setLineWidth_F;
 		}
 
 		static void n_SetLineWidth_F (IntPtr jnienv, IntPtr native__this, float width)
 		{
-			global::MikePhil.Charting.Data.LineRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.LineWidth = width;
 		}
 #pragma warning restore 0169
@@ -337,14 +344,14 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetCopy_Lcom_github_mikephil_charting_data_LineRadarDataSet_Handler ()
 		{
 			if (cb_copy_Lcom_github_mikephil_charting_data_LineRadarDataSet_ == null)
-				cb_copy_Lcom_github_mikephil_charting_data_LineRadarDataSet_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_Copy_Lcom_github_mikephil_charting_data_LineRadarDataSet_);
+				cb_copy_Lcom_github_mikephil_charting_data_LineRadarDataSet_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_Copy_Lcom_github_mikephil_charting_data_LineRadarDataSet_);
 			return cb_copy_Lcom_github_mikephil_charting_data_LineRadarDataSet_;
 		}
 
 		static void n_Copy_Lcom_github_mikephil_charting_data_LineRadarDataSet_ (IntPtr jnienv, IntPtr native__this, IntPtr native_lineRadarDataSet)
 		{
-			global::MikePhil.Charting.Data.LineRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::MikePhil.Charting.Data.LineRadarDataSet lineRadarDataSet = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (native_lineRadarDataSet, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var lineRadarDataSet = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (native_lineRadarDataSet, JniHandleOwnership.DoNotTransfer);
 			__this.Copy (lineRadarDataSet);
 		}
 #pragma warning restore 0169
@@ -359,6 +366,7 @@ namespace MikePhil.Charting.Data {
 				__args [0] = new JniArgumentValue ((lineRadarDataSet == null) ? IntPtr.Zero : ((global::Java.Lang.Object) lineRadarDataSet).Handle);
 				_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 			} finally {
+				global::System.GC.KeepAlive (lineRadarDataSet);
 			}
 		}
 
@@ -367,13 +375,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetDrawFilled_ZHandler ()
 		{
 			if (cb_setDrawFilled_Z == null)
-				cb_setDrawFilled_Z = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, bool>) n_SetDrawFilled_Z);
+				cb_setDrawFilled_Z = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPZ_V) n_SetDrawFilled_Z);
 			return cb_setDrawFilled_Z;
 		}
 
 		static void n_SetDrawFilled_Z (IntPtr jnienv, IntPtr native__this, bool filled)
 		{
-			global::MikePhil.Charting.Data.LineRadarDataSet __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.LineRadarDataSet> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			__this.SetDrawFilled (filled);
 		}
 #pragma warning restore 0169
@@ -395,15 +403,20 @@ namespace MikePhil.Charting.Data {
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/data/LineRadarDataSet", DoNotGenerateAcw=true)]
 	internal partial class LineRadarDataSetInvoker : LineRadarDataSet, global::MikePhil.Charting.Interfaces.Datasets.ILineRadarDataSet, global::MikePhil.Charting.Interfaces.Datasets.ILineScatterCandleRadarDataSet, global::MikePhil.Charting.Interfaces.Datasets.IBarLineScatterCandleBubbleDataSet, global::MikePhil.Charting.Interfaces.Datasets.IDataSet {
+		public LineRadarDataSetInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer)
+		{
+		}
 
-		public LineRadarDataSetInvoker (IntPtr handle, JniHandleOwnership transfer) : base (handle, transfer) {}
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/LineRadarDataSet", typeof (LineRadarDataSetInvoker));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/data/LineRadarDataSet", typeof (LineRadarDataSetInvoker));
-
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
@@ -421,5 +434,4 @@ namespace MikePhil.Charting.Data {
 		}
 
 	}
-
 }

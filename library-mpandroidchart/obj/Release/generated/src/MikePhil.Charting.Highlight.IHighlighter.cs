@@ -7,8 +7,7 @@ namespace MikePhil.Charting.Highlight {
 
 	// Metadata.xml XPath interface reference: path="/api/package[@name='com.github.mikephil.charting.highlight']/interface[@name='IHighlighter']"
 	[Register ("com/github/mikephil/charting/highlight/IHighlighter", "", "MikePhil.Charting.Highlight.IHighlighterInvoker")]
-	public partial interface IHighlighter : IJavaObject {
-
+	public partial interface IHighlighter : IJavaObject, IJavaPeerable {
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.github.mikephil.charting.highlight']/interface[@name='IHighlighter']/method[@name='getHighlight' and count(parameter)=2 and parameter[1][@type='float'] and parameter[2][@type='float']]"
 		[Register ("getHighlight", "(FF)Lcom/github/mikephil/charting/highlight/Highlight;", "GetGetHighlight_FFHandler:MikePhil.Charting.Highlight.IHighlighterInvoker, library-mpandroidchart")]
 		global::MikePhil.Charting.Highlight.Highlight GetHighlight (float p0, float p1);
@@ -16,22 +15,27 @@ namespace MikePhil.Charting.Highlight {
 	}
 
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/highlight/IHighlighter", DoNotGenerateAcw=true)]
-	internal class IHighlighterInvoker : global::Java.Lang.Object, IHighlighter {
-
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/github/mikephil/charting/highlight/IHighlighter", typeof (IHighlighterInvoker));
+	internal partial class IHighlighterInvoker : global::Java.Lang.Object, IHighlighter {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/highlight/IHighlighter", typeof (IHighlighterInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return class_ref; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
@@ -46,8 +50,7 @@ namespace MikePhil.Charting.Highlight {
 		static IntPtr Validate (IntPtr handle)
 		{
 			if (!JNIEnv.IsInstanceOf (handle, java_class_ref))
-				throw new InvalidCastException (string.Format ("Unable to convert instance of type '{0}' to type '{1}'.",
-							JNIEnv.GetClassNameFromInstance (handle), "com.github.mikephil.charting.highlight.IHighlighter"));
+				throw new InvalidCastException ($"Unable to convert instance of type '{JNIEnv.GetClassNameFromInstance (handle)}' to type 'com.github.mikephil.charting.highlight.IHighlighter'.");
 			return handle;
 		}
 
@@ -71,13 +74,13 @@ namespace MikePhil.Charting.Highlight {
 		static Delegate GetGetHighlight_FFHandler ()
 		{
 			if (cb_getHighlight_FF == null)
-				cb_getHighlight_FF = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, float, float, IntPtr>) n_GetHighlight_FF);
+				cb_getHighlight_FF = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPFF_L) n_GetHighlight_FF);
 			return cb_getHighlight_FF;
 		}
 
 		static IntPtr n_GetHighlight_FF (IntPtr jnienv, IntPtr native__this, float p0, float p1)
 		{
-			global::MikePhil.Charting.Highlight.IHighlighter __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.IHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Highlight.IHighlighter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return JNIEnv.ToLocalJniHandle (__this.GetHighlight (p0, p1));
 		}
 #pragma warning restore 0169
@@ -94,5 +97,4 @@ namespace MikePhil.Charting.Highlight {
 		}
 
 	}
-
 }

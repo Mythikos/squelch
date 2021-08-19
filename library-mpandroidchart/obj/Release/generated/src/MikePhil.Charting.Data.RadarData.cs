@@ -8,32 +8,37 @@ namespace MikePhil.Charting.Data {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='RadarData']"
 	[global::Android.Runtime.Register ("com/github/mikephil/charting/data/RadarData", DoNotGenerateAcw=true)]
 	public partial class RadarData : global::MikePhil.Charting.Data.ChartData {
+		static readonly JniPeerMembers _members = new XAPeerMembers ("com/github/mikephil/charting/data/RadarData", typeof (RadarData));
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new XAPeerMembers ("com/github/mikephil/charting/data/RadarData", typeof (RadarData));
 		internal static new IntPtr class_ref {
-			get {
-				return _members.JniPeerType.PeerReference.Handle;
-			}
+			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		public override global::Java.Interop.JniPeerMembers JniPeerMembers {
 			get { return _members; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override IntPtr ThresholdClass {
 			get { return _members.JniPeerType.PeerReference.Handle; }
 		}
 
+		[global::System.Diagnostics.DebuggerBrowsable (global::System.Diagnostics.DebuggerBrowsableState.Never)]
+		[global::System.ComponentModel.EditorBrowsable (global::System.ComponentModel.EditorBrowsableState.Never)]
 		protected override global::System.Type ThresholdType {
 			get { return _members.ManagedPeerType; }
 		}
 
-		protected RadarData (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer) {}
+		protected RadarData (IntPtr javaReference, JniHandleOwnership transfer) : base (javaReference, transfer)
+		{
+		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='RadarData']/constructor[@name='RadarData' and count(parameter)=0]"
 		[Register (".ctor", "()V", "")]
-		public unsafe RadarData ()
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe RadarData () : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "()V";
 
@@ -50,8 +55,7 @@ namespace MikePhil.Charting.Data {
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='RadarData']/constructor[@name='RadarData' and count(parameter)=1 and parameter[1][@type='com.github.mikephil.charting.interfaces.datasets.IRadarDataSet...']]"
 		[Register (".ctor", "([Lcom/github/mikephil/charting/interfaces/datasets/IRadarDataSet;)V", "")]
-		public unsafe RadarData (params global::MikePhil.Charting.Interfaces.Datasets.IRadarDataSet[] dataSets)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe RadarData (params global::MikePhil.Charting.Interfaces.Datasets.IRadarDataSet[] dataSets) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "([Lcom/github/mikephil/charting/interfaces/datasets/IRadarDataSet;)V";
 
@@ -70,13 +74,13 @@ namespace MikePhil.Charting.Data {
 					JNIEnv.CopyArray (native_dataSets, dataSets);
 					JNIEnv.DeleteLocalRef (native_dataSets);
 				}
+				global::System.GC.KeepAlive (dataSets);
 			}
 		}
 
 		// Metadata.xml XPath constructor reference: path="/api/package[@name='com.github.mikephil.charting.data']/class[@name='RadarData']/constructor[@name='RadarData' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.github.mikephil.charting.interfaces.datasets.IRadarDataSet&gt;']]"
 		[Register (".ctor", "(Ljava/util/List;)V", "")]
-		public unsafe RadarData (global::System.Collections.Generic.IList<global::MikePhil.Charting.Interfaces.Datasets.IRadarDataSet> dataSets)
-			: base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
+		public unsafe RadarData (global::System.Collections.Generic.IList<global::MikePhil.Charting.Interfaces.Datasets.IRadarDataSet> dataSets) : base (IntPtr.Zero, JniHandleOwnership.DoNotTransfer)
 		{
 			const string __id = "(Ljava/util/List;)V";
 
@@ -92,6 +96,7 @@ namespace MikePhil.Charting.Data {
 				_members.InstanceMethods.FinishCreateInstance (__id, this, __args);
 			} finally {
 				JNIEnv.DeleteLocalRef (native_dataSets);
+				global::System.GC.KeepAlive (dataSets);
 			}
 		}
 
@@ -100,13 +105,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetGetLabelsHandler ()
 		{
 			if (cb_getLabels == null)
-				cb_getLabels = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetLabels);
+				cb_getLabels = JNINativeWrapper.CreateDelegate ((_JniMarshal_PP_L) n_GetLabels);
 			return cb_getLabels;
 		}
 
 		static IntPtr n_GetLabels (IntPtr jnienv, IntPtr native__this)
 		{
-			global::MikePhil.Charting.Data.RadarData __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarData> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarData> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			return global::Android.Runtime.JavaList<string>.ToLocalJniHandle (__this.Labels);
 		}
 #pragma warning restore 0169
@@ -116,13 +121,13 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetLabels_Ljava_util_List_Handler ()
 		{
 			if (cb_setLabels_Ljava_util_List_ == null)
-				cb_setLabels_Ljava_util_List_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetLabels_Ljava_util_List_);
+				cb_setLabels_Ljava_util_List_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetLabels_Ljava_util_List_);
 			return cb_setLabels_Ljava_util_List_;
 		}
 
 		static void n_SetLabels_Ljava_util_List_ (IntPtr jnienv, IntPtr native__this, IntPtr native_labels)
 		{
-			global::MikePhil.Charting.Data.RadarData __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarData> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarData> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
 			var labels = global::Android.Runtime.JavaList<string>.FromJniHandle (native_labels, JniHandleOwnership.DoNotTransfer);
 			__this.Labels = labels;
 		}
@@ -150,6 +155,7 @@ namespace MikePhil.Charting.Data {
 					_members.InstanceMethods.InvokeVirtualVoidMethod (__id, this, __args);
 				} finally {
 					JNIEnv.DeleteLocalRef (native_value);
+					global::System.GC.KeepAlive (value);
 				}
 			}
 		}
@@ -159,14 +165,14 @@ namespace MikePhil.Charting.Data {
 		static Delegate GetSetLabels_arrayLjava_lang_String_Handler ()
 		{
 			if (cb_setLabels_arrayLjava_lang_String_ == null)
-				cb_setLabels_arrayLjava_lang_String_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetLabels_arrayLjava_lang_String_);
+				cb_setLabels_arrayLjava_lang_String_ = JNINativeWrapper.CreateDelegate ((_JniMarshal_PPL_V) n_SetLabels_arrayLjava_lang_String_);
 			return cb_setLabels_arrayLjava_lang_String_;
 		}
 
 		static void n_SetLabels_arrayLjava_lang_String_ (IntPtr jnienv, IntPtr native__this, IntPtr native_labels)
 		{
-			global::MikePhil.Charting.Data.RadarData __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarData> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			string[] labels = (string[]) JNIEnv.GetArray (native_labels, JniHandleOwnership.DoNotTransfer, typeof (string));
+			var __this = global::Java.Lang.Object.GetObject<global::MikePhil.Charting.Data.RadarData> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var labels = (string[]) JNIEnv.GetArray (native_labels, JniHandleOwnership.DoNotTransfer, typeof (string));
 			__this.SetLabels (labels);
 			if (labels != null)
 				JNIEnv.CopyArray (labels, native_labels);
@@ -188,6 +194,7 @@ namespace MikePhil.Charting.Data {
 					JNIEnv.CopyArray (native_labels, labels);
 					JNIEnv.DeleteLocalRef (native_labels);
 				}
+				global::System.GC.KeepAlive (labels);
 			}
 		}
 

@@ -15,7 +15,7 @@
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
           "C:\\Users\\vlakatos\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,7 +27,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://nugets.vapolia.fr/nuget/": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
