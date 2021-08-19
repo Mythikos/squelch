@@ -1,4 +1,5 @@
-﻿using Android.OS;
+﻿using Android.Content;
+using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.Core.Content;
@@ -10,6 +11,7 @@ using Squelch.Library.Entities;
 using Squelch.Library.Extensions;
 using Squelch.Library.Interfaces;
 using Squelch.Library.Utilities;
+using Squelch.Services;
 using System;
 
 namespace Squelch.Fragments
@@ -17,7 +19,7 @@ namespace Squelch.Fragments
     public class FirstTimeSetupFragment : Fragment
     {
         #region Instance Variables
-        private static readonly string _tag = typeof(FirstTimeSetupFragment).FullName;
+        private static readonly string s_tag = typeof(FirstTimeSetupFragment).FullName;
 
         // Controls
         private LinearLayout _rootLayout;
@@ -112,7 +114,7 @@ namespace Squelch.Fragments
             }
             catch (Exception ex)
             {
-                Logger.Write(_tag, $"OnCreateView: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
+                Logger.Write(s_tag, $"OnCreateView: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
             }
 
             //
@@ -137,7 +139,7 @@ namespace Squelch.Fragments
             }
             catch (Exception ex)
             {
-                Logger.Write(_tag, $"OnResume: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
+                Logger.Write(s_tag, $"OnResume: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
             }
         }
 
@@ -171,6 +173,13 @@ namespace Squelch.Fragments
                     // Close soft input
                     GeneralUtils.HideSoftKeyboard(this.Activity, this.Context);
 
+                    // Try to start the enforcer service
+                    if (EnforcerService.IsRunning == false)
+                    {
+                        Logger.Write(s_tag, $"PositiveButton_Click: EnforcerService is not running, starting it", Logger.Severity.Info);
+                        ContextCompat.StartForegroundService(this.Context, new Intent(this.Context, typeof(EnforcerService)).SetAction(EnforcerService.ACTION_START));
+                    }
+
                     // Nav home
                     this.FragmentManager.SetFragment(typeof(HomeFragment), true, true);
                 }
@@ -181,7 +190,7 @@ namespace Squelch.Fragments
             }
             catch (Exception ex)
             {
-                Logger.Write(_tag, $"PositiveButton_Click: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
+                Logger.Write(s_tag, $"PositiveButton_Click: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
             }
             finally
             {
@@ -240,7 +249,7 @@ namespace Squelch.Fragments
             }
             catch (Exception ex)
             {
-                Logger.Write(_tag, $"HandleOverlayRequest: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
+                Logger.Write(s_tag, $"HandleOverlayRequest: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
             }
         }
         #endregion
@@ -260,7 +269,7 @@ namespace Squelch.Fragments
             }
             catch (Exception ex)
             {
-                Logger.Write(_tag, $"NextStep: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
+                Logger.Write(s_tag, $"NextStep: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
             }
         }
 
@@ -320,7 +329,7 @@ namespace Squelch.Fragments
             }
             catch (Exception ex)
             {
-                Logger.Write(_tag, $"ProcessStep: {step}: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
+                Logger.Write(s_tag, $"ProcessStep: {step}: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
             }
         }
 
@@ -349,7 +358,7 @@ namespace Squelch.Fragments
             }
             catch (Exception ex)
             {
-                Logger.Write(_tag, $"ValidateStep: {step}: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
+                Logger.Write(s_tag, $"ValidateStep: {step}: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
             }
 
             return true;

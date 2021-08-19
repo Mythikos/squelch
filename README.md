@@ -19,4 +19,5 @@
 * Updated in app billing plugin to v4.
 * Added translations for Hindi
 * Modified how the BlackoutSetupFragment handles the start date and end date assignments.
-* Added Crashlytics
+* Added Firebase Crashlytics sdk
+* Added Firebase Performance sdk

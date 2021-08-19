@@ -188,6 +188,7 @@ namespace Squelch.Fragments
                     DatePickerDialogFragment datePickerFragment = DatePickerDialogFragment.NewInstance(delegate (DateTime dateTime)
                     {
                         this._dateRangeStartDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime);
+                        this._blackoutStartDateTime = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, this._blackoutStartDateTime.Hour, this._blackoutStartDateTime.Minute, this._blackoutStartDateTime.Second);
                     });
                     datePickerFragment.Show(this.FragmentManager, $"{this.GetType().Name}{typeof(DatePickerDialogFragment).Name}");
                 };
@@ -196,6 +197,7 @@ namespace Squelch.Fragments
                     TimePickerDialogFragment timePickerFragment = TimePickerDialogFragment.NewInstance(delegate (DateTime dateTime)
                     {
                         this._dateRangeStartTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime, UserSettings.FormatTimeAsTwelveHour);
+                        this._blackoutStartDateTime = new DateTime(this._blackoutStartDateTime.Year, this._blackoutStartDateTime.Month, this._blackoutStartDateTime.Day, dateTime.Hour, dateTime.Minute, dateTime.Second);
                     });
                     timePickerFragment.Show(this.FragmentManager, $"{this.GetType().Name}{typeof(DatePickerDialogFragment).Name}");
                 };
@@ -204,6 +206,7 @@ namespace Squelch.Fragments
                     DatePickerDialogFragment datePickerFragment = DatePickerDialogFragment.NewInstance(delegate (DateTime dateTime)
                     {
                         this._dateRangeEndDateButton.Text = DateUtils.FormatDateLong(this.Context, dateTime);
+                        this._blackoutEndDateTime = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, this._blackoutEndDateTime.Hour, this._blackoutEndDateTime.Minute, this._blackoutEndDateTime.Second);
                     });
                     datePickerFragment.Show(this.FragmentManager, $"{this.GetType().Name}{typeof(DatePickerDialogFragment).Name}");
                 };
@@ -212,20 +215,21 @@ namespace Squelch.Fragments
                     TimePickerDialogFragment timePickerFragment = TimePickerDialogFragment.NewInstance(delegate (DateTime dateTime)
                     {
                         this._dateRangeEndTimeButton.Text = DateUtils.FormatTime(this.Context, dateTime, UserSettings.FormatTimeAsTwelveHour);
+                        this._blackoutEndDateTime = new DateTime(this._blackoutEndDateTime.Year, this._blackoutEndDateTime.Month, this._blackoutEndDateTime.Day, dateTime.Hour, dateTime.Minute, dateTime.Second);
                     });
                     timePickerFragment.Show(this.FragmentManager, $"{this.GetType().Name}{typeof(DatePickerDialogFragment).Name}");
                 };
 
-                this._dateRangeStartNowButton.Click += delegate { PlusNMinutesButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, -1); };
-                this._dateRangeStartPlus1Button.Click += delegate { PlusNMinutesButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 1); };
-                this._dateRangeStartPlus5Button.Click += delegate { PlusNMinutesButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 5); };
-                this._dateRangeStartPlus10Button.Click += delegate { PlusNMinutesButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 10); };
-                this._dateRangeStartPlus30Button.Click += delegate { PlusNMinutesButton_Click(ref _blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 30); };
+                this._dateRangeStartNowButton.Click += delegate { this.PlusNMinutesButton_Click(ref this._blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, -1); };
+                this._dateRangeStartPlus1Button.Click += delegate { this.PlusNMinutesButton_Click(ref this._blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 1); };
+                this._dateRangeStartPlus5Button.Click += delegate { this.PlusNMinutesButton_Click(ref this._blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 5); };
+                this._dateRangeStartPlus10Button.Click += delegate { this.PlusNMinutesButton_Click(ref this._blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 10); };
+                this._dateRangeStartPlus30Button.Click += delegate { this.PlusNMinutesButton_Click(ref this._blackoutStartDateTime, ref this._dateRangeStartDateButton, ref this._dateRangeStartTimeButton, 30); };
 
-                this._dateRangeEndPlus1Button.Click += delegate { PlusNMinutesButton_Click(ref _blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 1); };
-                this._dateRangeEndPlus5Button.Click += delegate { PlusNMinutesButton_Click(ref _blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 5); };
-                this._dateRangeEndPlus10Button.Click += delegate { PlusNMinutesButton_Click(ref _blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 10); };
-                this._dateRangeEndPlus30Button.Click += delegate { PlusNMinutesButton_Click(ref _blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 30); };
+                this._dateRangeEndPlus1Button.Click += delegate { this.PlusNMinutesButton_Click(ref this._blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 1); };
+                this._dateRangeEndPlus5Button.Click += delegate { this.PlusNMinutesButton_Click(ref this._blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 5); };
+                this._dateRangeEndPlus10Button.Click += delegate { this.PlusNMinutesButton_Click(ref this._blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 10); };
+                this._dateRangeEndPlus30Button.Click += delegate { this.PlusNMinutesButton_Click(ref this._blackoutEndDateTime, ref this._dateRangeEndDateButton, ref this._dateRangeEndTimeButton, 30); };
 
                 //
                 // Application related
@@ -459,9 +463,13 @@ namespace Squelch.Fragments
         {
             // Increment
             if (minutes == -1)
+            {
                 datetime = DateTime.Now;
+            }
             else
+            {
                 datetime = datetime.AddMinutes(minutes);
+            }
 
             // Set labels
             dateButton.Text = DateUtils.FormatDateLong(this.Context, datetime);
@@ -749,8 +757,8 @@ namespace Squelch.Fragments
                         this._reviewLayout.Visibility = ViewStates.Visible;
                         this._reviewDifficultyLabel.SetText(blackoutDifficultyTextResourceId);
                         this._reviewBidLabel.Text = $"${this._bidNumberPicker.Value}";
-                        this._reviewStartDateTimeLabel.Text = $"{DateUtils.FormatDateLong(this.Context, _blackoutStartDateTime)} @ {DateUtils.FormatTime(this.Context, _blackoutStartDateTime, UserSettings.FormatTimeAsTwelveHour)}";
-                        this._reviewEndDateTimeLabel.Text = $"{DateUtils.FormatDateLong(this.Context, _blackoutEndDateTime)} @ {DateUtils.FormatTime(this.Context, _blackoutEndDateTime, UserSettings.FormatTimeAsTwelveHour)}";
+                        this._reviewStartDateTimeLabel.Text = $"{DateUtils.FormatDateLong(this.Context, this._blackoutStartDateTime)} @ {DateUtils.FormatTime(this.Context, this._blackoutStartDateTime, UserSettings.FormatTimeAsTwelveHour)}";
+                        this._reviewEndDateTimeLabel.Text = $"{DateUtils.FormatDateLong(this.Context, this._blackoutEndDateTime)} @ {DateUtils.FormatTime(this.Context, this._blackoutEndDateTime, UserSettings.FormatTimeAsTwelveHour)}";
                         this._reviewBlacklistLabel.Text = string.Join(", ", this._applicationList.Where(x => x.IsSelected).Select(x => x.Name).ToList());
                         break;
                     default:
@@ -795,31 +803,31 @@ namespace Squelch.Fragments
                         // Nothing needs to be checked
                         break;
                     case STEP_DATE_RANGE:
-                        if (_blackoutEndDateTime < DateTime.Now) // The end date is before the current time, whats the point?
+                        if (this._blackoutEndDateTime < DateTime.Now) // The end date is before the current time, whats the point?
                         {
                             this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_end_date_in_the_past) + " ";
                             return false;
                         }
 
-                        if (_blackoutStartDateTime > _blackoutEndDateTime) // Start date must be before the end date
+                        if (this._blackoutStartDateTime > this._blackoutEndDateTime) // Start date must be before the end date
                         {
                             this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_start_date_cannot_be_greater_than_end_date) + " ";
                             return false;
                         }
 
-                        if ((_blackoutEndDateTime - _blackoutStartDateTime).TotalMinutes < 1) // Blackout must be more than 1 minute
+                        if ((this._blackoutEndDateTime - this._blackoutStartDateTime).TotalMinutes < 1) // Blackout must be more than 1 minute
                         {
                             this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_duration_of_blackout_must_be_greater_than_1_minute) + " ";
                             return false;
                         }
 
-                        if (_blackoutEndDateTime.Subtract(DateTime.Now).TotalDays > 30) // Blackout must be less than 30 days
+                        if (this._blackoutEndDateTime.Subtract(DateTime.Now).TotalDays > 30) // Blackout must be less than 30 days
                         {
                             this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_duration_of_blackout_must_be_less_than_30_days) + " ";
                             return false;
                         }
 
-                        if (await BlackoutDatabase.HasConflictInRangeAsync(_blackoutStartDateTime, _blackoutEndDateTime))
+                        if (await BlackoutDatabase.HasConflictInRangeAsync(this._blackoutStartDateTime, this._blackoutEndDateTime))
                         {
                             this._problemLabel.Text += this.GetString(Resource.String.fragment_blackout_setup_validation_blackout_overlaps) + " ";
                             return false;

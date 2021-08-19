@@ -188,9 +188,9 @@
     
   <string name="fragment_schedule_notice_no_items">प्रदर्शित करने के लिए कोई आइटम नहीं - ब्लैकआउट सेट करने का प्रयास करें!</string>
     
-  <string name="fragment_schedule_range_label">{0} घंटे</string>
+  <string name="fragment_schedule_range_label">{0} से शुरू होता है</string>
     
-  <string name="fragment_schedule_hours_label">{0} से शुरू होता है</string>
+  <string name="fragment_schedule_hours_label">{0} घंटे</string>
     
   <string name="fragment_statistics_filter_one_week">1W</string>
     

@@ -104,8 +104,8 @@
   <string name="fragment_open_source_built_with_message">Squelch was built using the following open source projects.</string>
 
   <string name="fragment_schedule_notice_no_items">No items to display - try setting up a blackout!</string>
-  <string name="fragment_schedule_range_label">{0} Hours</string>
-  <string name="fragment_schedule_hours_label">Starts at {0}</string>
+  <string name="fragment_schedule_range_label">Starts at {0}</string>
+  <string name="fragment_schedule_hours_label">{0} Hours</string>
 
   <string name="fragment_statistics_filter_one_week">1W</string>
   <string name="fragment_statistics_filter_one_month">1M</string>
