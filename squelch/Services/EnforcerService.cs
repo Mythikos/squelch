@@ -429,22 +429,18 @@ namespace Squelch.Services
 
                         // Load application label
                         if (application != null)
-                        {
                             applicationLabel = application.LoadLabel(this.PackageManager);
-                        }
 
-                        if (string.IsNullOrWhiteSpace(applicationLabel) == true)
+                        if (string.IsNullOrWhiteSpace(applicationLabel) == false)
                         {
-                            overlayMessage = this.GetString(Resource.String.service_enforcer_react_blacklist_generic);
+                            overlayMessage = string.Format(this.GetString(Resource.String.service_enforcer_react_blacklist_specific), applicationLabel);
+                            MainThread.BeginInvokeOnMainThread(() => { this.ShowOverlay(overlayMessage); });
+                            Logger.Write(s_tag, $"React: Overlay has been requested to start", Logger.Severity.Info);
                         }
                         else
                         {
-                            overlayMessage = string.Format(this.GetString(Resource.String.service_enforcer_react_blacklist_specific), applicationLabel);
+                            Logger.Write(s_tag, $"React: React attempted to display an overlay when there is no application label available.", Logger.Severity.Debug);
                         }
-
-                        // Display it
-                        MainThread.BeginInvokeOnMainThread(() => { this.ShowOverlay(overlayMessage); });
-                        Logger.Write(s_tag, $"React: Overlay has been requested to start", Logger.Severity.Info);
                     }
                     else
                     {
