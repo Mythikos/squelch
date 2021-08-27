@@ -4,3 +4,12 @@ C:\Users\Shizzlepoof\Desktop\Squelch\library-mpandroidchart\obj\Release\MonoAndr
 C:\Users\Shizzlepoof\Desktop\Squelch\library-mpandroidchart\obj\Release\library-mpandroidchart.csproj.CoreCompileInputs.cache
 C:\Users\Shizzlepoof\Desktop\Squelch\library-mpandroidchart\obj\Release\library-mpandroidchart.dll
 C:\Users\Shizzlepoof\Desktop\Squelch\library-mpandroidchart\obj\Release\library-mpandroidchart.pdb
+C:\Users\vlakatos\Desktop\squelch\library-mpandroidchart\bin\Release\library-mpandroidchart.dll
+C:\Users\vlakatos\Desktop\squelch\library-mpandroidchart\bin\Release\library-mpandroidchart.pdb
+C:\Users\vlakatos\Desktop\squelch\library-mpandroidchart\obj\Release\__AndroidLibraryProjects__.zip
+C:\Users\vlakatos\Desktop\squelch\library-mpandroidchart\obj\Release\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
+C:\Users\vlakatos\Desktop\squelch\library-mpandroidchart\obj\Release\library-mpandroidchart.csproj.AssemblyReference.cache
+C:\Users\vlakatos\Desktop\squelch\library-mpandroidchart\obj\Release\stamp\_BuildLibraryImportsCache.stamp
+C:\Users\vlakatos\Desktop\squelch\library-mpandroidchart\obj\Release\library-mpandroidchart.csproj.CoreCompileInputs.cache
+C:\Users\vlakatos\Desktop\squelch\library-mpandroidchart\obj\Release\library-mpandroidchart.dll
+C:\Users\vlakatos\Desktop\squelch\library-mpandroidchart\obj\Release\library-mpandroidchart.pdb

@@ -76,6 +76,13 @@
     <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
     <MandroidI18n />
     <AndroidPackageFormat>apk</AndroidPackageFormat>
+    <AndroidKeyStore>true</AndroidKeyStore>
+    <AndroidSigningKeyPass>squelch</AndroidSigningKeyPass>
+    <AndroidSigningKeyAlias>squelch</AndroidSigningKeyAlias>
+    <AndroidSigningStorePass>squelch</AndroidSigningStorePass>
+    <AndroidSigningKeyStore>C:\Users\vlakatos\Desktop\squelch.keystore</AndroidSigningKeyStore>
+    <AndroidLinkTool>r8</AndroidLinkTool>
+    <AndroidDexTool>d8</AndroidDexTool>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="library-mpandroidchart">
