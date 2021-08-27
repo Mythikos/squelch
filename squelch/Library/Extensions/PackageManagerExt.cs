@@ -40,8 +40,6 @@ namespace Squelch.Library.Extensions
 
             packageInfo = packageManager.GetPackageInfo(packageName, 0);
             return (packageInfo.ApplicationInfo.Flags & ApplicationInfoFlags.System) == ApplicationInfoFlags.System;
-
-            return false;
         }
     }
 }

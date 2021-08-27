@@ -397,7 +397,7 @@ namespace Squelch.Services
         }
 
         /// <summary>
-        /// Opens the main activity (which opens the app)
+        /// Opens the overlay or main activity (which opens the app)
         /// </summary>
         private void React(ApplicationInfo application = null)
         {
@@ -416,41 +416,59 @@ namespace Squelch.Services
             catch (Exception ex) { Logger.Write(s_tag, $"React: Failure occured when attempting to close system dialogs: {Logger.CreateExceptionString(ex)}", Logger.Severity.Warn); }
 
             //
-            // Check if we have permission to draw over apps
-            if (PermissionUtils.GetApplicationOverlayPermission(this, false) == true)
+            // Are we able to use the overlay to react to this app?
+            if (EnforcerUtils.CanUseOverlay(this, application.PackageName))
             {
-                // Build overlay
-                try
+                //
+                // Check if we have permission to draw over apps
+                if (PermissionUtils.GetApplicationOverlayPermission(this, false) == true)
                 {
-                    // Is it already being shown?
-                    if (this._overlayView.IsShown == false)
+                    // Build overlay
+                    try
                     {
-                        Logger.Write(s_tag, "React: Showing overlay", Logger.Severity.Debug);
-
-                        // Load application label
-                        if (application != null)
-                            applicationLabel = application.LoadLabel(this.PackageManager);
-
-                        if (string.IsNullOrWhiteSpace(applicationLabel) == false)
+                        // Is it already being shown?
+                        if (this._overlayView.IsShown == false)
                         {
-                            overlayMessage = string.Format(this.GetString(Resource.String.service_enforcer_react_blacklist_specific), applicationLabel);
-                            MainThread.BeginInvokeOnMainThread(() => { this.ShowOverlay(overlayMessage); });
-                            Logger.Write(s_tag, $"React: Overlay has been requested to start", Logger.Severity.Info);
+                            Logger.Write(s_tag, "React: Showing overlay", Logger.Severity.Debug);
+
+                            // Load application label
+                            if (application != null)
+                                applicationLabel = application.LoadLabel(this.PackageManager);
+
+                            if (string.IsNullOrWhiteSpace(applicationLabel) == false)
+                            {
+                                overlayMessage = string.Format(this.GetString(Resource.String.service_enforcer_react_blacklist_specific), applicationLabel);
+                                MainThread.BeginInvokeOnMainThread(() => { this.ShowOverlay(overlayMessage); });
+                                Logger.Write(s_tag, $"React: Overlay has been requested to start", Logger.Severity.Info);
+                            }
+                            else
+                            {
+                                Logger.Write(s_tag, $"React: React attempted to display an overlay when there is no application label available.", Logger.Severity.Debug);
+                            }
                         }
                         else
                         {
-                            Logger.Write(s_tag, $"React: React attempted to display an overlay when there is no application label available.", Logger.Severity.Debug);
+                            Logger.Write(s_tag, "React: React attempted to show already visible overlay", Logger.Severity.Debug);
                         }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        Logger.Write(s_tag, "React: React attempted to show already visible overlay", Logger.Severity.Debug);
+                        Logger.Write(s_tag, $"React: Failure occured when attempting to open the blackout overlay: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
+                        GeneralUtils.OpenSelfActivity(this);
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    Logger.Write(s_tag, $"React: Failure occured when attempting to open the blackout overlay: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
-                    GeneralUtils.OpenSelfActivity(this);
+                    // Open main activity
+                    try
+                    {
+                        GeneralUtils.OpenSelfActivity(this);
+                        Logger.Write(s_tag, $"React: Main activity has been requested to start", Logger.Severity.Info);
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.Write(s_tag, $"React: Failure occured when attempting to open the main activity: {Logger.CreateExceptionString(ex)}", Logger.Severity.Error);
+                    }
                 }
             }
             else
