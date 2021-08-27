@@ -1,3 +1,4 @@
+IsIncrementalBuild=false
 AndroidUseAapt2=
 UseSharedRuntime=
 UseFastDeployment=false
@@ -21,5 +22,7 @@ CodegenTarget=XAJavaInterop1
 AndroidDexTool=
 AndroidLinkTool=
 AndroidEnableProfiledAot=
+AndroidInstallAfterBuild=
+AndroidSessionId=
 BuildConfiguration=Debug
 TemplateName={77efb91c-a7e9-4b0e-a7c5-31eeec3c6d46}
