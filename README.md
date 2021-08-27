@@ -21,3 +21,4 @@
 * Modified how the BlackoutSetupFragment handles the start date and end date assignments.
 * Added Firebase Crashlytics sdk
 * Added Firebase Performance sdk
+* Added scrolling to the backout details dialog.
